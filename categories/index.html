@@ -41,7 +41,7 @@
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow"  style="background: img/shujing.jpg no-repeat 100%; background-size:cover;opacity:0.8; filter:alpha(opacity=80);">
+    <div class="left-col" q-class="show:isShow"  style="background: https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903225046.png no-repeat 100%; background-size:cover;opacity:0.8; filter:alpha(opacity=80);">
       
 
 
@@ -101,7 +101,7 @@
 </div>
 
     </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse" style="background: img/shujing.jpg no-repeat 100%; background-size:cover;opacity:0.7; filter:alpha(opacity=70);">
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse" style="background: https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/shujing.JPG no-repeat 100%; background-size:cover;opacity:0.7; filter:alpha(opacity=70);">
       
 <nav id="mobile-nav">
   	<div class="overlay js-overlay" style="background: rgba(0,0,0,0,5)"></div>
@@ -319,6 +319,35 @@
 
   
 
+
+
+  
+      <section id="comments" class="comments">
+        <style>
+          .comments{margin:30px;padding:10px;background:#fff}
+          @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+        </style>
+        <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var notify = '<%= theme.valine.notify %>' == true ? true : false;
+  var verify = '<%= theme.valine.verify %>' == true ? true : false;
+  new Valine({
+    av: AV,
+    el: '#vcomment',
+    notify: notify,
+    app_id: "<%= theme.valine.appid %>",
+    app_key: "<%= theme.valine.appkey %>",
+    placeholder: "<%= theme.valine.placeholder %>",
+    avatar: "<%= theme.valine.avatar %>",
+  });
+</script>
+
+
+    </section>
+  
 
           </div>
         </div>
