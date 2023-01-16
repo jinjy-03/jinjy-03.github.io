@@ -6,19 +6,45 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>categories |分类 |归档 | 一只丸子金</title>
+  <title>云服务器IP映射与ssh免密登录 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories |分类 |归档">
-<meta property="og:url" content="http://example.com/categories/index.html">
+  <meta name="description" content="摘要： 本文主要记录📝云服务器间IP映射与ssh免密登录的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云服务器IP映射与ssh免密登录">
+<meta property="og:url" content="http://example.com/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="记录学习笔记">
+<meta property="og:description" content="摘要： 本文主要记录📝云服务器间IP映射与ssh免密登录的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-20T08:39:03.000Z">
-<meta property="article:modified_time" content="2023-01-12T10:42:57.345Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112154008.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112155048.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112160327.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112161014.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164230.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116155504.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116160020.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162808.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162852.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162915.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163309.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164337.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163524.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164554.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164618.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170445.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170957.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112171556.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112172342.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112173356.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174559.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174627.png">
+<meta property="article:published_time" content="2023-01-12T06:36:00.000Z">
+<meta property="article:modified_time" content="2023-01-16T14:10:00.031Z">
 <meta property="article:author" content="金金">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="云服务器">
+<meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112154008.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -151,16 +177,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-       
-<article id="categories-" class="article article-type-categories " itemscope itemprop="blogPost">
+            <article id="post-云服务器IP映射与ssh免密登录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      categories |分类 |归档
+      云服务器IP映射与ssh免密登录
     </h1>
   
 
@@ -171,8 +195,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2020-03-20T08:39:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+<a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2023-01-12T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
 </a>
 
 
@@ -185,12 +209,200 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：0字 | 预计阅读时长：1分钟
+        字数：1.6k字 | 预计阅读时长：6分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>摘要： 本文主要记录📝云服务器间<strong>IP映射</strong>与<strong>ssh免密登录</strong>的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。</p>
+<span id="more"></span>
+
+<ul>
+<li>所需条件：三台服务器（master、slave1、slave2）</li>
+<li>我选的3台华为云服务器，每台2核4G，带宽2M</li>
+<li>系统：CentOS 7.6</li>
+<li>我的电脑是Mac版，一些终端命令与win有点区别（有的也补充了win版的）</li>
+</ul>
+<h2 id="一、服务器选择"><a href="#一、服务器选择" class="headerlink" title="一、服务器选择"></a>一、服务器选择</h2><p><strong>温馨提示</strong></p>
+<ul>
+<li><p>最好三台服务器是同一个地方买的，不然IP差太多跨域映射非常慢</p>
+</li>
+<li><p>同一个地方买的，网络实例所属地域也最好一样</p>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112154008.png" alt="20230112154008"></p>
+</blockquote>
+</li>
+</ul>
+<p>【我第一次搭建集群的时候，一主（腾讯云服务器）二从（华为云服务器），后面IP映射主与二从之间非常慢，虽然ssh免密什么的都成功了，但是这个乌龟🐢般的速度非常影响后面搭建的测试】</p>
+<h2 id="二、云服务器IP映射"><a href="#二、云服务器IP映射" class="headerlink" title="二、云服务器IP映射"></a>二、云服务器IP映射</h2><ul>
+<li>修改主机名</li>
+<li>查看主机网关与子网掩码</li>
+<li>配置各节点网络</li>
+<li>添加节点映射</li>
+<li>关闭防火墙</li>
+<li>ping百度</li>
+</ul>
+<p><strong>⚠️以下内容三个节点都要操作噢，我以一个节点为例，其他两个同理</strong></p>
+<h3 id="1-修改主机名"><a href="#1-修改主机名" class="headerlink" title="1.修改主机名"></a>1.修改主机名</h3><blockquote>
+<p>[root@hecs-360472 ~]# vim &#x2F;etc&#x2F;hostname<br>[# cat用来检查刚刚文件的内容<br>[root@hecs-360472 ~]# cat &#x2F;etc&#x2F;hostname<br>slave1<br>[root@hecs-360472 ~]# sudo reboot<br>[root@slave1 ~]#</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112155048.png" alt="20230112155048"></p>
+<p>我的设置是一主master，二从slave1、slave2，注意三个节点的命名噢</p>
+<h3 id="2-查看主机网关与子网掩码"><a href="#2-查看主机网关与子网掩码" class="headerlink" title="2.查看主机网关与子网掩码"></a>2.查看主机网关与子网掩码</h3><p>mac版</p>
+<blockquote>
+<p>[root@slave1 ~]# netstat -rn<br>[root@slave1 ~]# ifconfig -a</p>
+</blockquote>
+<p>win版</p>
+<blockquote>
+<p>ipconfig &#x2F;all<br>⚠️斜杠是“&#x2F;”不是“\”</p>
+</blockquote>
+<p>自己查看对应子网掩码和默认网关</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112160327.png" alt="20230112160327"></p>
+<h3 id="3-配置各节点网络"><a href="#3-配置各节点网络" class="headerlink" title="3.配置各节点网络"></a>3.配置各节点网络</h3><blockquote>
+<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0<br>[root@slave1 ~]# cat &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0<br>DEVICE&#x3D;”eth0”<br>BOOTPROTO&#x3D;”static”<br>ONBOOT&#x3D;”yes”<br>TYPE&#x3D;”Ethernet”<br>PERSISTENT_DHCLIENT&#x3D;”yes”<br>IPADDR&#x3D;192.168.0.2<br>NETMASK&#x3D;255.255.255.0<br>GATEWAY&#x3D;192.168.0.1<br>[root@slave1 ~]#</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112161014.png" alt="20230112161014"></p>
+<p>其他两个节点同样操作噢，这里配置就是IPADDR不同，要是跨域的服务器GATEWAY和NETMASK也不一样</p>
+<blockquote>
+<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;resolv.conf</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164230.png" alt="20230112164230"></p>
+<p>添加如下内容（后面可能还要再添加一次）</p>
+<blockquote>
+<p>nameserver 192.168.0.1（网关）<br>search localdomain<br>nameserver 8.8.8.8<br>nameserver 8.8.4.4</p>
+</blockquote>
+<h4 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BOOTPROTO&#x3D;static</td>
+<td>使用静态路由协议，保持固定的IP</td>
+</tr>
+<tr>
+<td>ONBOOT&#x3D;yes</td>
+<td>启动这块网卡</td>
+</tr>
+<tr>
+<td>IPADDR</td>
+<td>IP地址，这里的IP地址需要和规划的IP地址保持一致，为主机名和IP映射做准备</td>
+</tr>
+<tr>
+<td>NETMASK</td>
+<td>子网掩码，通常是255.255.255.0</td>
+</tr>
+<tr>
+<td>GATEWAY</td>
+<td>虚拟网关，通常都是将IP地址最后一个数位变成2</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>DNS服务：</td>
+<td></td>
+</tr>
+<tr>
+<td>8.8.8.8</td>
+<td>GOOGLE公司提供的DNS，该地址是全球通用的，相对来说，更适合国外以及访问国外网站的用户使用</td>
+</tr>
+<tr>
+<td>8.8.4.4</td>
+<td>GOOGLE公司提供的DNS（辅DNS）主DNS：8.8.8.8</td>
+</tr>
+</tbody></table>
+<p><a target="_blank" rel="noopener" href="http://code.google.com/intl/zh-CN/speed/public-dns/docs/using.html">Google官方页面（DNS）</a> </p>
+<h3 id="4-添加各节点映射"><a href="#4-添加各节点映射" class="headerlink" title="4.添加各节点映射"></a>4.添加各节点映射</h3><h4 id="添加云服务器安全组"><a href="#添加云服务器安全组" class="headerlink" title="添加云服务器安全组"></a>添加云服务器安全组</h4><p>云服务需要设置添加安全组对方IP，后面配置ssh免密找不到其他节点</p>
+<p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/usermanual-vpc/zh-cn_topic_0081124350.html">华为云安全组配置示例</a></p>
+<p><strong>云服务器安全组配置以master为例</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116155504.png" alt="20230116155504"></p>
+<p>我添加的是对方公有IP，<strong>其他两个云服务器也是</strong>，添加对方的IP</p>
+<blockquote>
+<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;hosts<br>例如<br>192.168.185.1 master<br>192.168.185.2 slave1<br>192.168.185.3 slave2</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116160020.png" alt="20230116160020"></p>
+<p>⚠️这个&#x2F;etc&#x2F;hosts文件只能有一个master、slave1、slave2，不然后面集群启动，会出问题</p>
+<h4 id="检验节点映射"><a href="#检验节点映射" class="headerlink" title="检验节点映射"></a>检验节点映射</h4><p>互相ping一下</p>
+<p>master<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162808.png" alt="20230112162808"><br>slave1<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162852.png" alt="20230112162852"><br>slave2<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162915.png" alt="20230112162915"></p>
+<h3 id="5-关闭防火墙"><a href="#5-关闭防火墙" class="headerlink" title="5.关闭防火墙"></a>5.关闭防火墙</h3><blockquote>
+<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;selinux&#x2F;config</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163309.png" alt="20230112163309"></p>
+<blockquote>
+<p>[root@slave1 ~]# systemctl stop firewalld<br>[root@slave1 ~]# systemctl disable firewalld<br>[root@slave1 ~]# systemctl status firewalld<br>● firewalld.service - firewalld - dynamic firewall daemon<br>   Loaded: loaded (&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;firewalld.service; disabled; vendor preset: enabled)<br>   Active: inactive (dead)<br>     Docs: man:firewalld(1)<br>[root@slave1 ~]# reboot（重启）</p>
+</blockquote>
+<p>三个节点都需要重启生效</p>
+<h3 id="6-ping百度"><a href="#6-ping百度" class="headerlink" title="6.ping百度"></a>6.ping百度</h3><p>⚠️重启后出现如下错误，可能是因为namesever那重启后自动被改了，所以导致ping百度不通</p>
+<blockquote>
+<p>[root@slave1 ~]# ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br>ping: <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a>: 未知的名称或服务</p>
+</blockquote>
+<p>重新写下上面的resolv.conf</p>
+<blockquote>
+<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;resolv.conf</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164337.png" alt="20230112164337"></p>
+<blockquote>
+<p>[root@slave1 ~]# ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+</blockquote>
+<ul>
+<li>slave1</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163524.png" alt="20230112163524"></p>
+<ul>
+<li>slave2</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164554.png" alt="20230112164554"></p>
+<ul>
+<li>master</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164618.png" alt="20230112164554"></p>
+<h2 id="三、ssh免密登录"><a href="#三、ssh免密登录" class="headerlink" title="三、ssh免密登录"></a>三、ssh免密登录</h2><ul>
+<li>创建密钥</li>
+<li>拷贝密钥到各节点</li>
+<li>节点间相互测试</li>
+</ul>
+<h3 id="1-创建密钥"><a href="#1-创建密钥" class="headerlink" title="1.创建密钥"></a>1.创建密钥</h3><blockquote>
+<p>[root@master ~]# ssh-keygen -t rsa</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170445.png" alt="20230112170445"></p>
+<h3 id="2-拷贝密钥到各节点"><a href="#2-拷贝密钥到各节点" class="headerlink" title="2.拷贝密钥到各节点"></a>2.拷贝密钥到各节点</h3><p><strong>拷贝本密钥到三个节点上</strong></p>
+<p>[root@master ~]# ssh-copy-id master<br>[root@master ~]# ssh-copy-id slave1<br>[root@master ~]# ssh-copy-id slave2</p>
+<p>其他两个节点上重复上述操作</p>
+<p>⚠️拷贝本密钥到其他节点可能不成功，遇到这个情况先别慌，我们可以手动操作一下～</p>
+<h4 id="手动添加密钥"><a href="#手动添加密钥" class="headerlink" title="手动添加密钥"></a>手动添加密钥</h4><ul>
+<li><p>先把本节点对应的密钥拷贝一下<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170957.png" alt="20230112170957"></p>
+</li>
+<li><p>剩下两个同理</p>
+</li>
+<li><p>一共有这四个文件<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112171556.png" alt="20230112171556"></p>
+</li>
+</ul>
+<p>理论：每台主机 authorized_keys 文件里面包含的主机（ssh密钥），该主机都能无密码登录，所以只要每台主机的authorized_keys 文件里面都放入其他主机（需要无密码登录的主机）的ssh密钥就行了。</p>
+<ul>
+<li>手动添加<br>觉得有点绕的话，就确保authorized_keys和known_hosts文件里有这三个主机的密钥</li>
+</ul>
+<p>可以每台主机都cat一下authorized_keys，缺少哪个主机就添加哪个，最终三个主机的authorized_keys文件如下图所示</p>
+<ul>
+<li>authorized_keys<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112172342.png" alt="20230112172342"></li>
+</ul>
+<p>同理</p>
+<ul>
+<li>known_hosts<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112173356.png" alt="20230112173356"></li>
+</ul>
+<p>⚠️如果你的known_hosts，有的主机没有出现IP地址，那可能是&#x2F;etc&#x2F;hosts这个文件里IP映射有问题，再回过头好好检查。<br>搭的过程中关键地方排查了没有问题就要快照，后面崩溃了就<strong>恢复到那个点重做</strong></p>
+<h3 id="3-节点间相互测试"><a href="#3-节点间相互测试" class="headerlink" title="3.节点间相互测试"></a>3.节点间相互测试</h3><p>用ssh命令节点间相互测试下</p>
+<blockquote>
+<p>[root@master ~]# ssh slave1</p>
+</blockquote>
+<p>在A节点上免密登陆到了B节点，再敲logout就退出B节点了<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174559.png" alt="20230112174559"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174627.png" alt="20230112174627"></p>
+<p>到此为止，大数据平台搭建之节点基础配置就结束啦🍃，三个节点都需要配置，配置过程一定要细心哦，特别是IP那一块，错了后面就会很多报错，祝你成功！</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">https://blog.csdn.net/pig2guang/article/details/85313410</a></p>
+
       
 
       
@@ -221,7 +433,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/categories/index.html" title="categories |分类 |归档" target="_blank">http://example.com/categories/index.html</a >
+      <a href=" >/2023/01/12/云服务器IP映射与ssh免密登录/" title="云服务器IP映射与ssh免密登录" target="_blank">http://example.com/2023/01/12/云服务器IP映射与ssh免密登录/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -237,6 +449,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -287,7 +518,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.ioategories/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,6 +530,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hadoop完全分布式配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo常见错误处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -320,7 +570,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9"><span class="toc-number">1.</span> <span class="toc-text">一、服务器选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84"><span class="toc-number">2.</span> <span class="toc-text">二、云服务器IP映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">2.1.</span> <span class="toc-text">1.修改主机名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9F%A5%E7%9C%8B%E4%B8%BB%E6%9C%BA%E7%BD%91%E5%85%B3%E4%B8%8E%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">2.查看主机网关与子网掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE%E5%90%84%E8%8A%82%E7%82%B9%E7%BD%91%E7%BB%9C"><span class="toc-number">2.3.</span> <span class="toc-text">3.配置各节点网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A"><span class="toc-number">2.3.1.</span> <span class="toc-text">参数解释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E5%90%84%E8%8A%82%E7%82%B9%E6%98%A0%E5%B0%84"><span class="toc-number">2.4.</span> <span class="toc-text">4.添加各节点映射</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%BB%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">添加云服务器安全组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%E8%8A%82%E7%82%B9%E6%98%A0%E5%B0%84"><span class="toc-number">2.4.2.</span> <span class="toc-text">检验节点映射</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.5.</span> <span class="toc-text">5.关闭防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-ping%E7%99%BE%E5%BA%A6"><span class="toc-number">2.6.</span> <span class="toc-text">6.ping百度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">三、ssh免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E5%AF%86%E9%92%A5"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8B%B7%E8%B4%9D%E5%AF%86%E9%92%A5%E5%88%B0%E5%90%84%E8%8A%82%E7%82%B9"><span class="toc-number">3.2.</span> <span class="toc-text">2.拷贝密钥到各节点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5"><span class="toc-number">3.2.1.</span> <span class="toc-text">手动添加密钥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8A%82%E7%82%B9%E9%97%B4%E7%9B%B8%E4%BA%92%E6%B5%8B%E8%AF%95"><span class="toc-number">3.3.</span> <span class="toc-text">3.节点间相互测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">3.4.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -330,6 +580,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
 
@@ -346,7 +606,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Fri Mar 20 2020 16:39:03 GMT+0800',
+  	id: 'Thu Jan 12 2023 14:36:00 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -413,7 +673,7 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

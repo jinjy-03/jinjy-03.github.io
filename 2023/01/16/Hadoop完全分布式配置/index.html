@@ -6,45 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>大数据平台搭建之节点基础配置（1） | 一只丸子金</title>
+  <title>Hadoop完全分布式配置 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文主要记录📝云服务器间IP映射与ssh免密登录的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。">
+  <meta name="description" content="摘要： 本文主要记录📝搭建一个Namenode两个DataNode的Hadoop完全分布式集群（Hadoop2.7.7）的全部步骤和HDFS系统初体验，以及补充学到的知识点，文章以图文形式呈现，主要参考CSDN博主「原来浙小商啊」。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据平台搭建之节点基础配置（1）">
-<meta property="og:url" content="http://example.com/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/index.html">
+<meta property="og:title" content="Hadoop完全分布式配置">
+<meta property="og:url" content="http://example.com/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文主要记录📝云服务器间IP映射与ssh免密登录的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。">
+<meta property="og:description" content="摘要： 本文主要记录📝搭建一个Namenode两个DataNode的Hadoop完全分布式集群（Hadoop2.7.7）的全部步骤和HDFS系统初体验，以及补充学到的知识点，文章以图文形式呈现，主要参考CSDN博主「原来浙小商啊」。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112154008.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112155048.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112160327.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112161014.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164230.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162223.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162808.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162852.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162915.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163309.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164337.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163524.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164554.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164618.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170445.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170957.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112171556.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112172342.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112173356.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112173908.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174559.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174627.png">
-<meta property="article:published_time" content="2023-01-12T06:36:00.000Z">
-<meta property="article:modified_time" content="2023-01-12T10:49:34.248Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116170751.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116171033.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116180007.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116181148.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116181600.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116182530.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116205151.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116205550.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116205925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116210136.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116211543.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116212628.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116212911.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116212942.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116213032.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116213132.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116214646.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116215207.png">
+<meta property="article:published_time" content="2023-01-16T07:45:02.000Z">
+<meta property="article:modified_time" content="2023-01-16T14:19:02.111Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="大数据">
 <meta property="article:tag" content="云服务器">
-<meta property="article:tag" content="ssh">
+<meta property="article:tag" content="Hadoop">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112154008.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116170751.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -95,7 +91,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 4
+			总文章数 5
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -177,14 +173,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-服务器IP映射与ssh免密登录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Hadoop完全分布式配置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      大数据平台搭建之节点基础配置（1）
+      Hadoop完全分布式配置
     </h1>
   
 
@@ -195,8 +191,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2023-01-12T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
+<a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" class="archive-article-date">
+  	<time datetime="2023-01-16T07:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
 </a>
 
 
@@ -209,130 +205,294 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：1.3k字 | 预计阅读时长：5分钟
+        字数：2.5k字 | 预计阅读时长：10分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝云服务器间IP映射与ssh免密登录的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。</p>
+        <p>摘要： 本文主要记录📝搭建一个Namenode两个DataNode的<strong>Hadoop完全分布式</strong>集群（Hadoop2.7.7）的全部步骤和HDFS系统初体验，以及补充学到的知识点，文章以图文形式呈现，主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">CSDN博主「原来浙小商啊」</a>。</p>
 <span id="more"></span>
 
+<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><ul>
+<li>三台服务器（master、slave1、slave2）</li>
+<li><strong>各节点完成了IP映射与ssh免密</strong><br>没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">《云服务器IP映射与ssh免密登录》</a></li>
+<li>相关软件安装包下载<br><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1jKgua2U1yacbrbgQk4-wFg">百度云链接</a> 提取码：r93h<br>由CSDN博主「原来浙小商啊」提供</li>
+</ul>
+<h2 id="二、安装-Java"><a href="#二、安装-Java" class="headerlink" title="二、安装 Java"></a>二、安装 Java</h2><p>Hadoop是基于Java开发的，所以部署Hadoop之前需要在Linux系统中配置Java的开发环境。<br>你可以直接使用和我对应版本我软件包，也可以去<a target="_blank" rel="noopener" href="http://www.o/fracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">O\fracle的官网下载JDK</a></p>
 <ul>
-<li>所需条件：三台服务器（master、slave1、slave2）</li>
-<li>我选的3台华为云服务器，每台2核4G，带宽2M</li>
-<li>系统：CentOS 7.6</li>
-<li>我的电脑是Mac版，一些终端命令与win有点区别（有的也补充了win版的）</li>
+<li>上传文件</li>
+<li>配置Java环境变量</li>
+<li>测试</li>
 </ul>
-<h2 id="一、服务器选择"><a href="#一、服务器选择" class="headerlink" title="一、服务器选择"></a>一、服务器选择</h2><p><strong>温馨提示</strong></p>
+<h3 id="1-上传文件"><a href="#1-上传文件" class="headerlink" title="1.上传文件"></a>1.上传文件</h3><p>可以先下载到本地，然后从本地中将文件传入到虚拟机中。<br>也可以复制链接地址，在Linux系统中下载，不过复制链接地址不能直接下载，因为O\fracle做了限制，地址后缀需要加上它随机生成的随机码，才能下载到资源。</p>
+<blockquote>
+<p>scp  (你的本地文件路径)  (上传的云服务器名称):（存放路径）<br>。。<br>例如我的：<br>scp  Desktop&#x2F;jdk-8u191-linux-x64.tar.gz  <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#49;&#50;&#51;&#x2e;&#54;&#48;&#46;&#x31;&#x37;&#57;&#46;&#x31;">&#x72;&#x6f;&#111;&#x74;&#64;&#49;&#50;&#51;&#x2e;&#54;&#48;&#46;&#x31;&#x37;&#57;&#46;&#x31;</a>:&#x2F;usr&#x2F;local&#x2F;</p>
+</blockquote>
+<p>我们之后所有环境配置包都放到&#x2F;usr&#x2F;local&#x2F;下</p>
+<blockquote>
+<p>[root@master ~]# cd &#x2F;usr&#x2F;local<br>新建java目录<br>[root@master local]# mkdir java<br>解压<br>[root@master local]# tar -zxvf jdk-8u191-linux-x64.tar.gz<br>解压好的JDK并将其移动到java目录下<br>[root@master local]# mv jdk1.8.0_191 java<br>[root@master local]# cd java<br>[root@master java]#<br>可以切换到java目录下查看解压好的文件夹</p>
+</blockquote>
+<h3 id="2-配置Java环境变量"><a href="#2-配置Java环境变量" class="headerlink" title="2.配置Java环境变量"></a>2.配置Java环境变量</h3><p>解压好JDK之后还需要在环境变量中配置JDK，才可以使用</p>
+<p>在profile文件末尾添加Java的环境变量（不可以有空格）：</p>
+<blockquote>
+<p>[root@master ~]# vim &#x2F;etc&#x2F;profile<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_191<br>export CLASSPATH&#x3D;.:💲JAVA_HOME&#x2F;jre&#x2F;lib&#x2F;rt.jar:💲JAVA_HOME&#x2F;lib&#x2F;dt.jar:💲JAVA_HOME&#x2F;lib&#x2F;tools.jar<br>export PATH&#x3D;💲PATH:💲JAVA_HOME&#x2F;bin</p>
+</blockquote>
+<p>我这里的💲这个符号因为语法问题无法显示，所以我用表情代替一下，复制代码的时候注意改一下，粘贴的时候改成正常的💲<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116170751.png" alt="20230116170751"></p>
+<p>最后：source &#x2F;etc&#x2F;profile使刚刚的配置生效</p>
+<blockquote>
+<p>[root@master ~]# source &#x2F;etc&#x2F;profile</p>
+</blockquote>
+<h3 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h3><p>[root@master ~]# java -version</p>
+<p>输入：java -version 出现如下界面代表配置成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116171033.png" alt="20230116171033"></p>
+<p><strong>其他两个节点同样操作</strong></p>
+<p>因为配置总是要修改profile文件，三个节点的profile差不多（除了后面hive只用在主节点配置），所以我每次都把其他两个节点的这个文件删了，在scp，把配置好的文件传过去</p>
+<blockquote>
+<p>scp -r profile <a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#x31;&#x32;&#x33;&#46;&#54;&#x30;&#x2e;&#x31;&#x37;&#57;&#46;&#49;">&#114;&#111;&#x6f;&#116;&#64;&#x31;&#x32;&#x33;&#46;&#54;&#x30;&#x2e;&#x31;&#x37;&#57;&#46;&#49;</a>:&#x2F;etc&#x2F;</p>
+</blockquote>
+<p>⚠️ master传文件，要在那个文件目录下传，例如传profile文件要在&#x2F;etc&#x2F;目录下</p>
+<p>传完之后记得</p>
+<blockquote>
+<p>[root@master ~]# source &#x2F;etc&#x2F;profile<br>[root@master ~]# java -version</p>
+</blockquote>
+<p>一定要确认三个节点都安装好了Java<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116180007.png" alt="20230116180007"></p>
+<h2 id="三、Hadoop安装与配置"><a href="#三、Hadoop安装与配置" class="headerlink" title="三、Hadoop安装与配置"></a>三、Hadoop安装与配置</h2><ul>
+<li>安装Hadoop</li>
+<li>Hadoop完全分布式配置</li>
+</ul>
+<h3 id="1-安装Hadoop"><a href="#1-安装Hadoop" class="headerlink" title="1.安装Hadoop"></a>1.安装Hadoop</h3><p><a target="_blank" rel="noopener" href="http://hadoop.apache.org/">官网下载</a><br>也可直接用文中软件包</p>
+<p>下载解压<br>在&#x2F;usr&#x2F;local下创建hadoop文件夹，将下载好的hadoop-2.7.7压缩包上传进去解压</p>
+<blockquote>
+<p>[root@master ~]# cd &#x2F;usr&#x2F;local<br>新建hadoop目录<br>[root@master local]# mkdir hadoop<br>解压<br>[root@master local]# tar -zxvf hadoop-2.7.7.tar<br>将其移动到hadoop目录下<br>[root@master local]# mv hadoop-2.7.7 hadoop<br>[root@master local]# cd hadoop<br>[root@master hadoop]#<br>可以切换到hadoop目录下查看解压好的文件夹</p>
+</blockquote>
+<h3 id="2-Hadoop完全分布式配置"><a href="#2-Hadoop完全分布式配置" class="headerlink" title="2.Hadoop完全分布式配置"></a>2.Hadoop完全分布式配置</h3><ul>
+<li>将Hadoop添加到环境变量中</li>
+</ul>
+<blockquote>
+<p>[root@master hadoop]# vim &#x2F;etc&#x2F;profile<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_191<br>export HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.7.7<br>export HADOOP_CONF_DIR&#x3D;$HADOOP_HOME&#x2F;etc&#x2F;hadoop<br>export CLASSPATH&#x3D;.:💲JAVA_HOME&#x2F;jre&#x2F;lib&#x2F;rt.jar:💲JAVA_HOME&#x2F;lib&#x2F;dt.jar:💲JAVA_HOME&#x2F;lib&#x2F;tools.jar<br>export PATH&#x3D;💲PATH:💲JAVA_HOME&#x2F;bin:💲HADOOP_HOME&#x2F;bin:💲HADOOP_HOME&#x2F;sbin</p>
+</blockquote>
+<p>我这里的💲这个符号因为语法问题无法显示，所以我用表情代替一下，复制代码的时候注意改一下，粘贴的时候改成正常的💲<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116181148.png" alt="20230116181148"></p>
+<p>最后：source &#x2F;etc&#x2F;profile使刚刚的配置生效</p>
+<blockquote>
+<p>[root@master ~]# source &#x2F;etc&#x2F;profile</p>
+</blockquote>
 <ul>
-<li><p>最好三台服务器是同一个地方买的，不然IP差太多跨域映射非常慢</p>
-</li>
-<li><p>同一个地方买的，网络实例所属地域也最好一样</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112154008.png" alt="20230112154008"></p>
-</li>
+<li>测试</li>
 </ul>
-<p>【我第一次搭建集群的时候，一主（腾讯云服务器）二从（华为云服务器），后面IP映射主与二从之间非常慢，虽然ssh免密什么的都成功了，但是这个乌龟🐢般的速度非常影响后面搭建的测试】</p>
-<h2 id="二、云服务器IP映射"><a href="#二、云服务器IP映射" class="headerlink" title="二、云服务器IP映射"></a>二、云服务器IP映射</h2><ul>
-<li>修改主机名</li>
-<li>查看主机网关与子网掩码</li>
-<li>配置各节点网络</li>
-<li>添加节点映射</li>
-<li>关闭防火墙</li>
-<li>ping百度</li>
-</ul>
-<p><strong>⚠️以下内容三个节点都要操作噢，我以一个节点为例，其他两个同理</strong></p>
-<h3 id="1-修改主机名"><a href="#1-修改主机名" class="headerlink" title="1.修改主机名"></a>1.修改主机名</h3><blockquote>
-<p>[root@hecs-360472 ~]# vim &#x2F;etc&#x2F;hostname<br>[# cat用来检查刚刚文件的内容<br>[root@hecs-360472 ~]# cat &#x2F;etc&#x2F;hostname<br>slave1<br>[root@hecs-360472 ~]# sudo reboot<br>[root@slave1 ~]#</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112155048.png" alt="20230112155048"></p>
-<p>我的设置是一主master，二从slave1、slave2，注意三个节点的命名噢</p>
-<h3 id="2-查看主机网关与子网掩码"><a href="#2-查看主机网关与子网掩码" class="headerlink" title="2.查看主机网关与子网掩码"></a>2.查看主机网关与子网掩码</h3><p>mac版</p>
-<blockquote>
-<p>[root@slave1 ~]# netstat -rn<br>[root@slave1 ~]# ifconfig -a</p>
-</blockquote>
-<p>win版</p>
-<blockquote>
-<p>ipconfig &#x2F;all<br>⚠️斜杠是“&#x2F;”不是“\”</p>
-</blockquote>
-<p>自己查看对应子网掩码和默认网关</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112160327.png" alt="20230112160327"></p>
-<h3 id="3-配置各节点网络"><a href="#3-配置各节点网络" class="headerlink" title="3.配置各节点网络"></a>3.配置各节点网络</h3><blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0<br>[root@slave1 ~]# cat &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0<br>DEVICE&#x3D;”eth0”<br>BOOTPROTO&#x3D;”static”<br>ONBOOT&#x3D;”yes”<br>TYPE&#x3D;”Ethernet”<br>PERSISTENT_DHCLIENT&#x3D;”yes”<br>IPADDR&#x3D;192.168.0.2<br>NETMASK&#x3D;255.255.255.0<br>GATEWAY&#x3D;192.168.0.1<br>[root@slave1 ~]#</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112161014.png" alt="20230112161014"></p>
-<p>其他两个节点同样操作噢，这里配置就是IPADDR不同，要是跨域的服务器GATEWAY和NETMASK也不一样</p>
-<blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;resolv.conf<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164230.png" alt="20230112164230"></p>
-</blockquote>
-<p>添加如下内容（后面可能还要再添加一次）</p>
-<blockquote>
-<p>nameserver 192.168.0.1（网关）<br>search localdomain<br>nameserver 8.8.8.8<br>nameserver 8.8.4.4</p>
-</blockquote>
-<h3 id="4-添加各节点映射"><a href="#4-添加各节点映射" class="headerlink" title="4.添加各节点映射"></a>4.添加各节点映射</h3><blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;hosts</p>
-</blockquote>
-<p>云服务器最好私有IP和公有IP都写一下，一开始我只写了私有的，后面配置ssh免密找不到其他节点</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162223.png" alt="20230112162223"></p>
-<h4 id="检验节点映射"><a href="#检验节点映射" class="headerlink" title="检验节点映射"></a>检验节点映射</h4><p>互相ping一下</p>
-<p>master<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162808.png" alt="20230112162808"><br>slave1<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162852.png" alt="20230112162852"><br>slave2<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162915.png" alt="20230112162915"></p>
-<h3 id="5-关闭防火墙"><a href="#5-关闭防火墙" class="headerlink" title="5.关闭防火墙"></a>5.关闭防火墙</h3><blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;selinux&#x2F;config<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163309.png" alt="20230112163309"></p>
-</blockquote>
-<blockquote>
-<p>[root@slave1 ~]# systemctl stop firewalld<br>[root@slave1 ~]# systemctl disable firewalld<br>[root@slave1 ~]# systemctl status firewalld<br>● firewalld.service - firewalld - dynamic firewall daemon<br>   Loaded: loaded (&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;firewalld.service; disabled; vendor preset: enabled)<br>   Active: inactive (dead)<br>     Docs: man:firewalld(1)<br>[root@slave1 ~]# reboot（重启）</p>
-</blockquote>
-<p>三个节点都需要重启生效</p>
-<h3 id="6-ping百度"><a href="#6-ping百度" class="headerlink" title="6.ping百度"></a>6.ping百度</h3><p>⚠️重启后出现如下错误，可能是因为namesever那重启后自动被改了，所以导致ping百度不通</p>
-<blockquote>
-<p>[root@slave1 ~]# ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br>ping: <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a>: 未知的名称或服务</p>
-</blockquote>
-<p>重新写下上面的resolv.conf</p>
-<blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;resolv.conf<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164337.png" alt="20230112164337"><br>[root@slave1 ~]# ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
-</blockquote>
-<p>slave1<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163524.png" alt="20230112163524"><br>slave2<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164554.png" alt="20230112164554"><br>master<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164618.png" alt="20230112164554"></p>
-<h2 id="三、ssh免密登录"><a href="#三、ssh免密登录" class="headerlink" title="三、ssh免密登录"></a>三、ssh免密登录</h2><ul>
-<li>创建密钥</li>
-<li>拷贝密钥到各节点</li>
-<li>节点间相互测试</li>
-</ul>
-<h3 id="1-创建密钥"><a href="#1-创建密钥" class="headerlink" title="1.创建密钥"></a>1.创建密钥</h3><blockquote>
-<p>[root@master ~]# ssh-keygen -t rsa</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170445.png" alt="20230112170445"></p>
-<h3 id="2-拷贝密钥到各节点"><a href="#2-拷贝密钥到各节点" class="headerlink" title="2.拷贝密钥到各节点"></a>2.拷贝密钥到各节点</h3><p><strong>拷贝本密钥到三个节点上</strong></p>
-<p>[root@master ~]# ssh-copy-id master<br>[root@master ~]# ssh-copy-id slave1<br>[root@master ~]# ssh-copy-id slave2</p>
-<p>其他两个节点上重复上述操作</p>
-<p>⚠️拷贝本密钥到其他节点可能不成功，遇到这个情况先别慌，我们可以手动操作一下～</p>
-<h4 id="手动添加密钥"><a href="#手动添加密钥" class="headerlink" title="手动添加密钥"></a>手动添加密钥</h4><ul>
-<li><p>先把本节点对应的密钥拷贝一下<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170957.png" alt="20230112170957"></p>
-</li>
-<li><p>剩下两个同理</p>
-</li>
-<li><p>一共有这四个文件<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112171556.png" alt="20230112171556"></p>
-</li>
-</ul>
-<p>理论：每台主机 authorized_keys 文件里面包含的主机（ssh密钥），该主机都能无密码登录，所以只要每台主机的authorized_keys 文件里面都放入其他主机（需要无密码登录的主机）的ssh密钥就行了。</p>
+<p>[root@master ~]#  Hadoop version</p>
+<p>出现如下界面代表配置成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116181600.png" alt="20230116181600"></p>
+<p><a target="_blank" rel="noopener" href="http://hadoop.apache.org/docs/r3.1.0/hadoop-project-dist/hadoop-common/SingleCluster.html">官方文档</a></p>
 <ul>
-<li>手动添加<br>觉得有点绕的话，就确保authorized_keys和known_hosts文件里有这三个主机的密钥</li>
+<li>了解配置文件</li>
 </ul>
-<p>可以每台主机都cat一下authorized_keys，缺少哪个主机就添加哪个，最终三个主机的authorized_keys文件如下图所示</p>
+<table>
+<thead>
+<tr>
+<th>配置文件</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>core-site.xml</td>
+<td>Hadoop核心全局配置文件，可在其他配置文件中引用该文件</td>
+</tr>
+<tr>
+<td>hdfs-site.xml</td>
+<td>HDFS配置文件，继承core-site.xml配置文件</td>
+</tr>
+<tr>
+<td>mapred-site.xml</td>
+<td>MapReduce配置文件，继承core-site.xml配置文件</td>
+</tr>
+<tr>
+<td>yarn-site.xml</td>
+<td>YARN配置文件，继承core-site.xml配置文件</td>
+</tr>
+<tr>
+<td>slaves</td>
+<td>用于记录集群所有的从节点的主机名，包括HDFS的DataNode节点和YARN的NodeManager节点</td>
+</tr>
+<tr>
+<td>hadoop-env.sh</td>
+<td>配置Hadoop运行所需要的环境变量</td>
+</tr>
+</tbody></table>
 <ul>
-<li>authorized_keys<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112172342.png" alt="20230112172342"></li>
+<li>集群规划</li>
 </ul>
-<p>同理</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>master</th>
+<th>slave1</th>
+<th>slave2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HDFS</td>
+<td>NameNode、SecondaryNameNode</td>
+<td>DataNode</td>
+<td>DataNode</td>
+</tr>
+<tr>
+<td>YARN</td>
+<td>ResourceManager</td>
+<td>NodeManager</td>
+<td>NodeManager</td>
+</tr>
+</tbody></table>
 <ul>
-<li>known_hosts<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112173356.png" alt="20230112173356"></li>
+<li>配置文件</li>
 </ul>
-<p>⚠️如果你的known_hosts，有的主机没有出现IP地址，那可能是&#x2F;etc&#x2F;hosts这个文件里IP映射有问题，最好三个节点添加的内容都一样，填好一个其他两个复制粘贴。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112173908.png" alt="20230112173908"></p>
-<h3 id="3-节点间相互测试"><a href="#3-节点间相互测试" class="headerlink" title="3.节点间相互测试"></a>3.节点间相互测试</h3><p>用ssh命令节点间相互测试下</p>
+<p>好了准备工作已经做完了，我们要开始修改Hadoop的配置文件,<br>总共需要修改6个文件。<br><strong>配置文件主要在hadoop-2.7.7&#x2F;etc&#x2F;hadoop下面</strong><br>分别是：</p>
+<ul>
+<li>core-site.xml</li>
+<li>hdfs-site.xml</li>
+<li>mapred-site.xml</li>
+<li>yarn-site.xml</li>
+<li>slaves</li>
+<li>hadoop-env.sh</li>
+</ul>
+<p>我们一个一个接着来配置吧！</p>
 <blockquote>
-<p>[root@master ~]# ssh slave1</p>
+<p>[root@master hadoop]# cd hadoop-2.7.7&#x2F;etc&#x2F;hadoop</p>
 </blockquote>
-<p>在A节点上免密登陆到了B节点，再敲logout就退出B节点了<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174559.png" alt="20230112174559"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174627.png" alt="20230112174627"></p>
-<p>到此为止，大数据平台搭建之节点基础配置就结束啦🍃，三个节点都需要配置，配置过程一定要细心哦，特别是IP那一块，错了后面就会很多报错，加油！</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">https://blog.csdn.net/pig2guang/article/details/85313410</a></p>
+<h4 id="1-core-site-xml"><a href="#1-core-site-xml" class="headerlink" title="1.core-site.xml"></a>1.core-site.xml</h4><p>这个是核心配置文件我们需要在该文件中加入 HDFS的URI和NameNode的临时文件夹位置<br>在文件末尾的configuration标签中添加代码如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116182530.png" alt="20230116182530"></p>
+<blockquote>
+<p>fs.defaultFS<br>hdfs:&#x2F;&#x2F;master:9000<br>hadoop.tmp.dir<br>&#x2F;usr&#x2F;local&#x2F;data</p>
+</blockquote>
+<p>配置文件中的&#x2F;usr&#x2F;local&#x2F;data是用来存储临时文件的，所以该文件夹需要手动创建,另外两个节点也是</p>
+<blockquote>
+<p>[root@master hadoop]# mkdir &#x2F;usr&#x2F;local&#x2F;data</p>
+</blockquote>
+<h4 id="2-hdfs-site-xml"><a href="#2-hdfs-site-xml" class="headerlink" title="2.hdfs-site.xml"></a>2.hdfs-site.xml</h4><p>replication指的是副本数量</p>
+<blockquote>
+<p>[root@master hadoop]# vim hdfs-site.xml</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116205151.png" alt="20230116205151"></p>
+<blockquote>
+<p><name>dfs.name.dir</name><br>  <value>&#x2F;usr&#x2F;local&#x2F;data&#x2F;namenode</value><br>  <name>dfs.data.dir</name><br>  <value>&#x2F;usr&#x2F;local&#x2F;data&#x2F;datanode</value><br>  <name>dfs.replication</name><br>  <value>2</value></p>
+</blockquote>
+<h4 id="3-mapred-site-xml"><a href="#3-mapred-site-xml" class="headerlink" title="3.mapred-site.xml"></a>3.mapred-site.xml</h4><ul>
+<li>先修改文件名字</li>
+</ul>
+<blockquote>
+<p>[root@master hadoop]# mv mapred-site.xml.template mapred-site.xml<br>[root@master hadoop]# vim mapred-site.xml</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116205550.png" alt="20230116205550"></p>
+<blockquote>
+<p><name>mapreduce.framework.name</name><br><value>yarn</value></p>
+</blockquote>
+<h4 id="4-yarn-site-xml"><a href="#4-yarn-site-xml" class="headerlink" title="4.yarn-site.xml"></a>4.yarn-site.xml</h4><blockquote>
+<p>[root@master hadoop]# vim yarn-site.xml</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116205925.png" alt="20230116205925"></p>
+<blockquote>
+<p><name>yarn.resourcemanager.hostname</name><br><value>master</value><br>yarn.nodemanager.aux-services<br><value>mapreduce_shuffle</value>     </p>
+</blockquote>
+<h4 id="5-slaves"><a href="#5-slaves" class="headerlink" title="5.slaves"></a>5.slaves</h4><blockquote>
+<p>[root@master hadoop]# vim slaves<br>slave1<br>slave2</p>
+</blockquote>
+<h4 id="6-hadoop-env-sh"><a href="#6-hadoop-env-sh" class="headerlink" title="6.hadoop-env.sh"></a>6.hadoop-env.sh</h4><blockquote>
+<p>[root@master hadoop]# vim hadoop-env.sh<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_191</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116210136.png" alt="20230116210136"></p>
+<p><strong>剩下两个节点重复上述操作</strong></p>
+<ul>
+<li>在&#x2F;usr&#x2F;local&#x2F;下创建好data目录</li>
+<li>在&#x2F;etc&#x2F;profile配置好环境变量</li>
+<li>scp把配置好的hadoop包传给子节点</li>
+</ul>
+<blockquote>
+<p>[root@master hadoop]# cd &#x2F;usr&#x2F;local<br>[root@master local]# scp -r hadoop <a href="mailto:&#x72;&#111;&#111;&#116;&#x40;&#49;&#57;&#50;&#46;&#x31;&#x36;&#56;&#x2e;&#49;&#x38;&#53;&#46;&#x32;">&#x72;&#111;&#111;&#116;&#x40;&#49;&#57;&#50;&#46;&#x31;&#x36;&#56;&#x2e;&#49;&#x38;&#53;&#46;&#x32;</a>:&#x2F;usr&#x2F;local&#x2F;<br>[root@master local]# scp -r hadoop <a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#x38;&#x2e;&#49;&#x38;&#53;&#46;&#51;">&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#x38;&#x2e;&#49;&#x38;&#53;&#46;&#51;</a>:&#x2F;usr&#x2F;local&#x2F;</p>
+</blockquote>
+<p>（像配置Java那样profile文件也可以直接scp传给剩下两个子节点，忘记的往前翻）</p>
+<h2 id="四、测试Hadoop集群是否成功"><a href="#四、测试Hadoop集群是否成功" class="headerlink" title="四、测试Hadoop集群是否成功"></a>四、测试Hadoop集群是否成功</h2><ul>
+<li>格式化</li>
+<li>启动Hadoop</li>
+<li>验证Hadoop</li>
+</ul>
+<p>⚠️只需要在主节点上启动，格式化也只用格式化主节点<br>（集群是第一次启动，需要格式化NameNode）</p>
+<h3 id="1-格式化"><a href="#1-格式化" class="headerlink" title="1.格式化"></a>1.格式化</h3><p>在使用Hadoop之前我们需要格式化一些hadoop的基本信息<br>使用如下命令：</p>
+<blockquote>
+<p>[root@master ~]# hdfs namenode -format</p>
+</blockquote>
+<p>格式化成功的标志是格式化时输出以下信息:<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116211543.png" alt="20230116211543"></p>
+<p>（如果格式化不成功，或者出现问题的时候，需要重新格式化，格式化之前需要删除所有的进程，删除data目录里的所有东西）</p>
+<blockquote>
+<p>jps查看进程，接着删除进程<br>kill -9 （进程号）<br>rm -rf (删除data目录下的目录) </p>
+</blockquote>
+<p>停止进程也可以噢 stop-all.sh</p>
+<h3 id="2-启动Hadoop"><a href="#2-启动Hadoop" class="headerlink" title="2.启动Hadoop"></a>2.启动Hadoop</h3><p>在&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.7.7&#x2F;这个目录噢</p>
+<blockquote>
+<p>[root@master ~]# cd &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.7.7&#x2F;</p>
+</blockquote>
+<ul>
+<li>启动hadoop</li>
+</ul>
+<blockquote>
+<p>[root@master hadoop-2.7.7]# sbin&#x2F;start-dfs.sh</p>
+</blockquote>
+<ul>
+<li>启动yarn</li>
+</ul>
+<blockquote>
+<p>[root@master hadoop-2.7.7]# sbin&#x2F;start-yarn.sh</p>
+</blockquote>
+<ul>
+<li>或者整体启动</li>
+</ul>
+<blockquote>
+<p>[root@master hadoop-2.7.7]# sbin&#x2F;start-all.sh</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116212628.png" alt="20230116212628"></p>
+<h3 id="3-验证Hadoop"><a href="#3-验证Hadoop" class="headerlink" title="3.验证Hadoop"></a>3.验证Hadoop</h3><p>在主节点上输入jps命令查看，以下就对了<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116212911.png" alt="20230116212911"></p>
+<p>在子节点上输入jps命令查看，以下就对了：<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116212942.png" alt="20230116212942"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116213032.png" alt="20230116213032"></p>
+<p>如果你是图形化界面，可以在你虚拟机的图形化界面中打开火狐浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:50070/">http://localhost:50070/</a> </p>
+<p>或者在主机上输入http:&#x2F;&#x2F;虚拟机ip地址:50070&#x2F;  也可以访问 hadoop的管理页面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116213132.png" alt="20230116213132"></p>
+<p>好了到了这一步Hadoop就安装完成了。</p>
+<h2 id="五、HDFS系统初体验"><a href="#五、HDFS系统初体验" class="headerlink" title="五、HDFS系统初体验"></a>五、HDFS系统初体验</h2><ul>
+<li>创建文件夹</li>
+</ul>
+<p>和Linux中一样创建文件加的主要命令是mkdir，只不过在前面要加上hadoop fs </p>
+<ul>
+<li>删除文件夹</li>
+</ul>
+<blockquote>
+<p>hadoop fs -rm (文件夹)</p>
+</blockquote>
+<ul>
+<li>查看文件夹</li>
+</ul>
+<p>创建好文件加之后，我们可以查看是否创建成功。<br>命令：hadoop fs -ls &#x2F;，&#x2F;代表根目录，这个命令的意思就是查看根目录下所有的文件和文件夹</p>
+<blockquote>
+<p>hadoop fs -ls &#x2F;</p>
+</blockquote>
+<h3 id="上传文件至HDFS"><a href="#上传文件至HDFS" class="headerlink" title="上传文件至HDFS"></a>上传文件至HDFS</h3><p>在本地编写文件，然后上传到HDFS中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116214646.png" alt="20230116214646"></p>
+<p>1.创建文件，并添加数据</p>
+<blockquote>
+<p>touch hello.txt<br>vim hello.txt</p>
+</blockquote>
+<p>2.将文件上传至HDFS</p>
+<p>使用put命令即可将指定文件上传至HDFS的指定文件夹中，在本文中就是将hello.txt上传至HDFS的&#x2F;test文件夹。</p>
+<blockquote>
+<p>hadoop fs -mkdir &#x2F;test<br>hadoop fs -ls &#x2F;<br>hadoop fs -put hello.txt &#x2F;test</p>
+</blockquote>
+<p>⚠️如果文件上传报错，回头检查一下三台机子是否在一个局域网里，只能用内网IP（如果安全组设置了对方IP也可以公网IP），是否在一个网段</p>
+<p>3.查看文件</p>
+<p>与Linux中查看文件类似，使用cat命令即可查看指定文件的内容。</p>
+<blockquote>
+<p>hadoop fs -cat &#x2F;test&#x2F;hello.txt</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116215207.png" alt="20230116215207"></p>
+<p>到这里🍃Hadoop完全分布式就完成啦，配置文件部分一定要仔细噢～祝你成功！</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">https://blog.csdn.net/pig2guang/article/details/85313410</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yandao/article/details/124240656">https://blog.csdn.net/yandao/article/details/124240656</a></p>
 
       
 
@@ -364,7 +524,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2023/01/12/服务器IP映射与ssh免密登录/" title="大数据平台搭建之节点基础配置（1）" target="_blank">http://example.com/2023/01/12/服务器IP映射与ssh免密登录/</a >
+      <a href=" >/2023/01/16/Hadoop完全分布式配置/" title="Hadoop完全分布式配置" target="_blank">http://example.com/2023/01/16/Hadoop完全分布式配置/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -393,7 +553,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
         		</li>
       		
 		</ul>
@@ -449,7 +609,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -464,8 +624,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo常见错误处理</div>
+    <a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">云服务器IP映射与ssh免密登录</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -492,7 +652,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9"><span class="toc-number">1.</span> <span class="toc-text">一、服务器选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84"><span class="toc-number">2.</span> <span class="toc-text">二、云服务器IP映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">2.1.</span> <span class="toc-text">1.修改主机名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9F%A5%E7%9C%8B%E4%B8%BB%E6%9C%BA%E7%BD%91%E5%85%B3%E4%B8%8E%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">2.查看主机网关与子网掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE%E5%90%84%E8%8A%82%E7%82%B9%E7%BD%91%E7%BB%9C"><span class="toc-number">2.3.</span> <span class="toc-text">3.配置各节点网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E5%90%84%E8%8A%82%E7%82%B9%E6%98%A0%E5%B0%84"><span class="toc-number">2.4.</span> <span class="toc-text">4.添加各节点映射</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%E8%8A%82%E7%82%B9%E6%98%A0%E5%B0%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">检验节点映射</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.5.</span> <span class="toc-text">5.关闭防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-ping%E7%99%BE%E5%BA%A6"><span class="toc-number">2.6.</span> <span class="toc-text">6.ping百度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">三、ssh免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E5%AF%86%E9%92%A5"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8B%B7%E8%B4%9D%E5%AF%86%E9%92%A5%E5%88%B0%E5%90%84%E8%8A%82%E7%82%B9"><span class="toc-number">3.2.</span> <span class="toc-text">2.拷贝密钥到各节点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5"><span class="toc-number">3.2.1.</span> <span class="toc-text">手动添加密钥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8A%82%E7%82%B9%E9%97%B4%E7%9B%B8%E4%BA%92%E6%B5%8B%E8%AF%95"><span class="toc-number">3.3.</span> <span class="toc-text">3.节点间相互测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">3.4.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">一、环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85-Java"><span class="toc-number">2.</span> <span class="toc-text">二、安装 Java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">1.上传文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.配置Java环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B5%8B%E8%AF%95"><span class="toc-number">2.3.</span> <span class="toc-text">3.测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Hadoop%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、Hadoop安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Hadoop"><span class="toc-number">3.1.</span> <span class="toc-text">1.安装Hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">2.Hadoop完全分布式配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-core-site-xml"><span class="toc-number">3.2.1.</span> <span class="toc-text">1.core-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-hdfs-site-xml"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.hdfs-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-mapred-site-xml"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.mapred-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-yarn-site-xml"><span class="toc-number">3.2.4.</span> <span class="toc-text">4.yarn-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-slaves"><span class="toc-number">3.2.5.</span> <span class="toc-text">5.slaves</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-hadoop-env-sh"><span class="toc-number">3.2.6.</span> <span class="toc-text">6.hadoop-env.sh</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%B5%8B%E8%AF%95Hadoop%E9%9B%86%E7%BE%A4%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-number">4.</span> <span class="toc-text">四、测试Hadoop集群是否成功</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">4.1.</span> <span class="toc-text">1.格式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%AF%E5%8A%A8Hadoop"><span class="toc-number">4.2.</span> <span class="toc-text">2.启动Hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%AA%8C%E8%AF%81Hadoop"><span class="toc-number">4.3.</span> <span class="toc-text">3.验证Hadoop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81HDFS%E7%B3%BB%E7%BB%9F%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">五、HDFS系统初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E8%87%B3HDFS"><span class="toc-number">5.1.</span> <span class="toc-text">上传文件至HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.2.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -528,7 +688,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Thu Jan 12 2023 14:36:00 GMT+0800',
+  	id: 'Mon Jan 16 2023 15:45:02 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -682,6 +842,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
             
             <div class="clearfix"></div>

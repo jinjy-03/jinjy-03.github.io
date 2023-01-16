@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 4
+			总文章数 5
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,7 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文以up主CodeSheep<a target="_blank" rel="noopener" href="https://b23.tv/a2ZDQKI">从零开始搭建自己的个人博客</a> 视频为框架，记录本小白从零搭建个人博客的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！</p>
+        <p>摘要： 本文以up主CodeSheep<a target="_blank" rel="noopener" href="https://b23.tv/a2ZDQKI">从零开始搭建自己的个人博客</a> 视频为框架，记录本小白<strong>从零搭建个人博客</strong>的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！</p>
         
       
 
@@ -286,20 +286,146 @@ gitalk.render('gitalk-container')
 
   
   
-    <article id="post-服务器IP映射与ssh免密登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Hadoop完全分布式配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">大数据平台搭建之节点基础配置（1）</a>
+      <a class="article-title" href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">Hadoop完全分布式配置</a>
     </h1>
   
 
         
         
-<a href="/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
+<a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" class="archive-article-date">
+  	<time datetime="2023-01-16T07:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
+</a>
+
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 --> 
+        
+
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：2.5k字 | 预计阅读时长：10分钟
+    </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要： 本文主要记录📝搭建一个Namenode两个DataNode的<strong>Hadoop完全分布式</strong>集群（Hadoop2.7.7）的全部步骤和HDFS系统初体验，以及补充学到的知识点，文章以图文形式呈现，主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">CSDN博主「原来浙小商啊」</a>。</p>
+        
+      
+
+      
+      <!-- 添加版权声明 -->
+    
+  
+    <div class="declare" hidden="hidden"></div>
+  
+        <!-- 添加版权声明 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'c79bb4c9f6b92ae4e889',
+  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
+  	repo: 'mycomments',
+  	owner: 'jinjy-03',
+  	admin: ['jinjy-03'],
+  	id: '',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
+  
+    <article id="post-云服务器IP映射与ssh免密登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">云服务器IP映射与ssh免密登录</a>
+    </h1>
+  
+
+        
+        
+<a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
   	<time datetime="2023-01-12T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
 </a>
 
@@ -313,12 +439,12 @@ gitalk.render('gitalk-container')
         
       </header>
       <div align="center" class="post-count">
-        字数：1.3k字 | 预计阅读时长：5分钟
+        字数：1.6k字 | 预计阅读时长：6分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝云服务器间IP映射与ssh免密登录的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。</p>
+        <p>摘要： 本文主要记录📝云服务器间<strong>IP映射</strong>与<strong>ssh免密登录</strong>的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。</p>
         
       
 
@@ -358,7 +484,7 @@ gitalk.render('gitalk-container')
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">展开全文 >></a>
         </p>
       
 
@@ -444,7 +570,7 @@ gitalk.render('gitalk-container')
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝写博文遇到bug如何解决，以及补充学到的知识点，文章以图文形式呈现。</p>
+        <p>摘要： 本文主要记录📝写博文<strong>hexo遇到bug如何解决</strong>，以及补充学到的知识点，文章以图文形式呈现。</p>
         
       
 
@@ -784,6 +910,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
             
             <div class="clearfix"></div>
