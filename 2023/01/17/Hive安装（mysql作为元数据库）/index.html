@@ -6,17 +6,46 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2023/1 | 一只丸子金</title>
+  <title>Hive安装（mysql作为元数据库） | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只丸子金">
-<meta property="og:url" content="http://example.com/archives/2023/01/index.html">
+  <meta name="description" content="摘要： 本文主要记录📝基于Hadoop环境的Hive（2.3.4）的安装与配置(使用mysql作为元数据库），以及补充学到的知识点，文章以图文形式呈现，主要参考CSDN博主「原来浙小商啊」。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hive安装（mysql作为元数据库）">
+<meta property="og:url" content="http://example.com/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="记录学习笔记">
+<meta property="og:description" content="摘要： 本文主要记录📝基于Hadoop环境的Hive（2.3.4）的安装与配置(使用mysql作为元数据库），以及补充学到的知识点，文章以图文形式呈现，主要参考CSDN博主「原来浙小商啊」。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117125129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117130708.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131046.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131704.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135515.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144414.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144605.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144730.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144832.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145230.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145316.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145358.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145437.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117151341.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132651.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132818.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135416.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152236.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152844.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117153419.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png">
+<meta property="article:published_time" content="2023-01-17T04:06:55.000Z">
+<meta property="article:modified_time" content="2023-01-17T08:18:26.582Z">
 <meta property="article:author" content="金金">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="Hive">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117125129.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -149,38 +178,295 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Hive安装（mysql作为元数据库）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Hive安装（mysql作为元数据库）
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/" class="archive-article-date">
   	<time datetime="2023-01-17T04:06:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
 </a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/">Hive安装（mysql作为元数据库）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 --> 
+        
+
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：1.7k字 | 预计阅读时长：7分钟
+    </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要： 本文主要记录📝基于Hadoop环境的<strong>Hive（2.3.4）的安装与配置(使用mysql作为元数据库）</strong>，以及补充学到的知识点，文章以图文形式呈现，主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">CSDN博主「原来浙小商啊」</a>。</p>
+<span id="more"></span>
+<ul>
+<li><p>背景<br> <strong>Hive</strong>是基于<strong>Hadoop</strong>的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供完整的<strong>SQL</strong>查询功能，可以将<strong>SQL</strong>语句转换为<strong>MapReduce</strong>任务进行运行。<strong>Hive</strong>构建在 <strong>Apache Hadoop</strong>之上，支持通过 hdfs 在 S3、adls、gs 等上进行存储。 其优点是学习成本低，可以通过类<strong>SQL</strong>语句快速实现简单的<strong>MapReduce</strong>统计，不必开发专门的<strong>MapReduce</strong>应用，十分适合数据仓库的统计分析。</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117125129.png" alt="20230117125129"></p>
+</li>
+</ul>
+<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><ul>
+<li>三台服务器（master、slave1、slave2）</li>
+<li><strong>各节点完成了IP映射与ssh免密</strong><br>没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">《云服务器IP映射与ssh免密登录》</a></li>
+<li><strong>Hadoop集群完成配置</strong><br>没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">《Hadoop完全分布式配置》</a></li>
+<li>相关软件安装包下载<br><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1jKgua2U1yacbrbgQk4-wFg">百度云链接</a> 提取码：r93h<br>由CSDN博主「原来浙小商啊」提供</li>
+</ul>
+<h2 id="二、Hive的基本安装"><a href="#二、Hive的基本安装" class="headerlink" title="二、Hive的基本安装"></a>二、Hive的基本安装</h2><h3 id="1-hive下载和解压"><a href="#1-hive下载和解压" class="headerlink" title="1.hive下载和解压"></a>1.hive下载和解压</h3><p>你可以直接使用和我对应版本我软件包，也可以去<a target="_blank" rel="noopener" href="https://hive.apache.org/">hive的官网下载</a></p>
+<p>上传⏫文件可以用scp，前面文章有写</p>
+<p><strong>⚠️Hive只需要在master节点上安装配置</strong></p>
+<ul>
+<li>进入&#x2F;usr&#x2F;local目录，解压apache-hive-2.3.4-bin.tar.gz 到该目录下，并将解压的文件重命名为hive-2.3.4，最后移动到创建的hive文件夹中</li>
+</ul>
+<blockquote>
+<p>[root@master ~]# cd &#x2F;usr&#x2F;local<br>新建hive目录<br>[root@master local]# mkdir hive<br>解压<br>[root@master local]# tar -zxvf apache-hive-2.3.4-bin.tar.gz<br>改名<br>mv apache-hive-2.3.4-bin hive-2.3.4<br>将其移动到hive目录下<br>[root@master local]# mv hive-2.3.4 hive<br>[root@master local]# cd hive<br>[root@master hive]# </p>
+</blockquote>
+<p>可以切换到hive目录下查看解压好的文件夹<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117130708.png" alt="20230117130708"></p>
+<h3 id="2-配置hive环境变量"><a href="#2-配置hive环境变量" class="headerlink" title="2.配置hive环境变量"></a>2.配置hive环境变量</h3><ul>
+<li>设置环境变量，编辑vi &#x2F;etc&#x2F;profile，在末尾添加以下代码；</li>
+</ul>
+<blockquote>
+<p>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_191<br>export HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.7.7<br>export HADOOP_CONF_DIR&#x3D;💲HADOOP_HOME&#x2F;etc&#x2F;hadoop<br>export HIVE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4<br>export CLASSPATH&#x3D;.:💲JAVA_HOME&#x2F;jre&#x2F;lib&#x2F;rt.jar:💲JAVA_HOME&#x2F;lib&#x2F;dt.jar:💲JAVA_HOME&#x2F;lib&#x2F;tools.jar<br>export PATH&#x3D;💲PATH:💲JAVA_HOME&#x2F;bin:💲HADOOP_HOME&#x2F;bin:💲HADOOP_HOME&#x2F;sbin:💲HIVE_HOME&#x2F;bin  </p>
+</blockquote>
+<p>我这里的💲这个符号因为语法问题无法显示，所以我用表情代替一下，复制代码的时候注意改一下，粘贴的时候改成正常的💲<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131046.png" alt="20230117131046"></p>
+<p>最后：source &#x2F;etc&#x2F;profile使刚刚的配置生效</p>
+<blockquote>
+<p>[root@master ~]# source &#x2F;etc&#x2F;profile</p>
+</blockquote>
+<ul>
+<li>查看hive是否安装成功：</li>
+</ul>
+<p>[root@master ~]#  hive –version</p>
+<p>出现如下界面代表配置成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131704.png" alt="20230117131704"></p>
+<p>出现hive版本就说明安装成功</p>
+<h2 id="三、Hive的配置"><a href="#三、Hive的配置" class="headerlink" title="三、Hive的配置"></a>三、Hive的配置</h2><ul>
+<li>在&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4&#x2F;conf目录下，修改hive-site.xml和hive-env.sh两个文件</li>
+</ul>
+<h3 id="1-hive-site-xml"><a href="#1-hive-site-xml" class="headerlink" title="1.hive-site.xml"></a>1.hive-site.xml</h3><ul>
+<li><strong>hive-site.xml</strong>保存Hive运行时所需要的相关配置信息。</li>
+</ul>
+<blockquote>
+<p>[root@master hive]# cd hive-2.3.4&#x2F;conf<br>[root@master conf]# mv hive-default.xml.template   hive-site.xml</p>
+</blockquote>
+<ul>
+<li><strong>温馨提示</strong>：文件有5千多行，如果你和我版本对应可以直接用软件包里的这个文件，要修改的话，可以将这个文件下载到自己主机用编辑器编辑后再上传<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135515.png" alt="20230117135515"></li>
+</ul>
+<p>我是直接把master上的hive-site.xml删了，直接创建一个：vi hive-site.xml，将软件包里hive-site.xml的文件内容全选复制到其中（按i进入编辑模式后再进行粘贴）</p>
+<ul>
+<li>自己编辑如下：</li>
+</ul>
+<p>⚠️在hive-site.xml中找到下面的几个对应name的property,然后把value值更改</p>
+<ul>
+<li><strong>javax.jdo.option.ConnectionURL</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144414.png" alt="20230117144414"></p>
+<ul>
+<li><strong>javax.jdo.option.ConnectionDriverName</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144605.png" alt="20230117144605"></p>
+<ul>
+<li><strong>javax.jdo.option.ConnectionUserName</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144647.png" alt="20230117144647"></p>
+<ul>
+<li><strong>javax.jdo.option.ConnectionPassword</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144730.png" alt="20230117144730"></p>
+<ul>
+<li><strong>hive.querylog.location</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144832.png" alt="20230117144832"></p>
+<ul>
+<li><strong>hive.server2.logging.operation.log.location</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145230.png" alt="20230117145230"></p>
+<ul>
+<li><strong>hive.exec.local.scratchdir</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145316.png" alt="20230117145316"></p>
+<ul>
+<li><strong>hive.downloaded.resources.dir</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145358.png" alt="20230117145358"></p>
+<ul>
+<li><strong>hive.metastore.schema.verification</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145437.png" alt="20230117145437"></p>
+<p>完成后，记得保存哦，一定要细心🌱</p>
+<h3 id="2-hive-env-sh"><a href="#2-hive-env-sh" class="headerlink" title="2.hive-env.sh"></a>2.hive-env.sh</h3><ul>
+<li>由于<strong>Hive</strong>是一个基于<strong>Hadoop</strong>分布式文件系统的数据仓库架构，主要运行在<strong>Hadoop</strong>分布式环境下，因此，需要在文件<strong>hive-env.sh</strong>中指定<strong>Hadoop</strong>相关配置文件的路径，用于<strong>Hive</strong>访问<strong>HDFS</strong>（读取fs.defaultFS属性值）和<strong>MapReduce</strong>（读取mapreduce.jobhistory.address属性值）等<strong>Hadoop</strong> 相关组件。</li>
+</ul>
+<blockquote>
+<p>[root@master conf]# mv hive-env.sh.template hive-env.sh</p>
+</blockquote>
+<ul>
+<li>vi hive-env.sh打开文件，找到下面的位置，做对应修改</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117151341.png" alt="20230117151341"></p>
+<blockquote>
+<p>HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.7.7</p>
+</blockquote>
+<blockquote>
+<p>export HIVE_CONF_DIR&#x3D;&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4&#x2F;conf</p>
+</blockquote>
+<blockquote>
+<p>export HIVE_AUX_JARS_PATH&#x3D;<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_191<br>export HIVE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4</p>
+</blockquote>
+<p>至此Hive基础配置完成啦🌿</p>
+<h2 id="四、Mysql的安装与配置"><a href="#四、Mysql的安装与配置" class="headerlink" title="四、Mysql的安装与配置"></a>四、Mysql的安装与配置</h2><p>Hive需要数据库来存储metastore的内容，因此我们需要配置一下MySQL数据库。</p>
+<h3 id="1-MySQL下载"><a href="#1-MySQL下载" class="headerlink" title="1.MySQL下载"></a>1.MySQL下载</h3><ul>
+<li>下载mysql驱动</li>
+</ul>
+<p>把下载好的mysql-connector-java.jar这个jar包拷到&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4&#x2F;lib&#x2F;下面，在<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1jKgua2U1yacbrbgQk4-wFg">百度云链接</a> (提取码：r93h)里都有</p>
+<ul>
+<li>安装MySQL数据库</li>
+</ul>
+<blockquote>
+<p>[root@master ~]# cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;<br>[root@master src]# wget <a target="_blank" rel="noopener" href="http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm">http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</a><br>[root@master src]# rpm -ivh mysql-community-release-el7-5.noarch.rpm<br>[root@master src]# yum install mysql-community-server</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132651.png" alt="20230117132651"></p>
+<p>出现如下界面代表安装成功<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132818.png" alt="20230117132818"></p>
+<p><strong>安装完成后，重启服务</strong></p>
+<blockquote>
+<p>[root@master src]# service mysqld restart</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135416.png" alt="20230117135416"><br>mysql安装成功</p>
+<h3 id="2-MySQL为Hive做的设置"><a href="#2-MySQL为Hive做的设置" class="headerlink" title="2.MySQL为Hive做的设置"></a>2.MySQL为Hive做的设置</h3><p>⚠️mysql用户和密码已经在hive-site.xml文件设置好了哦，这里就不需要重复了</p>
+<ul>
+<li>在mysql上创建hive元数据库hive_metadata</li>
+</ul>
+<blockquote>
+<p>create database if not exists hive_metadata;</p>
+</blockquote>
+<ul>
+<li>创建用户hive，密码为hive，并授权拥有数据库实例hive_metadata的所有权限</li>
+</ul>
+<blockquote>
+<p>grant all privileges on hive_metadata.* to ‘hive‘@’%’ identified by ‘hive’;</p>
+</blockquote>
+<ul>
+<li>对hive元数据库进行赋权，开放localhost连接,开放远程连接</li>
+</ul>
+<blockquote>
+<p>grant all privileges on hive_metadata.* to ‘hive‘@’localhost’ identified by ‘hive’;</p>
+</blockquote>
+<blockquote>
+<p>grant all privileges on hive_metadata.* to ‘hive‘@’master’ identified by ‘hive’;</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png" alt="20230117152652"></p>
+<ul>
+<li>刷新系统权限表。</li>
+</ul>
+<blockquote>
+<p>flush privileges;</p>
+</blockquote>
+<ul>
+<li>使用实例hive_metadata</li>
+</ul>
+<blockquote>
+<p>use hive_metadata;</p>
+</blockquote>
+<h2 id="五、Hive初始化及测试hive"><a href="#五、Hive初始化及测试hive" class="headerlink" title="五、Hive初始化及测试hive"></a>五、Hive初始化及测试hive</h2><h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1.初始化"></a>1.初始化</h3><p>第一次启动Hive前还需要执行初始化命令</p>
+<blockquote>
+<p>[root@master src]# schematool -dbType mysql -initSchema  </p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152236.png" alt="20230117152236"></p>
+<p>⚠️完成Hive的安装与配置后，确保Hadoop的dfs在运行哦（start-dfs.sh启动 Hadoop），jps先验证一下</p>
+<h3 id="2-测试hive"><a href="#2-测试hive" class="headerlink" title="2.测试hive"></a>2.测试hive</h3><ul>
+<li>先创建一个txt文件存点数据等下导入hive中去</li>
+</ul>
+<blockquote>
+<p>[root@master src]# vim users.txt</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152844.png" alt="20230117152844"></p>
+<ul>
+<li>进入hive，出现命令行就说明之前搭建是成功的</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117153419.png" alt="20230117153419"></p>
+<ul>
+<li>创建users表，因为我们上面users.txt不同字段中间有逗号所以<br>这个row format delimited fields terminated by ‘,’代表我们等下导过来的文件中字段是以逗号“，”分割字段的</li>
+</ul>
+<blockquote>
+<p>hive&gt; create table users(id int, name string) row format delimited fields terminated by ‘,’;</p>
+</blockquote>
+<ul>
+<li>导数据</li>
+</ul>
+<blockquote>
+<p>hive&gt; load data local inpath ‘&#x2F;usr&#x2F;local&#x2F;src&#x2F;users.txt’ into table users;</p>
+</blockquote>
+<ul>
+<li>查询</li>
+</ul>
+<blockquote>
+<p>hive&gt; select * from users;</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png" alt="20230117160946"></p>
+<p>🍃到此为止，hive配置就结束啦，祝你成功！</p>
+
+      
+
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+             -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+        
+ 
+    
+      <!-- 添加版权声明 -->
+    
+  
+    <div class="declare">
+      <strong>本文作者：</strong>
+      
+        金金
+      
+      <br>
+      <strong>本文链接：</strong>
+      <a href=" >/2023/01/17/Hive安装（mysql作为元数据库）/" title="Hive安装（mysql作为元数据库）" target="_blank">http://example.com/2023/01/17/Hive安装（mysql作为元数据库）/</a >
+      <br>
+      <strong>版权声明：</strong>
+      本作品采用
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a >
+      进行许可。转载请注明出处！
+      
+    </div>
+  
+        <!-- 添加版权声明 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,157 +486,145 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2023-01-16T07:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
-</a>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hadoop完全分布式配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">Hadoop完全分布式配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">一、环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Hive%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">二、Hive的基本安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hive%E4%B8%8B%E8%BD%BD%E5%92%8C%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1.hive下载和解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AEhive%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.配置hive环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Hive%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、Hive的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hive-site-xml"><span class="toc-number">3.1.</span> <span class="toc-text">1.hive-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-hive-env-sh"><span class="toc-number">3.2.</span> <span class="toc-text">2.hive-env.sh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Mysql%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">四、Mysql的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MySQL%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.1.</span> <span class="toc-text">1.MySQL下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MySQL%E4%B8%BAHive%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">2.MySQL为Hive做的设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Hive%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E6%B5%8B%E8%AF%95hive"><span class="toc-number">5.</span> <span class="toc-text">五、Hive初始化及测试hive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">5.1.</span> <span class="toc-text">1.初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B5%8B%E8%AF%95hive"><span class="toc-number">5.2.</span> <span class="toc-text">2.测试hive</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2023-01-12T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
-</a>
+        
+    </div>
+</aside>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">云服务器IP映射与ssh免密登录</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-01-12T04:39:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">hexo常见错误处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'c79bb4c9f6b92ae4e889',
+  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
+  	repo: 'mycomments',
+  	owner: 'jinjy-03',
+  	admin: ['jinjy-03'],
+  	id: 'Tue Jan 17 2023 12:06:55 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
           </div>
         </div>
       </div>
@@ -408,8 +682,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
