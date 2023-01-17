@@ -35,11 +35,13 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135416.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152236.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117222131.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152844.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117153419.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117221924.png">
 <meta property="article:published_time" content="2023-01-17T04:06:55.000Z">
-<meta property="article:modified_time" content="2023-01-17T08:18:26.582Z">
+<meta property="article:modified_time" content="2023-01-17T14:24:14.249Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="大数据">
 <meta property="article:tag" content="Hive">
@@ -210,7 +212,7 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：1.7k字 | 预计阅读时长：7分钟
+        字数：1.8k字 | 预计阅读时长：7分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -370,7 +372,6 @@
 <blockquote>
 <p>grant all privileges on hive_metadata.* to ‘hive‘@’master’ identified by ‘hive’;</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png" alt="20230117152652"></p>
 <ul>
 <li>刷新系统权限表。</li>
 </ul>
@@ -383,12 +384,19 @@
 <blockquote>
 <p>use hive_metadata;</p>
 </blockquote>
-<h2 id="五、Hive初始化及测试hive"><a href="#五、Hive初始化及测试hive" class="headerlink" title="五、Hive初始化及测试hive"></a>五、Hive初始化及测试hive</h2><h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1.初始化"></a>1.初始化</h3><p>第一次启动Hive前还需要执行初始化命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png" alt="20230117152652"></p>
+<h2 id="五、Hive初始化及测试hive"><a href="#五、Hive初始化及测试hive" class="headerlink" title="五、Hive初始化及测试hive"></a>五、Hive初始化及测试hive</h2><h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1.初始化"></a>1.初始化</h3><p>⚠️完成Hive的安装与配置后，确保Hadoop的dfs在运行哦（start-dfs.sh启动 Hadoop），jps先验证一下</p>
+<p>第一次启动Hive前还需要执行初始化命令</p>
 <blockquote>
 <p>[root@master src]# schematool -dbType mysql -initSchema  </p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152236.png" alt="20230117152236"></p>
-<p>⚠️完成Hive的安装与配置后，确保Hadoop的dfs在运行哦（start-dfs.sh启动 Hadoop），jps先验证一下</p>
+<p>在主机上输入http:&#x2F;&#x2F;虚拟机ip地址:50070&#x2F;  可以访问 hadoop的管理页面</p>
+<p>如果文件hdfs权限不够的输入如下命令：</p>
+<blockquote>
+<p>hdfs dfs -chmod -R 777 &#x2F;tmp</p>
+</blockquote>
+<p>hive在hdfs创建了两个目录<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117222131.png" alt="20230117222131"></p>
 <h3 id="2-测试hive"><a href="#2-测试hive" class="headerlink" title="2.测试hive"></a>2.测试hive</h3><ul>
 <li>先创建一个txt文件存点数据等下导入hive中去</li>
 </ul>
@@ -419,6 +427,7 @@
 <p>hive&gt; select * from users;</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png" alt="20230117160946"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117221924.png" alt="20230117221924"></p>
 <p>🍃到此为止，hive配置就结束啦，祝你成功！</p>
 
       
