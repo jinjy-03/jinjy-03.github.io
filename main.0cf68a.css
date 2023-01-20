@@ -7,3 +7,35 @@ background-color: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5));w
     border-left: 3px solid #ff1700;
     padding: .5em 1em; 
   }
+/*复制代码块*/
+.btn-copy {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  background-color: #515151;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #d5d5d5;
+  -webkit-transition: opacity .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+  padding: 2px 6px;
+}
+
+.btn-copy span {
+  margin-left: 5px
+}
+
+.code-wrapper .btn-copy:hover {
+  color: #fff;
+}
+
