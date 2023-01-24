@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117221924.png">
 <meta property="article:published_time" content="2023-01-17T04:06:55.000Z">
-<meta property="article:modified_time" content="2023-01-17T14:24:14.249Z">
+<meta property="article:modified_time" content="2023-01-24T11:41:34.668Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="大数据">
 <meta property="article:tag" content="Hive">
@@ -220,7 +220,7 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：1.8k字 | 预计阅读时长：7分钟
+        字数：2.2k字 | 预计阅读时长：10分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -244,25 +244,20 @@
 <ul>
 <li>进入&#x2F;usr&#x2F;local目录，解压apache-hive-2.3.4-bin.tar.gz 到该目录下，并将解压的文件重命名为hive-2.3.4，最后移动到创建的hive文件夹中</li>
 </ul>
-<blockquote>
-<p>[root@master ~]# cd &#x2F;usr&#x2F;local<br>新建hive目录<br>[root@master local]# mkdir hive<br>解压<br>[root@master local]# tar -zxvf apache-hive-2.3.4-bin.tar.gz<br>改名<br>mv apache-hive-2.3.4-bin hive-2.3.4<br>将其移动到hive目录下<br>[root@master local]# mv hive-2.3.4 hive<br>[root@master local]# cd hive<br>[root@master hive]# </p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# cd /usr/local</span><br><span class="line">新建hive目录</span><br><span class="line">[root@master local]# mkdir hive</span><br><span class="line">解压</span><br><span class="line">[root@master local]# tar -zxvf apache-hive-2.3.4-bin.tar.gz</span><br><span class="line">改名</span><br><span class="line">mv apache-hive-2.3.4-bin hive-2.3.4</span><br><span class="line">将其移动到hive目录下</span><br><span class="line">[root@master local]# mv hive-2.3.4 hive</span><br><span class="line">[root@master local]# cd hive</span><br><span class="line">[root@master hive]# </span><br></pre></td></tr></table></figure>
+
 <p>可以切换到hive目录下查看解压好的文件夹<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117130708.png" alt="20230117130708"></p>
 <h3 id="2-配置hive环境变量"><a href="#2-配置hive环境变量" class="headerlink" title="2.配置hive环境变量"></a>2.配置hive环境变量</h3><ul>
 <li>设置环境变量，编辑vi &#x2F;etc&#x2F;profile，在末尾添加以下代码；</li>
 </ul>
-<blockquote>
-<p>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_191<br>export HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.7.7<br>export HADOOP_CONF_DIR&#x3D;💲HADOOP_HOME&#x2F;etc&#x2F;hadoop<br>export HIVE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4<br>export CLASSPATH&#x3D;.:💲JAVA_HOME&#x2F;jre&#x2F;lib&#x2F;rt.jar:💲JAVA_HOME&#x2F;lib&#x2F;dt.jar:💲JAVA_HOME&#x2F;lib&#x2F;tools.jar<br>export PATH&#x3D;💲PATH:💲JAVA_HOME&#x2F;bin:💲HADOOP_HOME&#x2F;bin:💲HADOOP_HOME&#x2F;sbin:💲HIVE_HOME&#x2F;bin  </p>
-</blockquote>
-<p>我这里的💲这个符号因为语法问题无法显示，所以我用表情代替一下，复制代码的时候注意改一下，粘贴的时候改成正常的💲<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131046.png" alt="20230117131046"></p>
-<p>最后：source &#x2F;etc&#x2F;profile使刚刚的配置生效</p>
-<blockquote>
-<p>[root@master ~]# source &#x2F;etc&#x2F;profile</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@master hive]# vim /etc/profile               </span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_191</span><br><span class="line">export HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.7</span><br><span class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">export HIVE_HOME=/usr/local/hive/hive-2.3.4</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$HIVE_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131046.png" alt="20230117131046"></p>
+<p>最后：source &#x2F;etc&#x2F;profile使刚刚的配置生效<br><code>[root@master ~]# source /etc/profile</code></p>
 <ul>
 <li>查看hive是否安装成功：</li>
 </ul>
-<p>[root@master ~]#  hive –version</p>
+<p><code>[root@master ~]#  hive --version</code></p>
 <p>出现如下界面代表配置成功</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131704.png" alt="20230117131704"></p>
 <p>出现hive版本就说明安装成功</p>
@@ -272,9 +267,8 @@
 <h3 id="1-hive-site-xml"><a href="#1-hive-site-xml" class="headerlink" title="1.hive-site.xml"></a>1.hive-site.xml</h3><ul>
 <li><strong>hive-site.xml</strong>保存Hive运行时所需要的相关配置信息。</li>
 </ul>
-<blockquote>
-<p>[root@master hive]# cd hive-2.3.4&#x2F;conf<br>[root@master conf]# mv hive-default.xml.template   hive-site.xml</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master hive]# cd hive-2.3.4/conf</span><br><span class="line">[root@master conf]# mv hive-default.xml.template   hive-site.xml</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>温馨提示</strong>：文件有5千多行，如果你和我版本对应可以直接用软件包里的这个文件，要修改的话，可以将这个文件下载到自己主机用编辑器编辑后再上传<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135515.png" alt="20230117135515"></li>
 </ul>
@@ -286,59 +280,62 @@
 <ul>
 <li><strong>javax.jdo.option.ConnectionURL</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://master:3306/hive_metadata?createDatabaseIfNotExist=true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">      JDBC connect string for a JDBC metastore.</span><br><span class="line">      To use SSL to encrypt/authenticate the connection, provide database-specific SSL flag in the connection URL.</span><br><span class="line">      For example, jdbc:postgresql://myhost/db?ssl=true for postgres database.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144414.png" alt="20230117144414"></p>
 <ul>
 <li><strong>javax.jdo.option.ConnectionDriverName</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Driver class name for a JDBC metastore<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144605.png" alt="20230117144605"></p>
 <ul>
 <li><strong>javax.jdo.option.ConnectionUserName</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Username to use against metastore database<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144647.png" alt="20230117144647"></p>
 <ul>
 <li><strong>javax.jdo.option.ConnectionPassword</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>password to use against metastore database<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144730.png" alt="20230117144730"></p>
 <ul>
 <li><strong>hive.querylog.location</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.querylog.location<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Location of Hive run time structured log file<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144832.png" alt="20230117144832"></p>
 <ul>
 <li><strong>hive.server2.logging.operation.log.location</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.logging.operation.log.location<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/hadoop/operation_logs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Top level directory where operation logs are stored if logging functionality is enabled<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145230.png" alt="20230117145230"></p>
 <ul>
 <li><strong>hive.exec.local.scratchdir</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.exec.local.scratchdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Local scratch space for Hive jobs<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145316.png" alt="20230117145316"></p>
 <ul>
 <li><strong>hive.downloaded.resources.dir</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.downloaded.resources.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/$&#123;hive.session.id&#125;_resources<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Temporary local directory for added resources in the remote file system.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145358.png" alt="20230117145358"></p>
 <ul>
 <li><strong>hive.metastore.schema.verification</strong></li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.schema.verification<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">      Enforce metastore schema version consistency.</span><br><span class="line">      True: Verify that version information stored in is compatible with one from Hive jars.  Also disable automatic</span><br><span class="line">            schema migration attempt. Users are required to manually migrate schema after Hive upgrade which ensures</span><br><span class="line">            proper metastore schema migration. (Default)</span><br><span class="line">      False: Warn if the version information stored in metastore doesn&#x27;t match with one from in Hive jars.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145437.png" alt="20230117145437"></p>
 <p>完成后，记得保存哦，一定要细心🌱</p>
 <h3 id="2-hive-env-sh"><a href="#2-hive-env-sh" class="headerlink" title="2.hive-env.sh"></a>2.hive-env.sh</h3><ul>
 <li>由于<strong>Hive</strong>是一个基于<strong>Hadoop</strong>分布式文件系统的数据仓库架构，主要运行在<strong>Hadoop</strong>分布式环境下，因此，需要在文件<strong>hive-env.sh</strong>中指定<strong>Hadoop</strong>相关配置文件的路径，用于<strong>Hive</strong>访问<strong>HDFS</strong>（读取fs.defaultFS属性值）和<strong>MapReduce</strong>（读取mapreduce.jobhistory.address属性值）等<strong>Hadoop</strong> 相关组件。</li>
 </ul>
-<blockquote>
-<p>[root@master conf]# mv hive-env.sh.template hive-env.sh</p>
-</blockquote>
+<p><code>[root@master conf]# mv hive-env.sh.template hive-env.sh</code></p>
 <ul>
 <li>vi hive-env.sh打开文件，找到下面的位置，做对应修改</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117151341.png" alt="20230117151341"></p>
-<blockquote>
-<p>HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.7.7</p>
-</blockquote>
-<blockquote>
-<p>export HIVE_CONF_DIR&#x3D;&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4&#x2F;conf</p>
-</blockquote>
-<blockquote>
-<p>export HIVE_AUX_JARS_PATH&#x3D;<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_191<br>export HIVE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.7</span><br><span class="line"></span><br><span class="line">export HIVE_CONF_DIR=/usr/local/hive/hive-2.3.4/conf</span><br><span class="line"></span><br><span class="line">export HIVE_AUX_JARS_PATH=</span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_191</span><br><span class="line">export HIVE_HOME=/usr/local/hive/hive-2.3.4</span><br></pre></td></tr></table></figure>
+
 <p>至此Hive基础配置完成啦🌿</p>
 <h2 id="四、Mysql的安装与配置"><a href="#四、Mysql的安装与配置" class="headerlink" title="四、Mysql的安装与配置"></a>四、Mysql的安装与配置</h2><p>Hive需要数据库来存储metastore的内容，因此我们需要配置一下MySQL数据库。</p>
 <h3 id="1-MySQL下载"><a href="#1-MySQL下载" class="headerlink" title="1.MySQL下载"></a>1.MySQL下载</h3><ul>
@@ -348,69 +345,46 @@
 <ul>
 <li>安装MySQL数据库</li>
 </ul>
-<blockquote>
-<p>[root@master ~]# cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;<br>[root@master src]# wget <a target="_blank" rel="noopener" href="http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm">http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</a><br>[root@master src]# rpm -ivh mysql-community-release-el7-5.noarch.rpm<br>[root@master src]# yum install mysql-community-server</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# cd /usr/local/src/</span><br><span class="line">[root@master src]# wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">[root@master src]# rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">[root@master src]# yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132651.png" alt="20230117132651"></p>
 <p>出现如下界面代表安装成功<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132818.png" alt="20230117132818"></p>
 <p><strong>安装完成后，重启服务</strong></p>
-<blockquote>
-<p>[root@master src]# service mysqld restart</p>
-</blockquote>
+<p><code>[root@master src]# service mysqld restart</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135416.png" alt="20230117135416"><br>mysql安装成功</p>
 <h3 id="2-MySQL为Hive做的设置"><a href="#2-MySQL为Hive做的设置" class="headerlink" title="2.MySQL为Hive做的设置"></a>2.MySQL为Hive做的设置</h3><p>⚠️mysql用户和密码已经在hive-site.xml文件设置好了哦，这里就不需要重复了</p>
 <ul>
 <li>在mysql上创建hive元数据库hive_metadata</li>
 </ul>
-<blockquote>
-<p>create database if not exists hive_metadata;</p>
-</blockquote>
+<p><code>create database if not exists hive_metadata;</code></p>
 <ul>
 <li>创建用户hive，密码为hive，并授权拥有数据库实例hive_metadata的所有权限</li>
 </ul>
-<blockquote>
-<p>grant all privileges on hive_metadata.* to ‘hive‘@’%’ identified by ‘hive’;</p>
-</blockquote>
+<p><code>grant all privileges on hive_metadata.* to &#39;hive&#39;@&#39;%&#39; identified by &#39;hive&#39;;</code></p>
 <ul>
 <li>对hive元数据库进行赋权，开放localhost连接,开放远程连接</li>
 </ul>
-<blockquote>
-<p>grant all privileges on hive_metadata.* to ‘hive‘@’localhost’ identified by ‘hive’;</p>
-</blockquote>
-<blockquote>
-<p>grant all privileges on hive_metadata.* to ‘hive‘@’master’ identified by ‘hive’;</p>
-</blockquote>
+<p><code>grant all privileges on hive_metadata.* to &#39;hive&#39;@&#39;localhost&#39; identified by &#39;hive&#39;;</code></p>
+<p><code>grant all privileges on hive_metadata.* to &#39;hive&#39;@&#39;master&#39; identified by &#39;hive&#39;;</code></p>
 <ul>
 <li>刷新系统权限表。</li>
 </ul>
-<blockquote>
-<p>flush privileges;</p>
-</blockquote>
+<p><code>flush privileges;</code></p>
 <ul>
 <li>使用实例hive_metadata</li>
 </ul>
-<blockquote>
-<p>use hive_metadata;</p>
-</blockquote>
+<p><code>use hive_metadata;</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png" alt="20230117152652"></p>
 <h2 id="五、Hive初始化及测试hive"><a href="#五、Hive初始化及测试hive" class="headerlink" title="五、Hive初始化及测试hive"></a>五、Hive初始化及测试hive</h2><h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1.初始化"></a>1.初始化</h3><p>⚠️完成Hive的安装与配置后，确保Hadoop的dfs在运行哦（start-dfs.sh启动 Hadoop），jps先验证一下</p>
-<p>第一次启动Hive前还需要执行初始化命令</p>
-<blockquote>
-<p>[root@master src]# schematool -dbType mysql -initSchema  </p>
-</blockquote>
+<p>第一次启动Hive前还需要执行初始化命令<br><code>[root@master src]# schematool -dbType mysql -initSchema  </code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152236.png" alt="20230117152236"></p>
 <p>在主机上输入http:&#x2F;&#x2F;虚拟机ip地址:50070&#x2F;  可以访问 hadoop的管理页面</p>
-<p>如果文件hdfs权限不够的输入如下命令：</p>
-<blockquote>
-<p>hdfs dfs -chmod -R 777 &#x2F;tmp</p>
-</blockquote>
+<p>如果文件hdfs权限不够的输入如下命令：<br><code>hdfs dfs -chmod -R 777 /tmp</code></p>
 <p>hive在hdfs创建了两个目录<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117222131.png" alt="20230117222131"></p>
 <h3 id="2-测试hive"><a href="#2-测试hive" class="headerlink" title="2.测试hive"></a>2.测试hive</h3><ul>
 <li>先创建一个txt文件存点数据等下导入hive中去</li>
 </ul>
-<blockquote>
-<p>[root@master src]# vim users.txt</p>
-</blockquote>
+<p><code>[root@master src]# vim users.txt</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152844.png" alt="20230117152844"></p>
 <ul>
 <li>进入hive，出现命令行就说明之前搭建是成功的</li>
@@ -419,21 +393,15 @@
 <ul>
 <li>创建users表，因为我们上面users.txt不同字段中间有逗号所以<br>这个row format delimited fields terminated by ‘,’代表我们等下导过来的文件中字段是以逗号“，”分割字段的</li>
 </ul>
-<blockquote>
-<p>hive&gt; create table users(id int, name string) row format delimited fields terminated by ‘,’;</p>
-</blockquote>
+<p><code>hive&gt; create table users(id int, name string) row format delimited fields terminated by &#39;,&#39;;</code></p>
 <ul>
 <li>导数据</li>
 </ul>
-<blockquote>
-<p>hive&gt; load data local inpath ‘&#x2F;usr&#x2F;local&#x2F;src&#x2F;users.txt’ into table users;</p>
-</blockquote>
+<p><code>hive&gt; load data local inpath &#39;/usr/local/src/users.txt&#39; into table users;</code></p>
 <ul>
 <li>查询</li>
 </ul>
-<blockquote>
-<p>hive&gt; select * from users;</p>
-</blockquote>
+<p><code>hive&gt; select * from users;</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png" alt="20230117160946"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117221924.png" alt="20230117221924"></p>
 <p>🍃到此为止，hive配置就结束啦，祝你成功！</p>
@@ -922,13 +890,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-  <!-- 代码块复制功能 -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-  <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <!-- <script type="text/javascript" src="/js/clipboard.js"></script>  -->
-  <script type="text/javascript" src="/js/clipboard_use.js"></script>
 
-
-  <!-- 代码块复制功能结束 --> 
 </body>
 </html>

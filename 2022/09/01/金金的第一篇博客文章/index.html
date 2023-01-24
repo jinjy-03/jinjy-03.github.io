@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183123.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183146.png">
 <meta property="article:published_time" content="2022-09-01T07:49:37.000Z">
-<meta property="article:modified_time" content="2023-01-16T14:10:26.439Z">
+<meta property="article:modified_time" content="2023-01-24T11:35:51.227Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="ssh">
@@ -255,41 +255,21 @@
 <h3 id="下载Nodejs"><a href="#下载Nodejs" class="headerlink" title="下载Nodejs"></a>下载Nodejs</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903153056.png" alt="20220903153056"></p>
 <p>安装：一直点下一步就完事</p>
 <h3 id="超级用户模式"><a href="#超级用户模式" class="headerlink" title="超级用户模式"></a>超级用户模式</h3><p>进入终端切换到超级用户模式</p>
-<blockquote>
-<p>sudo su<br>(输入密码)</p>
-</blockquote>
-<blockquote>
-<p>node -v #查看刚才安装的node版本<br>npm -v #查看npm版本 </p>
-</blockquote>
-<h3 id="安装hexo博客框架"><a href="#安装hexo博客框架" class="headerlink" title="安装hexo博客框架"></a>安装hexo博客框架</h3><blockquote>
-<p>npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>     #安装淘宝的cnpm 镜像源（比较快）</p>
-</blockquote>
+<p><code>sudo su</code><br>(输入密码)</p>
+<p><code>node -v #查看刚才安装的node版本</code><br><code>npm -v #查看npm版本 </code></p>
+<h3 id="安装hexo博客框架"><a href="#安装hexo博客框架" class="headerlink" title="安装hexo博客框架"></a>安装hexo博客框架</h3><p><code>npm install -g cnpm --registry=http://registry.npm.taobao.org </code>    #安装淘宝的cnpm 镜像源（比较快）</p>
 <p>即使输入错了没有关系，从头安装</p>
-<blockquote>
-<p>cnpm -v #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v #查看hexo版本 验证</p>
-</blockquote>
-<h3 id="开始使用hexo搭建"><a href="#开始使用hexo搭建" class="headerlink" title="开始使用hexo搭建"></a>开始使用hexo搭建</h3><blockquote>
-<p>pwd #查看当前目录<br>mkdir blog #创建blog目录（空白）</p>
-</blockquote>
+<p><code>cnpm -v </code>#查看cnpm版本<br><code>cnpm install -g hexo-cli    </code>#安装hexo框架<br><code>hexo -v </code>#查看hexo版本 验证</p>
+<h3 id="开始使用hexo搭建"><a href="#开始使用hexo搭建" class="headerlink" title="开始使用hexo搭建"></a>开始使用hexo搭建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwd #查看当前目录</span><br><span class="line">mkdir blog #创建blog目录（空白）</span><br></pre></td></tr></table></figure>
+
 <p>待会所有博客的东西全都在blog这个文件夹里生成<br>⚠️如果过程中出了什么错误，直接把blog这个目录删了重来就好了<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162527.png" alt="20220903162527"></p>
-<blockquote>
-<p>cd blog  #进入blog目录<br>pwd #查看路径</p>
-</blockquote>
-<blockquote>
-<p>sudo hexo init  #生成博客 初始化博客</p>
-</blockquote>
-<p>初始化，成功后，会显示</p>
-<blockquote>
-<p>Start blogging with Hexo!</p>
-</blockquote>
-<p>我们可以看一下目录生成了哪些东西</p>
-<blockquote>
-<p>ls -l</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd blog  #进入blog目录</span><br><span class="line">pwd #查看路径</span><br></pre></td></tr></table></figure>
+
+<p><code>sudo hexo init  #生成博客 初始化博客</code></p>
+<p>初始化，成功后，会显示<br><code>Start blogging with Hexo!</code></p>
+<p>我们可以看一下目录生成了哪些东西<br><code>ls -l</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162819.png" alt="20220903162819"></p>
-<blockquote>
-<p>hexo s #启动本地博客服务<br>&lt;<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> &gt;#本地端口访问地址</p>
-</blockquote>
+<p><code>hexo s #启动本地博客服务</code><br>&lt;<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> &gt;#本地端口访问地址</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163404.png" alt="20220903163404"></p>
 <p>你可以在浏览器打开查看，并且里面默认为你生成了一篇博文<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163451.png" alt="20220903163451"></p>
 <p>别忘了 control+c退出<br>hexo s 启动预览文章，平时修改文章可以这样查看修改</p>
@@ -300,9 +280,7 @@
 <li>hexo g</li>
 <li>hexo s</li>
 </ul>
-<blockquote>
-<p>hexo n “我的第一篇文章” #创建新的文章 </p>
-</blockquote>
+<p><code>hexo n &quot;我的第一篇文章&quot; #创建新的文章 </code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163813.png" alt="20220903163813"></p>
 <p>查看目录进入到文章所属目录，查看是否有此篇文章<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903164841.png" alt="20220903164841"></p>
 <p>pwd 查看当前目录 给博文加点内容，直接在vim编辑器打开<br>实际情况可以用vscode等软件编辑器打开<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165134.png" alt="20220903165134"></p>
@@ -334,23 +312,17 @@
 <p>点开仓库查看一下<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903172846.png" alt="20220903172846"></p>
 <p>这个页面先留着，等会配置东西需要</p>
 <h4 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h4><p><strong>Github创建一个新的仓库 YourGithubName.github.io</strong></p>
-<blockquote>
-<p>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
-</blockquote>
+<p><code>cnpm install --save hexo-deployer-git #在blog目录下安装git部署插件</code></p>
 <h5 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h5><p>⚠️ 这一步也许成功不了 解释：新Mac需要安装git工具，旁边会跳出一个提醒“‘git’命令需要使用命令行开发者工具。您需要现在安装改工具吗？” 解决：点安装！ 耐心等待⌛️安装 时间比较久</p>
 <h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>这种系统提示，万一没有跳出（git补充安装）直接去官网安装git</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903160500.png" alt="20220903160500"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903160827.png" alt="20220903160827"></p>
-<p> 安装好git后 执行刚才失败的操作</p>
-<blockquote>
-<p>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
-</blockquote>
+<p>安装好git后 执行刚才失败的操作</p>
+<p><code>cnpm install --save hexo-deployer-git #在blog目录下安装git部署插件</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903172935.png" alt="20220903172935"></p>
 <h4 id="添加仓库地址"><a href="#添加仓库地址" class="headerlink" title="添加仓库地址"></a>添加仓库地址</h4><p>有个关键的东西需要设置一下</p>
 <p>如图所示<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173111.png" alt="20220903173111"></p>
-<blockquote>
-<p>vim _config.yml</p>
-</blockquote>
+<p><code>vim _config.yml</code></p>
 <p>我们在文件地步做一些修改<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173337.png" alt="20220903173337"></p>
 <p><strong>中间篮筐复制刚才仓库的地址 其他照抄</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173639.png" alt="20220903173639"></p>
@@ -362,12 +334,10 @@
 </ul>
 <p>SSH(Secure SHell):是一个提供数据通信安全、远程登录、远程指令执行等功能的安全网络协议，使用ssh往GitHub上push项目，不需要再次输入账号密码。</p>
 <h3 id="设置git"><a href="#设置git" class="headerlink" title="设置git"></a>设置git</h3><p>运行命令行配置你的name和email</p>
-<blockquote>
-<p>#查看配置<br>git config –list</p>
-</blockquote>
-<blockquote>
-<p>#git status<br>git config –global user.name “你的用户名”<br>git config –global user.email “你的邮箱”</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看配置</span></span><br><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">git status</span></span><br><span class="line">git config --global user.name &quot;你的用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
+
 <h3 id="gitHub-ssh密钥配置"><a href="#gitHub-ssh密钥配置" class="headerlink" title="gitHub ssh密钥配置"></a>gitHub ssh密钥配置</h3><ul>
 <li>检查是否存在SSH Key</li>
 <li>创建新的ssh key</li>
@@ -375,30 +345,20 @@
 <li>添加公钥到github</li>
 <li>验证是否设置成功</li>
 </ul>
-<h4 id="检查ssh-key"><a href="#检查ssh-key" class="headerlink" title="检查ssh key"></a>检查ssh key</h4><blockquote>
-<p>cd ~&#x2F;.ssh<br>ls</p>
-</blockquote>
+<h4 id="检查ssh-key"><a href="#检查ssh-key" class="headerlink" title="检查ssh key"></a>检查ssh key</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+
 <p>如果存在 id_rsa 和 id_rsa.pub文件，说明已经有SSH Key，没有则创建新的</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112135715.png" alt="20230112135715"></p>
 <h4 id="添加ssh-key"><a href="#添加ssh-key" class="headerlink" title="添加ssh key"></a>添加ssh key</h4><p>$ ssh-keygen -t rsa -C “content neirong”<br>-t ：密钥的类型<br>-C : 用于识别密钥的注释</p>
-<p>输入</p>
-<blockquote>
-<p>ssh-keygen -t rsa -C “你的邮箱” </p>
-</blockquote>
+<p>输入<br><code>ssh-keygen -t rsa -C &quot;你的邮箱&quot; </code></p>
 <p>会发现 .ssh 目录生成了两个文件：id_rsa和id_rsa.pub</p>
 <p>id_rsa 文件是私有密钥，id_rsa.pub是公开密钥</p>
-<h4 id="获取公钥内容"><a href="#获取公钥内容" class="headerlink" title="获取公钥内容"></a>获取公钥内容</h4><p>输入</p>
-<blockquote>
-<p>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</p>
-</blockquote>
+<h4 id="获取公钥内容"><a href="#获取公钥内容" class="headerlink" title="获取公钥内容"></a>获取公钥内容</h4><p>输入<br><code>cat ~/.ssh/id_rsa.pub</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112140140.png" alt="20230112140140"></p>
 <h4 id="添加公钥到GitHub"><a href="#添加公钥到GitHub" class="headerlink" title="添加公钥到GitHub"></a>添加公钥到GitHub</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112134356.png" alt="20230112134356"></p>
 <p><strong>New SSH key 把复制的公钥文件复制进入</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112134703.png" alt="20230112134703"></p>
-<h4 id="验证是否设置成功"><a href="#验证是否设置成功" class="headerlink" title="验证是否设置成功"></a>验证是否设置成功</h4><p>用私有密钥与GitHub进行认证和通信</p>
-<blockquote>
-<p>ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
+<h4 id="验证是否设置成功"><a href="#验证是否设置成功" class="headerlink" title="验证是否设置成功"></a>验证是否设置成功</h4><p>用私有密钥与GitHub进行认证和通信<br><code>ssh -T git@github.com</code></p>
 <p>出现以下说明成功通信</p>
 <blockquote>
 <p>Hi （你的用户名）! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
@@ -940,13 +900,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-  <!-- 代码块复制功能 -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-  <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <!-- <script type="text/javascript" src="/js/clipboard.js"></script>  -->
-  <script type="text/javascript" src="/js/clipboard_use.js"></script>
 
-
-  <!-- 代码块复制功能结束 --> 
 </body>
 </html>

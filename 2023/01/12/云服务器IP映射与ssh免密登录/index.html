@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174559.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174627.png">
 <meta property="article:published_time" content="2023-01-12T06:36:00.000Z">
-<meta property="article:modified_time" content="2023-01-16T14:10:00.031Z">
+<meta property="article:modified_time" content="2023-01-24T08:39:20.177Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="大数据">
 <meta property="article:tag" content="云服务器">
@@ -236,9 +236,7 @@
 <li><p>最好三台服务器是同一个地方买的，不然IP差太多跨域映射非常慢</p>
 </li>
 <li><p>同一个地方买的，网络实例所属地域也最好一样</p>
-<blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112154008.png" alt="20230112154008"></p>
-</blockquote>
 </li>
 </ul>
 <p>【我第一次搭建集群的时候，一主（腾讯云服务器）二从（华为云服务器），后面IP映射主与二从之间非常慢，虽然ssh免密什么的都成功了，但是这个乌龟🐢般的速度非常影响后面搭建的测试】</p>
@@ -251,34 +249,26 @@
 <li>ping百度</li>
 </ul>
 <p><strong>⚠️以下内容三个节点都要操作噢，我以一个节点为例，其他两个同理</strong></p>
-<h3 id="1-修改主机名"><a href="#1-修改主机名" class="headerlink" title="1.修改主机名"></a>1.修改主机名</h3><blockquote>
-<p>[root@hecs-360472 ~]# vim &#x2F;etc&#x2F;hostname<br>[# cat用来检查刚刚文件的内容<br>[root@hecs-360472 ~]# cat &#x2F;etc&#x2F;hostname<br>slave1<br>[root@hecs-360472 ~]# sudo reboot<br>[root@slave1 ~]#</p>
-</blockquote>
+<h3 id="1-修改主机名"><a href="#1-修改主机名" class="headerlink" title="1.修改主机名"></a>1.修改主机名</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@hecs-360472 ~]# vim /etc/hostname</span><br><span class="line"><span class="meta prompt_">[# </span><span class="language-bash"><span class="built_in">cat</span>用来检查刚刚文件的内容</span></span><br><span class="line">[root@hecs-360472 ~]# cat /etc/hostname</span><br><span class="line">slave1</span><br><span class="line">[root@hecs-360472 ~]# sudo reboot</span><br><span class="line">[root@slave1 ~]#</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112155048.png" alt="20230112155048"></p>
 <p>我的设置是一主master，二从slave1、slave2，注意三个节点的命名噢</p>
 <h3 id="2-查看主机网关与子网掩码"><a href="#2-查看主机网关与子网掩码" class="headerlink" title="2.查看主机网关与子网掩码"></a>2.查看主机网关与子网掩码</h3><p>mac版</p>
-<blockquote>
-<p>[root@slave1 ~]# netstat -rn<br>[root@slave1 ~]# ifconfig -a</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@slave1 ~]# netstat -rn</span><br><span class="line">[root@slave1 ~]# ifconfig -a</span><br></pre></td></tr></table></figure>
+
 <p>win版</p>
-<blockquote>
-<p>ipconfig &#x2F;all<br>⚠️斜杠是“&#x2F;”不是“\”</p>
-</blockquote>
+<p><code>ipconfig /all</code><br>⚠️斜杠是“&#x2F;”不是“\”</p>
 <p>自己查看对应子网掩码和默认网关</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112160327.png" alt="20230112160327"></p>
-<h3 id="3-配置各节点网络"><a href="#3-配置各节点网络" class="headerlink" title="3.配置各节点网络"></a>3.配置各节点网络</h3><blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0<br>[root@slave1 ~]# cat &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0<br>DEVICE&#x3D;”eth0”<br>BOOTPROTO&#x3D;”static”<br>ONBOOT&#x3D;”yes”<br>TYPE&#x3D;”Ethernet”<br>PERSISTENT_DHCLIENT&#x3D;”yes”<br>IPADDR&#x3D;192.168.0.2<br>NETMASK&#x3D;255.255.255.0<br>GATEWAY&#x3D;192.168.0.1<br>[root@slave1 ~]#</p>
-</blockquote>
+<h3 id="3-配置各节点网络"><a href="#3-配置各节点网络" class="headerlink" title="3.配置各节点网络"></a>3.配置各节点网络</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@slave1 ~]# vim /etc/sysconfig/network-scripts/ifcfg-eth0</span><br><span class="line">[root@slave1 ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0</span><br><span class="line">DEVICE=&quot;eth0&quot;</span><br><span class="line">BOOTPROTO=&quot;static&quot;</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">TYPE=&quot;Ethernet&quot;</span><br><span class="line">PERSISTENT_DHCLIENT=&quot;yes&quot;</span><br><span class="line">IPADDR=192.168.0.2</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.0.1</span><br><span class="line">[root@slave1 ~]#</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112161014.png" alt="20230112161014"></p>
 <p>其他两个节点同样操作噢，这里配置就是IPADDR不同，要是跨域的服务器GATEWAY和NETMASK也不一样</p>
-<blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;resolv.conf</p>
-</blockquote>
+<p><code>[root@slave1 ~]# vim /etc/resolv.conf</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164230.png" alt="20230112164230"></p>
 <p>添加如下内容（后面可能还要再添加一次）</p>
-<blockquote>
-<p>nameserver 192.168.0.1（网关）<br>search localdomain<br>nameserver 8.8.8.8<br>nameserver 8.8.4.4</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nameserver 192.168.0.1（网关）</span><br><span class="line">search localdomain</span><br><span class="line">nameserver 8.8.8.8 </span><br><span class="line">nameserver 8.8.4.4</span><br></pre></td></tr></table></figure>
+
 <h4 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h4><table>
 <thead>
 <tr>
@@ -329,33 +319,23 @@
 <p><strong>云服务器安全组配置以master为例</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116155504.png" alt="20230116155504"></p>
 <p>我添加的是对方公有IP，<strong>其他两个云服务器也是</strong>，添加对方的IP</p>
-<blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;hosts<br>例如<br>192.168.185.1 master<br>192.168.185.2 slave1<br>192.168.185.3 slave2</p>
-</blockquote>
+<p><code>[root@slave1 ~]# vim /etc/hosts</code><br>例如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.185.1 master</span><br><span class="line">192.168.185.2 slave1</span><br><span class="line">192.168.185.3 slave2</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116160020.png" alt="20230116160020"></p>
 <p>⚠️这个&#x2F;etc&#x2F;hosts文件只能有一个master、slave1、slave2，不然后面集群启动，会出问题</p>
 <h4 id="检验节点映射"><a href="#检验节点映射" class="headerlink" title="检验节点映射"></a>检验节点映射</h4><p>互相ping一下</p>
 <p>master<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162808.png" alt="20230112162808"><br>slave1<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162852.png" alt="20230112162852"><br>slave2<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162915.png" alt="20230112162915"></p>
-<h3 id="5-关闭防火墙"><a href="#5-关闭防火墙" class="headerlink" title="5.关闭防火墙"></a>5.关闭防火墙</h3><blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;selinux&#x2F;config</p>
-</blockquote>
+<h3 id="5-关闭防火墙"><a href="#5-关闭防火墙" class="headerlink" title="5.关闭防火墙"></a>5.关闭防火墙</h3><p><code>[root@slave1 ~]# vim /etc/selinux/config</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112163309.png" alt="20230112163309"></p>
-<blockquote>
-<p>[root@slave1 ~]# systemctl stop firewalld<br>[root@slave1 ~]# systemctl disable firewalld<br>[root@slave1 ~]# systemctl status firewalld<br>● firewalld.service - firewalld - dynamic firewall daemon<br>   Loaded: loaded (&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;firewalld.service; disabled; vendor preset: enabled)<br>   Active: inactive (dead)<br>     Docs: man:firewalld(1)<br>[root@slave1 ~]# reboot（重启）</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@slave1 ~]# systemctl stop firewalld</span><br><span class="line">[root@slave1 ~]# systemctl disable firewalld</span><br><span class="line">[root@slave1 ~]# systemctl status firewalld</span><br><span class="line">● firewalld.service - firewalld - dynamic firewall daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)</span><br><span class="line">   Active: inactive (dead)</span><br><span class="line">     Docs: man:firewalld(1)</span><br><span class="line">[root@slave1 ~]# reboot（重启）</span><br></pre></td></tr></table></figure>
+
 <p>三个节点都需要重启生效</p>
 <h3 id="6-ping百度"><a href="#6-ping百度" class="headerlink" title="6.ping百度"></a>6.ping百度</h3><p>⚠️重启后出现如下错误，可能是因为namesever那重启后自动被改了，所以导致ping百度不通</p>
-<blockquote>
-<p>[root@slave1 ~]# ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br>ping: <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a>: 未知的名称或服务</p>
-</blockquote>
-<p>重新写下上面的resolv.conf</p>
-<blockquote>
-<p>[root@slave1 ~]# vim &#x2F;etc&#x2F;resolv.conf</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164337.png" alt="20230112164337"></p>
-<blockquote>
-<p>[root@slave1 ~]# ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@slave1 ~]# ping www.baidu.com</span><br><span class="line">ping: www.baidu.com: 未知的名称或服务</span><br></pre></td></tr></table></figure>
+
+<p>重新写下上面的resolv.conf<br><code>[root@slave1 ~]# vim /etc/resolv.conf</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164337.png" alt="20230112164337"><br><code>[root@slave1 ~]# ping www.baidu.com</code></p>
 <ul>
 <li>slave1</li>
 </ul>
@@ -373,12 +353,11 @@
 <li>拷贝密钥到各节点</li>
 <li>节点间相互测试</li>
 </ul>
-<h3 id="1-创建密钥"><a href="#1-创建密钥" class="headerlink" title="1.创建密钥"></a>1.创建密钥</h3><blockquote>
-<p>[root@master ~]# ssh-keygen -t rsa</p>
-</blockquote>
+<h3 id="1-创建密钥"><a href="#1-创建密钥" class="headerlink" title="1.创建密钥"></a>1.创建密钥</h3><p><code>[root@master ~]# ssh-keygen -t rsa</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112170445.png" alt="20230112170445"></p>
 <h3 id="2-拷贝密钥到各节点"><a href="#2-拷贝密钥到各节点" class="headerlink" title="2.拷贝密钥到各节点"></a>2.拷贝密钥到各节点</h3><p><strong>拷贝本密钥到三个节点上</strong></p>
-<p>[root@master ~]# ssh-copy-id master<br>[root@master ~]# ssh-copy-id slave1<br>[root@master ~]# ssh-copy-id slave2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# ssh-copy-id master</span><br><span class="line">[root@master ~]# ssh-copy-id slave1</span><br><span class="line">[root@master ~]# ssh-copy-id slave2</span><br></pre></td></tr></table></figure>
+
 <p>其他两个节点上重复上述操作</p>
 <p>⚠️拷贝本密钥到其他节点可能不成功，遇到这个情况先别慌，我们可以手动操作一下～</p>
 <h4 id="手动添加密钥"><a href="#手动添加密钥" class="headerlink" title="手动添加密钥"></a>手动添加密钥</h4><ul>
@@ -403,9 +382,7 @@
 </ul>
 <p>⚠️如果你的known_hosts，有的主机没有出现IP地址，那可能是&#x2F;etc&#x2F;hosts这个文件里IP映射有问题，再回过头好好检查。<br>搭的过程中关键地方排查了没有问题就要快照，后面崩溃了就<strong>恢复到那个点重做</strong></p>
 <h3 id="3-节点间相互测试"><a href="#3-节点间相互测试" class="headerlink" title="3.节点间相互测试"></a>3.节点间相互测试</h3><p>用ssh命令节点间相互测试下</p>
-<blockquote>
-<p>[root@master ~]# ssh slave1</p>
-</blockquote>
+<p><code>[root@master ~]# ssh slave1</code></p>
 <p>在A节点上免密登陆到了B节点，再敲logout就退出B节点了<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174559.png" alt="20230112174559"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174627.png" alt="20230112174627"></p>
 <p>到此为止，大数据平台搭建之节点基础配置就结束啦🍃，三个节点都需要配置，配置过程一定要细心哦，特别是IP那一块，错了后面就会很多报错，祝你成功！</p>
@@ -904,13 +881,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-  <!-- 代码块复制功能 -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-  <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <!-- <script type="text/javascript" src="/js/clipboard.js"></script>  -->
-  <script type="text/javascript" src="/js/clipboard_use.js"></script>
 
-
-  <!-- 代码块复制功能结束 --> 
 </body>
 </html>
