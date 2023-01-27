@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112161014.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112164230.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116155504.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230126153018.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116160020.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162808.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162852.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162915.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174559.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112174627.png">
 <meta property="article:published_time" content="2023-01-12T06:36:00.000Z">
-<meta property="article:modified_time" content="2023-01-26T07:33:11.394Z">
+<meta property="article:modified_time" content="2023-01-27T06:32:25.393Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="大数据">
 <meta property="article:tag" content="云服务器">
@@ -320,11 +320,13 @@
 <p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/usermanual-vpc/zh-cn_topic_0081124350.html">华为云安全组配置示例</a></p>
 <p><strong>云服务器安全组配置以master为例</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116155504.png" alt="20230116155504"></p>
-<p>我添加的是对方公有IP，<strong>其他两个云服务器也是</strong>，添加对方的IP</p>
+<p>我添加的是对方公有IP，<strong>其他两个云服务器也是</strong>，添加对方的IP（由于是云端服务器，则直接用真实的公网IP）</p>
 <p><code>[root@slave1 ~]# vim /etc/hosts</code><br>例如</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.185.1 master</span><br><span class="line">192.168.185.2 slave1</span><br><span class="line">192.168.185.3 slave2</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230126153018.png" alt="20230126153018"></p>
+<p>⚠️⚠️⚠️对应的服务器对自己操作时最好用自己的内网ip，如下图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230116160020.png" alt="20230116160020"></p>
+<p>此处，192.168.0.6为云服务器商提供的内网地址<br>*<strong>如果不改可能导致namenode无法启动</strong><br>惨痛教训，呜呜呜，因为对内操作要内网地址</p>
 <p>⚠️这个&#x2F;etc&#x2F;hosts文件只能有一个master、slave1、slave2，不然后面集群启动，会出问题</p>
 <h4 id="检验节点映射"><a href="#检验节点映射" class="headerlink" title="检验节点映射"></a>检验节点映射</h4><p>互相ping一下</p>
 <p>master<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162808.png" alt="20230112162808"><br>slave1<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162852.png" alt="20230112162852"><br>slave2<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112162915.png" alt="20230112162915"></p>

@@ -8,21 +8,26 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>基于Zookeeper的Hadoop HA集群的搭建 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文主要记录📝Hadoop HA安装配置，以及补充学到的知识点，文章以图文形式呈现。">
+  <meta name="description" content="摘要： 本文主要记录📝Hadoop HA安装配置（HDFS的HA和YARN的HA），以及补充学到的知识点，文章以图文形式呈现，超详细哦🌿。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Zookeeper的Hadoop HA集群的搭建">
-<meta property="og:url" content="http://example.com/2023/01/26/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:url" content="http://example.com/2023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文主要记录📝Hadoop HA安装配置，以及补充学到的知识点，文章以图文形式呈现。">
+<meta property="og:description" content="摘要： 本文主要记录📝Hadoop HA安装配置（HDFS的HA和YARN的HA），以及补充学到的知识点，文章以图文形式呈现，超详细哦🌿。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-26T07:25:55.000Z">
-<meta property="article:modified_time" content="2023-01-26T12:20:10.658Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164127.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164455.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164538.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164616.png">
+<meta property="article:published_time" content="2023-01-27T07:25:55.000Z">
+<meta property="article:modified_time" content="2023-01-27T08:49:40.637Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="大数据">
 <meta property="article:tag" content="Hadoop">
 <meta property="article:tag" content="HA">
 <meta property="article:tag" content="zookeeper">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164127.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -181,8 +186,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/01/26/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-01-26T07:25:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-26</time>
+<a href="/2023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2023-01-27T07:25:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-27</time>
 </a>
 
 
@@ -195,42 +200,33 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2.2k字 | 预计阅读时长：10分钟
+        字数：2.3k字 | 预计阅读时长：11分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝Hadoop HA安装配置，以及补充学到的知识点，文章以图文形式呈现。</p>
+        <p>摘要： 本文主要记录📝<strong>Hadoop HA安装配置</strong>（HDFS的HA和YARN的HA），以及补充学到的知识点，文章以图文形式呈现，超详细哦🌿。</p>
 <span id="more"></span>
-<ul>
-<li>背景</li>
-</ul>
-<p>HDFS高可用实现原理</p>
-<p>主要配置了活动-<strong>备用（active-standby）NameNode</strong>。当活动NameNode失效，备用NameNode就会接管它的任务并响应来自客户端的服务请求，不会有任何明显中断。</p>
-<p>HDFS高可用各节点介绍</p>
-<p>1．NameNode（NN）节点</p>
-<p>NameNode节点主要有两种状态：active和standby。</p>
-<p>2．FailoverController（ZKFC）节点</p>
-<p>FailoverController节点用于监控和控制NameNode的状态切换，当一个集群中的Active NameNode“挂掉”后，会把Standby NameNode状态切换成active。</p>
-<p>3．JournalNode（JN）节点</p>
-<p>JournalNode节点共享edits日志文件，因为edits文件一旦丢失，就会导致元数据丢失，数据也就丢失了，这里的JN往往是一个集群，来保障edits不会丢失。</p>
-<p>4．DataNode（DN）</p>
-<p>DataNode节点定时和NameNode进行通信，接受NameNode的指令就会导致元数据丢失，同时DataNode之间还会相互通信，执行数据块复制任务。</p>
-<p>5．ZooKeeper（ZK）</p>
-<p>选择其中一个备用的NameNode为active。在这里需要注意的是，在搭建HA（HDFS高可用）时，可以没有Secondary NameNode节点，在搭建完全分布式时的Secondary NameNode合并edits文件的功能由Standby的NameNode替代了。</p>
-<p>HDFS高可用实现</p>
-<p>前面我们已经提到，HDFS高可用实现方式是通过配置了一对活动-备用（active-standby）NameNode。如果主NameNode发生故障，则切换到备用的NameNode上，通过双NameNode消除单点故障，同时：</p>
-<ul>
-<li><p>Active NN会把edits文件写到JN集群中的每一台机器上，active和standby的NN都可以读取edits文件，共享的edits文件放在一个共享存储中管理。fsimage文件会在格式化时产生并会被推送给其他的NN节点。</p>
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><h3 id="HDFS高可用实现原理"><a href="#HDFS高可用实现原理" class="headerlink" title="HDFS高可用实现原理"></a><strong>HDFS高可用实现原理</strong></h3><p>主要配置了活动-<strong>备用（active-standby）NameNode</strong>。当活动NameNode失效，备用NameNode就会接管它的任务并响应来自客户端的服务请求，不会有任何明显中断。</p>
+<h3 id="ZooKeeper介绍"><a href="#ZooKeeper介绍" class="headerlink" title="ZooKeeper介绍"></a><strong>ZooKeeper介绍</strong></h3><ul>
+<li><p><strong>ZooKeeper</strong>是一个分布式的，开放源码的分布式应用程序协调服务，是<strong>Hadoop</strong>和<strong>Hbase</strong>的重要组件，在大数据领域得到了广泛的应用。它是集群的管理者，<strong>监视</strong>着集群中各个节点的状态根据节点提交的反馈进行下一步合理操作，为分布式应用提供一致性服务的软件，提供的功能包括：<strong>配置维护、域名服务、分布式同步、组服务</strong>等。</p>
 </li>
-<li><p>FailoverController Active和FailoverController Standby分别对Active NN和Standby NN进行健康检查，把心跳数据传给ZooKeeper。如果Active NN掉线了，ZooKeeper会进行选举，选举出来后，由FailoverController进行切换。</p>
+<li><p>ZooKeeper的目标就是<strong>封装好复杂易出错的关键服务</strong>，将简单易用的接口和性能高效、功能稳定的系统提供给用户。</p>
 </li>
-<li><p>DN中的信息会同时发给Active NN和Standby NN。</p>
-</li>
-<li><p>Hadoop HA的最终规划</p>
+<li><p><strong>ZooKeeper的基本运转流程</strong>：<br>1.选举Leader<br>2.同步数据<br>3.选举Leader过程中算法有很多，但要达到的选举标准是一致的。<br>4.Leader要具有最高的执行ID，类似root权限<br>5.集群中大多数的机器得到响应并接受选出的Leader</p>
 </li>
 </ul>
-<table>
+<h2 id="二、环境准备"><a href="#二、环境准备" class="headerlink" title="二、环境准备"></a>二、环境准备</h2><ul>
+<li><p>三台服务器（master、slave1、slave2）</p>
+</li>
+<li><p><strong>各节点完成了IP映射与ssh免密</strong><br>🌱没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">《云服务器IP映射与ssh免密登录》</a></p>
+</li>
+<li><p><strong>配置好了JDK</strong><br>🌱没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">《Hadoop完全分布式配置》</a></p>
+</li>
+<li><p><strong>了解Hadoop基础知识</strong><br>🌱想了解的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">《Hadoop知识点汇总》</a></p>
+</li>
+</ul>
+<h3 id="Hadoop-HA的最终规划"><a href="#Hadoop-HA的最终规划" class="headerlink" title="Hadoop HA的最终规划"></a>Hadoop HA的最终规划</h3><table>
 <thead>
 <tr>
 <th>master</th>
@@ -273,23 +269,30 @@
 <td>ZKFC</td>
 <td>-</td>
 </tr>
-<tr>
-<td>-</td>
-<td>-</td>
-<td>JobHistoryServer</td>
-</tr>
 </tbody></table>
 <p>Secondary NameNode的角色被备用NameNode所包含，备用NameNode为活动的NameNode命名空间设置周期性检查点</p>
-<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><ul>
-<li>三台服务器（master、slave1、slave2）</li>
-<li><strong>各节点完成了IP映射与ssh免密</strong><br>没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">《云服务器IP映射与ssh免密登录》</a></li>
-<li><strong>配置好了JDK</strong><br>没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">《Hadoop完全分布式配置》</a></li>
-</ul>
-<h2 id="二、配置Zookeeper"><a href="#二、配置Zookeeper" class="headerlink" title="二、配置Zookeeper"></a>二、配置Zookeeper</h2><p>首先从官网下载zookeeper，这里以Zookeeper3.4.10为例，并上传到master的&#x2F;usr&#x2F;local目录下</p>
+<h2 id="三、配置Zookeeper"><a href="#三、配置Zookeeper" class="headerlink" title="三、配置Zookeeper"></a>三、配置Zookeeper</h2><h3 id="下载zookeeper"><a href="#下载zookeeper" class="headerlink" title="下载zookeeper"></a>下载zookeeper</h3><p>首先从<a target="_blank" rel="noopener" href="https://zookeeper.apache.org/releases.html#download">官网下载zookeeper</a>，这里以Zookeeper3.4.10为例，并上传到master的&#x2F;usr&#x2F;local目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# cd /usr/local</span><br><span class="line">新建zookeeper目录</span><br><span class="line">[root@master local]# mkdir zookeeper</span><br><span class="line">解压</span><br><span class="line">[root@master local]# tar -zxvf zookeeper-3.4.10.tar.gz </span><br><span class="line">解压好的JDK将其移动到java目录下</span><br><span class="line">[root@master local]# mv jzookeeper-3.4.10 zookeeper</span><br><span class="line">[root@master local]# cd zookeeper</span><br><span class="line">[root@master zookeeper]# </span><br><span class="line">可以切换到zookeeper目录下查看解压好的文件夹</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置zookeeper环境变量"><a href="#2-配置zookeeper环境变量" class="headerlink" title="2.配置zookeeper环境变量"></a>2.配置zookeeper环境变量</h3><p>在profile文件末尾添加zookeeper的环境变量（不可以有空格）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# vim /etc/profile</span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_191</span><br><span class="line">export HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.7</span><br><span class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">export HIVE_HOME=/usr/local/hive/hive-2.3.4</span><br><span class="line">export ZOOKEEPER_HOME=/usr/local/zookeeper/zookeeper-3.4.10</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$HIVE_HOME/bin:$ZOOKEEPER_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164127.png" alt="20230127164127"></p>
+<p>最后：source &#x2F;etc&#x2F;profile使刚刚的配置生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# source /etc/profile</span><br></pre></td></tr></table></figure>
+
 <p>zoo.cfg</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of ticks that the initial</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of ticks that can pass between</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the directory <span class="built_in">where</span> the snapshot is stored.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">do</span> not use /tmp <span class="keyword">for</span> storage, /tmp here is just</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">example sakes.</span></span><br><span class="line">dataDir=/usr/local/zookeeper/data</span><br><span class="line">dataLogDir=/usr/local/zookeeper/datalog</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the port at <span class="built_in">which</span> the clients will connect</span></span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the maximum number of client connections.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">increase this <span class="keyword">if</span> you need to handle more clients</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">maxClientCnxns=60</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># Be sure to read the maintenance section of the</span></span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">administrator guide before turning on autopurge.</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># The number of snapshots to retain in dataDir</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">autopurge.snapRetainCount=3</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Purge task interval <span class="keyword">in</span> hours</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set to <span class="string">&quot;0&quot;</span> to <span class="built_in">disable</span> auto purge feature</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">autopurge.purgeInterval=1</span></span><br><span class="line"></span><br><span class="line">server.0=master:2888:3888 </span><br><span class="line">server.1=slave1:2888:3888 </span><br><span class="line">server.2=slave2:2888:3888</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of ticks that the initial</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of ticks that can pass between</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the directory <span class="built_in">where</span> the snapshot is stored.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">do</span> not use /tmp <span class="keyword">for</span> storage, /tmp here is just</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">example sakes.</span></span><br><span class="line">dataDir=/usr/local/zookeeper/data</span><br><span class="line">dataLogDir=/usr/local/zookeeper/datalog</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the port at <span class="built_in">which</span> the clients will connect</span></span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">the maximum number of client connections.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">increase this <span class="keyword">if</span> you need to handle more clients</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">maxClientCnxns=60</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># Be sure to read the maintenance section of the</span></span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">administrator guide before turning on autopurge.</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># The number of snapshots to retain in dataDir</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">autopurge.snapRetainCount=3</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Purge task interval <span class="keyword">in</span> hours</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set to <span class="string">&quot;0&quot;</span> to <span class="built_in">disable</span> auto purge feature</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">autopurge.purgeInterval=1</span></span><br><span class="line">quorumListenOnAllIPs=true</span><br><span class="line">server.1=master:2888:3888</span><br><span class="line">server.2=slave1:2888:3888</span><br><span class="line">server.3=slave2:2888:3888</span><br></pre></td></tr></table></figure>
 
 <p>dataDir&#x3D;&#x2F;usr&#x2F;local&#x2F;zookeeper&#x2F;data<br>dataLogDir&#x3D;&#x2F;usr&#x2F;local&#x2F;zookeeper&#x2F;datalog<br>data&#x2F;myid</p>
+<ul>
+<li><p>master<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164455.png" alt="20230127164455"></p>
+</li>
+<li><p>slave1<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164538.png" alt="20230127164538"></p>
+</li>
+<li><p>slave2<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230127164616.png" alt="20230127164616"></p>
+</li>
+</ul>
 <h2 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h2><p>core-site.xml</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 把两个NameNode的地址组装成一个集群mycluster --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://mycluster<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--指定hadoop数据临时存放目录--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hadoop/hadoop-2.7.7/data/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果需要自动故障转移的话就需要依赖zookeeper 所以如果不需要自动故障转移可以不配置此参数 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>ha.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:2181,slave1:2181,slave2:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -337,7 +340,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2023/01/26/基于Zookeeper的Hadoop-HA集群的搭建/" title="基于Zookeeper的Hadoop HA集群的搭建" target="_blank">http://example.com/2023/01/26/基于Zookeeper的Hadoop-HA集群的搭建/</a >
+      <a href=" >/2023/01/27/基于Zookeeper的Hadoop-HA集群的搭建/" title="基于Zookeeper的Hadoop HA集群的搭建" target="_blank">http://example.com/2023/01/27/基于Zookeeper的Hadoop-HA集群的搭建/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -426,7 +429,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/26/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -440,18 +443,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hadoop基础知识点汇总
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hive安装（mysql作为元数据库）</div>
+    <a href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hadoop基础知识点汇总</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -478,7 +472,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">一、环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AEZookeeper"><span class="toc-number">2.</span> <span class="toc-text">二、配置Zookeeper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop"><span class="toc-number">3.</span> <span class="toc-text">Hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">3.1.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HDFS%E9%AB%98%E5%8F%AF%E7%94%A8%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">HDFS高可用实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZooKeeper%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">ZooKeeper介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">二、环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hadoop-HA%E7%9A%84%E6%9C%80%E7%BB%88%E8%A7%84%E5%88%92"><span class="toc-number">2.1.</span> <span class="toc-text">Hadoop HA的最终规划</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%85%8D%E7%BD%AEZookeeper"><span class="toc-number">3.</span> <span class="toc-text">三、配置Zookeeper</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDzookeeper"><span class="toc-number">3.1.</span> <span class="toc-text">下载zookeeper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AEzookeeper%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">2.配置zookeeper环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop"><span class="toc-number">4.</span> <span class="toc-text">Hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.1.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -514,7 +508,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Thu Jan 26 2023 15:25:55 GMT+0800',
+  	id: 'Fri Jan 27 2023 15:25:55 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
