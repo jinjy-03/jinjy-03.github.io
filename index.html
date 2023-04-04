@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 8
+			总文章数 9
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -241,6 +241,140 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/09/01/%E9%87%91%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'c79bb4c9f6b92ae4e889',
+  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
+  	repo: 'mycomments',
+  	owner: 'jinjy-03',
+  	admin: ['jinjy-03'],
+  	id: '',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
+  
+    <article id="post-基于Hadoop的Hive集群搭建-centos7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/">基于Hadoop的Hive集群搭建(centos7)</a>
+    </h1>
+  
+
+        
+        
+<a href="/2023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/" class="archive-article-date">
+  	<time datetime="2023-04-03T01:28:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 --> 
+        
+
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：4.9k字 | 预计阅读时长：20分钟
+    </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要： 📝本文将为你介绍如何在<strong>Hadoop集群</strong>上，安装和配置<strong>Hive</strong>，创建<strong>Hive的元数据存储</strong>，通过本文的学习，即使你没有太多Hadoop和数据库的经验，也可以轻松<strong>搭建Hive集群</strong>，搭建均在<strong>centos7</strong>系统操作，包含<strong>zookeeper</strong>、<strong>hadoop</strong>环境配置。<br>内容结合chatGPT补充知识点，文章以<strong>图文</strong>方式呈现🌿</p>
+        
+      
+
+      
+      <!-- 添加版权声明 -->
+    
+  
+    <div class="declare" hidden="hidden"></div>
+  
+        <!-- 添加版权声明 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/">展开全文 >></a>
         </p>
       
 
