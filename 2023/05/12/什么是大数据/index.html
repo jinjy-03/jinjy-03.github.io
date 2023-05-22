@@ -6,46 +6,52 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>大数据分析理论基础 | 一只丸子金</title>
+  <title>什么是大数据 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文是一份针对初学者的大数据分析理论基础笔记📒，涵盖了大数据分析的定义、能力体系、产生与发展、应用背景。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
+  <meta name="description" content="摘要： 本文是一份针对初学者的大数据分析概述笔记📒，涵盖了大数据的定义、特征、分类、应用与挑战、意义与发展趋势。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据分析理论基础">
-<meta property="og:url" content="http://example.com/2023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="什么是大数据">
+<meta property="og:url" content="http://example.com/2023/05/12/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文是一份针对初学者的大数据分析理论基础笔记📒，涵盖了大数据分析的定义、能力体系、产生与发展、应用背景。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
+<meta property="og:description" content="摘要： 本文是一份针对初学者的大数据分析概述笔记📒，涵盖了大数据的定义、特征、分类、应用与挑战、意义与发展趋势。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522095459.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522095848.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522095903.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522101825.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522101925.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102530.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102654.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102806.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102934.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103132.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103209.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103259.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103422.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103703.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103818.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103911.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104101.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104226.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104259.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104327.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104532.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104718.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104812.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104850.png">
-<meta property="article:published_time" content="2023-05-22T01:32:17.000Z">
-<meta property="article:modified_time" content="2023-05-22T03:13:44.571Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512234842.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512234105.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512233145.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512233223.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512233259.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235101.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235152.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235213.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235444.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235641.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235718.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000027.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000110.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000134.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000222.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000310.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000355.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000457.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000546.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000612.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000729.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001047.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001204.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001236.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001304.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001426.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001450.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001540.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001630.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001806.png">
+<meta property="article:published_time" content="2023-05-12T14:50:56.000Z">
+<meta property="article:modified_time" content="2023-05-22T11:50:29.549Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="大数据学习实践课（中级）">
-<meta property="article:tag" content="大数据分析理论基础">
+<meta property="article:tag" content="大数据分析概述">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522095459.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512234842.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -96,7 +102,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 13
+			总文章数 14
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -186,14 +192,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-大数据分析理论基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-什么是大数据" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      大数据分析理论基础
+      什么是大数据
     </h1>
   
 
@@ -204,8 +210,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2023-05-22T01:32:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-22</time>
+<a href="/2023/05/12/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+  	<time datetime="2023-05-12T14:50:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-12</time>
 </a>
 
 
@@ -218,169 +224,109 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2.2k字 | 预计阅读时长：7分钟
+        字数：1k字 | 预计阅读时长：3分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文是一份针对初学者的<strong>大数据分析理论基础笔记</strong>📒，涵盖了大数据分析的<strong>定义</strong>、<strong>能力体系</strong>、<strong>产生与发展</strong>、<strong>应用背景</strong>。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…</p>
+        <p>摘要： 本文是一份针对初学者的<strong>大数据分析概述笔记</strong>📒，涵盖了大数据的<strong>定义</strong>、<strong>特征</strong>、<strong>分类</strong>、<strong>应用与挑战</strong>、<strong>意义与发展趋势</strong>。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…</p>
 <span id="more"></span>
 
-<h2 id="一、大数据分析的定义"><a href="#一、大数据分析的定义" class="headerlink" title="一、大数据分析的定义"></a>一、大数据分析的定义</h2><ul>
-<li><strong>数据分析</strong>是基于<strong>商业等目的</strong>，有目的的进行收集、整理、加工和分析数据，<strong>提炼有价值信息</strong>的过程</li>
-<li><strong>大数据分析</strong>即针对海量的、多样化的数据集合的分析</li>
-<li>过程<br>○	需求分析、目标明确<br>○	数据收集、加工处理<br>○	数据分析、数据展现<br>○	分析报告、提炼价值</li>
+<h2 id="一、大数据的定义"><a href="#一、大数据的定义" class="headerlink" title="一、大数据的定义"></a>一、大数据的定义</h2><h3 id="1-大数据（Big-Data）"><a href="#1-大数据（Big-Data）" class="headerlink" title="1.大数据（Big Data）"></a>1.大数据（Big Data）</h3><ul>
+<li>数据集合：<br>指无法在可承受的时间范围内，用常规软件工具进行捕捉、管理和处理的<strong>数据合集</strong></li>
+<li>信息资产：<br>是需要新处理模式，才能具有更强的决策力、洞察发现力和流程优化能力的<strong>海量、高增长率和多样化的信息资产</strong></li>
 </ul>
-<h2 id="二、大数据分析的能力体系"><a href="#二、大数据分析的能力体系" class="headerlink" title="二、大数据分析的能力体系"></a>二、大数据分析的能力体系</h2><ol>
-<li><p>数学、统计学知识<br>○	数据分析的基础，是整理、描述、预测数据的手段，<br>○	是抽象为数据模型的理论知识</p>
-</li>
-<li><p>传统分析<br>○	在数据量较少时，传统的数据分析已经能够发现数据中包含的知识<br>○	包括结构分析、杜邦分析等，传统分析方法成熟，应用广泛</p>
-</li>
-<li><p>行业经验<br>○	行业经验可在数据分析前确定分析需求<br>○	分析中检验方法是否合理，以及分析后指导应用，行业不同，应用也不相同</p>
-</li>
-<li><p>工具支撑<br>○	数据分析等工具，将分析模型封装，使不了解技术等人也可以实现数据建模，快速响应需求</p>
-</li>
-<li><p>机器学习<br>○	通过计算机自学习，发现数据规律，但结论不易控制</p>
-</li>
-<li><p>数据挖掘<br>○	数据挖掘是挖掘数据背后隐藏的知识都重要手段</p>
-</li>
-<li><p>分析误区<br>○	不了解分析模型的数学原理，会导致错误地使用模型，得出错误的分析结论，影响业务决策</p>
-</li>
-</ol>
-<ul>
-<li>此需深入了解模型原理和使用限制<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522095459.png" alt="20230522095459"></li>
+<h3 id="2-过程"><a href="#2-过程" class="headerlink" title="2.过程"></a>2.过程</h3><ul>
+<li>《第三次浪潮》托夫勒</li>
+<li>大数据应用 麦肯锡</li>
+<li>《大数据时代》 舍恩伯格</li>
+<li>云计算助力 谷歌</li>
+<li>国内规模化 阿里云</li>
 </ul>
-<h2 id="三、大数据分析的产生与发展"><a href="#三、大数据分析的产生与发展" class="headerlink" title="三、大数据分析的产生与发展"></a>三、大数据分析的产生与发展</h2><h3 id="3-1-如何减少空尽被击落概率"><a href="#3-1-如何减少空尽被击落概率" class="headerlink" title="3.1 如何减少空尽被击落概率"></a>3.1 如何减少空尽被击落概率</h3><p>○	幸存者偏差（Surviorship Bias）</p>
-<blockquote>
-<p>Wald教授提出了完全相反的观点：加强机身和机尾部分的防护<br>●	统计的样本只是平安返回的战机<br>●	被多次击中机翼的飞机，似乎还是能够安全返航<br>●	而在机身机尾的位置，很少发现弹孔的原因并非真的不会中弹，而是一旦中弹，其安全返航的几率极小<br>●	仅仅依靠幸存者做出判断是不科学的，有时候非幸存者才是关键</p>
-</blockquote>
-<ul>
-<li>Abraham Wald（1902-1950）<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522095848.png" alt="20230522095848"></li>
+<h3 id="3-为什么会有大数据"><a href="#3-为什么会有大数据" class="headerlink" title="3.为什么会有大数据"></a>3.为什么会有大数据</h3><ul>
+<li>伴随着 <strong>云计算技术</strong>和 <strong>移动互联网技术</strong>的应用和发展</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522095903.png" alt="20230522095903"></p>
-<h3 id="3-2-关系数据库"><a href="#3-2-关系数据库" class="headerlink" title="3.2 关系数据库"></a>3.2 关系数据库</h3><blockquote>
-<p>1970年IBM的埃德加·科德（Edgar Codd，1981年图灵奖获得者）</p>
-</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512234842.png" alt="20230512234842"></p>
 <ul>
-<li>发表了跨时代的著名论文”A relational Model of Data for Large Shared Data Banks”，开启了关系数据库的时代</li>
-<li>该模型是大多数数据库系统的基础</li>
-<li>Edgar Frank Codd（1923-2003）<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522101825.png" alt="20230522101825"></li>
+<li>大数据称为新的生产要素，是重要的资产</li>
 </ul>
 <blockquote>
-<p>基于关系数据库的系统开始大量地应用企业业务</p>
+<p>资产：土地、劳动力、资金、数据</p>
 </blockquote>
 <ul>
-<li>例：材料需求计划（MRP）系统，就代表了计算机最早的主流商业用途之一，用于提高日常物料管理的效率<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522101925.png" alt="20230522101925"></li>
+<li>存储和计算技术的发展：分布式存储、分布式计算、弹性伸缩</li>
 </ul>
-<blockquote>
-<p>在计算机的辅助下，人类处理信息地速度空前地加快了</p>
-</blockquote>
-<h3 id="3-3-商业智能的出现"><a href="#3-3-商业智能的出现" class="headerlink" title="3.3 商业智能的出现"></a>3.3 商业智能的出现</h3><blockquote>
-<p>1958年，IBM研究员Hans Peter Luhn将商业智能定义为“能够理解所呈现的事实之间的相互关系，从而引导行动朝着预期目标前进的能力”</p>
-</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512234105.png" alt="20230512234105"></p>
+<h3 id="4-大数据的发展历程"><a href="#4-大数据的发展历程" class="headerlink" title="4.大数据的发展历程"></a>4.大数据的发展历程</h3><p>(a) 出现阶段 1980～2008年</p>
 <ul>
-<li>1970年代，随着用于分析商业和操作性能的软件和系统的兴起，“商业智能”的受欢迎程度也越来越高。</li>
+<li>1980-《第三次浪潮》首次提出大数据</li>
+<li>2008-《自然》杂志在推出“大数据”专栏</li>
 </ul>
-<blockquote>
-<p>Gartner Group 在九十年代发展了BI的概念：商业智能提供了使企业迅速分析数据的技术和方法</p>
-</blockquote>
+<p>(b) 热门阶段 2009～2011年</p>
 <ul>
-<li>包括收集、管理和分析数据，将这些数据转化为有用的信息，然后分发到企业各处。</li>
+<li>2011-麦肯锡正式定义了大数据</li>
+<li>2011-十二五规划把信息处理技术作为关键提出来</li>
 </ul>
-<blockquote>
-<p>为了将数据转化为知识，需要利用数据仓库、联机分析处理（OLAP）工具和数据挖掘等技术。</p>
-</blockquote>
+<p>(c) 特征阶段 2012～2016年</p>
+<p>2012-《大数据时代》出版<br>2014-贵州提出“中国数谷”概念<br>2015-大数据上升成为国家战略</p>
+<p>(d) 爆发阶段 2017～2022年</p>
+<p>2017-全国至少有13个省成立数据管理机构<br>2018-达沃斯论坛把大数据作为重要议题</p>
+<h2 id="二、大数据的特征"><a href="#二、大数据的特征" class="headerlink" title="二、大数据的特征"></a>二、大数据的特征</h2><h3 id="1-体量大Volume"><a href="#1-体量大Volume" class="headerlink" title="1.体量大Volume"></a>1.体量大Volume</h3><p>○	根据IDC做出大估测，数据一直都在以每年50%的速度增长一倍<br>○	人类在最近两年产出的数据量相当于之前产生的全部数据量<br>○	人类生产的所有印刷材料的数据量是200PB</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512233145.png" alt="20230512233145"></p>
+<p>○	历史上全人类说过的所有话的数量大约是5EB（1EB&#x3D;1024PB）<br>○	典型个人计算机硬盘的容量为TB量级</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512233223.png" alt="20230512233223"></p>
+<p>○	一些大企业的数据量已经接近EB量级</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512233259.png" alt="20230512233259"></p>
+<h3 id="2-种类繁多Variety"><a href="#2-种类繁多Variety" class="headerlink" title="2.种类繁多Variety"></a>2.种类繁多Variety</h3><p>○	10%为结构化数据，通常存储在数据库中<br>○	90%为非结构化数据，格式多种多样<br>○	场景：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235101.png" alt="20230512235101"></p>
+<h3 id="3-价值密度低Value"><a href="#3-价值密度低Value" class="headerlink" title="3.价值密度低Value"></a>3.价值密度低Value</h3><p>○	以视频为例，一部1小时的视频，在连续不间断的监控中，有用数据可能仅有一二秒，价值密度低，商业价值高</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235152.png" alt="20230512235152"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235213.png" alt="20230512235213"></p>
+<h3 id="4-处理速度快Velocity"><a href="#4-处理速度快Velocity" class="headerlink" title="4.处理速度快Velocity"></a>4.处理速度快Velocity</h3><p>○	从数据的生成到消费，时间窗口非常小，可用于生成决策的时间非常少<br>○	最高峰值订单54.4万笔&#x2F;秒<br>○	单日处理数据量达到970PB</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235444.png" alt="20230512235444"></p>
+<h2 id="三、大数据的分类"><a href="#三、大数据的分类" class="headerlink" title="三、大数据的分类"></a>三、大数据的分类</h2><h3 id="1-大数据"><a href="#1-大数据" class="headerlink" title="1.大数据"></a>1.大数据</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235641.png" alt="20230512235641"></p>
+<h3 id="2-数据"><a href="#2-数据" class="headerlink" title="2.数据"></a>2.数据</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230512235718.png" alt="20230512235718"></p>
+<h2 id="四、大数据的应用与挑战"><a href="#四、大数据的应用与挑战" class="headerlink" title="四、大数据的应用与挑战"></a>四、大数据的应用与挑战</h2><h3 id="1-大数据应用领域"><a href="#1-大数据应用领域" class="headerlink" title="1.大数据应用领域"></a>1.大数据应用领域</h3><p>领域广泛、形式多样：交通、政府、电商、金融、制造、教育、医疗、跨行业、能源</p>
+<h3 id="2-大数据应用场景举例"><a href="#2-大数据应用场景举例" class="headerlink" title="2.大数据应用场景举例"></a>2.大数据应用场景举例</h3><p>○	商业</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000027.png" alt="20230513000027"></p>
+<p>🌰：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000110.png" alt="20230513000110"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000134.png" alt="20230513000134"></p>
+<p>○	工业</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000222.png" alt="20230513000222"></p>
+<p>🌰：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000310.png" alt="20230513000310"></p>
+<p>○	医疗</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000355.png" alt="20230513000355"></p>
+<p>🌰：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000457.png" alt="20230513000457"></p>
+<p>○	城市治理</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000546.png" alt="20230513000546"></p>
+<p>🌰：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000612.png" alt="20230513000612"></p>
+<h3 id="3-大数据挑战"><a href="#3-大数据挑战" class="headerlink" title="3.大数据挑战"></a>3.大数据挑战</h3><p>○	数据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513000729.png" alt="20230513000729"></p>
+<p>○	数据资产管理</p>
 <ul>
-<li>因此，从技术层面上讲，商业智能不是什么新技术，它只是数据仓库、OLAP和数据挖掘等技术等综合运用。</li>
+<li>“数据资产”概念已经广泛认可，但如何管理数据资产仍然缺少成熟理论以及工具手段</li>
+<li>数据资产<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001047.png" alt="20230513001047"></li>
 </ul>
-<h3 id="3-4-商业营销理论的发展"><a href="#3-4-商业营销理论的发展" class="headerlink" title="3.4 商业营销理论的发展"></a>3.4 商业营销理论的发展</h3><blockquote>
-<p>20世纪60年代，市场营销学开始快速发展</p>
-</blockquote>
-<ul>
-<li>营销学之父，菲利普·科特勒教授出版了《营销管理》一书，提出4Ps理论<br>●4Ps阐释</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102530.png" alt="20230522102530"></p>
-<blockquote>
-<p>在管理理论等指导下，数据被大量应用到企业管理等方方面面</p>
-</blockquote>
-<ul>
-<li>市场研究公司开始出现，企业的数据文化开始培育。</li>
-</ul>
-<blockquote>
-<p>随着顾客数据越来越全面4Cs理论出现，要求对顾客进行全方位的了解</p>
-</blockquote>
-<ul>
-<li>全方位了解<br>● 4Cs阐释</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102654.png" alt="20230522102654"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102806.png" alt="20230522102806"></p>
-<h3 id="3-5-互联网的崛起"><a href="#3-5-互联网的崛起" class="headerlink" title="3.5 互联网的崛起"></a>3.5 互联网的崛起</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522102934.png" alt="20230522102934"></p>
-<h3 id="3-6-大数据产生根源"><a href="#3-6-大数据产生根源" class="headerlink" title="3.6 大数据产生根源"></a>3.6 大数据产生根源</h3><p><strong>计算机等发展➕互联网和物联网等发展</strong></p>
-<h3 id="3-7-技术基础"><a href="#3-7-技术基础" class="headerlink" title="3.7 技术基础"></a>3.7 技术基础</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103132.png" alt="20230522103132"></p>
-<h3 id="3-8-数据基础"><a href="#3-8-数据基础" class="headerlink" title="3.8 数据基础"></a>3.8 数据基础</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103209.png" alt="20230522103209"></p>
-<h3 id="3-9-技术发展阶段"><a href="#3-9-技术发展阶段" class="headerlink" title="3.9 技术发展阶段"></a>3.9 技术发展阶段</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103259.png" alt="20230522103259"></p>
-<h3 id="3-10-大数据分析开源框架"><a href="#3-10-大数据分析开源框架" class="headerlink" title="3.10 大数据分析开源框架"></a>3.10 大数据分析开源框架</h3><blockquote>
-<p>在存储层</p>
-</blockquote>
-<ul>
-<li>HDFS已经成为了大数据磁盘存储的事实标准</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103422.png" alt="20230522103422"></p>
-<blockquote>
-<p>计算处理引擎方面</p>
-</blockquote>
-<ul>
-<li>Spark已经取代MapReduce成为了大数据平台统一的计算平台</li>
-<li>在实时计算领域Flink是Spark Streaming强力竞争者</li>
-</ul>
-<blockquote>
-<p>在数据查询和分析领域</p>
-</blockquote>
-<ul>
-<li>形成了丰富的SQL on Hadoop的解决方案</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103703.png" alt="20230522103703"></p>
-<blockquote>
-<p>在可视化领域</p>
-</blockquote>
-<ul>
-<li>敏捷商业智能（business intelligence，BI）</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103818.png" alt="20230522103818"></p>
-<h2 id="四、大数据分析的应用场景"><a href="#四、大数据分析的应用场景" class="headerlink" title="四、大数据分析的应用场景"></a>四、大数据分析的应用场景</h2><h3 id="4-1-数据挖掘技术"><a href="#4-1-数据挖掘技术" class="headerlink" title="4.1 数据挖掘技术"></a>4.1 数据挖掘技术</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522103911.png" alt="20230522103911"></p>
-<h3 id="4-2-制造业"><a href="#4-2-制造业" class="headerlink" title="4.2 制造业"></a>4.2 制造业</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104101.png" alt="20230522104101"></p>
-<h3 id="4-3-媒体"><a href="#4-3-媒体" class="headerlink" title="4.3 媒体"></a>4.3 媒体</h3><p>○	针对不同用户调整消息（广告）和内容（文章）</p>
-<h3 id="4-4-数据安全"><a href="#4-4-数据安全" class="headerlink" title="4.4 数据安全"></a>4.4 数据安全</h3><p>○	互联网加速了恶意软件传播<br>■	Deep Instinct公司表示，每一个新恶意软件都会与之前版本几乎相同的代码-每次迭代之有2%到10%的内容会改变。<br>■	他们的学习模式可以非常准确地预测哪些文件是恶意软件</p>
-<h3 id="4-5-个人安全"><a href="#4-5-个人安全" class="headerlink" title="4.5 个人安全"></a>4.5 个人安全</h3><p>○	机器学习用于安全检查<br>■	可以避免人类会漏掉的东西，而且显著加快流程</p>
-<h3 id="4-6-金融交易"><a href="#4-6-金融交易" class="headerlink" title="4.6 金融交易"></a>4.6 金融交易</h3><p>○	许多著名的交易公司都使用专有系统来预测和执行高频交易。<br>■	当模型涉及及消耗大量数据或者需要交易的速度时，人类不可能与机器竞争</p>
-<ul>
-<li><p>2010年前的瑞银交易大厅<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104226.png" alt="20230522104226"></p>
-</li>
-<li><p>2017年的瑞银交易大厅<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104259.png" alt="20230522104259"></p>
-</li>
-</ul>
-<h3 id="4-7-卫生保健"><a href="#4-7-卫生保健" class="headerlink" title="4.7 卫生保健"></a>4.7 卫生保健</h3><p>○	医学影像是医生判断疾病的一个重要手段，利用深度学习算法，<br>■	在人类医学专家的帮助下，在心血管、肿瘤、神内、五官等领域建立了多个精准深度学习医学辅助诊断模型，取得看良好的进展</p>
-<ul>
-<li>2016年谷歌发表在美国医学杂志（JAMA）关于糖尿病视网膜病变<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104327.png" alt="20230522104327"></li>
-</ul>
-<h3 id="4-8-个性化营销"><a href="#4-8-个性化营销" class="headerlink" title="4.8 个性化营销"></a>4.8 个性化营销</h3><p>○	对顾客的了解越多，就可以为他们提供更好的服务，并且销售得越多，这是营销个性化的基础。<br>■	当你访问电商并查看某个产品之后，在后面的数天里，整个网络上都可以看到和该产品相关的数字广告，但这只是营销个性化的冰山一角</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.alimama.com/index.htm">阿里妈妈</a><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104532.png" alt="20230522104532"></li>
-</ul>
-<h3 id="4-9-欺诈识别"><a href="#4-9-欺诈识别" class="headerlink" title="4.9 欺诈识别"></a>4.9 欺诈识别</h3><p>○	例如：PayPal利用机器学习来打击洗钱行为<br>■	该公司拥有比较数百万笔交易的工具，可以精确区分买方和卖方之间的合法交易和欺诈交易。</p>
-<h3 id="4-10-推荐"><a href="#4-10-推荐" class="headerlink" title="4.10 推荐"></a>4.10 推荐</h3><p>○	亚马逊或Netfix，通过智能机器学习算法分析客户的活动将其与数百万其他用户比较<br>■	以确定可能想要购买的东西或下一次消费,这些建议一直在变得越来越聪明</p>
-<ul>
-<li>Netfix利用大数据成功打造了《纸牌屋》<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104718.png" alt="20230522104718"></li>
-</ul>
-<h3 id="4-11-在线搜索"><a href="#4-11-在线搜索" class="headerlink" title="4.11 在线搜索"></a>4.11 在线搜索</h3><p>○	每次用户在Google上执行搜索时，该程序都会监视用户对结果的响应方式。</p>
-<ul>
-<li>如果点击结果并保留在该网页上，可以假设用户获得了要查找的信息。</li>
-<li>如果用户点击第二页的结果，或者在不点击任何结果的情况下输入新的搜索字符串，可以推测搜索引擎没有提供您想要的结果-</li>
-<li>程序可以从这个错误中学习，在未来提供更好的结果</li>
-</ul>
-<h3 id="4-12-自然语言处理"><a href="#4-12-自然语言处理" class="headerlink" title="4.12 自然语言处理"></a>4.12 自然语言处理</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104812.png" alt="20230522104812"></p>
-<h3 id="4-13-智能汽车"><a href="#4-13-智能汽车" class="headerlink" title="4.13 智能汽车"></a>4.13 智能汽车</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522104850.png" alt="20230522104850"></p>
-<p>🌿至此大数据分析理论基础笔记📒就介绍完啦～</p>
+<h2 id="五、大数据的意义与发展趋势"><a href="#五、大数据的意义与发展趋势" class="headerlink" title="五、大数据的意义与发展趋势"></a>五、大数据的意义与发展趋势</h2><h3 id="1-大数据的意义"><a href="#1-大数据的意义" class="headerlink" title="1.大数据的意义"></a>1.大数据的意义</h3><p>○	商业的变革</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001204.png" alt="20230513001204"></p>
+<p>○	管理的变革</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001236.png" alt="20230513001236"></p>
+<p>○	思维的变革</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001304.png" alt="20230513001304"></p>
+<h3 id="2-大数据的发展趋势"><a href="#2-大数据的发展趋势" class="headerlink" title="2.大数据的发展趋势"></a>2.大数据的发展趋势</h3><p>○	我国大数据产业规模稳步增长</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001426.png" alt="20230513001426"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001450.png" alt="20230513001450"></p>
+<p>○	政策热度持续攀升</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001540.png" alt="20230513001540"></p>
+<p>○	融合提速，不均衡现象突出</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001630.png" alt="20230513001630"></p>
+<p>○	创新与升级</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230513001806.png" alt="20230513001806"></p>
+<p>🌿至此大数据分析概述笔记📒就介绍完啦～</p>
 
       
 
@@ -412,7 +358,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2023/05/22/大数据分析理论基础/" title="大数据分析理论基础" target="_blank">http://example.com/2023/05/22/大数据分析理论基础/</a >
+      <a href=" >/2023/05/12/什么是大数据/" title="什么是大数据" target="_blank">http://example.com/2023/05/12/什么是大数据/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -437,7 +383,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">大数据分析理论基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大数据分析概述</a>
         		</li>
       		
 		</ul>
@@ -493,7 +439,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/05/12/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -507,9 +453,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2023/05/22/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          什么是大数据分析
+        
+      </div>
+    </a>
   
-    <a href="/2023/05/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">大数据分析概述</div>
+  
+    <a href="/2023/04/06/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模论文写作方法笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -536,7 +491,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">一、大数据分析的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E8%83%BD%E5%8A%9B%E4%BD%93%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text">二、大数据分析的能力体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%BA%A7%E7%94%9F%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="toc-number">3.</span> <span class="toc-text">三、大数据分析的产生与发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E7%A9%BA%E5%B0%BD%E8%A2%AB%E5%87%BB%E8%90%BD%E6%A6%82%E7%8E%87"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 如何减少空尽被击落概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 关系数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD%E7%9A%84%E5%87%BA%E7%8E%B0"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 商业智能的出现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%95%86%E4%B8%9A%E8%90%A5%E9%94%80%E7%90%86%E8%AE%BA%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 商业营销理论的发展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E5%B4%9B%E8%B5%B7"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 互联网的崛起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%BA%A7%E7%94%9F%E6%A0%B9%E6%BA%90"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 大数据产生根源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 技术基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80"><span class="toc-number">3.8.</span> <span class="toc-text">3.8 数据基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E6%8A%80%E6%9C%AF%E5%8F%91%E5%B1%95%E9%98%B6%E6%AE%B5"><span class="toc-number">3.9.</span> <span class="toc-text">3.9 技术发展阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6"><span class="toc-number">3.10.</span> <span class="toc-text">3.10 大数据分析开源框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">4.</span> <span class="toc-text">四、大数据分析的应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 数据挖掘技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%B6%E9%80%A0%E4%B8%9A"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 制造业</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%AA%92%E4%BD%93"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 媒体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 数据安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 个人安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E9%87%91%E8%9E%8D%E4%BA%A4%E6%98%93"><span class="toc-number">4.6.</span> <span class="toc-text">4.6 金融交易</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-%E5%8D%AB%E7%94%9F%E4%BF%9D%E5%81%A5"><span class="toc-number">4.7.</span> <span class="toc-text">4.7 卫生保健</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E4%B8%AA%E6%80%A7%E5%8C%96%E8%90%A5%E9%94%80"><span class="toc-number">4.8.</span> <span class="toc-text">4.8 个性化营销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E6%AC%BA%E8%AF%88%E8%AF%86%E5%88%AB"><span class="toc-number">4.9.</span> <span class="toc-text">4.9 欺诈识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-%E6%8E%A8%E8%8D%90"><span class="toc-number">4.10.</span> <span class="toc-text">4.10 推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11-%E5%9C%A8%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="toc-number">4.11.</span> <span class="toc-text">4.11 在线搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86"><span class="toc-number">4.12.</span> <span class="toc-text">4.12 自然语言处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13-%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6"><span class="toc-number">4.13.</span> <span class="toc-text">4.13 智能汽车</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">一、大数据的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%A7%E6%95%B0%E6%8D%AE%EF%BC%88Big-Data%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1.大数据（Big Data）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2.过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E5%A4%A7%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3.为什么会有大数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">4.大数据的发展历程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">2.</span> <span class="toc-text">二、大数据的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%93%E9%87%8F%E5%A4%A7Volume"><span class="toc-number">2.1.</span> <span class="toc-text">1.体量大Volume</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%A7%8D%E7%B1%BB%E7%B9%81%E5%A4%9AVariety"><span class="toc-number">2.2.</span> <span class="toc-text">2.种类繁多Variety</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BB%B7%E5%80%BC%E5%AF%86%E5%BA%A6%E4%BD%8EValue"><span class="toc-number">2.3.</span> <span class="toc-text">3.价值密度低Value</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%84%E7%90%86%E9%80%9F%E5%BA%A6%E5%BF%ABVelocity"><span class="toc-number">2.4.</span> <span class="toc-text">4.处理速度快Velocity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">三、大数据的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%A7%E6%95%B0%E6%8D%AE"><span class="toc-number">3.1.</span> <span class="toc-text">1.大数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.</span> <span class="toc-text">2.数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E6%8C%91%E6%88%98"><span class="toc-number">4.</span> <span class="toc-text">四、大数据的应用与挑战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-number">4.1.</span> <span class="toc-text">1.大数据应用领域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%BE%E4%BE%8B"><span class="toc-number">4.2.</span> <span class="toc-text">2.大数据应用场景举例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98"><span class="toc-number">4.3.</span> <span class="toc-text">3.大数据挑战</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%84%8F%E4%B9%89%E4%B8%8E%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-number">5.</span> <span class="toc-text">五、大数据的意义与发展趋势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-number">5.1.</span> <span class="toc-text">1.大数据的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-number">5.2.</span> <span class="toc-text">2.大数据的发展趋势</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -572,7 +527,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Mon May 22 2023 09:32:17 GMT+0800',
+  	id: 'Fri May 12 2023 22:50:56 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -766,6 +721,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">大数据分析理论基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据统计分析理论基础</a>
               </li>
             
             <div class="clearfix"></div>
