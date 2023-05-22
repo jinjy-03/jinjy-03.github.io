@@ -6,17 +6,58 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 数学建模 | 一只丸子金</title>
+  <title>大数据分析的流程与常用技术 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只丸子金">
-<meta property="og:url" content="http://example.com/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/index.html">
+  <meta name="description" content="摘要： 本文是一份针对初学者的大数据分析的流程与常用技术笔记📒，涵盖了大数据分析流程的数据采集、存储与管理、计算、应用与常用的数据采集、预处理、存储与管理、分析处理、挖掘、可视化技术。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据分析的流程与常用技术">
+<meta property="og:url" content="http://example.com/2023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%B5%81%E7%A8%8B%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="记录学习笔记">
+<meta property="og:description" content="摘要： 本文是一份针对初学者的大数据分析的流程与常用技术笔记📒，涵盖了大数据分析流程的数据采集、存储与管理、计算、应用与常用的数据采集、预处理、存储与管理、分析处理、挖掘、可视化技术。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220225.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220345.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220429.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220508.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220544.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220714.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221254.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221407.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221543.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221941.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222217.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222353.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222515.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222631.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222738.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223057.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223138.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223225.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223405.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223436.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223630.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223701.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223838.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223939.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224035.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224356.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224458.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224537.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224809.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225219.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225458.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225535.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225758.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225831.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522230219.png">
+<meta property="article:published_time" content="2023-05-22T13:41:56.000Z">
+<meta property="article:modified_time" content="2023-05-22T15:03:14.484Z">
 <meta property="article:author" content="金金">
+<meta property="article:tag" content="大数据学习实践课（中级）">
+<meta property="article:tag" content="大数据分析的流程与常用技术">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220225.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -157,64 +198,408 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-大数据分析的流程与常用技术" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/04/06/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2023-04-06T11:11:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/06/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/">数学建模论文写作方法笔记</a>
+    <h1 class="article-title" itemprop="name">
+      大数据分析的流程与常用技术
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%B5%81%E7%A8%8B%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF/" class="archive-article-date">
+  	<time datetime="2023-05-22T13:41:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-22</time>
+</a>
+
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 --> 
+        
+
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：2.2k字 | 预计阅读时长：7分钟
+    </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要： 本文是一份针对初学者的<strong>大数据分析的流程与常用技术笔记</strong>📒，涵盖了大数据分析流程的数据<strong>采集</strong>、<strong>存储与管理</strong>、<strong>计算</strong>、<strong>应用</strong>与常用的数据<strong>采集</strong>、<strong>预处理</strong>、<strong>存储与管理</strong>、<strong>分析处理</strong>、<strong>挖掘</strong>、<strong>可视化</strong>技术。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…</p>
+<span id="more"></span>
+
+<h2 id="大数据分析流程"><a href="#大数据分析流程" class="headerlink" title="大数据分析流程"></a>大数据分析流程</h2><h3 id="一、数据采集"><a href="#一、数据采集" class="headerlink" title="一、数据采集"></a>一、数据采集</h3><p>○	实时数据采集<br>■	Flume、Fluented、Splunk、DataHub<br>○	离线数据采集<br>■	ETL、Sqoop、DataX</p>
+<h3 id="二、数据存储"><a href="#二、数据存储" class="headerlink" title="二、数据存储"></a>二、数据存储</h3><p>○	数据存储<br>■	关系数据库、mpp数据库、NoSQL数据库、分布式文件系统<br>○	数据仓库建模<br>○	元数据管理<br>○	数据质量控制<br>○	数据安全管理</p>
+<h3 id="三、数据计算"><a href="#三、数据计算" class="headerlink" title="三、数据计算"></a>三、数据计算</h3><p>○	多维统计分析<br>○	大规模并行计算框架<br>○	数据挖掘、机器学习模型与算法<br>○	分布式实时计算<br>○	交互式分析</p>
+<h3 id="四、数据应用"><a href="#四、数据应用" class="headerlink" title="四、数据应用"></a>四、数据应用</h3><p>○	数据报表<br>○	可视化展现<br>○	数据服务<br>○	数据分享</p>
+<p><strong>云计算：实时、离线</strong></p>
+<h2 id="常用技术"><a href="#常用技术" class="headerlink" title="常用技术"></a>常用技术</h2><h3 id="一、数据采集技术"><a href="#一、数据采集技术" class="headerlink" title="一、数据采集技术"></a>一、数据采集技术</h3><h4 id="1-大数据采集的方法"><a href="#1-大数据采集的方法" class="headerlink" title="1.大数据采集的方法"></a>1.大数据采集的方法</h4><ul>
+<li><p>WEB端<br>●	基于浏览器：页面浏览日志（pv&#x2F;uv）、页面交互日志（转化率）<br>●	网络爬虫&#x2F;API</p>
+</li>
+<li><p>APP端<br>●	无线客户端：页面浏览事件、控制点击事件<br>●	采集SDK&#x2F;埋点</p>
+</li>
+<li><p>传感器<br>●	物联网：人工智能驾驶：温湿度、障碍物<br>●	测量值转化数字信号</p>
+</li>
+<li><p>数据库<br>●	源业务系统：结构化数据 客户、交易等<br>●	数据同步</p>
+</li>
+<li><p>第三方<br>●	第三方数据：政府公布宏观数据、对接公安系统等身份核验<br>●	合作方提供</p>
+</li>
+</ul>
+<h4 id="2-离线数据采集ETL"><a href="#2-离线数据采集ETL" class="headerlink" title="2.离线数据采集ETL"></a>2.离线数据采集ETL</h4><ul>
+<li>离线数据采集ETL<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220225.png" alt="20230522220225"></li>
+</ul>
+<blockquote>
+<p>ETL<br>●	Extract:抽取<br>●	Transform:转换<br>●	Loading:装载</p>
+</blockquote>
+<h4 id="3-ETL工具"><a href="#3-ETL工具" class="headerlink" title="3.ETL工具"></a>3.ETL工具</h4><p>目前市场上主流的ETL工具有:</p>
+<ul>
+<li><p>Informatic PowerCenter<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220345.png" alt="20230522220345"></p>
+</li>
+<li><p>IBM DataStage<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220429.png" alt="20230522220429"></p>
+</li>
+<li><p>开源Kettle<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220508.png" alt="20230522220508"></p>
+</li>
+<li><p>阿里云DataX<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220544.png" alt="20230522220544"></p>
+</li>
+</ul>
+<h4 id="4-实时数据采集与处理"><a href="#4-实时数据采集与处理" class="headerlink" title="4.实时数据采集与处理"></a>4.实时数据采集与处理</h4><ul>
+<li>消息缓存与传输<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220714.png" alt="20230522220714"></li>
+<li>实时计算引擎</li>
+<li>数据存储与应用<br>工具：<br>○	Flume<br>○	Kafka<br>○	DataHub</li>
+</ul>
+<h4 id="5-数据集成"><a href="#5-数据集成" class="headerlink" title="5.数据集成"></a>5.数据集成</h4><ul>
+<li>定义<br>针对来自不同数据源的数据，进行合并并整理，形成统一的数据视图</li>
+<li>需要考虑的问题<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522220925.png" alt="20230522220925"></li>
+<li>顺序<br>1.确定核心信息、可靠关系，完成初步合并<br>2.寻找拓展关系、融入相关信息、完成二次合并<br>3.关系发散传递、融入更多信息、完成迭代合并</li>
+</ul>
+<h3 id="二、数据预处理技术"><a href="#二、数据预处理技术" class="headerlink" title="二、数据预处理技术"></a>二、数据预处理技术</h3><h4 id="1-数据清洗"><a href="#1-数据清洗" class="headerlink" title="1.数据清洗"></a>1.数据清洗</h4><ul>
+<li><p>定义<br>●	针对原始数据，对出现的噪声进行修复、平滑或者剔除<br>（包括异常值、缺失值、重复记录、错误记录等）<br>●	同时过滤掉不用等数据，包括某些行或某些列</p>
+</li>
+<li><p>噪声数据处理<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221254.png" alt="20230522221254"></p>
+</li>
+</ul>
+<h4 id="2-数据变换"><a href="#2-数据变换" class="headerlink" title="2.数据变换"></a>2.数据变换</h4><ul>
+<li>定义<br>对数据进行变换处理，使数据更合适当前任务或算法的需要</li>
+<li>常见的变换方式<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221407.png" alt="20230522221407"></li>
+</ul>
+<h4 id="3-数据规约"><a href="#3-数据规约" class="headerlink" title="3.数据规约"></a>3.数据规约</h4><ul>
+<li><p>数据变化<br>●	在尽可能保持数据原貌的前提下：最大限度第精简数据量<br>●	主要包括：属性选择、数据抽样</p>
+</li>
+<li><p>数据抽样<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221543.png" alt="20230522221543"></p>
+</li>
+</ul>
+<h3 id="三、数据存储与管理"><a href="#三、数据存储与管理" class="headerlink" title="三、数据存储与管理"></a>三、数据存储与管理</h3><h4 id="1-结构化数据"><a href="#1-结构化数据" class="headerlink" title="1.结构化数据"></a>1.结构化数据</h4><p>行存储：MySQL、Oracle</p>
+<h4 id="2-半结构化数据"><a href="#2-半结构化数据" class="headerlink" title="2.半结构化数据"></a>2.半结构化数据</h4><h4 id="3-非结构化数据"><a href="#3-非结构化数据" class="headerlink" title="3.非结构化数据"></a>3.非结构化数据</h4><p>■	Mongo DB<br>■	Neo4J<br>■	OSS</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522221941.png" alt="20230522221941"></p>
+<h4 id="4-分布式文件系统HDFS"><a href="#4-分布式文件系统HDFS" class="headerlink" title="4.分布式文件系统HDFS"></a>4.分布式文件系统HDFS</h4><ul>
+<li><p>介绍<br>1.Hadoop是一个分布式系统基础架构，由Apache基金开发。<br>2.用户可以在不了解分布式底层细节的情况下，开发分布式程序，充分利用集群的威力高速运算和存储。<br>3.Hadoop实现了一个分布式文件系统（Hadoop Distributed File System）简称HDFS</p>
+</li>
+<li><p>特点<br>HDFS有着高容错性的特点，并且设计用来部署在低廉的硬件上</p>
+</li>
+<li><p>HDFS集群<br>●	一个主节点（NameNode）<br>●	多个从属节点（DataNodes）<br>●	多个客户端访问<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222217.png" alt="20230522222217"></p>
+</li>
+</ul>
+<h4 id="5-分布式列存数据库"><a href="#5-分布式列存数据库" class="headerlink" title="5.分布式列存数据库"></a>5.分布式列存数据库</h4><ul>
+<li><p>介绍<br>●	HBase是一个构建在HDFS上的分布式列存储系统，用于海量结构化、半结构化数据存储。<br>●	HBase的目标是处理非常庞大的表，超过10亿行、数百万列</p>
+</li>
+<li><p>特点<br>●	高可靠、高性能<br>●	水平拓展、可伸缩<br>●	面向列<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222353.png" alt="20230522222353"></p>
+</li>
+</ul>
+<h4 id="6-内存数据库Redis"><a href="#6-内存数据库Redis" class="headerlink" title="6.内存数据库Redis"></a>6.内存数据库Redis</h4><ul>
+<li>介绍<br>●	Redis是一个开源的可基于内存亦可持久化的日志型、Key-Value内存数据库<br>●	也可作为消息的发布、订阅</li>
+<li>特点<br>●	高性能、高可用<br>●	丰富数据类型<br>●	支持事务<br>●	丰富客户端、多种语言API<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222515.png" alt="20230522222515"></li>
+</ul>
+<h4 id="7-消息分发和存储Kafka"><a href="#7-消息分发和存储Kafka" class="headerlink" title="7.消息分发和存储Kafka"></a>7.消息分发和存储Kafka</h4><ul>
+<li>介绍<br>●	Kafka是分布式发布-订阅消息系统，是可划分的、多订阅者、冗余备份、持久性的日志服务<br>●	主要用于处理流式数据</li>
+<li>特点<br>●	高吞吐量<br>●	分布式、易拓展<br>●	支持在线、离线<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222631.png" alt="20230522222631"></li>
+</ul>
+<h4 id="8-非结构化数据存储OSS"><a href="#8-非结构化数据存储OSS" class="headerlink" title="8.非结构化数据存储OSS"></a>8.非结构化数据存储OSS</h4><ul>
+<li>介绍<br>●	阿里云对象存储服务（Object Storage Service，OSS）是一种海量、安全、低成本、高可靠的云存储服务，适合存放任意类型的文件<br>●	容量和处理能力弹性拓展，多种存储类型供选择，全面优化存储成本</li>
+<li>特点<br>●	高可靠性<br>●	安全<br>●	低成本<br>●	丰富、强大的增值服务<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522222738.png" alt="20230522222738"></li>
+</ul>
+<h3 id="四、数据分析处理技术"><a href="#四、数据分析处理技术" class="headerlink" title="四、数据分析处理技术"></a>四、数据分析处理技术</h3><h4 id="1-三种计算场景"><a href="#1-三种计算场景" class="headerlink" title="1.三种计算场景"></a>1.三种计算场景</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223057.png" alt="20230522223057"></p>
+<h4 id="2-离线批处理"><a href="#2-离线批处理" class="headerlink" title="2.离线批处理"></a>2.离线批处理</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223138.png" alt="20230522223138"></p>
+<h4 id="3-分布式离线计算框架MapReduce"><a href="#3-分布式离线计算框架MapReduce" class="headerlink" title="3.分布式离线计算框架MapReduce"></a>3.分布式离线计算框架MapReduce</h4><p>■	Input<br>■	Splitting<br>■	Mapping<br>■	Shuffling<br>■	Reducing<br>■	 Final result</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223225.png" alt="20230522223225"></p>
+<h4 id="4-通用计算框架Spark"><a href="#4-通用计算框架Spark" class="headerlink" title="4.通用计算框架Spark"></a>4.通用计算框架Spark</h4><ul>
+<li>介绍<br>●	Spark是一种分布式、通用大数据计算框架<br>●	可用于离线计算、交互式查询、流式计算、机器学习等</li>
+<li>特点<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223405.png" alt="20230522223405"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223436.png" alt="20230522223436"></li>
+</ul>
+<h4 id="5-实时流处理"><a href="#5-实时流处理" class="headerlink" title="5.实时流处理"></a>5.实时流处理</h4><ul>
+<li>数据装载<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223630.png" alt="20230522223630"></li>
+<li>实时数据流<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223701.png" alt="20230522223701"></li>
+<li>实时结果流</li>
+</ul>
+<h4 id="6-实时流处理框架平台"><a href="#6-实时流处理框架平台" class="headerlink" title="6.实时流处理框架平台"></a>6.实时流处理框架平台</h4><ul>
+<li>STROM<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223838.png" alt="20230522223838"></li>
+<li>Spark<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522223939.png" alt="20230522223939"></li>
+<li>Flink<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224035.png" alt="20230522224035"></li>
+</ul>
+<h4 id="7-大数据分析方法"><a href="#7-大数据分析方法" class="headerlink" title="7.大数据分析方法"></a>7.大数据分析方法</h4><ul>
+<li><p>描述型分析<br>●	发生了什么<br>●	特点：广泛的，精确的实时数据、有效的可视化</p>
+</li>
+<li><p>诊断型分析<br>●	为什么会发生<br>●	特点：能够钻取数据的核心、能够对混乱的信息进行分类</p>
+</li>
+<li><p>预测型分析<br>●	可能会发生什么<br>●	特点：使用算法确保历史模型能够用户预测特定的结构、使用算法和技术确保自动生成决定</p>
+</li>
+<li><p>指令型分析<br>●	下步怎么做<br>●	特点：依据测试结果来选定最佳的行为和策略、应用先进的分析技术帮助做出决策<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224356.png" alt="20230522224356"></p>
+</li>
+</ul>
+<h4 id="8-统计分析"><a href="#8-统计分析" class="headerlink" title="8.统计分析"></a>8.统计分析</h4><p>对数据集进行摘要或描述</p>
+<ul>
+<li>🌰<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224458.png" alt="20230522224458"><br>○	多维分析（钻取、切片、切块、旋转）<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224537.png" alt="20230522224537"></li>
+</ul>
+<h3 id="五、数据挖掘技术"><a href="#五、数据挖掘技术" class="headerlink" title="五、数据挖掘技术"></a>五、数据挖掘技术</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
+<li>提取隐含在数据中的、人们事前不知道的、但又是潜在有用的信息和知识<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522224809.png" alt="20230522224809"></li>
+</ul>
+<h4 id="2-算法"><a href="#2-算法" class="headerlink" title="2.算法"></a>2.算法</h4><p>○	以下算法广泛应用于数据挖掘：<br>C4.5、K-means、SVM、Apriori、EM、PageRank、AdaBoost、kNN、朴素贝叶斯和CART等</p>
+<h4 id="3-机器学习"><a href="#3-机器学习" class="headerlink" title="3.机器学习"></a>3.机器学习</h4><ul>
+<li><p>介绍<br>●	机器获取新知识和新技能，并识别现有知识<br>●	有监督学习、无监督学习、强化学习、深度学习</p>
+</li>
+<li><p>机器学习技能范畴<br>●	信息论<br>●	概率论<br>●	微积分<br>●	矩阵论<br>●	编程</p>
+</li>
+<li><p>过程<br>●	数据预处理<br>●	特征工程<br>●	模拟训练<br>●	离线&#x2F;在线预测</p>
+</li>
+</ul>
+<h4 id="4-数据挖掘常用算法"><a href="#4-数据挖掘常用算法" class="headerlink" title="4.数据挖掘常用算法"></a>4.数据挖掘常用算法</h4><ul>
+<li>分类、聚类、关联规则、时间序列<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225219.png" alt="20230522225219"></li>
+</ul>
+<h3 id="六、数据可视化技术"><a href="#六、数据可视化技术" class="headerlink" title="六、数据可视化技术"></a>六、数据可视化技术</h3><h4 id="1-数据可视化"><a href="#1-数据可视化" class="headerlink" title="1.数据可视化"></a>1.数据可视化</h4><p>■	利用计算机图形学和图像处理技术，将数据转换为图形或者图像在屏幕上显示出来进行交互处理的理论方法和技术<br>■	数据可视化主要旨在借助图形化手段，清晰有效传达与沟通信息<br>■	数据可视化随着平台的拓展、应用领域的增加，表现形式的不断变化，从原始的BI统计图表</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225458.png" alt="20230522225458"></p>
+<p>■	到不断增加的诸如实时动态效果、地理信息、用户交互等等</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225535.png" alt="20230522225535"></p>
+<p>■	数据可视化的概念边界不断扩大</p>
+<h4 id="2-常见方法"><a href="#2-常见方法" class="headerlink" title="2.常见方法"></a>2.常见方法</h4><p>统计图表｜2D、3D区域｜时态｜多维｜分层｜网络</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225758.png" alt="20230522225758"></p>
+<h4 id="3-常见可视化图表"><a href="#3-常见可视化图表" class="headerlink" title="3.常见可视化图表"></a>3.常见可视化图表</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522225831.png" alt="20230522225831"></p>
+<h4 id="4-图表类型的使用场景"><a href="#4-图表类型的使用场景" class="headerlink" title="4.图表类型的使用场景"></a>4.图表类型的使用场景</h4><ul>
+<li><p>比较<br>对比各个值之间的差别<br>○	柱图<br>○	雷达<br>○	漏斗<br>○	极坐标<br>○	旋风漏斗<br>○	词云</p>
+</li>
+<li><p>占比<br>部分占整体的百分比<br>○	饼图<br>○	漏斗<br>○	仪表盘<br>○	矩阵树图</p>
+</li>
+<li><p>相关<br>显示各个值之间的关系<br>○	散点<br>○	矩阵树图<br>○	指标看板<br>○	树图<br>○	来源去向</p>
+</li>
+<li><p>趋势<br>数值随维度的变化情况<br>○	线图<br>○	柱图</p>
+</li>
+<li><p>地理图<br>数值和地理信息映射图<br>○	气泡地图<br>○	色彩地图</p>
+</li>
+</ul>
+<h4 id="5-大屏"><a href="#5-大屏" class="headerlink" title="5.大屏"></a>5.大屏</h4><ul>
+<li>使用大屏来分析并展示庞杂数据的一种数据可视化方式</li>
+<li>通过丰富的动态、炫目等效果，满足会议展览、业务监控、风险预警、地理信息分析等多种业务等展示需求<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522230219.png" alt="20230522230219"></li>
+</ul>
+<p>🌿至此大数据分析的流程与常用技术笔记📒就介绍完啦～</p>
+
+      
+
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+             -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+        
+ 
+    
+      <!-- 添加版权声明 -->
+    
+  
+    <div class="declare">
+      <strong>本文作者：</strong>
+      
+        金金
+      
+      <br>
+      <strong>本文链接：</strong>
+      <a href=" >/2023/05/22/大数据分析的流程与常用技术/" title="大数据分析的流程与常用技术" target="_blank">http://example.com/2023/05/22/大数据分析的流程与常用技术/</a >
+      <br>
+      <strong>版权声明：</strong>
+      本作品采用
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a >
+      进行许可。转载请注明出处！
+      
+    </div>
+  
+        <!-- 添加版权声明 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数学建模</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大数据学习实践课（中级）</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据分析的流程与常用技术</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%B5%81%E7%A8%8B%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2023/05/22/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据统计分析理论基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">大数据分析流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86"><span class="toc-number">1.1.</span> <span class="toc-text">一、数据采集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="toc-number">1.2.</span> <span class="toc-text">二、数据存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97"><span class="toc-number">1.3.</span> <span class="toc-text">三、数据计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8"><span class="toc-number">1.4.</span> <span class="toc-text">四、数据应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">2.</span> <span class="toc-text">常用技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%8A%80%E6%9C%AF"><span class="toc-number">2.1.</span> <span class="toc-text">一、数据采集技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.大数据采集的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A6%BB%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86ETL"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.离线数据采集ETL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-ETL%E5%B7%A5%E5%85%B7"><span class="toc-number">2.1.3.</span> <span class="toc-text">3.ETL工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E5%A4%84%E7%90%86"><span class="toc-number">2.1.4.</span> <span class="toc-text">4.实时数据采集与处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90"><span class="toc-number">2.1.5.</span> <span class="toc-text">5.数据集成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF"><span class="toc-number">2.2.</span> <span class="toc-text">二、数据预处理技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.数据清洗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%8F%98%E6%8D%A2"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.数据变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E8%A7%84%E7%BA%A6"><span class="toc-number">2.2.3.</span> <span class="toc-text">3.数据规约</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">三、数据存储与管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.结构化数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8D%8A%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.半结构化数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.非结构化数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9FHDFS"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.分布式文件系统HDFS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%88%86%E5%B8%83%E5%BC%8F%E5%88%97%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.3.5.</span> <span class="toc-text">5.分布式列存数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93Redis"><span class="toc-number">2.3.6.</span> <span class="toc-text">6.内存数据库Redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E6%B6%88%E6%81%AF%E5%88%86%E5%8F%91%E5%92%8C%E5%AD%98%E5%82%A8Kafka"><span class="toc-number">2.3.7.</span> <span class="toc-text">7.消息分发和存储Kafka</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8OSS"><span class="toc-number">2.3.8.</span> <span class="toc-text">8.非结构化数据存储OSS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF"><span class="toc-number">2.4.</span> <span class="toc-text">四、数据分析处理技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%89%E7%A7%8D%E8%AE%A1%E7%AE%97%E5%9C%BA%E6%99%AF"><span class="toc-number">2.4.1.</span> <span class="toc-text">1.三种计算场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A6%BB%E7%BA%BF%E6%89%B9%E5%A4%84%E7%90%86"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.离线批处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%86%E5%B8%83%E5%BC%8F%E7%A6%BB%E7%BA%BF%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6MapReduce"><span class="toc-number">2.4.3.</span> <span class="toc-text">3.分布式离线计算框架MapReduce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%80%9A%E7%94%A8%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6Spark"><span class="toc-number">2.4.4.</span> <span class="toc-text">4.通用计算框架Spark</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%AE%9E%E6%97%B6%E6%B5%81%E5%A4%84%E7%90%86"><span class="toc-number">2.4.5.</span> <span class="toc-text">5.实时流处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%AE%9E%E6%97%B6%E6%B5%81%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.4.6.</span> <span class="toc-text">6.实时流处理框架平台</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.7.</span> <span class="toc-text">7.大数据分析方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90"><span class="toc-number">2.4.8.</span> <span class="toc-text">8.统计分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF"><span class="toc-number">2.5.</span> <span class="toc-text">五、数据挖掘技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-number">2.5.1.</span> <span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95"><span class="toc-number">2.5.2.</span> <span class="toc-text">2.算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.5.3.</span> <span class="toc-text">3.机器学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95"><span class="toc-number">2.5.4.</span> <span class="toc-text">4.数据挖掘常用算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-number">2.6.</span> <span class="toc-text">六、数据可视化技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">2.6.1.</span> <span class="toc-text">1.数据可视化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.6.2.</span> <span class="toc-text">2.常见方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%B8%B8%E8%A7%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8"><span class="toc-number">2.6.3.</span> <span class="toc-text">3.常见可视化图表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%9B%BE%E8%A1%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.6.4.</span> <span class="toc-text">4.图表类型的使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%A4%A7%E5%B1%8F"><span class="toc-number">2.6.5.</span> <span class="toc-text">5.大屏</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'c79bb4c9f6b92ae4e889',
+  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
+  	repo: 'mycomments',
+  	owner: 'jinjy-03',
+  	admin: ['jinjy-03'],
+  	id: 'Mon May 22 2023 21:41:56 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
           </div>
         </div>
       </div>
@@ -272,9 +657,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
