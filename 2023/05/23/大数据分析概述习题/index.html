@@ -6,70 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>基于Hadoop的Hive集群搭建(centos7) | 一只丸子金</title>
+  <title>大数据分析概述习题 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 📝本文将为你介绍如何在Hadoop集群上，安装和配置Hive，创建Hive的元数据存储，通过本文的学习，即使你没有太多Hadoop和数据库的经验，也可以轻松搭建Hive集群，搭建均在centos7系统操作，包含zookeeper、hadoop环境配置。内容结合chatGPT补充知识点，文章以图文方式呈现🌿">
+  <meta name="description" content="摘要： 📝本文主要是对前几篇博文的问题的提炼，包括大数据的技术基础、参数估计的两种方式、假设检验的六个步骤、线性回归的基本前置假设条件、以及大数据分析处理技术和数据挖掘常用算法的几大类。🍃补充知识在每部分都有对应链接方便查阅～">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于Hadoop的Hive集群搭建(centos7)">
-<meta property="og:url" content="http://example.com/2023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/index.html">
+<meta property="og:title" content="大数据分析概述习题">
+<meta property="og:url" content="http://example.com/2023/05/23/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0%E4%B9%A0%E9%A2%98/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 📝本文将为你介绍如何在Hadoop集群上，安装和配置Hive，创建Hive的元数据存储，通过本文的学习，即使你没有太多Hadoop和数据库的经验，也可以轻松搭建Hive集群，搭建均在centos7系统操作，包含zookeeper、hadoop环境配置。内容结合chatGPT补充知识点，文章以图文方式呈现🌿">
+<meta property="og:description" content="摘要： 📝本文主要是对前几篇博文的问题的提炼，包括大数据的技术基础、参数估计的两种方式、假设检验的六个步骤、线性回归的基本前置假设条件、以及大数据分析处理技术和数据挖掘常用算法的几大类。🍃补充知识在每部分都有对应链接方便查阅～">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403094544.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403103853.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403103954.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104011.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104350.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104543.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104623.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104853.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403105822.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403105909.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403110028.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133408.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133450.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134155.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133537.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133638.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133741.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133828.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133923.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134109.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134254.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134425.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134436.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134532.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134557.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134605.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134655.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134705.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142154.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142354.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142528.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142601.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142808.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142901.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143029.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143141.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143230.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143620.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143608.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143838.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404145601.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404145704.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404145838.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404152310.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404152336.png">
-<meta property="article:published_time" content="2023-04-03T01:28:06.000Z">
-<meta property="article:modified_time" content="2023-04-04T07:40:49.482Z">
+<meta property="article:published_time" content="2023-05-23T03:09:13.000Z">
+<meta property="article:modified_time" content="2023-05-25T03:35:14.203Z">
 <meta property="article:author" content="金金">
-<meta property="article:tag" content="大数据">
-<meta property="article:tag" content="Hadoop">
-<meta property="article:tag" content="Hive">
-<meta property="article:tag" content="mysql">
-<meta property="article:tag" content="zookeeper">
+<meta property="article:tag" content="大数据学习实践课（中级）">
+<meta property="article:tag" content="1.大数据分析概述">
+<meta property="article:tag" content="大数据分析概述习题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403094544.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -210,14 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-基于Hadoop的Hive集群搭建-centos7" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-大数据分析概述习题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      基于Hadoop的Hive集群搭建(centos7)
+      大数据分析概述习题
     </h1>
   
 
@@ -228,8 +180,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/" class="archive-article-date">
-  	<time datetime="2023-04-03T01:28:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+<a href="/2023/05/23/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0%E4%B9%A0%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2023-05-23T03:09:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-23</time>
 </a>
 
 
@@ -242,445 +194,120 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：4.9k字 | 预计阅读时长：20分钟
+        字数：2.8k字 | 预计阅读时长：9分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 📝本文将为你介绍如何在<strong>Hadoop集群</strong>上，安装和配置<strong>Hive</strong>，创建<strong>Hive的元数据存储</strong>，通过本文的学习，即使你没有太多Hadoop和数据库的经验，也可以轻松<strong>搭建Hive集群</strong>，搭建均在<strong>centos7</strong>系统操作，包含<strong>zookeeper</strong>、<strong>hadoop</strong>环境配置。<br>内容结合chatGPT补充知识点，文章以<strong>图文</strong>方式呈现🌿</p>
+        <p>摘要： 📝本文主要是对前几篇博文的问题的提炼，包括<strong>大数据的技术基础</strong>、<strong>参数估计的两种方式</strong>、<strong>假设检验的六个步骤</strong>、<strong>线性回归的基本前置假设条件</strong>、以及<strong>大数据分析处理技术</strong>和<strong>数据挖掘常用算法的几大类</strong>。🍃补充知识在每部分都有对应链接方便查阅～</p>
 <span id="more"></span>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403094544.png" alt="20230403094544"></p>
-<h2 id="一、什么是Hive集群？"><a href="#一、什么是Hive集群？" class="headerlink" title="一、什么是Hive集群？"></a>一、什么是Hive集群？</h2><p>简单介绍Hive集群的概念和作用。</p>
-<h3 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h3><p><strong>Hive</strong>是一个基于Hadoop的<strong>数据仓库工具</strong>，可以让用户通过<strong>SQL语句</strong>来<strong>查询和分析数据</strong>。Hive集群是指由多台计算机组成的集群，用于支持Hive的查询和分析任务。</p>
-<h3 id="Hive集群概念"><a href="#Hive集群概念" class="headerlink" title="Hive集群概念"></a>Hive集群概念</h3><p>Hive集群是一个强大的数据仓库和分析工具，可以让用户轻松地进行大规模数据处理和分析，提高数据处理的效率和速度。</p>
-<h3 id="Hive集群作用"><a href="#Hive集群作用" class="headerlink" title="Hive集群作用"></a>Hive集群作用</h3><ul>
-<li><p><strong>分布式存储和处理</strong>：将数据存储在分布式文件系统HDFS中，利用集群中的多台计算机进行数据处理和计算。</p>
-</li>
-<li><p><strong>大规模数据处理</strong>：Hive可以处理PB级别的数据，并提供了丰富的数据处理和分析功能，支持用户通过SQL语句来查询数据。</p>
-</li>
-<li><p><strong>数据仓库</strong>：Hive支持将数据存储在数据仓库中，方便用户进行数据分析和查询。</p>
-</li>
-<li><p><strong>高可用性和容错性</strong>：Hive集群可以通过配置Zookeeper实现高可用性和容错性，确保在某个节点宕机时，集群仍然能够正常工作。</p>
-</li>
-<li><p><strong>并行处理</strong>：Hive可以将大规模数据分成小的数据块进行并行处理，提高了数据处理的效率和速度。</p>
-</li>
-</ul>
-<h2 id="二、Hive集群搭建前的准备工作"><a href="#二、Hive集群搭建前的准备工作" class="headerlink" title="二、Hive集群搭建前的准备工作"></a>二、Hive集群搭建前的准备工作</h2><p>⚠️本博文配置的环境是centos7，三个节点（master、slave1、slave2）<br>三个节点已完成修改主机名、主机映射、免密访问、jdk安装配置</p>
-<p>🌱没完成的可以参考这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">《云服务器IP映射与ssh免密登录》</a></p>
-<p>本文不提供安装包，所有解压包均在&#x2F;usr&#x2F;package277目录下演示</p>
-<p>版本说明</p>
-<table>
-<thead>
-<tr>
-<th>软件</th>
-<th>版本</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>java</td>
-<td>jdk1.8.0_221</td>
-</tr>
-<tr>
-<td>zookeeper</td>
-<td>zookeeper-3.4.14</td>
-</tr>
-<tr>
-<td>hadoop</td>
-<td>hadoop-2.7.7</td>
-</tr>
-<tr>
-<td>hive</td>
-<td>apache-hive-2.3.4-bin</td>
-</tr>
-</tbody></table>
+<p>🌱前言：<br><strong>大数据</strong>是一种无法在可承受的时间范围内，用常规软件工具进行捕捉、管理和处理的<strong>数据合集</strong>，是需要新处理模式，才能具有更强的决策力、洞察发现力和流程优化能力的<strong>海量、高增长率和多样化的信息资产</strong>，具有<strong>体量大</strong>Volume、<strong>种类繁多</strong>Variety、<strong>价值密度低</strong>Value、<strong>处理速度快</strong>Velocity这四大特征。</p>
+<p>🌱<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/05/12/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE/">什么是大数据</a></p>
+<h2 id="一、大数据有哪些技术基础？"><a href="#一、大数据有哪些技术基础？" class="headerlink" title="一、大数据有哪些技术基础？"></a>一、大数据有哪些技术基础？</h2><p>🌱<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/05/22/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/#3-7-%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80">什么是大数据分析</a></p>
+<p>大数据时代出现的技术基础：<strong>计算机技术的飞速发展</strong></p>
+<p>计算机技术：</p>
+<p><a target="_blank" rel="noopener" href="https://epaper.gmw.cn/zhdsb/html/2022-02/09/nw.D110000zhdsb_20220209_1-18.htm">大数据的四大特征及四项关键技术</a></p>
 <ul>
-<li>关闭防火墙</li>
-<li>Zookeeper集群搭建</li>
-<li>Hadoop集群搭建</li>
-<li>检查集群状态</li>
+<li><p><strong>无线互联网技术</strong>：指利用无线电波或卫星信号等无线通信方式实现互联网接入的技术，可以让用户在任何地点都能够上网浏览信息、发送邮件、下载文件等。无线互联网技术包括无线局域网（WLAN）、移动通信网络（如3G、4G、5G）、卫星互联网等。</p>
+</li>
+<li><p><strong>数据抓取技术</strong>：指从互联网或其他数据源中自动提取所需数据的技术，通常使用编程语言或专用软件来实现。数据抓取技术可以用于获取网页内容、图片、视频、音频、社交媒体数据、电子商务数据等，以便进行数据分析、挖掘或应用。</p>
+</li>
+<li><p><strong>并行处理技术</strong>：指利用多个处理器或计算机同时执行多个任务的技术，可以提高计算效率和性能。并行处理技术包括并行算法、并行编程语言、并行架构等，常用于处理大规模的数据或复杂的问题。</p>
+</li>
+<li><p><strong>高容量存储技术</strong>：指能够存储大量数据的硬件或软件技术，通常使用磁盘阵列、固态硬盘、光纤通道、分布式文件系统等来实现。高容量存储技术可以满足大数据的存储需求，提高数据的可靠性和可用性。</p>
+</li>
+<li><p><strong>数据可视化技术</strong>：指将数据以图形、图表、地图等形式展示的技术，可以帮助用户更直观地理解数据的含义和规律。数据可视化技术包括可视化设计原则、可视化工具、可视化方法等，常用于数据分析、报告、教育等场景。</p>
+</li>
+<li><p><strong>人工智能技术</strong>：指使计算机具有人类智能的能力的技术，包括机器学习、深度学习、自然语言处理、计算机视觉、语音识别等。人工智能技术可以让计算机从大量的数据中学习和推理，实现智能决策、智能交互、智能服务等功能。</p>
+</li>
 </ul>
-<h3 id="1-关闭防火墙"><a href="#1-关闭防火墙" class="headerlink" title="1.关闭防火墙"></a>1.关闭防火墙</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 关闭防火墙</span></span></span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 关闭开机自启动</span></span></span><br><span class="line">systemctl disable firewalld.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>关闭selinux: <code>vi /etc/selinux/config</code></p>
-<p>将以下注释：<code>#SELINUX=enforcing</code><br><code>#SELINUXTYPE=targeted</code></p>
-<p>并添加以下内容<br><code>SELUNX=idsabled</code></p>
-<p>三个节点都要</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403103853.png" alt="20230403103853"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403103954.png" alt="20230403103954"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104011.png" alt="20230403104011"></p>
-<h3 id="2-Zookeeper集群搭建"><a href="#2-Zookeeper集群搭建" class="headerlink" title="2.Zookeeper集群搭建"></a>2.Zookeeper集群搭建</h3><h4 id="zookeeper安装解压"><a href="#zookeeper安装解压" class="headerlink" title="zookeeper安装解压"></a>zookeeper安装解压</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master java]# mkdir -p /usr/zookeeper &amp;&amp; cd /usr/zookeeper</span><br><span class="line">[root@master zookeeper]# tar -zxvf /usr/package277/zookeeper-3.4.14.tar.gz -C /usr/zookeeper/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104350.png" alt="20230403104350"></p>
-<h4 id="zookeeper配置系统变量"><a href="#zookeeper配置系统变量" class="headerlink" title="zookeeper配置系统变量"></a>zookeeper配置系统变量</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">zookeeper</span></span><br><span class="line">export ZOOKEEPER_HOME=/usr/zookeeper/zookeeper-3.4.14</span><br><span class="line">PATH=$PATH:$ZOOKEEPER_HOME/bin</span><br><span class="line"></span><br><span class="line">[root@master zookeeper]# vim /etc/profile</span><br><span class="line"></span><br><span class="line">[root@master zookeeper]# source /etc/profile</span><br><span class="line">[root@master zookeeper]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104543.png" alt="20230403104543"></p>
-<p>记得将环境变量传给其他两个节点</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104623.png" alt="20230403104623"></p>
-<h4 id="修改zookeeper配置文件"><a href="#修改zookeeper配置文件" class="headerlink" title="修改zookeeper配置文件"></a>修改zookeeper配置文件</h4><p>Zookeeper的默认配置文件为Zookeeper安装路径下conf&#x2F;zoo_sample.cfg，将其修改为zoo.cfg</p>
-<p>也可以直接vim zoo.zfg</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@master zookeeper]# cd zookeeper-3.4.14/conf/</span><br><span class="line">[root@master conf]# vim zoo.cfg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403104853.png" alt="20230403104853"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">initLimit=10</span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#设置日志文件路径</span></span></span><br><span class="line">dataDir=/usr/zookeeper/zookeeper-3.4.14/zkdata</span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#设置数据存储路径</span></span></span><br><span class="line">dataLogDir=/usr/zookeeper/zookeeper-3.4.14/zkdatalog</span><br><span class="line">server.1=master:2888:3888</span><br><span class="line">server.2=slave1:2888:3888</span><br><span class="line">server.3=slave2:2888:3888</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>创建所需数据存储文件夹、日志存储文件夹</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master conf]# cd /usr/zookeeper/zookeeper-3.4.14 &amp;&amp; mkdir zkdata zkdatalog</span><br></pre></td></tr></table></figure>
-
-<p>数据存储路径下创建myid，写入对应的标识主机服务器序号</p>
-<p>master写1，slave1写2，slave2写3</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@master zookeeper-3.4.14]# cd /usr/zookeeper/zookeeper-3.4.14/zkdata</span><br><span class="line">[root@master zkdata]# echo 1&gt;&gt;myid</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 传给其他两个节点</span></span></span><br><span class="line">[root@master zkdata]# scp -r /usr/zookeeper root@slave1:/usr/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>⚠️记得修改标识主机服务器序号</p>
-<h4 id="启动zookeeper服务"><a href="#启动zookeeper服务" class="headerlink" title="启动zookeeper服务"></a>启动zookeeper服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 启动服务，查看进程QuorumPeerMain是否存在</span></span></span><br><span class="line">zkServer.start</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看各节点服务器角色是否正常(leader/follower)</span></span></span><br><span class="line">zkServer.status</span><br></pre></td></tr></table></figure>
-
-<p>⚠️每个节点都需要</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/160903909">通俗介绍大数据技术</a></p>
 <ul>
-<li>master</li>
+<li><p><strong>数据采集</strong>：是指将应用程序产生的数据和日志等同步到大数据系统中，常用的技术有Sqoop、Flume、Kafka等。</p>
+</li>
+<li><p><strong>数据存储</strong>：是指将海量的数据存储在分布式文件系统或数据库中，常用的技术有HDFS、HBase、NoSQL数据库、云数据库等。</p>
+</li>
+<li><p><strong>数据处理</strong>：是指对原始数据进行过滤、拼接、转换等操作，以便于后续的分析和应用，常用的技术有MapReduce、Spark、Flink、流计算、图计算等。</p>
+</li>
+<li><p><strong>数据应用</strong>：是指利用处理后的数据进行可视化、分析、预测等服务，常用的技术有Hive、Spark SQL、Impala等。</p>
+</li>
+<li><p><strong>资源管理</strong>：是指对多个任务和服务之间的资源进行协调和调度，常用的技术有YARN、Mesos等。</p>
+</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403105822.png" alt="20230403105822"></p>
+<h2 id="二、参数估计有哪两种方式？"><a href="#二、参数估计有哪两种方式？" class="headerlink" title="二、参数估计有哪两种方式？"></a>二、参数估计有哪两种方式？</h2><p>参数估计有两种方式：点估计和区间估计。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345333774">数理统计：二、参数估计</a></p>
 <ul>
-<li>slave1</li>
+<li><strong>点估计</strong>：是通过样本构造一个统计量，用它的观察值作为总体参数的近似值。点估计有两种常见的方法：矩估计法和最大似然法。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403105909.png" alt="20230403105909"></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367636476">参数估计：极大似然估计、矩估计的基本概念及应用方法</a></p>
 <ul>
-<li>slave2</li>
+<li><strong>区间估计</strong>：是通过样本构造一个统计量，用它的观察值确定一个区间，使得总体参数落在这一区间的概率不低于给定的置信水平。区间估计可以反映出估计的精度和可靠性。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230403110028.png" alt="20230403110028"></p>
-<h3 id="3-Hadoop集群搭建"><a href="#3-Hadoop集群搭建" class="headerlink" title="3.Hadoop集群搭建"></a>3.Hadoop集群搭建</h3><ol>
-<li>Hadoop解压安装</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# mkdir -p /usr/hadoop &amp;&amp; cd /usr/hadoop</span><br><span class="line">[root@master hadoop]# tar -zxvf /usr/package277/hadoop-2.7.7.tar.gz -C /usr/hadoop</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>配置环境变量</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">hadoop</span></span><br><span class="line">export HADOOP_HOME=/usr/hadoop/hadoop-2.7.7</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133408.png" alt="20230404133408"></p>
-<p>别忘了将配置环境传给剩下两个节点</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133450.png" alt="20230404133450"></p>
-<ol start="3">
-<li>修改配置文件</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>配置文件</th>
-<th>配置对象</th>
-<th>主要内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>hadoop-env.sh</td>
-<td>hadoop运行环境</td>
-<td>用来定义Hadoop运行环境相关的配置信息</td>
-</tr>
-<tr>
-<td>core-site.xml</td>
-<td>集群全局参数</td>
-<td>定义系统级别的参数，包括HDFS URL、Hadoop临时目录等</td>
-</tr>
-<tr>
-<td>hdfs-site.xml</td>
-<td>HDFS参数</td>
-<td>定义名称节点、数据节点的存放位置、文本副本的个数、文件读取权限等</td>
-</tr>
-<tr>
-<td>mapred-site.xml</td>
-<td>MapReduce参数</td>
-<td>包括JobHistory和应用程序参数两部分，如reduce任务的默认个数、任务所能够使用内存的默认上下限等</td>
-</tr>
-<tr>
-<td>yarn-site.xml</td>
-<td>集群资源管理系统参数</td>
-<td>配置ReduceManager,nodeManager的通信端口等</td>
-</tr>
-</tbody></table>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134155.png" alt="20230404134155"></p>
-<h4 id="hadoop-env-sh"><a href="#hadoop-env-sh" class="headerlink" title="hadoop-env.sh"></a>hadoop-env.sh</h4><p><code>vim hadoop-env.sh</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_221</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133537.png" alt="20230404133537"></p>
-<h4 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h4><table>
-<thead>
-<tr>
-<th>配置参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>fs.default.name</td>
-<td>用于指定NameNode的地址</td>
-</tr>
-<tr>
-<td>hadoop.tmp.dir</td>
-<td>Hadoop运行时产生文件等临时存储目录</td>
-</tr>
-</tbody></table>
-<p><code>vim core-site.xml</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://master:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/hadoopData/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133638.png" alt="20230404133638"></p>
-<h4 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h4><table>
-<thead>
-<tr>
-<th>配置参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dfs.replication</td>
-<td>数据块副本的数量</td>
-</tr>
-<tr>
-<td>dfs.namenode.name.dir</td>
-<td>NameNode在本地文件系统中持久存储命名空间和事物日志的路径</td>
-</tr>
-<tr>
-<td>dfs.datanode.data.dir</td>
-<td>DataNode在本地文件系统中存放块的路径</td>
-</tr>
-<tr>
-<td>dfs.permissions</td>
-<td>集群权限系统校验</td>
-</tr>
-<tr>
-<td>dfs.datanode.use.datanode.hostname</td>
-<td>datanode之间的通信的通过域名方式-</td>
-</tr>
-</tbody></table>
-<p><code>vim hdfs-site.xml</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--数据块副本的数量，默认为3 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--NameNode在本地文件系统中持久存储命名空间和事物日志的路径 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/hadoopData/name<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--DataNode在本地文件系统中存放块的路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/hadoopData/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.permissions<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--关闭hadoop集群权限校验--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.use.datanode.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--datanode之间的通信的通过域名方式--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133741.png" alt="20230404133741"></p>
-<h4 id="yarn-env-sh"><a href="#yarn-env-sh" class="headerlink" title="yarn-env.sh"></a>yarn-env.sh</h4><p><code>vim yarn-env.sh</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_221</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133828.png" alt="20230404133828"></p>
-<h4 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h4><table>
-<thead>
-<tr>
-<th>配置参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>yarn.resourcemanager.admin.address</td>
-<td>用于指定RM管理界面等地址（主机端口）</td>
-</tr>
-<tr>
-<td>yarn.nodemanager.aux-services</td>
-<td>mapreduce获取数据的方式，指定在进行mapreduce作业时，yarn使用mapreduce_shuffle混洗技术。这个混洗技术是hadoop的一个核心技术，非常重要</td>
-</tr>
-<tr>
-<td>yarn.nodemanager.auxservices.mapreduce.shuffle.class</td>
-<td>用于指定混洗技术对应的字节码文件，值为org.apache.hadoop.mapred.ShuffleHandler</td>
-</tr>
-</tbody></table>
-<p><code>vim yarn-site.xml</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.admin.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:18141<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定reducer获取数据的方式--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--NodeManager上运行的附属服务，也可以理解未mapreduce获取数据的方式--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.auxservices.mapreduce.shuffle.class<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.mapred.ShuffleHandler<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404133923.png" alt="20230404133923"></p>
-<h4 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h4><table>
-<thead>
-<tr>
-<th>配置参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>mapreduce.framework.name</td>
-<td>指定执行MapReduce作业的运行时框架。熟悉值可以是local,class或yarn</td>
-</tr>
-</tbody></table>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master hadoop]# cp mapred-site.xml.template mapred-site.xml</span><br><span class="line">[root@master hadoop]# vim mapred-site.xml</span><br><span class="line">       </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定Mapreduce运行在yarn上--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定使用YARN运行MapReduce程序，默认未local--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134109.png" alt="20230404134109"></p>
-<h4 id="设置节点文件"><a href="#设置节点文件" class="headerlink" title="设置节点文件"></a>设置节点文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@master hadoop]# echo master &gt;master</span><br><span class="line">[root@master hadoop]# cat master</span><br><span class="line">master</span><br><span class="line">[root@master hadoop]# echo slave1 &gt;slaves</span><br><span class="line">[root@master hadoop]# echo slave2 &gt;&gt;slaves</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134254.png" alt="20230404134254"></p>
-<p>记得将hadoop文件夹传给其他两个节点</p>
-<h4 id="格式化（master）"><a href="#格式化（master）" class="headerlink" title="格式化（master）"></a>格式化（master）</h4><p><code>hadoop namenode -format</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134425.png" alt="20230404134425"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134436.png" alt="20230404134436"></p>
-<h3 id="4-检查集群状态"><a href="#4-检查集群状态" class="headerlink" title="4.检查集群状态"></a>4.检查集群状态</h3><p>启动Hadoop集群查看各节点服务</p>
-<p><code>start-all.sh</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134532.png" alt="20230404134532"></p>
-<p>jps查看其他节点</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134557.png" alt="20230404134557"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134605.png" alt="20230404134605"></p>
-<p>查看集群状态是否正常</p>
-<p><code>hdfs dfsadmin -report</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134655.png" alt="20230404134655"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404134705.png" alt="20230404134705"></p>
-<h2 id="三、Hive集群搭建的详细步骤"><a href="#三、Hive集群搭建的详细步骤" class="headerlink" title="三、Hive集群搭建的详细步骤"></a>三、Hive集群搭建的详细步骤</h2><p><a target="_blank" rel="noopener" href="https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties">官方配置文档</a></p>
-<h3 id="1-Mysql数据库配置-slave2"><a href="#1-Mysql数据库配置-slave2" class="headerlink" title="1. Mysql数据库配置(slave2)"></a>1. Mysql数据库配置(slave2)</h3><ul>
-<li>mysql-community-server</li>
-</ul>
-<p>本环境中已经安装mysql-community-server</p>
-<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/linux-installation.html">Linux安装mysql-community-server文档</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#关闭mysql开机自启服务</span></span></span><br><span class="line">[root@slave2 usr]# systemctl disable mysqld</span><br><span class="line"></span><br><span class="line">[root@slave2 usr]# systemctl list-unit-files</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142154.png" alt="20230404142154"></p>
+<h2 id="三、假设检验六步骤的主要任务"><a href="#三、假设检验六步骤的主要任务" class="headerlink" title="三、假设检验六步骤的主要任务"></a>三、假设检验六步骤的主要任务</h2><p>🌱<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/05/22/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">数据统计分析理论基础</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32660105">统计学-假设检验（假设检验的基本流程）-20180105</a></p>
 <ul>
-<li>开启MySQL服务</li>
+<li><strong>确定要进行检验的假设</strong>：</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@slave2 usr]# systemctl start mysqld</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<p>这一步是根据研究问题或目的，提出一个关于总体参数的断言，称为原假设（H0），以及与之相反的断言，称为备择假设（H1）。原假设通常是我们想要证伪或拒绝的假设，而备择假设通常是我们想要证明或接受的假设。</p>
 <ul>
-<li>生成初临时密码</li>
+<li><strong>选择检验统计量</strong>：</li>
 </ul>
-<p>判断mysqld.log日志下是否生成初临时密码  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@slave2 usr]# grep &quot;temporary password&quot; /var/log/mysqld.log  </span><br><span class="line">[root@slave2 usr]# mysql -uroot -p</span><br><span class="line">              </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142354.png" alt="20230404142354"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142528.png" alt="20230404142528"></p>
+<p>这一步是根据总体分布和样本大小，选择一个合适的统计量，用来度量样本数据与原假设之间的差异。常见的检验统计量有z分数、t分数、卡方分布等。</p>
 <ul>
-<li>设置本地密码</li>
+<li><strong>用于做决策的拒绝域</strong>：</li>
 </ul>
-<p>设置mysql数据库本地root用户密码为123456</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">set</span> <span class="keyword">global</span> validate_password_policy<span class="operator">=</span><span class="number">0</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">set</span> <span class="keyword">global</span> validate_password_length<span class="operator">=</span><span class="number">6</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">alter</span> <span class="keyword">user</span><span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.01</span> sec)</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">with</span> <span class="keyword">grant</span> option;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line">mysql<span class="operator">&gt;</span></span><br><span class="line"></span><br><span class="line">         </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142601.png" alt="20230404142601"></p>
-<h3 id="2-hive基础环境配置（master、slave1）"><a href="#2-hive基础环境配置（master、slave1）" class="headerlink" title="2. hive基础环境配置（master、slave1）"></a>2. hive基础环境配置（master、slave1）</h3><h4 id="hive解压安装"><a href="#hive解压安装" class="headerlink" title="hive解压安装"></a>hive解压安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master usr]# mkdir -p /usr/hive &amp;&amp; cd /usr/hive</span><br><span class="line">[root@master hive]# tar -zxvf /usr/package277/apache-hive-2.3.4-bin.tar.gz -C /usr/hive/</span><br><span class="line">       </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142808.png" alt="20230404142808"></p>
-<h4 id="hive配置环境变量"><a href="#hive配置环境变量" class="headerlink" title="hive配置环境变量"></a>hive配置环境变量</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">hive</span></span><br><span class="line">export HIVE_HOME=/usr/hive/apache-hive-2.3.4-bin</span><br><span class="line">export PATH=$PATH:$HIVE_HOME/bin</span><br><span class="line"></span><br><span class="line">[root@master hive]# vi /etc/profile</span><br><span class="line">[root@master hive]# source /etc/profile</span><br><span class="line">[root@master hive]# scp -r /etc/profile root@slave1:/etc/</span><br><span class="line">profile                                                   100% 2269     2.2KB/s   00:00    </span><br><span class="line">[root@master hive]# scp -r /etc/profile root@slave2:/etc/</span><br><span class="line">profile                                                   100% 2269     2.2KB/s   00:00    </span><br><span class="line">[root@master hive]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>剩下两个节点也要<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404142901.png" alt="20230404142901"></p>
-<h4 id="修改HIVE运行环境"><a href="#修改HIVE运行环境" class="headerlink" title="修改HIVE运行环境"></a>修改HIVE运行环境</h4><p>配置Hadoop安装路径HADOOP_HOME </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master hive]# cd $HIVE_HOME/conf</span><br><span class="line"></span><br><span class="line">[root@master conf]# vim hive-env.sh         </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置hadoop安装路径</span></span><br><span class="line">export HADOOP_HOME=/usr/hadoop/hadoop-2.7.7</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置hive配置文件存放路径</span></span><br><span class="line">export HIVE_CONF_DIR=/usr/hive/apache-hive-2.3.4-bin/conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置hive运行资源库路径</span></span><br><span class="line">export HIVE_AUX_JARS_PATH=/usr/hive/apache-hive-2.3.4-bin/lib</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143029.png" alt="20230404143029"></p>
-<h4 id="解决jline的版本冲突"><a href="#解决jline的版本冲突" class="headerlink" title="解决jline的版本冲突"></a>解决jline的版本冲突</h4><p><strong>jline</strong>是一个Java命令行输入输出（IO）库，常常用于控制台交互式应用程序中。在Hive配置中，也用到了jline，尤其是在启动Hive CLI（命令行界面）时。然而，在不同版本的软件包中，可能会包含不同的jline版本，这会导致版本冲突问题。为了避免这个问题，我们需要解决Hive与其他软件包之间的jline版本冲突。</p>
-<p><code>将$HIVE_HOME/lib/jline-2.12.jar同步至$HADOOP_HOME/share/hadoop/yarn/lib/下</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@master conf]# cp $HIVE_HOME/lib/jline-2.12.jar $HADOOP_HOME/share/hadoop/yarn/lib/</span><br><span class="line">[root@master conf]#</span><br><span class="line">[root@master conf]# scp -r /usr/hive root@slave1:/usr/</span><br><span class="line"></span><br><span class="line">[root@slave1 apache-hive-2.3.4-bin]# cp $HIVE_HOME/lib/jline-2.12.jar $HADOOP_HOME/share/hadoop/yarn/lib/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>⚠️记得把master上的hive传给slave1</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143141.png" alt="20230404143141"></p>
-<p>slave1上也要解决jline的版本冲突</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143230.png" alt="20230404143230"></p>
-<p>Hive服务器端是数据存储和处理的主机，而Hive客户端则是与服务器交互的用户界面<br>就像我们去餐馆点餐时，餐馆厨房是负责制作菜品的地方，而菜单则是我们与餐馆进行交互并点选要点的工具。</p>
-<h3 id="3-服务器端配置-slave1"><a href="#3-服务器端配置-slave1" class="headerlink" title="3. 服务器端配置(slave1)"></a>3. 服务器端配置(slave1)</h3><p>配置HIVE元数据至MySQL</p>
-<h4 id="拷贝驱动"><a href="#拷贝驱动" class="headerlink" title="拷贝驱动"></a>拷贝驱动</h4><p>驱动JDBC拷贝至hive安装目录对应lib下（依赖包存放于&#x2F;usr&#x2F;package277&#x2F;）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@slave1 apache-hive-2.3.4-bin]# cp /usr/package277/mysql-connector-java-5.1.47-bin.jar /usr/hive/apache-hive-2.3.4-bin/lib/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="配置slave1的hive-site-xml"><a href="#配置slave1的hive-site-xml" class="headerlink" title="配置slave1的hive-site.xml"></a>配置slave1的hive-site.xml</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd $HIVE_HOME</span><br><span class="line">cd conf</span><br><span class="line">vim hive-site.xml</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143620.png" alt="20230404143620"></p>
-<p>添加如下内容</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Hive产生的元数据存放位置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.warehouse.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/user/hive_remote/warehouse<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--数据库连接driver，即MySQL驱动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--数据库连接JDBC的URL地址--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://slave2:3306/hive?createDatabaseIfNotExist=true<span class="symbol">&amp;amp;</span>useSSL=false&lt;</span><br><span class="line">/value&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--MySQL数据库用户名--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--MySQL数据库密码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143608.png" alt="20230404143608"></p>
-<h3 id="4-客户端配置-master"><a href="#4-客户端配置-master" class="headerlink" title="4. 客户端配置(master)"></a>4. 客户端配置(master)</h3><h4 id="配置master的hive-site-xml"><a href="#配置master的hive-site-xml" class="headerlink" title="配置master的hive-site.xml"></a>配置master的hive-site.xml</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd $HIVE_HOME</span><br><span class="line">cd conf</span><br><span class="line">vim hive-site.xml</span><br></pre></td></tr></table></figure>
-
-<p>添加如下内容</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Hive产生的元数据存放位置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.warehouse.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/user/hive_remote/warehouse<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--使用本地服务连接Hive，默认为true--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.local<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--连接服务器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://slave1:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404143838.png" alt="20230404143838"></p>
-<h3 id="5-启动hive"><a href="#5-启动hive" class="headerlink" title="5. 启动hive"></a>5. 启动hive</h3><h4 id="服务器端slave1"><a href="#服务器端slave1" class="headerlink" title="服务器端slave1"></a>服务器端slave1</h4><p>服务器端初始化数据库，启动metastore服务 </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@slave1 apache-hive-2.3.4-bin]# schematool -dbType mysql -initSchema</span><br><span class="line">[root@slave1 conf]# hive --service metastore &amp;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404145601.png" alt="20230404145601"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404145704.png" alt="20230404145704"></p>
-<h4 id="客户端master"><a href="#客户端master" class="headerlink" title="客户端master"></a>客户端master</h4><p>客户端开启进入hive，创建hive数据库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master； apache-hive-2.3.4-bin]# hive</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive<span class="operator">&gt;</span> <span class="keyword">create</span> database hive;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404145838.png" alt="20230404145838"></p>
-<h2 id="四、测试Hive集群"><a href="#四、测试Hive集群" class="headerlink" title="四、测试Hive集群"></a>四、测试Hive集群</h2><ul>
-<li>地址在使用</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@slave1 apache-hive-2.3.4-bin]# netstat -alnp | grep 9083</span><br><span class="line">tcp        0      0 0.0.0.0:9083            0.0.0.0:*               LISTEN      9336/java           </span><br><span class="line">[root@slave1 apache-hive-2.3.4-bin]# kill -9 9336</span><br><span class="line">[root@slave1 apache-hive-2.3.4-bin]#</span><br></pre></td></tr></table></figure>
-
+<p>这一步是根据显著性水平（α），确定一个临界值或临界区域，称为拒绝域。显著性水平是指当原假设为真时，犯第一类错误（弃真错误）的概率，通常取0.05或0.01。拒绝域是指当样本数据落在该区域时，我们有足够的证据拒绝原假设。拒绝域的形式取决于备择假设的方向，可以是双侧的、左侧的或右侧的。</p>
 <ul>
-<li>初始化失败</li>
+<li><strong>求检验统计量的p值</strong>：</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404152310.png" alt="20230404152310"></p>
-<p>解决</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230404152336.png" alt="20230404152336"></p>
-<h3 id="测试Hive的高可用性和负载均衡性"><a href="#测试Hive的高可用性和负载均衡性" class="headerlink" title="测试Hive的高可用性和负载均衡性"></a>测试Hive的高可用性和负载均衡性</h3><p>要测试Hive的高可用性和负载均衡性，需要先搭建一个Hive集群，并使用ZooKeeper进行管理。</p>
-<p>下面是一些测试Hive高可用性和负载均衡性的方法：</p>
+<p>这一步是根据样本数据，计算检验统计量的具体数值，并根据其分布，求出其对应的p值。p值是指在原假设为真的前提下，得到该检验统计量或更极端情况的概率。p值越小，说明样本数据与原假设越不相符。</p>
 <ul>
-<li><p>模拟故障：在集群中的一个节点上停止Hive服务或ZooKeeper服务，然后观察集群的反应。如果Hive集群的配置和ZooKeeper配置正确，则其他节点会接管故障节点的工作，从而保证服务的高可用性。</p>
+<li><strong>样本结果是否位于拒绝域</strong>：</li>
+</ul>
+<p>这一步是将检验统计量的数值与拒绝域进行比较，判断是否落在拒绝域内。如果落在拒绝域内，说明有足够低的概率（小于显著性水平）在原假设为真时得到这样的结果，因此我们拒绝原假设；如果不落在拒绝域内，说明没有足够低的概率（大于显著性水平）在原假设为真时得到这样的结果，因此我们不能拒绝原假设。</p>
+<ul>
+<li><strong>作出决策</strong>：</li>
+</ul>
+<p>这一步是根据上一步的结果，给出一个明确的结论，即接受或拒绝原假设，并解释其在实际问题中的含义。</p>
+<h2 id="四、线性回归的基本前置假设条件"><a href="#四、线性回归的基本前置假设条件" class="headerlink" title="四、线性回归的基本前置假设条件"></a>四、线性回归的基本前置假设条件</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/437814967">线性回归的四个假设 The Four Assumptions of Linear Regression</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/553370965">线性回归-五个基本假设</a></p>
+<p>线性回归的基本前置假设条件有以下五个：</p>
+<ul>
+<li><p><strong>零均值</strong>：残差的均值为零，即模型没有系统误差。</p>
 </li>
-<li><p>并发访问：使用多个客户端同时访问Hive集群中的表，观察查询的响应时间和负载情况。如果Hive集群的配置和ZooKeeper配置正确，则Hive会将负载均衡到不同的节点上，以提高查询的并发性能。</p>
+<li><p><strong>同方差</strong>：残差在自变量的每个水平上都有恒定的方差，没有异方差性。</p>
 </li>
-<li><p>数据负载测试：在Hive集群中加载大量数据，然后执行一些复杂的查询，观察查询的响应时间和负载情况。如果Hive集群的配置和ZooKeeper配置正确，则Hive会将查询均匀地分布到不同的节点上，从而提高查询的并发性能。</p>
+<li><p><strong>无自相关</strong>：残差之间相互独立，没有序列相关性。</p>
 </li>
-<li><p>故障转移测试：在Hive集群中启用故障转移功能，并模拟故障，观察集群的反应。如果Hive集群的配置和ZooKeeper配置正确，则当一个节点失败时，Hive会自动将查询和其他任务转移到可用的节点上，从而保证服务的高可用性。</p>
+<li><p><strong>正态分布</strong>：残差服从正态分布，没有偏度或峰度。</p>
 </li>
-<li><p>资源管理测试：在Hive集群中使用资源管理器，对查询进行限制和管理，以确保集群的负载均衡和稳定性。可以使用YARN等资源管理器进行测试。</p>
+<li><p><strong>解释变量</strong>：自变量之间相互独立，没有多重共线性问题。</p>
 </li>
 </ul>
-<p>综上所述，测试Hive的高可用性和负载均衡性是非常重要的，可以确保Hive集群的稳定性和性能。</p>
-<h2 id="五、注意事项和问题解决方法"><a href="#五、注意事项和问题解决方法" class="headerlink" title="五、注意事项和问题解决方法"></a>五、注意事项和问题解决方法</h2><h3 id="常见问题及解决方法："><a href="#常见问题及解决方法：" class="headerlink" title="常见问题及解决方法："></a>常见问题及解决方法：</h3><ul>
-<li><p>集群性能问题：可能是由于配置不当、硬件性能不足或数据量过大等原因引起。可以通过增加集群节点、调整配置参数或者优化查询语句等方法来提升性能。</p>
+<p>这些假设是为了保证线性回归模型的准确性和可靠性，如果违反了这些假设，可能会导致模型的参数估计、标准误、置信区间、假设检验等出现偏差或误导。因此，在进行线性回归之前，应该先检验这些假设是否成立，并根据实际情况采取相应的措施来处理违反假设的问题。</p>
+<h2 id="五、大数据分析处理技术有哪些计算场景？"><a href="#五、大数据分析处理技术有哪些计算场景？" class="headerlink" title="五、大数据分析处理技术有哪些计算场景？"></a>五、大数据分析处理技术有哪些计算场景？</h2><p>🌱<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%B5%81%E7%A8%8B%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF/">大数据分析的流程与常用技术</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/282090718">大数据计算生态之数据计算</a></p>
+<ul>
+<li><p><strong>离线</strong>：<br>离线计算是指对海量数据进行批量处理的过程，通常需要较长的时间跨度，如几分钟到数小时甚至数日。离线计算的典型代表是Hadoop MapReduce和Spark，它们可以处理复杂的数据分析任务，如数据清洗、转换、聚合、统计等。</p>
 </li>
-<li><p>数据倾斜问题：在数据分布不均衡的情况下，会导致部分节点的负载过大，从而影响整个集群的性能。解决方法包括数据预处理、增加节点、调整数据切分规则等。</p>
+<li><p><strong>在线</strong>：<br>在线计算是指对数据进行快速查询和分析的过程，通常需要较短的时间跨度，如秒级或分钟级。在线计算的典型代表是Spark SQL、Presto和ClickHouse等，它们可以支持多维自助分析、交互式数据探查等场景。</p>
 </li>
-<li><p>安全问题：由于Hive集群处理的是敏感数据，因此安全性是非常重要的。可以通过开启Kerberos认证、设置访问权限、加密通信等方法来保证数据的安全性。</p>
-</li>
-<li><p>Hive元数据问题：Hive元数据是集群的核心数据，如果发生了意外删除或者丢失，会导致集群无法正常工作。可以通过备份元数据、设置元数据的持久化存储等方法来避免这种情况的发生。</p>
-</li>
-</ul>
-<h3 id="保证Hive集群的安全性和稳定性的方法："><a href="#保证Hive集群的安全性和稳定性的方法：" class="headerlink" title="保证Hive集群的安全性和稳定性的方法："></a>保证Hive集群的安全性和稳定性的方法：</h3><ul>
-<li><p>安全性：开启Kerberos认证，限制访问权限，加密通信等方法可以保证数据的安全性。</p>
-</li>
-<li><p>稳定性：Hive集群的稳定性可以通过以下几个方面来保证：</p>
-</li>
-<li><p>配置合理的硬件：集群的硬件要求很高，必须满足存储、计算和网络的需求。</p>
-</li>
-<li><p>定期维护：集群需要定期维护，包括清理数据、备份数据、检查元数据等。</p>
-</li>
-<li><p>自动化监控：使用监控系统对集群进行自动化监控，及时发现异常并进行处理。</p>
-</li>
-<li><p>容错处理：在出现故障时，要能够快速地恢复集群，并保证数据的完整性。</p>
-</li>
-<li><p>隔离性：在集群运行过程中，不同的任务之间需要隔离，防止彼此干扰。可以通过容器化、虚拟化等技术来实现任务隔离。</p>
+<li><p><strong>流式</strong>：<br>流式计算是指对实时产生的数据进行连续处理的过程，通常需要毫秒级或秒级的时间跨度。流式计算的典型代表是Spark Streaming、Flink和Storm等，它们可以支持实时智能推荐、实时欺诈检测、舆情分析、实时机器学习等场景。</p>
 </li>
 </ul>
-<h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><h3 id="在搭建Hive集群时，需要遵循以下步骤："><a href="#在搭建Hive集群时，需要遵循以下步骤：" class="headerlink" title="在搭建Hive集群时，需要遵循以下步骤："></a>在搭建Hive集群时，需要遵循以下步骤：</h3><ol>
-<li><p>配置Hadoop集群：Hive需要在Hadoop上运行，因此需要先搭建Hadoop集群。</p>
+<h2 id="六、数据挖掘常用算法有哪几大类？"><a href="#六、数据挖掘常用算法有哪几大类？" class="headerlink" title="六、数据挖掘常用算法有哪几大类？"></a>六、数据挖掘常用算法有哪几大类？</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7235812122713604157">数据挖掘常用十大算法</a></p>
+<ul>
+<li><p><strong>分类</strong>：<br>分类算法是指根据已知的数据集，学习出一个分类函数或模型，然后用该函数或模型对新的数据进行分类的过程。分类算法的目标是将数据划分为有限个离散的类别。常用的分类算法有决策树、朴素贝叶斯、支持向量机、K近邻、逻辑回归、随机森林等。</p>
 </li>
-<li><p>安装Hive：根据实际需求选择Hive版本，下载并解压。</p>
+<li><p><strong>聚类</strong>：<br>聚类算法是指根据数据之间的相似性或距离，将数据划分为若干个自然的簇或组的过程。聚类算法的目标是使同一簇内的数据尽可能相似，不同簇间的数据尽可能不同。常用的聚类算法有K均值、DBSCAN、层次聚类、高斯混合模型等。</p>
 </li>
-<li><p>配置Hive：根据实际需求修改Hive配置文件hive-site.xml，包括数据库、元数据、HiveServer2等参数。</p>
+<li><p><strong>关联规则</strong>：<br>关联规则算法是指从大量的数据集中发现数据项之间的关联性或相关性的过程。关联规则算法的目标是找出频繁出现在一起的数据项，形成如“X&#x3D;&gt;Y”的规则，表示X和Y经常同时发生。常用的关联规则算法有Apriori、FP-Growth等。</p>
 </li>
-<li><p>启动Hive集群：依次启动Zookeeper、Hadoop集群、Hive元数据服务、HiveServer2。</p>
+<li><p><strong>时间序列</strong>：<br>时间序列算法是指对按照时间顺序排列的数据进行分析和预测的过程。时间序列算法的目标是找出数据随时间变化的趋势、周期、季节性等特征，并根据历史数据预测未来数据。常用的时间序列算法有ARIMA、LSTM、Prophet等。</p>
 </li>
-<li><p>测试Hive：使用Hive提供的客户端工具或者其他第三方工具，测试Hive的功能和性能。</p>
-</li>
-</ol>
-<h3 id="在搭建Hive集群时需要注意以下事项："><a href="#在搭建Hive集群时需要注意以下事项：" class="headerlink" title="在搭建Hive集群时需要注意以下事项："></a>在搭建Hive集群时需要注意以下事项：</h3><ol>
-<li><p>确保Hadoop集群正常运行：Hive需要在Hadoop上运行，因此需要先确保Hadoop集群正常运行。</p>
-</li>
-<li><p>配置正确的元数据存储：Hive的元数据存储在RDBMS中，需要确保配置正确的数据库连接信息。</p>
-</li>
-<li><p>配置HiveServer2的安全性：HiveServer2默认是不安全的，需要配置安全验证信息。</p>
-</li>
-<li><p>确保集群安全性：在使用Hive集群时，需要确保集群的安全性，包括网络安全、权限管理等。</p>
-</li>
-<li><p>定期备份数据和元数据：Hive的数据和元数据是非常重要的，需要定期备份以避免数据丢失。</p>
-</li>
-</ol>
-<h3 id="在实际使用Hive集群时，需要注意以下事项："><a href="#在实际使用Hive集群时，需要注意以下事项：" class="headerlink" title="在实际使用Hive集群时，需要注意以下事项："></a>在实际使用Hive集群时，需要注意以下事项：</h3><ol>
-<li><p>合理使用资源：Hive集群需要大量的资源，需要合理规划和使用资源。</p>
-</li>
-<li><p>避免长时间运行的查询：长时间运行的查询会占用集群资源，导致其他查询的性能下降。</p>
-</li>
-<li><p>定期优化表和查询：对于经常使用的表和查询，需要进行优化以提高性能。</p>
-</li>
-<li><p>监控集群运行情况：定期监控集群的运行情况，及时发现和解决问题。</p>
-</li>
-</ol>
-<p>🌱至此如何搭建Hive集群已经结束啦，祝你成功！</p>
+</ul>
+<p>🌿至此大数据分析概述的习题笔记📒就介绍完啦～</p>
 
       
 
@@ -712,7 +339,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2023/04/03/基于Hadoop的Hive集群搭建-centos7/" title="基于Hadoop的Hive集群搭建(centos7)" target="_blank">http://example.com/2023/04/03/基于Hadoop的Hive集群搭建-centos7/</a >
+      <a href=" >/2023/05/23/大数据分析概述习题/" title="大数据分析概述习题" target="_blank">http://example.com/2023/05/23/大数据分析概述习题/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -733,23 +360,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大数据学习实践课（中级）</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">1.大数据分析概述</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">大数据分析概述习题</a>
         		</li>
       		
 		</ul>
@@ -805,7 +424,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/05/23/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0%E4%B9%A0%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -819,18 +438,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/04/05/%E2%80%9C%E4%BA%92%E8%81%94%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%A5%9E%E5%99%A8%EF%BC%9A%E8%BF%99%E4%BA%9B%E7%BD%91%E5%9D%80%E8%AE%A9%E4%BD%A0%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%9B%B4%E5%85%B7%E2%80%9C%E6%8E%8C%E6%8E%A7%E6%84%9F%E2%80%9D%EF%BC%81/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          “互联网学习神器：这些网址让你的学习更具“掌控感”！
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基于Zookeeper的Hadoop HA集群的搭建</div>
+    <a href="/2023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%B5%81%E7%A8%8B%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据分析的流程与常用技术</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -857,7 +467,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFHive%E9%9B%86%E7%BE%A4%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、什么是Hive集群？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive"><span class="toc-number">1.1.</span> <span class="toc-text">Hive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive%E9%9B%86%E7%BE%A4%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">Hive集群概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive%E9%9B%86%E7%BE%A4%E4%BD%9C%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">Hive集群作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">二、Hive集群搭建前的准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.1.</span> <span class="toc-text">1.关闭防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Zookeeper%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA"><span class="toc-number">2.2.</span> <span class="toc-text">2.Zookeeper集群搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#zookeeper%E5%AE%89%E8%A3%85%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">zookeeper安装解压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zookeeper%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.2.</span> <span class="toc-text">zookeeper配置系统变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9zookeeper%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.3.</span> <span class="toc-text">修改zookeeper配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8zookeeper%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.2.4.</span> <span class="toc-text">启动zookeeper服务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA"><span class="toc-number">2.3.</span> <span class="toc-text">3.Hadoop集群搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hadoop-env-sh"><span class="toc-number">2.3.1.</span> <span class="toc-text">hadoop-env.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#core-site-xml"><span class="toc-number">2.3.2.</span> <span class="toc-text">core-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hdfs-site-xml"><span class="toc-number">2.3.3.</span> <span class="toc-text">hdfs-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yarn-env-sh"><span class="toc-number">2.3.4.</span> <span class="toc-text">yarn-env.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yarn-site-xml"><span class="toc-number">2.3.5.</span> <span class="toc-text">yarn-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapred-site-xml"><span class="toc-number">2.3.6.</span> <span class="toc-text">mapred-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%8A%82%E7%82%B9%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.7.</span> <span class="toc-text">设置节点文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%EF%BC%88master%EF%BC%89"><span class="toc-number">2.3.8.</span> <span class="toc-text">格式化（master）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%A3%80%E6%9F%A5%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81"><span class="toc-number">2.4.</span> <span class="toc-text">4.检查集群状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">三、Hive集群搭建的详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE-slave2"><span class="toc-number">3.1.</span> <span class="toc-text">1. Mysql数据库配置(slave2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-hive%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88master%E3%80%81slave1%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">2. hive基础环境配置（master、slave1）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hive%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85"><span class="toc-number">3.2.1.</span> <span class="toc-text">hive解压安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hive%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">3.2.2.</span> <span class="toc-text">hive配置环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9HIVE%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">3.2.3.</span> <span class="toc-text">修改HIVE运行环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3jline%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81"><span class="toc-number">3.2.4.</span> <span class="toc-text">解决jline的版本冲突</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%85%8D%E7%BD%AE-slave1"><span class="toc-number">3.3.</span> <span class="toc-text">3. 服务器端配置(slave1)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D%E9%A9%B1%E5%8A%A8"><span class="toc-number">3.3.1.</span> <span class="toc-text">拷贝驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEslave1%E7%9A%84hive-site-xml"><span class="toc-number">3.3.2.</span> <span class="toc-text">配置slave1的hive-site.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE-master"><span class="toc-number">3.4.</span> <span class="toc-text">4. 客户端配置(master)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEmaster%E7%9A%84hive-site-xml"><span class="toc-number">3.4.1.</span> <span class="toc-text">配置master的hive-site.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8hive"><span class="toc-number">3.5.</span> <span class="toc-text">5. 启动hive</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFslave1"><span class="toc-number">3.5.1.</span> <span class="toc-text">服务器端slave1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AFmaster"><span class="toc-number">3.5.2.</span> <span class="toc-text">客户端master</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%B5%8B%E8%AF%95Hive%E9%9B%86%E7%BE%A4"><span class="toc-number">4.</span> <span class="toc-text">四、测试Hive集群</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95Hive%E7%9A%84%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7%E5%92%8C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%80%A7"><span class="toc-number">4.1.</span> <span class="toc-text">测试Hive的高可用性和负载均衡性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">五、注意事项和问题解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">常见问题及解决方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E8%AF%81Hive%E9%9B%86%E7%BE%A4%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E5%92%8C%E7%A8%B3%E5%AE%9A%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">5.2.</span> <span class="toc-text">保证Hive集群的安全性和稳定性的方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">六、总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%90%AD%E5%BB%BAHive%E9%9B%86%E7%BE%A4%E6%97%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E9%81%B5%E5%BE%AA%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">6.1.</span> <span class="toc-text">在搭建Hive集群时，需要遵循以下步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%90%AD%E5%BB%BAHive%E9%9B%86%E7%BE%A4%E6%97%B6%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%A5%E4%B8%8B%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="toc-number">6.2.</span> <span class="toc-text">在搭建Hive集群时需要注意以下事项：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8Hive%E9%9B%86%E7%BE%A4%E6%97%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%A5%E4%B8%8B%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="toc-number">6.3.</span> <span class="toc-text">在实际使用Hive集群时，需要注意以下事项：</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9C%89%E5%93%AA%E4%BA%9B%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、大数据有哪些技术基础？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1%E6%9C%89%E5%93%AA%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、参数估计有哪两种方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E5%85%AD%E6%AD%A5%E9%AA%A4%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text">三、假设检验六步骤的主要任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%89%8D%E7%BD%AE%E5%81%87%E8%AE%BE%E6%9D%A1%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">四、线性回归的基本前置假设条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF%E6%9C%89%E5%93%AA%E4%BA%9B%E8%AE%A1%E7%AE%97%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">五、大数据分析处理技术有哪些计算场景？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%9C%89%E5%93%AA%E5%87%A0%E5%A4%A7%E7%B1%BB%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">六、数据挖掘常用算法有哪几大类？</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -893,7 +503,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Mon Apr 03 2023 09:28:06 GMT+0800',
+  	id: 'Tue May 23 2023 11:09:13 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
