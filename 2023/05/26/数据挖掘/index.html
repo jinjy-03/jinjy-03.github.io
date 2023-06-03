@@ -6,48 +6,50 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hive安装（mysql作为元数据库） | 一只丸子金</title>
+  <title>数据挖掘 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文主要记录📝基于Hadoop环境的Hive（2.3.4）的安装与配置(使用mysql作为元数据库），以及补充学到的知识点，文章以图文形式呈现，主要参考CSDN博主「原来浙小商啊」。">
+  <meta name="description" content="摘要： 本文是一份针对初学者介绍数据挖掘的笔记📒，涵盖了什么是数据挖掘、数据挖掘流程、数据挖掘的应用。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hive安装（mysql作为元数据库）">
-<meta property="og:url" content="http://example.com/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/index.html">
+<meta property="og:title" content="数据挖掘">
+<meta property="og:url" content="http://example.com/2023/05/26/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文主要记录📝基于Hadoop环境的Hive（2.3.4）的安装与配置(使用mysql作为元数据库），以及补充学到的知识点，文章以图文形式呈现，主要参考CSDN博主「原来浙小商啊」。">
+<meta property="og:description" content="摘要： 本文是一份针对初学者介绍数据挖掘的笔记📒，涵盖了什么是数据挖掘、数据挖掘流程、数据挖掘的应用。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117125129.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117130708.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131046.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131704.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135515.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144414.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144605.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144647.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144730.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144832.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145230.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145316.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145358.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145437.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117151341.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132651.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132818.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135416.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152236.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117222131.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152844.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117153419.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117221924.png">
-<meta property="article:published_time" content="2023-01-17T04:06:55.000Z">
-<meta property="article:modified_time" content="2023-01-24T11:41:34.668Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526212819.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526213011.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526214054.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526214126.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526214908.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526215117.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526215035.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526215256.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530141353.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530142000.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530142024.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530143701.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530144034.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530144114.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530144144.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602181146.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602181554.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602182627.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602183105.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602184654.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603131250.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603180337.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603180409.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603182746.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603182926.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603183207.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603181452.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603213817.png">
+<meta property="article:published_time" content="2023-05-26T13:13:10.000Z">
+<meta property="article:modified_time" content="2023-06-03T13:50:41.013Z">
 <meta property="article:author" content="金金">
-<meta property="article:tag" content="大数据">
-<meta property="article:tag" content="Hive">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="大数据学习实践课（中级）">
+<meta property="article:tag" content="数据挖掘">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117125129.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526212819.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -188,14 +190,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hive安装（mysql作为元数据库）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据挖掘" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hive安装（mysql作为元数据库）
+      数据挖掘
     </h1>
   
 
@@ -206,8 +208,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2023-01-17T04:06:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
+<a href="/2023/05/26/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" class="archive-article-date">
+  	<time datetime="2023-05-26T13:13:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
 </a>
 
 
@@ -220,191 +222,348 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2.2k字 | 预计阅读时长：10分钟
+        字数：6.9k字 | 预计阅读时长：23分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝基于Hadoop环境的<strong>Hive（2.3.4）的安装与配置(使用mysql作为元数据库）</strong>，以及补充学到的知识点，文章以图文形式呈现，主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">CSDN博主「原来浙小商啊」</a>。</p>
+        <p>摘要： 本文是一份针对初学者介绍<strong>数据挖掘</strong>的笔记📒，涵盖了<strong>什么是数据挖掘</strong>、<strong>数据挖掘流程</strong>、<strong>数据挖掘的应用</strong>。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…</p>
 <span id="more"></span>
+
+<h2 id="一、什么是数据挖掘"><a href="#一、什么是数据挖掘" class="headerlink" title="一、什么是数据挖掘"></a>一、什么是数据挖掘</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p><strong>数据挖掘</strong>（Data mining，简称DM）是指从大量的数据中通过算法搜索隐藏于其中信息的过程。由于数据挖掘通常存在于数据库中，因此人们又称之为“数据库中知识发现”。<strong>数据挖掘是一个过程，而非单纯的数学建模</strong>。</p>
 <ul>
-<li><p>背景<br> <strong>Hive</strong>是基于<strong>Hadoop</strong>的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供完整的<strong>SQL</strong>查询功能，可以将<strong>SQL</strong>语句转换为<strong>MapReduce</strong>任务进行运行。<strong>Hive</strong>构建在 <strong>Apache Hadoop</strong>之上，支持通过 hdfs 在 S3、adls、gs 等上进行存储。 其优点是学习成本低，可以通过类<strong>SQL</strong>语句快速实现简单的<strong>MapReduce</strong>统计，不必开发专门的<strong>MapReduce</strong>应用，十分适合数据仓库的统计分析。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117125129.png" alt="20230117125129"></p>
+<li>数据挖掘是一个以<strong>数据为中心</strong>的循序渐进的<strong>螺旋式</strong>的<strong>数据探索</strong>过程；</li>
+<li>数据挖掘是各种分析方法的<strong>集合</strong>，是多种数据分析、处理方法的<strong>配合应用</strong>；</li>
+<li>数据挖掘的最终目的是<strong>辅助决策</strong>；</li>
+<li>当前数据挖掘系统具有<strong>分析海量数据</strong>的能力。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526212819.png" alt="20230526212819"></li>
+</ul>
+<h3 id="2-数据挖掘的功能"><a href="#2-数据挖掘的功能" class="headerlink" title="2.数据挖掘的功能"></a>2.数据挖掘的功能</h3><ul>
+<li>描述：挖掘的任务是描述目标数据的特征（分类）</li>
+<li>预测：根据当前数据预测未来<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526213011.png" alt="20230526213011"></li>
+</ul>
+<h3 id="3-数据挖掘与数据仓库"><a href="#3-数据挖掘与数据仓库" class="headerlink" title="3.数据挖掘与数据仓库"></a>3.数据挖掘与数据仓库</h3><p><strong>数据仓库</strong>的应用：数据统计分析、<strong>数据挖掘</strong>、OLAP分析</p>
+<ul>
+<li>根据数据存在方式，用于数据挖掘的数据可以是数据库、数据仓库、文本、多媒体数据源等等；</li>
+<li>由于企业数据仓库系统就是面向数据统计、分析应用的，因此数据挖掘一般依赖于企业数据仓库系统的数据；</li>
+<li>从数据仓库的角度看，数据挖掘可以看做是数据仓库高阶段的OLAP分析。</li>
+</ul>
+<h3 id="4-数据挖掘的应用价值"><a href="#4-数据挖掘的应用价值" class="headerlink" title="4.数据挖掘的应用价值"></a>4.数据挖掘的应用价值</h3><p>只要有数据的地方就可能进行<strong>数据挖掘</strong>，尤其是在云计算、互联网、大数据技术发展的今天，海量数据被收集、处理、存储，为数据挖掘提供啦可能。<br>典型的数据挖掘应用如下：</p>
+<ul>
+<li><strong>商业智能</strong>（Business Intelligence，简称：BI）：通过数据挖掘指导企业运营、决策支持、数据价值化，是企业发展的重要力量。</li>
+<li><strong>Web搜索引擎</strong>：这是海量数据实时应用的处理过程，基于数据挖掘技术，为用户迅速返回所有搜寻的信息，基于此，数据的价值得到了最大体现。</li>
+</ul>
+<h3 id="5-数据挖掘常用算法概述"><a href="#5-数据挖掘常用算法概述" class="headerlink" title="5.数据挖掘常用算法概述"></a>5.数据挖掘常用算法概述</h3><p>数据挖掘技术的基本任务主要体现在<strong>关联规则</strong>、<strong>分类</strong>、<strong>回归</strong>、<strong>聚类</strong>等几个方面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526214054.png" alt="20230526214054"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526214126.png" alt="20230526214126"></p>
+<h3 id="6-什么是关联"><a href="#6-什么是关联" class="headerlink" title="6.什么是关联"></a>6.什么是关联</h3><h4 id="关联的基本介绍"><a href="#关联的基本介绍" class="headerlink" title="关联的基本介绍"></a>关联的基本介绍</h4><ul>
+<li><p><strong>关联</strong><br>（a 自然界中某种事物发生时其他事物也会发生，则这种联系称之为关联<br>（b 反映事件之间依赖或关联的知识称为关联知识（又称依赖关系）</p>
+</li>
+<li><p><strong>关联的类型</strong><br>简单关联、时序关联、因果关联</p>
+</li>
+<li><p><strong>关联规则</strong><br>（a 关联规则是两个或多个变量取值之间存在的一类重要的可被发现的某种规律<br>（b 比如人们在购物时喜欢同时1买牛奶和面包，牛奶和面包这种商品中存在着某种关联<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526214908.png" alt="20230526214908"><br><strong>举例说明</strong><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526215117.png" alt="20230526215117"><br><strong>概念说明</strong><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526215035.png" alt="20230526215035"><br><strong>重要测度指标</strong><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230526215256.png" alt="20230526215256"></p>
 </li>
 </ul>
-<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><ul>
-<li>三台服务器（master、slave1、slave2）</li>
-<li><strong>各节点完成了IP映射与ssh免密</strong><br>没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/12/%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">《云服务器IP映射与ssh免密登录》</a></li>
-<li><strong>Hadoop集群完成配置</strong><br>没完成的可以看下这篇文章<a target="_blank" rel="noopener" href="https://jinjy-03.github.io/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">《Hadoop完全分布式配置》</a></li>
-<li>相关软件安装包下载<br><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1jKgua2U1yacbrbgQk4-wFg">百度云链接</a> 提取码：r93h<br>由CSDN博主「原来浙小商啊」提供</li>
-</ul>
-<h2 id="二、Hive的基本安装"><a href="#二、Hive的基本安装" class="headerlink" title="二、Hive的基本安装"></a>二、Hive的基本安装</h2><h3 id="1-hive下载和解压"><a href="#1-hive下载和解压" class="headerlink" title="1.hive下载和解压"></a>1.hive下载和解压</h3><p>你可以直接使用和我对应版本我软件包，也可以去<a target="_blank" rel="noopener" href="https://hive.apache.org/">hive的官网下载</a></p>
-<p>上传⏫文件可以用scp，前面文章有写</p>
-<p><strong>⚠️Hive只需要在master节点上安装配置</strong></p>
+<h4 id="关联规则的类别"><a href="#关联规则的类别" class="headerlink" title="关联规则的类别"></a>关联规则的类别</h4><p>关联分析算法常见的四类划分方式：基于<strong>变量类型</strong>的方法、基于<strong>抽象层次</strong>的方法、基于<strong>数据维度</strong>的方法、基于<strong>时间序列</strong>的方法。</p>
 <ul>
-<li>进入&#x2F;usr&#x2F;local目录，解压apache-hive-2.3.4-bin.tar.gz 到该目录下，并将解压的文件重命名为hive-2.3.4，最后移动到创建的hive文件夹中</li>
+<li>基于规则中处理的<strong>变量</strong>的类型<br>（a.布尔型：<br>布尔型关联规则处理的值都是离散的、种类化的，它显示了这些变量之间的关系。代表算法Apriori。<br>🌰：尿不湿&#x3D;&gt;啤酒<br>（b.数值型：<br>可以和多维关联或多层关联规则结合起来，可包含布尔型。<br>🌰：代表算法GRI。<br><strong>数值型可以将其进行动态的分割或者直接对原始数据进行处理</strong>。</li>
+<li>基于规则中数据的<strong>抽象层次</strong></li>
+<li>基于规则中涉及到的数据的<strong>维度</strong></li>
+<li>基于规则中涉及到的<strong>时间序列</strong><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530141353.png" alt="20230530141353"></li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# cd /usr/local</span><br><span class="line">新建hive目录</span><br><span class="line">[root@master local]# mkdir hive</span><br><span class="line">解压</span><br><span class="line">[root@master local]# tar -zxvf apache-hive-2.3.4-bin.tar.gz</span><br><span class="line">改名</span><br><span class="line">mv apache-hive-2.3.4-bin hive-2.3.4</span><br><span class="line">将其移动到hive目录下</span><br><span class="line">[root@master local]# mv hive-2.3.4 hive</span><br><span class="line">[root@master local]# cd hive</span><br><span class="line">[root@master hive]# </span><br></pre></td></tr></table></figure>
-
-<p>可以切换到hive目录下查看解压好的文件夹<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117130708.png" alt="20230117130708"></p>
-<h3 id="2-配置hive环境变量"><a href="#2-配置hive环境变量" class="headerlink" title="2.配置hive环境变量"></a>2.配置hive环境变量</h3><ul>
-<li>设置环境变量，编辑vi &#x2F;etc&#x2F;profile，在末尾添加以下代码；</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@master hive]# vim /etc/profile               </span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_191</span><br><span class="line">export HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.7</span><br><span class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">export HIVE_HOME=/usr/local/hive/hive-2.3.4</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$HIVE_HOME/bin</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131046.png" alt="20230117131046"></p>
-<p>最后：source &#x2F;etc&#x2F;profile使刚刚的配置生效<br><code>[root@master ~]# source /etc/profile</code></p>
+<h4 id="关联模型-Apriori算法"><a href="#关联模型-Apriori算法" class="headerlink" title="关联模型-Apriori算法"></a>关联模型-Apriori算法</h4><p><strong>Apriori算法</strong>是一种最有影响力的挖掘<strong>布尔关联规则</strong>频繁项集的算法。其核心是基于<strong>两阶段频集思想的递推算法</strong>。</p>
+<p>首先乍到所有的频集，这些项集出现的频繁性至少和预定义的最小支持度一样；然后由频集产生强关联规则，这些规则必须满足最小支持度和最小可信度。</p>
 <ul>
-<li>查看hive是否安装成功：</li>
+<li>实现步骤<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530142000.png" alt="20230530142000"></li>
 </ul>
-<p><code>[root@master ~]#  hive --version</code></p>
-<p>出现如下界面代表配置成功</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117131704.png" alt="20230117131704"></p>
-<p>出现hive版本就说明安装成功</p>
-<h2 id="三、Hive的配置"><a href="#三、Hive的配置" class="headerlink" title="三、Hive的配置"></a>三、Hive的配置</h2><ul>
-<li>在&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4&#x2F;conf目录下，修改hive-site.xml和hive-env.sh两个文件</li>
-</ul>
-<h3 id="1-hive-site-xml"><a href="#1-hive-site-xml" class="headerlink" title="1.hive-site.xml"></a>1.hive-site.xml</h3><ul>
-<li><strong>hive-site.xml</strong>保存Hive运行时所需要的相关配置信息。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master hive]# cd hive-2.3.4/conf</span><br><span class="line">[root@master conf]# mv hive-default.xml.template   hive-site.xml</span><br></pre></td></tr></table></figure>
-
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530142024.png" alt="20230530142024"></p>
+<h3 id="7-什么是聚类"><a href="#7-什么是聚类" class="headerlink" title="7.什么是聚类"></a>7.什么是聚类</h3><h4 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h4><p>■	clustering聚类分析是将一组对象划分为<strong>簇（cluster）</strong>，是簇内对象相似性尽量大，而簇间对象相似性尽量小<br>■	如“物以类聚，人以群分”时间久了，同一班级的同学形成若干个小团体</p>
+<h4 id="聚类算法分类"><a href="#聚类算法分类" class="headerlink" title="聚类算法分类"></a>聚类算法分类</h4><p>聚类分析常见的五大类算法：划分法、层次发、基于密度的方法、基于网络的方法、基于模型的方法。</p>
 <ul>
-<li><strong>温馨提示</strong>：文件有5千多行，如果你和我版本对应可以直接用软件包里的这个文件，要修改的话，可以将这个文件下载到自己主机用编辑器编辑后再上传<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135515.png" alt="20230117135515"></li>
+<li>划分法</li>
 </ul>
-<p>我是直接把master上的hive-site.xml删了，直接创建一个：vi hive-site.xml，将软件包里hive-site.xml的文件内容全选复制到其中（按i进入编辑模式后再进行粘贴）</p>
+<p><strong>划分法</strong>（partintioning methods）：给定一个由n个元组或记录组成的数据集，划分法将构造k个分组，每个分组代表一个聚类，k &lt;&#x3D; n。K个分组满足下列条件：<br>1.每个分组至少包含一个对象<br>2.每个数据记录属于且仅属于一个分组<br>🌰：算法：K-means、K-medois、CLARANS。</p>
 <ul>
-<li>自己编辑如下：</li>
+<li>层次法</li>
 </ul>
-<p>⚠️在hive-site.xml中找到下面的几个对应name的property,然后把value值更改</p>
+<p><strong>层次法</strong>（hierarchical methods）：对给定的数据集进行层次分解，直到满足某种条件位置。具体可分为“自底向上”的凝聚法和“自顶向下”的分裂法两种法案。<br>🌰：代表算法：BIRCH、CURE、CHAMELEON。</p>
 <ul>
-<li><strong>javax.jdo.option.ConnectionURL</strong></li>
+<li>密度法</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://master:3306/hive_metadata?createDatabaseIfNotExist=true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">      JDBC connect string for a JDBC metastore.</span><br><span class="line">      To use SSL to encrypt/authenticate the connection, provide database-specific SSL flag in the connection URL.</span><br><span class="line">      For example, jdbc:postgresql://myhost/db?ssl=true for postgres database.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144414.png" alt="20230117144414"></p>
+<p><strong>密度法</strong>（density-based methods）：不是基于距离，而是基于密度。能克服基于距离的算法只能发现“类圆形”聚类的缺点。<br>🌰：代表算法：DBSCAN、OPTICS。</p>
 <ul>
-<li><strong>javax.jdo.option.ConnectionDriverName</strong></li>
+<li>网络方法</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Driver class name for a JDBC metastore<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144605.png" alt="20230117144605"></p>
+<p><strong>网络方法</strong>（grid-based methods）：首先将数据空间划分成有限个单元的网络结构，所有的处理都以单元为对象。优点处理速度很快。<br>🌰：代表算法：STING、CLIQUE、Wave-Cluster。</p>
 <ul>
-<li><strong>javax.jdo.option.ConnectionUserName</strong></li>
+<li>模型方法</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Username to use against metastore database<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144647.png" alt="20230117144647"></p>
+<p><strong>模型方法</strong>（model-based methods）：给每个聚类假定一个模型，然后去寻找数据给定模型进行最佳拟合。给定模型可能是数据点在空间中的密度分布函数或其他。</p>
 <ul>
-<li><strong>javax.jdo.option.ConnectionPassword</strong></li>
+<li>小结<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530143701.png" alt="20230530143701"></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>password to use against metastore database<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144730.png" alt="20230117144730"></p>
+<h4 id="聚类模型-K-means"><a href="#聚类模型-K-means" class="headerlink" title="聚类模型_K-means"></a>聚类模型_K-means</h4><p>也称快速聚类，非常典型的基于距离的聚类算法</p>
+<p>K-means聚类思想</p>
+<p>以空间中k个点为中心进行聚类，对最靠近他们的对象归类。通过迭代的方法，逐次更新各聚类中心的值，直至得到最好的聚类结果。</p>
+<p><strong>聚类变量</strong>、<strong>相似度测度</strong>、<strong>聚类中心</strong>、<strong>收敛准则</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530144034.png" alt="20230530144034"></p>
 <ul>
-<li><strong>hive.querylog.location</strong></li>
+<li>过程<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530144114.png" alt="20230530144114"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230530144144.png" alt="20230530144144"></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.querylog.location<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Location of Hive run time structured log file<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117144832.png" alt="20230117144832"></p>
+<h3 id="8-什么是分类"><a href="#8-什么是分类" class="headerlink" title="8.什么是分类"></a>8.什么是分类</h3><h4 id="分类简单介绍"><a href="#分类简单介绍" class="headerlink" title="分类简单介绍"></a>分类简单介绍</h4><ul>
+<li><p>是数据挖掘重要课题</p>
+</li>
+<li><p>分类的目的是获得一个<strong>分类函数</strong>或<strong>分类模型</strong>（也常常称作分类器），该模型能把数据库中的数据项目映射到某一个给定类别</p>
+</li>
+<li><p>分类可用于<strong>提取描述重要数据类的模型</strong>或<strong>预测未来的数据趋势</strong><br>🌰：通信公司基于历史离网数据预测客户的流逝倾向，提前对客户进行挽留</p>
+</li>
+<li><p>分类算法：<br>分类的主要目的是通过分析输入数据，利用部分数据构造一个分类函数或者分类模型（分类器），利用该模型将数据库中的其他数据项映射到某一给定类别中。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602181146.png" alt="20230602181146"></p>
+</li>
+</ul>
+<h4 id="分类算法-决策树"><a href="#分类算法-决策树" class="headerlink" title="分类算法-决策树"></a>分类算法-决策树</h4><p><strong>决策树</strong>也称<strong>规则推理模型</strong>，通过对训练样本的学习，建立分类规则。依据分类规则，实现对新样本的分类。</p>
 <ul>
-<li><strong>hive.server2.logging.operation.log.location</strong></li>
+<li><p>算法的两类变量<br>目标变量：输出变量<br>属性变量：输入变量</p>
+</li>
+<li><p>决策树特点<br>类似于流程图的树型结构<br>内部节点代表对某个属性的一次测试<br>分支代表测试的输出结果<br>树的最顶端是根节点<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602181554.png" alt="20230602181554"></p>
+</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.logging.operation.log.location<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/hadoop/operation_logs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Top level directory where operation logs are stored if logging functionality is enabled<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145230.png" alt="20230117145230"></p>
+<h4 id="分类算法模型典型算法"><a href="#分类算法模型典型算法" class="headerlink" title="分类算法模型典型算法"></a>分类算法模型典型算法</h4><ul>
+<li>支持向量机</li>
+<li>逻辑回归</li>
+<li>决策树</li>
+<li>k近邻</li>
+<li>随机森林</li>
+<li>朴素贝叶斯</li>
+</ul>
+<h3 id="9-什么是回归"><a href="#9-什么是回归" class="headerlink" title="9.什么是回归"></a>9.什么是回归</h3><h4 id="回归简单介绍"><a href="#回归简单介绍" class="headerlink" title="回归简单介绍"></a>回归简单介绍</h4><p><strong>回归</strong>就是用属性的历史数据预测未来趋势</p>
+<p>先假设一类已知的类型的函数可以拟合目标函数，然后利用某种误差分析确定一个与目标数据拟合最好的函数</p>
+<p>🌰：企业通过回归算法预测收入，一旦发现无法完成年度目标，及时采取改进措施，保证既定目标按时完成</p>
 <ul>
-<li><strong>hive.exec.local.scratchdir</strong></li>
+<li>回归与分类比较</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.exec.local.scratchdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Local scratch space for Hive jobs<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145316.png" alt="20230117145316"></p>
+<p>相同：<br>两者都需要构建模型，都用模型来估计未知值</p>
+<p>不同：<br><strong>分类法</strong>主要用来<strong>预测类标号</strong>（分类属性值）<br><strong>回归法</strong>主要用来估计<strong>连续值</strong>（量化属性值）</p>
+<h4 id="回归算法分类"><a href="#回归算法分类" class="headerlink" title="回归算法分类"></a>回归算法分类</h4><ul>
+<li>根据研究自变量的数量</li>
+</ul>
+<p>一元回归：一个自变量<br>多元回归：两个或两个以上自变量</p>
 <ul>
-<li><strong>hive.downloaded.resources.dir</strong></li>
+<li>根据自变量和因变量的方程式特征</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.downloaded.resources.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hive/hive-2.3.4/tmp/$&#123;hive.session.id&#125;_resources<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Temporary local directory for added resources in the remote file system.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145358.png" alt="20230117145358"></p>
+<p>线性回归分析<br>非线性回归分析</p>
+<h4 id="回归模型"><a href="#回归模型" class="headerlink" title="回归模型"></a>回归模型</h4><ul>
+<li>非线性回归模型</li>
+<li>线性回归模型</li>
+</ul>
+<h3 id="10-数据挖掘常用工具概述"><a href="#10-数据挖掘常用工具概述" class="headerlink" title="10.数据挖掘常用工具概述"></a>10.数据挖掘常用工具概述</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602182627.png" alt="20230602182627"></p>
+<h4 id="阿里云机器学习平台PAI"><a href="#阿里云机器学习平台PAI" class="headerlink" title="阿里云机器学习平台PAI"></a>阿里云机器学习平台PAI</h4><p><strong>阿里云机器学习平台PAI</strong>（Platform of Artifical Intelligence）：是构建在阿里云MaxCompute计算平台之上，集数据处理、建模、离线预测、在线预测为一体的机器学习平台。为算法开发者提供了丰富的MPI、PS、BSP等编程框架和数据存储接口，同时提供了基于WEB的可视化控制台，降低了使用门槛。</p>
 <ul>
-<li><strong>hive.metastore.schema.verification</strong></li>
+<li><p><strong>上手简单</strong><br>通过对底层分布式算法的封装，提供拖、拉、拽的可视化操作环境。使机器学习的创建过程像堆积木一样简单。</p>
+</li>
+<li><p><strong>算法丰富</strong><br>提供特征过程、数据预处理、统计分析、机器学习、深度学习框架、预测评估等100多种算法组件。</p>
+</li>
+<li><p><strong>一站式体验</strong><br>提供模型训练功能，还提供在线预测功能以及离线调度功能，让机器学习训练结果和业务可以无缝衔接。</p>
+</li>
+<li><p><strong>深度学习</strong><br>支持目前Tensorflow、Caffe、MXNet、PyTorch主流的机器学习框架，底层提供GPU卡进行训练。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602183105.png" alt="20230602183105"></p>
+</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.schema.verification<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">      Enforce metastore schema version consistency.</span><br><span class="line">      True: Verify that version information stored in is compatible with one from Hive jars.  Also disable automatic</span><br><span class="line">            schema migration attempt. Users are required to manually migrate schema after Hive upgrade which ensures</span><br><span class="line">            proper metastore schema migration. (Default)</span><br><span class="line">      False: Warn if the version information stored in metastore doesn&#x27;t match with one from in Hive jars.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117145437.png" alt="20230117145437"></p>
-<p>完成后，记得保存哦，一定要细心🌱</p>
-<h3 id="2-hive-env-sh"><a href="#2-hive-env-sh" class="headerlink" title="2.hive-env.sh"></a>2.hive-env.sh</h3><ul>
-<li>由于<strong>Hive</strong>是一个基于<strong>Hadoop</strong>分布式文件系统的数据仓库架构，主要运行在<strong>Hadoop</strong>分布式环境下，因此，需要在文件<strong>hive-env.sh</strong>中指定<strong>Hadoop</strong>相关配置文件的路径，用于<strong>Hive</strong>访问<strong>HDFS</strong>（读取fs.defaultFS属性值）和<strong>MapReduce</strong>（读取mapreduce.jobhistory.address属性值）等<strong>Hadoop</strong> 相关组件。</li>
-</ul>
-<p><code>[root@master conf]# mv hive-env.sh.template hive-env.sh</code></p>
+<h4 id="PAI支持的算法"><a href="#PAI支持的算法" class="headerlink" title="PAI支持的算法"></a>PAI支持的算法</h4><p><strong>机器学习平台</strong>上的算法都是经过阿里大规模业务锤炼而成的。从算法的丰富性角度来看，阿里云机器学习平台不仅提供了基础的聚类、回归类等机器学习算法，也提供了文本分析、特征处理等比较复杂的算法。</p>
 <ul>
-<li>vi hive-env.sh打开文件，找到下面的位置，做对应修改</li>
+<li><strong>预处理工具组件</strong><br>采样与过滤、数据合并、拆分、格式转换、类型转换</li>
+<li><strong>特征工程</strong><br>特征重要性评估、特征变换、特征选择、特征生成</li>
+<li><strong>统计分析</strong><br>假设检验、协方差、直方图、散点图、概率密度图</li>
+<li><strong>常用机器学习算法</strong><br>二分类、多分类、聚类、回归、评估、预测</li>
+<li><strong>垂直应用领域</strong><br>文本分析、搜索推荐、图像处理、网络分析、金融板块</li>
+<li><strong>深度学习</strong><br>DNN、CNNLSTM&#x2F;RNN、自定义算法</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117151341.png" alt="20230117151341"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.7</span><br><span class="line"></span><br><span class="line">export HIVE_CONF_DIR=/usr/local/hive/hive-2.3.4/conf</span><br><span class="line"></span><br><span class="line">export HIVE_AUX_JARS_PATH=</span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_191</span><br><span class="line">export HIVE_HOME=/usr/local/hive/hive-2.3.4</span><br></pre></td></tr></table></figure>
-
-<p>至此Hive基础配置完成啦🌿</p>
-<h2 id="四、Mysql的安装与配置"><a href="#四、Mysql的安装与配置" class="headerlink" title="四、Mysql的安装与配置"></a>四、Mysql的安装与配置</h2><p>Hive需要数据库来存储metastore的内容，因此我们需要配置一下MySQL数据库。</p>
-<h3 id="1-MySQL下载"><a href="#1-MySQL下载" class="headerlink" title="1.MySQL下载"></a>1.MySQL下载</h3><ul>
-<li>下载mysql驱动</li>
-</ul>
-<p>把下载好的mysql-connector-java.jar这个jar包拷到&#x2F;usr&#x2F;local&#x2F;hive&#x2F;hive-2.3.4&#x2F;lib&#x2F;下面，在<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1jKgua2U1yacbrbgQk4-wFg">百度云链接</a> (提取码：r93h)里都有</p>
+<h4 id="机器学习PAI的应用流程"><a href="#机器学习PAI的应用流程" class="headerlink" title="机器学习PAI的应用流程"></a>机器学习PAI的应用流程</h4><p>首先明确任务、目标、并且掌握数据实际情况前提下，即完成商业理解任务、数据理解任务前提下，开始机器学习的实施过程：</p>
 <ul>
-<li>安装MySQL数据库</li>
+<li>数据预处理</li>
+<li>选择特征</li>
+<li>选择模型进行数据训练</li>
+<li>模型评估</li>
+<li>应用部署及再学习、再训练<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230602184654.png" alt="20230602184654"></li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# cd /usr/local/src/</span><br><span class="line">[root@master src]# wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">[root@master src]# rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">[root@master src]# yum install mysql-community-server</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132651.png" alt="20230117132651"></p>
-<p>出现如下界面代表安装成功<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117132818.png" alt="20230117132818"></p>
-<p><strong>安装完成后，重启服务</strong></p>
-<p><code>[root@master src]# service mysqld restart</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117135416.png" alt="20230117135416"><br>mysql安装成功</p>
-<h3 id="2-MySQL为Hive做的设置"><a href="#2-MySQL为Hive做的设置" class="headerlink" title="2.MySQL为Hive做的设置"></a>2.MySQL为Hive做的设置</h3><p>⚠️mysql用户和密码已经在hive-site.xml文件设置好了哦，这里就不需要重复了</p>
+<h2 id="二、数据挖掘流程"><a href="#二、数据挖掘流程" class="headerlink" title="二、数据挖掘流程"></a>二、数据挖掘流程</h2><h3 id="2-1-数据挖掘一般过程"><a href="#2-1-数据挖掘一般过程" class="headerlink" title="2.1 数据挖掘一般过程"></a>2.1 数据挖掘一般过程</h3><p>数据获取——数据预处理——特征工程——分析建模——模型评估与应用</p>
+<h3 id="2-2-数据获取"><a href="#2-2-数据获取" class="headerlink" title="2.2 数据获取"></a>2.2 数据获取</h3><p>根据数据挖掘任务的具体要求，从相关数据源中抽取相关<strong>数据集</strong>，<strong>数据集的选取</strong>对<strong>数据挖掘模型选取</strong>起决定作用，数据获取的前提是掌握本次<strong>数据挖掘任务的目标</strong>，为达到目标需要获取什么数据。</p>
 <ul>
-<li>在mysql上创建hive元数据库hive_metadata</li>
+<li>挖掘任务的可行性</li>
+<li>挖掘任务成功标准</li>
+<li>挖掘任务实施计划</li>
+<li>初步考虑挖掘任务采用的工具、技术</li>
+<li>挖掘任务与业务目标任务的匹配情况</li>
 </ul>
-<p><code>create database if not exists hive_metadata;</code></p>
+<p>获取数据挖掘所需要数据必须要全面了解数据，即<strong>理解数据</strong>、<strong>熟悉数据</strong></p>
 <ul>
-<li>创建用户hive，密码为hive，并授权拥有数据库实例hive_metadata的所有权限</li>
+<li><strong>收集原始数据</strong>：收集本项目所涉及到的数据，如有必要，把数据装入数据处理工具，并作一些初步的数据集成工作，生成相应报告</li>
+<li><strong>描述数据</strong>：对数据作一些大致的描述，例如记录数、属性数，给出相应报告</li>
+<li><strong>探索数据</strong>：对数据做简单的统计分析，例如关键属性的分布等</li>
+<li><strong>检查数据质量</strong>：包括数据是否完整、数据是否有错、是否有缺失值等问题</li>
 </ul>
-<p><code>grant all privileges on hive_metadata.* to &#39;hive&#39;@&#39;%&#39; identified by &#39;hive&#39;;</code></p>
+<h3 id="2-3-数据预处理"><a href="#2-3-数据预处理" class="headerlink" title="2.3 数据预处理"></a>2.3 数据预处理</h3><p><strong>数据预处理</strong>的流程可分为数据清洗、数据集成、数据规约和数据变换资格步骤。从应用的角度可分为<strong>如何得到正确的数据</strong>、<strong>如何筛选建模变量</strong>、<strong>建模变量的数据变换</strong>三个阶段。其中数据清洗和数据集成属于得到正确的数据阶段，数据规约是数据筛选建模数据阶段，建模变量的数据变换为建模前的最后准备阶段。</p>
+<ol>
+<li><strong>数据清洗</strong><br>数据清洗主要针对缺失数据、错误数据、噪声数据、冗余数据，分别进行相应的处理</li>
+<li><strong>数据集成</strong><br>数据仓库的构建需要数据集成，数据挖掘宽表的构建也可以理解为数据集成</li>
+<li><strong>数据转换</strong><br>数据转换主要有数据的标准化变换，对数变换和正态转换</li>
+<li><strong>数据规约</strong><br>数据规约主要有属性的约简（建模变量的筛选），数据的压缩（如主成分分析）、数据的汇总和概化等。</li>
+</ol>
+<h4 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h4><blockquote>
+<p>业界对<strong>数据清理</strong>对认识：<br>“<strong>数据清理</strong>是数据仓库构建中最重要的问题“——DCL survey</p>
+</blockquote>
+<p>数据清洗任务</p>
 <ul>
-<li>对hive元数据库进行赋权，开放localhost连接,开放远程连接</li>
+<li>填写空缺的值</li>
+<li>识别离群点和平滑噪声数据</li>
+<li>纠正不一致的数据</li>
+<li>解决数据集造成的冗余</li>
 </ul>
-<p><code>grant all privileges on hive_metadata.* to &#39;hive&#39;@&#39;localhost&#39; identified by &#39;hive&#39;;</code></p>
-<p><code>grant all privileges on hive_metadata.* to &#39;hive&#39;@&#39;master&#39; identified by &#39;hive&#39;;</code></p>
+<h4 id="数据集成"><a href="#数据集成" class="headerlink" title="数据集成"></a>数据集成</h4><ul>
+<li><p><strong>数据集成</strong>：<br>将多个数据源中的数据整合到一个一致的存储中</p>
+</li>
+<li><p><strong>模式集成</strong>：<br>整合不同数据源中的元数据</p>
+</li>
+</ul>
+<p>e.g. A.cust_id &#x3D; B.customer_no</p>
 <ul>
-<li>刷新系统权限表。</li>
+<li><strong>实体识别问题</strong>:<br>匹配来自不同数据源的现实世界的实体</li>
 </ul>
-<p><code>flush privileges;</code></p>
+<p>e.g. Bill Clinton &#x3D; William Clinton</p>
 <ul>
-<li>使用实例hive_metadata</li>
+<li><strong>检测并解决数据值的冲突</strong>：<br>对现实世界中的同一实体，来自不同数据源的属性值可能是不同的<br>可能的原因：不同的数据表示，不同的度量等等</li>
 </ul>
-<p><code>use hive_metadata;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152652.png" alt="20230117152652"></p>
-<h2 id="五、Hive初始化及测试hive"><a href="#五、Hive初始化及测试hive" class="headerlink" title="五、Hive初始化及测试hive"></a>五、Hive初始化及测试hive</h2><h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1.初始化"></a>1.初始化</h3><p>⚠️完成Hive的安装与配置后，确保Hadoop的dfs在运行哦（start-dfs.sh启动 Hadoop），jps先验证一下</p>
-<p>第一次启动Hive前还需要执行初始化命令<br><code>[root@master src]# schematool -dbType mysql -initSchema  </code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152236.png" alt="20230117152236"></p>
-<p>在主机上输入http:&#x2F;&#x2F;虚拟机ip地址:50070&#x2F;  可以访问 hadoop的管理页面</p>
-<p>如果文件hdfs权限不够的输入如下命令：<br><code>hdfs dfs -chmod -R 777 /tmp</code></p>
-<p>hive在hdfs创建了两个目录<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117222131.png" alt="20230117222131"></p>
-<h3 id="2-测试hive"><a href="#2-测试hive" class="headerlink" title="2.测试hive"></a>2.测试hive</h3><ul>
-<li>先创建一个txt文件存点数据等下导入hive中去</li>
-</ul>
-<p><code>[root@master src]# vim users.txt</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117152844.png" alt="20230117152844"></p>
+<h4 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h4><p><strong>数据转换</strong>将数据转换或统一成合适挖掘的形式。</p>
 <ul>
-<li>进入hive，出现命令行就说明之前搭建是成功的</li>
+<li>平滑：去除数据中的噪声</li>
+<li>聚集：汇总，数据立方体的构建</li>
+<li>数据泛化：沿概念分层向上汇总</li>
+<li>规范化：将数据按比例缩放，使之落入一个小的特定区间<br>最小 - 最大规范化、z-score规范化、小数定规范化</li>
+<li>属性构造<br>通过现有属性构造新的属性，并添加到属性集中，以增加对高维数据的结构的理解和精确度。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117153419.png" alt="20230117153419"></p>
+<h4 id="数据规约"><a href="#数据规约" class="headerlink" title="数据规约"></a>数据规约</h4><p><strong>数据规约</strong>可以用得到数据集的归约表示，它小得多，但可以产生相同的（或几乎相同的）分析结果<br>常用的<strong>数据归约策略</strong></p>
 <ul>
-<li>创建users表，因为我们上面users.txt不同字段中间有逗号所以<br>这个row format delimited fields terminated by ‘,’代表我们等下导过来的文件中字段是以逗号“，”分割字段的</li>
+<li>数据立方体聚集</li>
+<li>维归约，e.g.移除不重要的属性</li>
+<li>数据压缩</li>
+<li>数值归约，e.g.使用模型来表示数据</li>
+<li>离散化和概念分层产生</li>
 </ul>
-<p><code>hive&gt; create table users(id int, name string) row format delimited fields terminated by &#39;,&#39;;</code></p>
+<p>用于数据归约的时间不应当超过或“抵消”在归约后的数据上挖掘节省的时间</p>
+<h3 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h3><p><strong>特征工程</strong>：基于原始数据创建新的特征的过程。一般情况下结合业务，利用数学方法在原有特征的基础上，进行新增、转换等，使特征更适合于机器学习的需要。</p>
+<blockquote>
+<p>特征越好，对算法、模型要求越低，性能越出色</p>
+</blockquote>
+<h4 id="特征工程的作用"><a href="#特征工程的作用" class="headerlink" title="特征工程的作用"></a>特征工程的作用</h4><ul>
+<li>把原始数据转换成对机器学习更有用的特征</li>
+<li>结合业务使特征更容易理解和解释</li>
+<li>结合业务创建对最终结果贡献更大的特征</li>
+<li>更充分的利用已有数据的价值</li>
+<li>提供更多的特征，相当于扩充了训练集，充分利用现有的学习、计算能力，提高模型的准确性</li>
+<li>使用非结构化数据源提供的信息</li>
+<li>以特征工程的方式引入外部数据</li>
+</ul>
+<p>特征产生：基于原始数据产生新的特征</p>
+<h4 id="特征产生的常见方法："><a href="#特征产生的常见方法：" class="headerlink" title="特征产生的常见方法："></a>特征产生的常见方法：</h4><ul>
+<li>常见的指标或统计量</li>
+<li>同一特征的纵向联系</li>
+<li>多个特征的横向联系</li>
+<li>特征交叉</li>
+<li>时间特征的特殊处理</li>
+<li>从业务角度产生特征<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603131250.png" alt="20230603131250"></li>
+</ul>
+<h4 id="特征变换"><a href="#特征变换" class="headerlink" title="特征变换"></a>特征变换</h4><p>介绍：减少变量之间的相关性，用少数新的变量来尽可能反映样本的信息。即通过变换到新的表达空间，使数据可分性更好</p>
+<p>常见的特征变换方法</p>
 <ul>
-<li>导数据</li>
+<li><p>主成分分析PCA<br>利用降维技术用少数几个不相关的新变量来代替原始多个变量</p>
+</li>
+<li><p>因子分析FA<br>根据原始变量的信息进行重新组合，找到影响变量的共同因子，化简数据</p>
+</li>
+<li><p>独立成分分析ICA<br>将原始数据降维并提取出相互独立的变量</p>
+</li>
+<li><p>线性辨别分析LDA<br>将有标签数据映射到低维空间上分类，可将维度降至K-1维</p>
+</li>
+<li><p>核心方法KM<br>通过合适的核函数将数据映射到更高维使可分性更好</p>
+</li>
+<li><p>福里叶变换、小波变换WT<br>使基底函数表示原始数据，将原始数据压缩、降维</p>
+</li>
 </ul>
-<p><code>hive&gt; load data local inpath &#39;/usr/local/src/users.txt&#39; into table users;</code></p>
+<h5 id="特征评估和选择"><a href="#特征评估和选择" class="headerlink" title="特征评估和选择"></a>特征评估和选择</h5><p>从原始特征中挑选一些最有代表性、可分性最好的特征</p>
+<p>常见的变换方法：</p>
+<p><strong>过滤法</strong>（Filter）：使用独立于分类器的选择准则来评价所选择的特征子集</p>
 <ul>
-<li>查询</li>
+<li>方差选择法</li>
+<li>相关系数法</li>
+<li>卡方检验</li>
+<li>互信息法</li>
 </ul>
-<p><code>hive&gt; select * from users;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117160946.png" alt="20230117160946"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230117221924.png" alt="20230117221924"></p>
-<p>🍃到此为止，hive配置就结束啦，祝你成功！</p>
+<p><strong>封装法</strong>（Wrapper）：特征子集的好坏标准是由分类器决定</p>
+<ul>
+<li>基于KNN的特征选择</li>
+<li>基于SVM的特征选择</li>
+<li>基于Fisher判别的特征选择</li>
+<li>基于AdaBoost的特征选择</li>
+</ul>
+<h3 id="分析建模"><a href="#分析建模" class="headerlink" title="分析建模"></a>分析建模</h3><ul>
+<li><p>分析模型<br>在这一阶段，各种各样的建模方法将被加以选择和使用，通过建造，评估模型其参数将被校准为最为理想的值。<br>比较经典的是，对于同一个数据挖掘的问题类型，可以有多种方法选择使用。如果有多重技术要使用，那么在这一任务中，对于每一个要使用的技术要分别对待。<br>一些建模方法对数据的形式有具体要求，因此，在这一阶段，重新回到数据准备阶段执行某些任务有时是非常必要的。</p>
+</li>
+<li><p>建模思路<br>选择抽样规则、选择合适的算法、调整算法的参数</p>
+</li>
+<li><p>建模过程<br>是一个反复的过程，在不耗费过多系统资源的前提下提高模型的精度。模型结构需要业务解释，应用效果是评判模型的最终标准</p>
+</li>
+<li><p>🌰<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603180337.png" alt="20230603180337"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603180409.png" alt="20230603180409"></p>
+</li>
+</ul>
+<h3 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h3><p>Evaluation：从数据分析的角度考虑，在这一阶段，已经建立了一个或多个高质量的模型。但在进行最终的模型部署之前，更加彻底的<strong>评估模型</strong>，回顾在构建模型过程中所执行的每一个步骤，是非常重要的，这样可以确保这些模型是否达到了企业的目标。<br>在这一阶段结束之时，有关数据挖掘结果的使用应达成一致的决定。</p>
+<ul>
+<li><p>🌰<br>使用一组新数据评估建好的模型</p>
+</li>
+<li><p>模型评估三阶段<br>1.建模阶段<br>2.固化后的测试<br>3.应用后的评估——最重要</p>
+</li>
+<li><p>评估指标评价<br><strong>混淆矩阵</strong>：通过命中率、覆盖率验证模型可行性<br>覆盖率：正确预测到的正实例数&#x2F;实际正实例数<br>命中率：正确预测到的正实例数&#x2F;预测正实例数<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603182746.png" alt="20230603182746"></p>
+</li>
+<li><p>统计检验评价<br><strong>置信区间检验</strong>：F检验、T检验<br>预测偏差：（预测值-真实值）&#x2F;真实值<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603182926.png" alt="20230603182926"></p>
+</li>
+<li><p>抽样检验评价<br><strong>抽样检验</strong>：训练集检验模型的可靠性。<br>训练集：通过模型的运行评估，输出满意模型。<br>测试集：利用测试集测试训练集输出的模型。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603183207.png" alt="20230603183207"></p>
+</li>
+</ul>
+<h3 id="模型部署"><a href="#模型部署" class="headerlink" title="模型部署"></a>模型部署</h3><p>deployment<br><strong>模型部署</strong>：创建完模型并不意味着项目的结束，即使模型的目的是为了增进对数据的了解，所获得的知识也要用一种<strong>用户</strong>可以使用的方式来组织和呈现。这经常涉及到一个组织在处理某些决策过程中，如在决定有关网页人员或者营销数据库的重复得分时，拥有一个“活”的模型。</p>
+<p><strong>模型部署及模型应用</strong>：即将其发现的结果以及过程组织成为可读文本形式。</p>
+<p>根据需求的不同，通常要将活动模型应用到决策制定的过程中去。该阶段可以简单到只生成一份报告，也可以复杂到企业内实施一个可重复的数据挖掘过程。<br>在许多案例中，往往是客户而不是数据分析师来执行部署阶段，然而，尽管数据分析师不需要处理部署阶段的工作，对于客户而言，预先了解需要执行的活动从而正确的使用已构建的模型是非常重要的。</p>
+<p>固化有两种</p>
+<ol>
+<li>完全固化。模型固化成sql语句或存储过程，系统自动调度运行</li>
+<li>流程的固化。不能固化成sql语句，编写操作流程，，需要按周期运行模型，输出结果导入到系统<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603181452.png" alt="20230603181452"></li>
+</ol>
+<h2 id="三、数据挖掘的应用"><a href="#三、数据挖掘的应用" class="headerlink" title="三、数据挖掘的应用"></a>三、数据挖掘的应用</h2><h3 id="3-1-数据挖掘的应用现状"><a href="#3-1-数据挖掘的应用现状" class="headerlink" title="3.1 数据挖掘的应用现状"></a>3.1 数据挖掘的应用现状</h3><p>目前数据挖掘技术已被广泛的应用于各个领域，只要有分析价值与分析需求的数据，基于数据处理、存储技术，均可基于数据挖掘工具借助云计算平台进行海量数据分析，如金融、零售、制造、通讯、医疗等行业。</p>
+<ul>
+<li><strong>金融方面</strong>：<br>如风险控制，金融行业中有很多因素会对货贷偿还效能和客户信用等级计算产生不同程度的影响，利用数据挖掘技术识别重要的因素和非相关因素，据此调整货贷发放政策，控制风险；</li>
+<li><strong>生物信息</strong>：<br>利用数据挖掘进行基因序列分析、基因功能预测、分子结构关系预测等；</li>
+<li><strong>电子商务</strong>：<br>基于聚类分析对客户细分，千人千面推荐商品</li>
+<li><strong>零售业&#x2F;市场营销</strong>：<br>基于关联分析对购物篮分析，分析商品销售中隐含的关联关系，指定商品营销策略</li>
+<li><strong>过程监控&#x2F;质量监控</strong>：<br>通过视频数据挖掘，分析当前工程进行情况，施工质量情况</li>
+<li><strong>保险</strong>：<br>与金融一样，除了风控，还有就是基于数据挖掘技术预防欺诈骗保</li>
+<li><strong>证券&#x2F;投资</strong>：<br>利用数据挖掘技术在海量的数据中挖掘其背后隐藏的价格变化规律，利用关联规则技术对股票交易数据进行分析，发现其规律或问题</li>
+<li><strong>制造行业</strong>：<br>基于物联网数据开展数据挖掘，在产品质量控制、设备监控、改善生产流程</li>
+<li><strong>医疗</strong>：<br>随着计算机视觉与基因测技术对发展，数据挖掘技术主要应用在疾病风险预测和医学影像场景如肿瘤判断</li>
+<li><strong>物流&#x2F;运输</strong>：<br>智能物流，通过数据挖掘技术预测道路拥堵情况、智能规划道路</li>
+<li><strong>军事方面安全</strong>：<br>最常见的应用就是情报分析，基于数据挖掘找出关联关系。</li>
+</ul>
+<h3 id="3-2-数据挖掘的发展"><a href="#3-2-数据挖掘的发展" class="headerlink" title="3.2 数据挖掘的发展"></a>3.2 数据挖掘的发展</h3><p>数据挖掘本身融合了统计学、数据库、机器学习、模式识别、知识发现等学科，数据挖掘等发展是伴随着这些学科的发展而不断发展的。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230603213817.png" alt="20230603213817"></p>
+<h3 id="3-3-数据挖掘的未来"><a href="#3-3-数据挖掘的未来" class="headerlink" title="3.3 数据挖掘的未来"></a>3.3 数据挖掘的未来</h3><p>数据挖掘任务和数据挖掘方法的多样性对数据挖掘提出了许多挑战性的研究问题</p>
+<ul>
+<li>研究专门用于知识发现的数据挖掘语言，走向形式化和标准化</li>
+<li>寻求数据挖掘过程中的可视化方法，使得知识发现的过程能够被用户理解，也便于在知识发现过程中的人机交互</li>
+<li>基于云计算、互联网、大数据，分布式环境下的数据挖掘技术进一步发展</li>
+<li>加强对各种非结构化数据的挖掘，如文本数据、图形图像数据、多媒体数据；探索可伸缩的和可交互的数据挖掘方法，全面提高挖掘过程的总体效率，尤其是超大规模数据集中的数据挖掘的效率</li>
+<li>开发适应多数据类型、容噪点挖掘方法，动态数据挖掘、实时数据挖掘等</li>
+</ul>
+<h3 id="3-4-数据挖掘需要解决的问题"><a href="#3-4-数据挖掘需要解决的问题" class="headerlink" title="3.4 数据挖掘需要解决的问题"></a>3.4 数据挖掘需要解决的问题</h3><p>随着大数据时代的到来，<strong>数据挖掘</strong>将<strong>高性能计算</strong>、<strong>机器学习</strong>、<strong>人工智能</strong>、<strong>模式识别</strong>、<strong>统计学</strong>、<strong>数据可视化</strong>、<strong>数据库技术</strong>和<strong>专家系统</strong>等多个范畴的理论和技术融合在一起。<br>数据挖掘如何在各行各业的高效应用成为当前的热点。大数据的特征是数据规模大、数据种类繁多、数据处理速度快、数据价值密度低，数据挖掘需要解决的问题是大数据下<strong>挖掘算法的优化问题</strong>。</p>
+<p>挖掘算法的优化问题：</p>
+<ul>
+<li>海量数据下，数据挖掘的预测、分类、聚类、关联如何实现？</li>
+<li>多种数据类型，大量非结构化数据，如音频、图像等数据下的数据挖掘如何实现？</li>
+<li>数据挖掘与隐私保护，如何在不侵犯他人隐私的情况下进行数据挖掘？</li>
+<li>数据挖掘是一个过程，需要多种技术、算法完成同一个任务，与其他技术、系统、算法的有效集成是面临的另一个问题。</li>
+</ul>
+<p>🌿至此数据挖掘的笔记📒就介绍完啦～</p>
 
       
 
@@ -436,7 +595,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2023/01/17/Hive安装（mysql作为元数据库）/" title="Hive安装（mysql作为元数据库）" target="_blank">http://example.com/2023/01/17/Hive安装（mysql作为元数据库）/</a >
+      <a href=" >/2023/05/26/数据挖掘/" title="数据挖掘" target="_blank">http://example.com/2023/05/26/数据挖掘/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -457,15 +616,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大数据学习实践课（中级）</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据挖掘</a>
         		</li>
       		
 		</ul>
@@ -521,7 +676,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/05/26/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -535,18 +690,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hadoop基础知识点汇总
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hadoop完全分布式配置</div>
+    <a href="/2023/05/23/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0%E4%B9%A0%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据分析概述习题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -573,7 +719,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">一、环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Hive%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">二、Hive的基本安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hive%E4%B8%8B%E8%BD%BD%E5%92%8C%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1.hive下载和解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AEhive%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.配置hive环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Hive%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、Hive的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hive-site-xml"><span class="toc-number">3.1.</span> <span class="toc-text">1.hive-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-hive-env-sh"><span class="toc-number">3.2.</span> <span class="toc-text">2.hive-env.sh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Mysql%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">四、Mysql的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MySQL%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.1.</span> <span class="toc-text">1.MySQL下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MySQL%E4%B8%BAHive%E5%81%9A%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">2.MySQL为Hive做的设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Hive%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E6%B5%8B%E8%AF%95hive"><span class="toc-number">5.</span> <span class="toc-text">五、Hive初始化及测试hive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">5.1.</span> <span class="toc-text">1.初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B5%8B%E8%AF%95hive"><span class="toc-number">5.2.</span> <span class="toc-text">2.测试hive</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98"><span class="toc-number">1.</span> <span class="toc-text">一、什么是数据挖掘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.</span> <span class="toc-text">2.数据挖掘的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E4%B8%8E%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.</span> <span class="toc-text">3.数据挖掘与数据仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%BB%B7%E5%80%BC"><span class="toc-number">1.4.</span> <span class="toc-text">4.数据挖掘的应用价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-number">1.5.</span> <span class="toc-text">5.数据挖掘常用算法概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%B3%E8%81%94"><span class="toc-number">1.6.</span> <span class="toc-text">6.什么是关联</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.6.1.</span> <span class="toc-text">关联的基本介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E7%9A%84%E7%B1%BB%E5%88%AB"><span class="toc-number">1.6.2.</span> <span class="toc-text">关联规则的类别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%A8%A1%E5%9E%8B-Apriori%E7%AE%97%E6%B3%95"><span class="toc-number">1.6.3.</span> <span class="toc-text">关联模型-Apriori算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BB%80%E4%B9%88%E6%98%AF%E8%81%9A%E7%B1%BB"><span class="toc-number">1.7.</span> <span class="toc-text">7.什么是聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.7.1.</span> <span class="toc-text">简单介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB"><span class="toc-number">1.7.2.</span> <span class="toc-text">聚类算法分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E6%A8%A1%E5%9E%8B-K-means"><span class="toc-number">1.7.3.</span> <span class="toc-text">聚类模型_K-means</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E7%B1%BB"><span class="toc-number">1.8.</span> <span class="toc-text">8.什么是分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.8.1.</span> <span class="toc-text">分类简单介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">1.8.2.</span> <span class="toc-text">分类算法-决策树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B%E5%85%B8%E5%9E%8B%E7%AE%97%E6%B3%95"><span class="toc-number">1.8.3.</span> <span class="toc-text">分类算法模型典型算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%9E%E5%BD%92"><span class="toc-number">1.9.</span> <span class="toc-text">9.什么是回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.9.1.</span> <span class="toc-text">回归简单介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB"><span class="toc-number">1.9.2.</span> <span class="toc-text">回归算法分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.9.3.</span> <span class="toc-text">回归模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%A6%82%E8%BF%B0"><span class="toc-number">1.10.</span> <span class="toc-text">10.数据挖掘常用工具概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B9%B3%E5%8F%B0PAI"><span class="toc-number">1.10.1.</span> <span class="toc-text">阿里云机器学习平台PAI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PAI%E6%94%AF%E6%8C%81%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">1.10.2.</span> <span class="toc-text">PAI支持的算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0PAI%E7%9A%84%E5%BA%94%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">1.10.3.</span> <span class="toc-text">机器学习PAI的应用流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">二、数据挖掘流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E4%B8%80%E8%88%AC%E8%BF%87%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 数据挖掘一般过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 数据获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="toc-number">2.3.1.</span> <span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90"><span class="toc-number">2.3.2.</span> <span class="toc-text">数据集成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.3.3.</span> <span class="toc-text">数据转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%84%E7%BA%A6"><span class="toc-number">2.3.4.</span> <span class="toc-text">数据规约</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.4.</span> <span class="toc-text">特征工程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.4.1.</span> <span class="toc-text">特征工程的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">2.4.2.</span> <span class="toc-text">特征产生的常见方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%8F%98%E6%8D%A2"><span class="toc-number">2.4.3.</span> <span class="toc-text">特征变换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E8%AF%84%E4%BC%B0%E5%92%8C%E9%80%89%E6%8B%A9"><span class="toc-number">2.4.3.1.</span> <span class="toc-text">特征评估和选择</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%BB%BA%E6%A8%A1"><span class="toc-number">2.5.</span> <span class="toc-text">分析建模</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="toc-number">2.6.</span> <span class="toc-text">模型评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2"><span class="toc-number">2.7.</span> <span class="toc-text">模型部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">三、数据挖掘的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E5%BA%94%E7%94%A8%E7%8E%B0%E7%8A%B6"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 数据挖掘的应用现状</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 数据挖掘的发展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 数据挖掘的未来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E9%9C%80%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 数据挖掘需要解决的问题</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -609,7 +755,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Tue Jan 17 2023 12:06:55 GMT+0800',
+  	id: 'Fri May 26 2023 21:13:10 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
