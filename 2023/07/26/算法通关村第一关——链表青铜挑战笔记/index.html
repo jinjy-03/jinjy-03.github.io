@@ -6,17 +6,45 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2023/1 | 一只丸子金</title>
+  <title>算法通关村第一关——链表青铜挑战笔记 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只丸子金">
-<meta property="og:url" content="http://example.com/archives/2023/01/index.html">
+  <meta name="description" content="摘要：🌱从这篇文章开始，我将记录📝在算法村的算法学习笔记，以及自己的理解与知识点补充。这篇 链表青铜挑战包括：理解Python是如何构造出链表的、链表插入节点、链表删除节点等链表的基本操作，细节满满，小白友好哦🤓。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法通关村第一关——链表青铜挑战笔记">
+<meta property="og:url" content="http://example.com/2023/07/26/%E7%AE%97%E6%B3%95%E9%80%9A%E5%85%B3%E6%9D%91%E7%AC%AC%E4%B8%80%E5%85%B3%E2%80%94%E2%80%94%E9%93%BE%E8%A1%A8%E9%9D%92%E9%93%9C%E6%8C%91%E6%88%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="记录学习笔记">
+<meta property="og:description" content="摘要：🌱从这篇文章开始，我将记录📝在算法村的算法学习笔记，以及自己的理解与知识点补充。这篇 链表青铜挑战包括：理解Python是如何构造出链表的、链表插入节点、链表删除节点等链表的基本操作，细节满满，小白友好哦🤓。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726113834.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726115817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726143748.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726154508.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726155535.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100613.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100646.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726161607.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100714.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100743.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727092319.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100805.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727093026.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727093549.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727093416.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727094321.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100843.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727101009.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727101026.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727095623.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727095748.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727095830.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727101059.png">
+<meta property="article:published_time" content="2023-07-26T03:12:39.000Z">
+<meta property="article:modified_time" content="2023-07-27T02:13:38.152Z">
 <meta property="article:author" content="金金">
+<meta property="article:tag" content="算法与数据结构">
+<meta property="article:tag" content="算法村">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726113834.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -157,304 +185,474 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-算法通关村第一关——链表青铜挑战笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      算法通关村第一关——链表青铜挑战笔记
+    </h1>
+  
+
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2023/07/26/%E7%AE%97%E6%B3%95%E9%80%9A%E5%85%B3%E6%9D%91%E7%AC%AC%E4%B8%80%E5%85%B3%E2%80%94%E2%80%94%E9%93%BE%E8%A1%A8%E9%9D%92%E9%93%9C%E6%8C%91%E6%88%98%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2023-07-26T03:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-26</time>
+</a>
+
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 --> 
+        
+
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：7k字 | 预计阅读时长：25分钟
+    </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：🌱从这篇文章开始，我将记录📝在<strong>算法村</strong>的算法学习笔记，以及自己的理解与知识点补充。这篇 <strong>链表青铜挑战</strong>包括：理解Python是如何构造出链表的、链表插入节点、链表删除节点等链表的基本操作，细节满满，小白友好哦🤓。</p>
+<span id="more"></span>
+
+<h2 id="一、什么是链表"><a href="#一、什么是链表" class="headerlink" title="一、什么是链表"></a>一、什么是链表</h2><blockquote>
+<p>链表是一种最基本的结构，普通的单链表就是只给你一个指向链表头的指针head，如果想要访问其他元素，就只能从head开始一个个向后找，遍历链表最终会在访问尾节点之后如果继续访问，就会返回null。</p>
+</blockquote>
+<h3 id="1-单向链表的结构"><a href="#1-单向链表的结构" class="headerlink" title="1.单向链表的结构"></a>1.单向链表的结构</h3><p>🖇一种叫做<strong>单向链表</strong>的东西，它是由很多<strong>小盒子</strong> 📦连在一起的，每个小盒子里面有<strong>两个东西</strong>，一个是你想要放进去的<strong>数据（存放数据的变量data）</strong>，比如数字🔢、字母🔡、图片🌠等，另一个是一个<strong>箭头（指向下一个结点的指针next）</strong> ➡️，它指向下一个小盒子的位置。这样你就可以通过找到第一个小盒子，然后沿着箭头的方向，一步一步找到你想要的数据。</p>
+<p>比如，你有一个<strong>单向链表</strong>，它里面存放了你和你的朋友们的<strong>名字和年龄</strong>，像这样：<br>你可以看到，每个小盒子里面有两个东西，一个是名字和年龄的数据，另一个是箭头。箭头指向下一个小盒子的位置。第一个小盒子<strong>没有箭头指向它</strong>，所以它是<strong>头结点</strong>，最后一个小盒子的<strong>箭头指向了空白处</strong>，表示没有下一个小盒子了，所以它是<strong>尾结点</strong>。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726113834.png" alt="20230726113834"><br>如果你想要找到你自己的名字和年龄，你就可以从<strong>头结点开始</strong>，沿着<strong>箭头的方向</strong>，依次查看每个小盒子里面的数据，直到找到你自己为止。如果你想要找到你朋友小红的名字和年龄，你也可以用同样的方法。但是如果你想要从后往前找，就不行了，因为箭头只能指向前面的小盒子，不能指向后面的小盒子。这就是为什么叫做单向链表，因为它只能往一个方向走。<br>每个结点有一个指向后继元素的next指针。表中最后一个元素的next指向null。</p>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>链表（linked list）</td>
+<td>是一种在物理上非连续、非顺序的数据结构，由若干节点（node）所组成</td>
+</tr>
+<tr>
+<td>节点</td>
+<td>在链表中，每个点都是由值和指向下一个结点的地址组成的独立单元，称为一个结点，有时也称节点，含义都是一样的</td>
+</tr>
+<tr>
+<td>头节点</td>
+<td>第一个结点最重要，对于单链表，如果知道了第一个元素，就可以通过遍历访问整个链表</td>
+</tr>
+<tr>
+<td>虚拟结点</td>
+<td>虚拟结点是一种特殊的结点，它没有值，只有一个指针，指向链表的头结点</td>
+</tr>
+</tbody></table>
+<p><strong>虚拟结点的作用</strong>是为了方便我们<strong>操作链表</strong>，比如插入、删除、反转等。有了虚拟结点，我们就不用担心链表为空或者头结点变化的情况，因为虚拟结点始终存在，<strong>始终指向头结点</strong>。</p>
+<blockquote>
+<p>在做题以及在工程里经常会看到虚拟结点的概念，其实就是一个结点dummyNode，其next指针指向head，也就是dummyNode.next&#x3D;head。<br>因此，如果我们在算法里使用了虚拟结点，则要注意如果要获得head结点，或者从方法（函数）里返回的时候，则应使用dummyNode.next。<br>另外注意，dummyNode的val不会被使用，初始化为0或者-1等都是可以的。既然值不会使用，那么虚拟结点有啥用呢？简单来说，就是为了方便我们处理首部结点，否则我们需要在代码里单独处理首部结点的问题。在链表反转里，我们会看到该方式可以大大降低解题难度。</p>
+</blockquote>
+<p>🖇你可以把<strong>虚拟结点</strong>想象成一个小助手，它帮助我们<strong>管理链表</strong>。它总是站在链表的最前面，告诉我们链表的头结点在哪里。它也可以帮助我们在链表中插入或删除任何一个结点，只要我们告诉它要操作的位置。<br>但是虚拟结点并不是链表的一部分，它只是一个<strong>工具</strong>。所以当我们要获取或返回链表的时候，我们不能使用虚拟结点，而要使用它的<strong>后继</strong>，也就是<strong>真正的头结点</strong>。否则我们会得到一个错误的结果。</p>
+<h4 id="思考一下：单链表"><a href="#思考一下：单链表" class="headerlink" title="思考一下：单链表"></a>思考一下：单链表</h4><p>你是否理解链表的含义了呢？思考下面两个图，是否都满足单链表的要求，为什么？</p>
+<ul>
+<li>图一<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726115817.png" alt="20230726115817"></li>
+<li>图二<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726143748.png" alt="20230726143748"></li>
+</ul>
+<blockquote>
+<p>解析：<br>上面第一个图是满足单链表要求的，因为我们说链表要求<strong>环环相扣</strong>，核心是<strong>一个结点只能有一个后继，但不代表一个结点只能有一个被指向</strong>。<br>图一，c1被a2和b3同时指向，这是没关系的。<br>所以图2不满足要求，因为c1有两个后继a5和b4.</p>
+</blockquote>
+<p>🖇可以把链表想象成一些火车车厢，每个车厢就是一个结点，每个车钩就是一个指针。<strong>单链表</strong>就像一列<strong>没有头没有尾的火车</strong>，你可以从任何一个车厢开始往前或者往后看，只能看到一个车厢。但是你也可以把两列没有也没有尾的火车拼接在一起，让它们共享一个车厢。<br><strong>判断一个结点有几个后继，就是看它的指针指向哪里</strong>。<br>如果它的指针指向空，就说明它没有后继。如果它的指针指向另一个结点，就说明它有一个后继。如果它的指针指向多个结点，就说明它有多个后继。但是这种情况是不可能发生的，因为每个结点只能有一个指针。所以在<strong>单链表中，每个结点要么没有后继，要么只有一个后继</strong>。</p>
+<blockquote>
+<p>另外在做题的时候需要注意比较的是值还是结点，有时可能两个结点的值相等，但并不是同一个结点，例如下图中，有两个结点的值都是1，但并不是同一个结点。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726154508.png" alt="20230726154508"></p>
+<h2 id="二、创建链表"><a href="#二、创建链表" class="headerlink" title="二、创建链表"></a>二、创建链表</h2><blockquote>
+<p>算法的基础是数据结构，任何数据结构的基础都是<strong>创建➕增删改查</strong>，所有的链表算法题分解到最后，都是这几个操作，所以我们也从这五项开始学习链表。<br>如何构造链表，首先要理解<strong>JVM</strong>是怎么构建出<strong>链表</strong>的，我们知道JVM里有<strong>栈区</strong>和<strong>堆区</strong>，栈区主要存引用，也就是一个指向实际对象的地址，而堆区存的才是创建的对象</p>
+</blockquote>
+<ul>
+<li><strong>栈区的特点</strong>是<strong>后进先出</strong>，也就是说最后放进去的变量最先被取出来。</li>
+<li>栈区也可以存储一种<strong>特殊的变量</strong>，叫做<strong>引用</strong>。</li>
+<li><strong>引用</strong>就是一个指向另一个地方的<strong>箭头</strong>，告诉我们在哪里可以找到真正的数据。</li>
+<li><strong>堆区的特点是无序的</strong>，也就是说我们可以随意地在堆区里创建或删除对象。</li>
+<li>堆区里的对象不能直接被访问，<strong>只能通过引用来找到它们</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JVM</td>
+<td>JVM是Java虚拟机的简称，它是一种软件，可以让我们的电脑运行Java程序。JVM里有不同的区域，用来存储不同的数据。其中两个重要的区域叫做栈区和堆区。</td>
+</tr>
+<tr>
+<td>栈区</td>
+<td>栈区是一种类似于盒子的结构，它可以存储一些变量，比如数字或者字母。每个变量都有一个名字，比如a或者b。</td>
+</tr>
+<tr>
+<td>堆区</td>
+<td>堆区是一种类似于仓库的结构，它可以存储一些对象，比如链表或者数组。每个对象都有一个地址，比如1001或者2002。</td>
+</tr>
+<tr>
+<td>链表</td>
+<td>链表是一种对象，它由多个结点组成，每个结点都有一个值和一个指针。为了构造链表，我们需要在栈区和堆区里分别做一些操作。</td>
+</tr>
+</tbody></table>
+<p>🤓首先，在<strong>栈区</strong>里创建一个<strong>引用变量</strong>，比如head，它表示链表的<strong>头结点</strong>。然后，在<strong>堆区</strong>里创建一个<strong>结点对象</strong>，比如A，它有一个值和一个指针。接着，让head指向A，也就是说<strong>head的箭头指向A的地址</strong>。这样就完成了第一个结点的创建。接下来，在堆区里再创建一个结点对象，比如B，它也有一个值和一个指针。然后，让A的指针指向B，也就是说A的箭头指向B的地址。这样就完成了第二个结点的创建。重复这样的步骤，我们就可以在堆区里创建任意多个结点，并且让<strong>前一个结点指向后一个结点</strong>。最后，在栈区里只需要保留head这个引用变量，它就可以帮助我们找到整个链表。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726155535.png" alt="20230726155535"></p>
+<p>🖇你可以把<strong>栈区</strong>想象成一些✉️信封放在一起，每个信封里有一张照片🌠。你可以把<strong>堆区</strong>想象成一些玩具熊🐻散落在地上，每只玩具熊上有一张照片🌅。你可以把<strong>链表</strong>想象成一些<strong>玩具熊拥抱</strong>在一起，<strong>每只玩具熊上有一张照片</strong>。为了构造链表，你需要在信封里放一张照片，<strong>指向第一只玩具熊</strong>；然后在每只玩具熊上放一张照片，<strong>指向下一只玩具熊</strong>。</p>
+<p>例如我们定义这样一个类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Course</span>:</span><br><span class="line">    teacher = <span class="literal">None</span></span><br><span class="line">    student = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100613.png" alt="20230727100613"></p>
+<p>这里的teacher和student就是指向堆区引用，假如我们这样定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Course</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val</span>):</span><br><span class="line">        self.val = val</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100646.png" alt="20230727100646"></p>
+<p><strong>Course类</strong></p>
+<ul>
+<li>这个类有<strong>一个特殊的方法</strong>，叫做__init__。这个方法是在创建对象的时候自动调用的，它可以用来<strong>初始化对象的属性</strong>。这个方法有两个<strong>参数</strong>，self和val。<strong>self</strong>表示对象本身，<strong>val</strong>表示传入的值。</li>
+<li>这个类有<strong>两个属性</strong>，self.val和self.next。<strong>self.val</strong>表示对象的值，它等于传入的val。<strong>self.next</strong>表示对象的后继，它默认为None，也就是空。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类</td>
+<td>类是一种模板，可以用来创建对象</td>
+</tr>
+<tr>
+<td>对象</td>
+<td>对象是一种数据，可以有属性和方法</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>属性是对象的特征，比如颜色或者大小</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>方法是对象的行为，比如跑或者叫</td>
+</tr>
+</tbody></table>
+<p>🖇你可以把这个<strong>类</strong>想象成一个<strong>课程表</strong>，每个<strong>对象</strong>就是一个<strong>课程</strong>。每个课程都有一个<strong>值</strong>，比如数学或者英语。每个课程也有一个<strong>后继</strong>，表示下一个要上的课程。如果没有下一个课程，就用None表示。<br>为了创建一个课程对象，你需要用这个类的名字加上括号，并且在括号里写上课程的值。比如：<br><code>math = Course(&quot;Math&quot;)</code><br>创建了一个叫做math的课程对象，它的值是”Math”，它的后继是None。你可以用点号来访问或修改对象的属性。比如：<br><code>print(math.val) # 打印出&quot;Math&quot;</code><br><code>math.next = Course(&quot;English&quot;) # 让math的后继指向一个新的课程对象</code><br>这样就把math和English连在一起，形成了一个链表。这个时候next就指向下一个同为Course类型的对象了.<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230726161607.png" alt="20230726161607"><br>例如这里通过栈中的引用（也就是地址），就可以找到val(1)，然后val(1)结点又存了指向val(2)的地址，而val(3)又存了指向val(4)的地址，所以就构造出了一个链条访问结构。</p>
+<p><strong>根据面对对象理解，在python里规范的链表应该这么定义</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_data</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.data</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">set_data</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.data = data</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">get_next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">set_next</span>(<span class="params">self, <span class="built_in">next</span></span>):</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100714.png" alt="20230727100714"></p>
+<p><strong>ListNode类</strong></p>
+<ul>
+<li>这个类的<strong>属性</strong>是<strong>self.data</strong>和<strong>self.next</strong>，分别表示<strong>结点的数据</strong>和<strong>后继</strong>。</li>
+<li>这个类有四个<strong>方法</strong>，分别是get_data，set_data，get_next和set_next。这些方法都是用来访问或修改对象的属性的。<strong>get_data</strong>和<strong>get_next</strong>是用来<strong>获取对象的数据和后继</strong>的，它们都返回相应的属性值。<strong>set_data</strong>和<strong>set_next</strong>是用来<strong>设置对象的数据和后继</strong>的，它们都接受一个参数，并且把相应的属性值改为参数值。</li>
+</ul>
+<p><strong>但是在LeetCode中算法题经常使用这样的方式来创建链表</strong></p>
+<blockquote>
+<p>这里的val就是当前结点的值，next指向下一个结点。因为两个变量都是public的，创建对象后能直接使用listnode.val和listnode.next来操作，虽然违背了面向对象的设计要求，但是下面的代码更为精简，因此在算法题目中应用广泛。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val=<span class="number">0</span>, <span class="built_in">next</span>=<span class="literal">None</span></span>):</span><br><span class="line">        self.val = val</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">listnode = ListNode(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100743.png" alt="20230727100743"></p>
+<p>🖇想象一下这个类就像是一个<strong>盒子</strong>，它有一个方法，叫做__init__。当你创建一个新的对象时，你可以给它<strong>一个数字和后面写的数字</strong>，比如listnode &#x3D; ListNode(1, 2)就表示对盒子说1和2，然后盒子就会给你一张卡片，上面写着1，在后面写着2。如果你不给它任何数字，那么它就会默认为0和None，比如<code>listnode = ListNode()</code>就表示对盒子什么也不说，然后盒子就会给你一张卡片，上面写着0，在后面什么也没有。<br>你可以通过<strong>点号</strong>来看或改变卡片上的数字或后面写的数字，比如<code>listnode.val</code>就表示看卡片上的数字，<code>listnode.next</code>就表示看后面写的数字。你也可以用点号来改变它们，比如<code>listnode.val = 5</code>就表示把卡片上的数字改成5，<code>listnode.next = 3</code>就表示把后面写的数字改成3。</p>
+<h2 id="三、遍历链表"><a href="#三、遍历链表" class="headerlink" title="三、遍历链表"></a>三、遍历链表</h2><blockquote>
+<p>对于单链表，不管进行什么操作，一定是<strong>从头开始逐个向后访问</strong>，所以操作之后是否还能找到表头非常重要。一定要注意“狗熊掰棒子”问题，也就是只顾当前位置而将<strong>标记表头的指针</strong>丢掉了。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727092319.png" alt="20230727092319"></p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">length</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;链表长度&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># cur初始时指向头结点</span></span><br><span class="line">    cur = self._head</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 尾结点指向None，当未到达尾部时</span></span><br><span class="line">    <span class="keyword">while</span> cur != <span class="literal">None</span>:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 将cur后移一个结点</span></span><br><span class="line">        cur = cur.<span class="built_in">next</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100805.png" alt="20230727100805"></p>
+<ul>
+<li><strong>length方法</strong>:用来计算链表的长度的，也就是链表里有多少个结点。</li>
+<li>一个<strong>参数self</strong>，表示链表对象本身。</li>
+<li>三个<strong>变量</strong>:cur、count、return。<strong>cur</strong>表示当前的结点，<strong>count</strong>表示结点的数量，<strong>return</strong>表示返回的结果。</li>
+</ul>
+<p>🖇你可以把这个方法想象成一个计数器，它可以帮助我们数一数链表里有多少个珠子。每次数一个珠子，就让计数器加一。每次数完一个珠子，就看看下一个珠子在哪里。直到没有下一个珠子了，就停止计数，并且告诉我们结果。</p>
+<h2 id="四、插入节点"><a href="#四、插入节点" class="headerlink" title="四、插入节点"></a>四、插入节点</h2><h3 id="1-尾部插入"><a href="#1-尾部插入" class="headerlink" title="1.尾部插入"></a>1.尾部插入</h3><p>尾部插入，是最简单的情况，把最后一个节点的next指针指向新插入的节点即可<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727093026.png" alt="20230727093026"></p>
+<h3 id="2-头部插入"><a href="#2-头部插入" class="headerlink" title="2.头部插入"></a>2.头部插入</h3><p>🖇注意容易忘记<strong>head需要重新指向表头</strong>，链表就像是一串珍珠，每个节点就像是一个珍珠，它有一个<strong>值</strong>和一个<strong>指向下一个节点的指针</strong>。<br>当我们创建一个新节点<code>newNode</code>，它就像是一个新的珍珠，它有一个值和一个指针。我们想把它放在链表的最前面，就要把它的指针指向原来的第一个节点head，就像把线绑在原来第一个的珍珠上一样。这样就可以用<code>newNode.next=head</code>来表示。之后我们要遍历新链表就要从<code>newNode</code>开始一路<code>next</code>向下了，就像从新的珍珠开始一路看颜色一样。但我们还是习惯让head来表示链表的第一个节点，所以我们可以让<code>head=newNode</code>，就像把新的珍珠叫做head一样。如下图：<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727093549.png" alt="20230727093549"></p>
+<h3 id="3-中间插入"><a href="#3-中间插入" class="headerlink" title="3.中间插入"></a>3.中间插入</h3><p>🖇想象一下你有一串珍珠，每个珍珠都有一个颜色。你想在这串珍珠的<strong>中间某个位置</strong>加上一个新的珍珠，比如紫色的。怎么办呢？你可以先找到你想插入的位置，比如在蓝色和绿色之间，然后把紫色的珍珠用线穿起来，然后把线的一头绑在蓝色的珍珠上，把线的另一头绑在绿色的珍珠上，这样就把紫色的珍珠放在了中间。这样你就可以按照颜色的顺序看到所有的珍珠了。<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727093416.png" alt="20230727093416"><br>这个过程就像是在链表的中间位置插入一个新的节点。链表就像是一串珍珠，每个节点就像是一个珍珠，它有一个值和一个指向下一个节点的指针。当我们创建一个新节点<code>newNode</code>，它就像是一个新的珍珠，它有一个<strong>值</strong>和一个<strong>指针</strong>。我们想把它放在链表的中间某个位置，就要<strong>先找到那个位置</strong>，比如在<code>cur</code>和<code>cur.next</code>之间，<code>cur</code>就像是蓝色的珍珠，<code>cur.next</code>就像是绿色的珍珠。</p>
+<blockquote>
+<p>下图中，如果要在7的前面插入，当<code>cur.next=node(7)</code>了就应该停下来，此时<code>cur.val=15</code>。然后需要给<code>newNode</code>前后接两根线，此时只能先让<code>new.next=node(15).next</code>（图中虚线），然后<code>node(15).next=new</code>，而且顺序还不能错。</p>
+</blockquote>
+<p><strong>想一想为什么不能颠倒顺序？</strong></p>
+<blockquote>
+<p>由于每个节点都只有一个next，因此执行了node(15).next&#x3D;new之后，节点15和7之间的连线就自动断开了，如下图所示：</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727094321.png" alt="20230727094321"></p>
+<p>综上，我们写出链表插入方法的如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定位置添加</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span> (self, pos, item):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;指定位置添加元素&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 若指定位置pos为第一个元素之前，则执行头部插入</span></span><br><span class="line">    <span class="keyword">if</span> pos &lt;= <span class="number">0</span>:</span><br><span class="line">        self.add(item)</span><br><span class="line">    <span class="comment"># 若指定位置超过链表尾部，则执行尾部插入</span></span><br><span class="line">    <span class="keyword">elif</span> pos &gt; (self.length() - <span class="number">1</span>):</span><br><span class="line">        self.append(item)</span><br><span class="line">    <span class="comment"># 找到指定位置</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        node = Node(item)</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="comment"># pre用来指向指定位置pos的前一个位置pos-1，初识从头节点开始移动到指定位置</span></span><br><span class="line">        pre = self._head</span><br><span class="line">        <span class="keyword">while</span> count &lt; (pos - <span class="number">1</span>):</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            pre = pre.<span class="built_in">next</span></span><br><span class="line">        <span class="comment"># 先将新节点node的next指向插入位置的节点</span></span><br><span class="line">        node.<span class="built_in">next</span> = pre.<span class="built_in">next</span></span><br><span class="line">        <span class="comment"># 将插入位置的前一个节点的next指向新节点</span></span><br><span class="line">        pre.<span class="built_in">next</span> = node</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727100843.png" alt="20230727100843"></p>
+<p>这段代码告诉电脑怎么把一些东西放到一条线上。这条线上有很多盒子，每个盒子里有一个东西和一根绳子。绳子可以把盒子连起来，形成一条线。<br><strong>self</strong>：这条线本身、<strong>pos</strong>：要放东西的位置、<strong>item</strong>：要放的东西。</p>
+<p>这段代码有几种情况：</p>
+<ul>
+<li>如果<strong>pos是0或者负数</strong>，表示要把东西放到线的最前面。那么就找一个新盒子，把item放进去，并用绳子把它和原来的第一个盒子连起来。</li>
+<li>如果<strong>pos比线上盒子的数量还多</strong>，表示要把东西放到线的最后面。那么就找一个新盒子，把item放进去，并用绳子把它和原来的最后一个盒子连起来。</li>
+<li>如果<strong>pos在0和盒子数量之间</strong>，表示要把东西放到线中间某个地方。那么就找一个新盒子，把item放进去，并用绳子把它和原来那个位置前后两个盒子连起来。</li>
+</ul>
+<blockquote>
+<p>这里需要再补充一点<code>head = null</code>的时候该执行什么操作呢？如果是null的话，你要插入的结点就是链表的头结点，也可以直接抛出不能插入的异常，两种处理都可以，一般来说我们更倾向前者。</p>
+</blockquote>
+<p>判断pre是否是None，如果是，就让链表的头部指向node，这样就可以替换头节点；如果不是，就让pre的next链接指向node，这样就可以插入到中间或者尾部。</p>
+<blockquote>
+<p>如果链表是单调递增的，一般会让你将元素插入到合适的位置，序列仍然保持单调，你可以尝试一下该如何实现。</p>
+</blockquote>
+<p>思考：这个问题是要你在一条线上放东西的时候，保证线上的东西是从小到大排列的。比如，如果线上有1，3，5，7这四个盒子，你要放一个4的盒子，你就要把它放在3和5之间。这样线上的盒子就是1，3，4，5，7，还是从小到大的。如果你要放一个8的盒子，你就要把它放在7后面。如果你要放一个2的盒子，你就要把它放在1前面。</p>
+<p>要实现这个功能，你可以用以下的步骤：</p>
+<ul>
+<li>先找到一个变量pre，让它指向线的第一个盒子。</li>
+<li>然后用一个循环，不断地检查pre指向的盒子和下一个盒子里的东西和你要放的东西的大小关系。如果pre指向的盒子里的东西比你要放的东西小，而下一个盒子里的东西比你要放的东西大或者等于，那么就找到了要放东西的位置。如果没有找到，就让pre指向下一个盒子，继续循环。</li>
+<li>当找到了位置后，就用和前面一样的方法，创建一个新盒子，把item放进去，并用绳子把它和pre指向的盒子和下一个盒子连起来。</li>
+<li>如果循环结束了还没有找到位置，表示你要放的东西比线上所有盒子里的东西都大，那么就把它放在最后面。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, pos, item</span>):</span><br><span class="line">    <span class="comment"># 判断pos是否是一个合法的整数，如果不是，就抛出一个异常</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(pos, <span class="built_in">int</span>):</span><br><span class="line">        <span class="keyword">raise</span> TypeError(<span class="string">&quot;pos must be an integer&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断链表是否为空，如果为空，直接调用self.add(item)方法</span></span><br><span class="line">    <span class="keyword">if</span> self.is_empty():</span><br><span class="line">        self.add(item)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 先找到一个变量pre，让它指向链表的第一个节点</span></span><br><span class="line">    pre = self._head</span><br><span class="line">    <span class="comment"># 用一个变量count来记录当前遍历到的位置，初始化为0</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 用一个循环，不断地检查pre指向的节点和下一个节点里的数据和item的大小关系</span></span><br><span class="line">    <span class="keyword">while</span> pre.<span class="built_in">next</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 如果count等于pos，表示找到了要插入的位置，结束循环</span></span><br><span class="line">        <span class="keyword">if</span> count == pos:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果pre指向的节点的数据小于item，而下一个节点的数据大于等于item，</span></span><br><span class="line">        表示找到了要插入的位置，结束循环</span><br><span class="line">        <span class="keyword">if</span> pre.item &lt; item <span class="keyword">and</span> pre.<span class="built_in">next</span>.item &gt;= item:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果没有找到位置，就让pre指向下一个节点，并让count加一，继续循环</span></span><br><span class="line">        pre = pre.<span class="built_in">next</span></span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个新节点node，并把item赋值给它</span></span><br><span class="line">    node = Node(item)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断item和头节点或者尾节点的数据的大小关系</span></span><br><span class="line">    <span class="comment"># 如果小于头节点，就把新节点插入到头部</span></span><br><span class="line">    <span class="keyword">if</span> item &lt; self._head.item:</span><br><span class="line">        node.<span class="built_in">next</span> = self._head</span><br><span class="line">        self._head = node</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果大于尾节点，就把新节点插入到尾部</span></span><br><span class="line">    <span class="keyword">elif</span> cur <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> item &gt; pre.item:</span><br><span class="line">        pre.<span class="built_in">next</span> = node</span><br><span class="line">        node.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 否则就把新节点插入到pre和cur之间或者尾部</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        node.<span class="built_in">next</span> = cur</span><br><span class="line">        pre.<span class="built_in">next</span> = node</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727101009.png" alt="20230727101009"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727101026.png" alt="20230727101026"></p>
+<p>⚠️ count+1</p>
+<ul>
+<li>如果你用<strong>没有count加一</strong>的代码，你只能根据<strong>大小关系</strong>来确定插入的位置，也就是找到一个位置，使得pre指向的节点的数据小于等于item，而cur指向的节点的数据大于等于item。</li>
+<li>但是，如果你想插入一个2的节点，你会发现没有这样的位置，因为链表中所有的节点的数据都大于2。所以，你会在循环结束后，把2插入到链表的尾部，也就是7后面。但是这样就不符合链表是单调递增的要求，因为2小于7。所以，没有count加一的代码不能实现你想要的功能。</li>
+<li>如果你用<strong>有count加一</strong>的代码，你可以<strong>根据pos参数来确定插入的位置</strong>，也就是找到一个位置，使得count等于pos。这样，你就可以自由地选择插入的位置，而不受大小关系的限制。</li>
+<li>比如，如果你想插入一个2的节点，你可以指定pos为1，表示要插入到第一个位置，也就是1和3之间。这样，你就可以保持链表是单调递增的，并且满足你的需求。所以，有count加一的代码可以更灵活地控制插入的位置。</li>
+</ul>
+<h2 id="五、删除节点"><a href="#五、删除节点" class="headerlink" title="五、删除节点"></a>五、删除节点</h2><h3 id="1-尾部删除"><a href="#1-尾部删除" class="headerlink" title="1.尾部删除"></a>1.尾部删除</h3><blockquote>
+<p>例如下图中删除40，其前驱结点为7.遍历的时候需要判断<code>cur.next</code>是否为40，如果是，则只要执行<code>cur.next=null</code>即可，此时结点40变得不可达，最终会被JVM回收掉。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727095623.png" alt="20230727095623"></p>
+<h3 id="2-头部删除"><a href="#2-头部删除" class="headerlink" title="2.头部删除"></a>2.头部删除</h3><blockquote>
+<p>一般只要执行head&#x3D;head.next就行了，如下图:</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727095748.png" alt="20230727095748"></p>
+<h3 id="3-中间删除"><a href="#3-中间删除" class="headerlink" title="3.中间删除"></a>3.中间删除</h3><blockquote>
+<p>删除中间结点时，也会要用<code>cur.next</code>来比较，找到位置后，将<code>cur.next</code>指针的值更新为<code>cur.next.next</code>就可以解决，如下图所示：</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727095830.png" alt="20230727095830"></p>
+<h4 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除结点</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, item</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;删除结点&quot;&quot;&quot;</span></span><br><span class="line">    cur = self._head</span><br><span class="line">    pre = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">while</span> cur != <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 找到了指定元素</span></span><br><span class="line">        <span class="keyword">if</span> cur.item == item:</span><br><span class="line">            <span class="comment"># 如果第一个就是删除的结点</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> pre:</span><br><span class="line">                <span class="comment"># 将头指针指向头结点的后一个结点</span></span><br><span class="line">                self._head = cur.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 将删除位置前一个结点的next指向删除位置的后一个结点</span></span><br><span class="line">                pre.<span class="built_in">next</span> = cur.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 继续按链表后移结点</span></span><br><span class="line">            pre = cur</span><br><span class="line">            cur = cur.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230727101059.png" alt="20230727101059"></p>
+<p><strong>self</strong>:这条线本身、<strong>item</strong>：要拿走的东西。</p>
+<p>🖇告诉电脑怎么把一条线上的某个东西拿走。这条线上有很多盒子，每个盒子里有一个东西和一根绳子。绳子可以把盒子连起来，形成一条线。</p>
+<ul>
+<li>先找到两根箭头<code>cur</code>和<code>pre</code>，让<code>cur</code>指向线的第一个盒子，<code>pre</code>指向空气。</li>
+<li>然后用一个游戏规则，不断地看看<code>cur</code>指向的盒子里有什么东西和<code>item</code>是不是一样。如果一样，表示找到了要拿走的盒子。如果不一样，就让<code>pre</code>指向<code>cur</code>，<code>cur</code>指向下一个盒子，继续游戏。</li>
+</ul>
+<p>当找到了要拿走的盒子后，有两种情况：</p>
+<ul>
+<li>如果<code>pre</code>指向空气，表示要拿走的盒子是线的第一个盒子，那么就让线的头部指向cur指向的下一个盒子，这样就把第一个盒子从线上拿走了。</li>
+<li>如果<code>pre</code>不指向空气，表示要拿走的盒子不是线的第一个盒子，那么就让<code>pre</code>指向的绳子指向cur指向的下一个绳子，这样就把<code>cur</code>指向的盒子从线上拿走了。</li>
+<li>当拿走了盒子后，就结束游戏。</li>
+</ul>
+<p>⚠️如果链表本身是单调的，那么你任意删除一个节点后，它仍然是单调的。因为删除一个节点不会影响其他节点的顺序，只会让链表变短。</p>
+<p>🌿到此介绍Python是如何构造出链表的、链表插入节点、链表删除节点等链表的基本操作就结束啦～</p>
+
+      
+
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+             -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+        
+ 
+    
+      <!-- 添加版权声明 -->
+    
+  
+    <div class="declare">
+      <strong>本文作者：</strong>
+      
+        金金
+      
+      <br>
+      <strong>本文链接：</strong>
+      <a href=" >/2023/07/26/算法通关村第一关——链表青铜挑战笔记/" title="算法通关村第一关——链表青铜挑战笔记" target="_blank">http://example.com/2023/07/26/算法通关村第一关——链表青铜挑战笔记/</a >
+      <br>
+      <strong>版权声明：</strong>
+      本作品采用
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a >
+      进行许可。转载请注明出处！
+      
+    </div>
+  
+        <!-- 添加版权声明 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-01-27T07:25:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-27</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/">基于Zookeeper的Hadoop HA集群的搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法与数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法村</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/07/26/%E7%AE%97%E6%B3%95%E9%80%9A%E5%85%B3%E6%9D%91%E7%AC%AC%E4%B8%80%E5%85%B3%E2%80%94%E2%80%94%E9%93%BE%E8%A1%A8%E9%9D%92%E9%93%9C%E6%8C%91%E6%88%98%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" class="archive-article-date">
-  	<time datetime="2023-01-26T09:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-26</time>
-</a>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2023/06/03/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AE%80%E7%AD%94%E9%A2%98%EF%BC%88%E8%87%AA%E7%94%A8%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据挖掘期末复习简答题（自用）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">Hadoop基础知识点汇总</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E9%93%BE%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">一、什么是链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">1.单向链表的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E4%B8%80%E4%B8%8B%EF%BC%9A%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">思考一下：单链表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BA%E9%93%BE%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">二、创建链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%81%8D%E5%8E%86%E9%93%BE%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">三、遍历链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">四、插入节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B0%BE%E9%83%A8%E6%8F%92%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">1.尾部插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%B4%E9%83%A8%E6%8F%92%E5%85%A5"><span class="toc-number">4.2.</span> <span class="toc-text">2.头部插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5"><span class="toc-number">4.3.</span> <span class="toc-text">3.中间插入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">五、删除节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B0%BE%E9%83%A8%E5%88%A0%E9%99%A4"><span class="toc-number">5.1.</span> <span class="toc-text">1.尾部删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%B4%E9%83%A8%E5%88%A0%E9%99%A4"><span class="toc-number">5.2.</span> <span class="toc-text">2.头部删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%AD%E9%97%B4%E5%88%A0%E9%99%A4"><span class="toc-number">5.3.</span> <span class="toc-text">3.中间删除</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.3.1.</span> <span class="toc-text">完整代码实现</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2023-01-17T04:06:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
-</a>
+        
+    </div>
+</aside>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/">Hive安装（mysql作为元数据库）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2023-01-16T07:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">Hadoop完全分布式配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2023-01-12T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">云服务器IP映射与ssh免密登录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-01-12T04:39:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">hexo常见错误处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'c79bb4c9f6b92ae4e889',
+  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
+  	repo: 'mycomments',
+  	owner: 'jinjy-03',
+  	admin: ['jinjy-03'],
+  	id: 'Wed Jul 26 2023 11:12:39 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
           </div>
         </div>
       </div>
@@ -512,8 +710,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
