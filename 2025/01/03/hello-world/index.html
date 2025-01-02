@@ -6,60 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>OpenEuler LAMP 服务器配置指南.md | 一只丸子金</title>
+  <title>Hello World | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="想让OpenEuler上的LAMP服务器配置变得不再枯燥？🌱那你来对地方啦！本篇文章将手把手带你搞定从零开始的LAMP（Linux、Apache、MySQL、Python + Flask）服务器部署✨，从环境准备到动态Web应用上线，涵盖软件安装、数据库设置、Web开发以及与Apache的甜蜜集成🍰，轻松为中小型企业网站或博客系统打造高效、好用的解决方案！🚀 本文是一篇图文版教程，对新手友好">
+  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenEuler LAMP 服务器配置指南.md">
-<meta property="og:url" content="http://example.com/2025/01/02/OpenEuler-LAMP-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://example.com/2025/01/03/hello-world/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="想让OpenEuler上的LAMP服务器配置变得不再枯燥？🌱那你来对地方啦！本篇文章将手把手带你搞定从零开始的LAMP（Linux、Apache、MySQL、Python + Flask）服务器部署✨，从环境准备到动态Web应用上线，涵盖软件安装、数据库设置、Web开发以及与Apache的甜蜜集成🍰，轻松为中小型企业网站或博客系统打造高效、好用的解决方案！🚀 本文是一篇图文版教程，对新手友好">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102203643.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204425.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204458.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204554.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204807.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205203.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205252.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205313.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205434.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205405.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205500.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205521.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205533.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205545.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205705.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205834.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205911.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210017.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210323.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210404.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210452.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210530.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210603.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210648.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210717.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210749.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210946.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211000.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211014.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211309.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211233.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211250.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211409.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211434.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211552.png">
-<meta property="article:published_time" content="2025-01-02T12:27:32.000Z">
-<meta property="article:modified_time" content="2025-01-02T13:18:15.622Z">
+<meta property="article:published_time" content="2025-01-02T17:06:29.215Z">
+<meta property="article:modified_time" content="2025-01-02T17:06:29.218Z">
 <meta property="article:author" content="金金">
-<meta property="article:tag" content="OpenEuler">
-<meta property="article:tag" content="LAMP">
-<meta property="article:tag" content="Apache">
-<meta property="article:tag" content="MySQL">
-<meta property="article:tag" content="Flask">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102203643.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -132,16 +91,8 @@
 		        
 			</div>
 		</nav>
-
-		<!--添加网易云音乐-->
-		<div style="position:absolute; bottom:120px left:auto; width:85%">
-			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=260 height=86 src="//music.163.com/outchain/player?type=2&id=1356936696&auto=1&height=66"></iframe>
-		</div>
-
 	</header>		
 </div>
-
-
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse" style="background: https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/shujing.JPG no-repeat 100%; background-size:cover;opacity:0.7; filter:alpha(opacity=70);">
@@ -200,14 +151,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-OpenEuler-LAMP-服务器配置指南" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      OpenEuler LAMP 服务器配置指南.md
+      Hello World
     </h1>
   
 
@@ -218,8 +169,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2025/01/02/OpenEuler-LAMP-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2025-01-02T12:27:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-02</time>
+<a href="/2025/01/03/hello-world/" class="archive-article-date">
+  	<time datetime="2025-01-02T17:06:29.215Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-03</time>
 </a>
 
 
@@ -232,184 +183,25 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：1.3k字 | 预计阅读时长：5分钟
+        字数：75字 | 预计阅读时长：1分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>想让OpenEuler上的LAMP服务器配置变得不再枯燥？🌱<br>那你来对地方啦！本篇文章将手把手带你搞定从零开始的<strong>LAMP（Linux、Apache、MySQL、Python + Flask）服务器部署</strong>✨，从环境准备到动态Web应用上线，涵盖软件安装、数据库设置、Web开发以及与Apache的甜蜜集成🍰，轻松为中小型企业网站或博客系统打造高效、好用的解决方案！🚀 本文是一篇<strong>图文版教程</strong>，对新手友好，确保每一步都简单易懂！✨</p>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="OpenEuler-LAMP-服务器配置详细指南"><a href="#OpenEuler-LAMP-服务器配置详细指南" class="headerlink" title="OpenEuler LAMP 服务器配置详细指南"></a>OpenEuler LAMP 服务器配置详细指南</h1><h2 id="一、硬件与软件环境"><a href="#一、硬件与软件环境" class="headerlink" title="一、硬件与软件环境"></a>一、硬件与软件环境</h2><h3 id="硬件配置"><a href="#硬件配置" class="headerlink" title="硬件配置"></a>硬件配置</h3><ul>
-<li><strong>CPU 架构</strong>：ARM</li>
-<li><strong>CPU 规格</strong>：4 vCPUs</li>
-<li><strong>内存</strong>：8 GB</li>
-<li><strong>存储</strong>：20 GB</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102203643.png" alt="20250102203643"></p>
-<h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><ul>
-<li><strong>系统镜像</strong>：Huawei Cloud EulerOS 2.0</li>
-</ul>
-<h3 id="安装的软件及版本"><a href="#安装的软件及版本" class="headerlink" title="安装的软件及版本"></a>安装的软件及版本</h3><ul>
-<li><strong>Apache</strong>：2.4.x</li>
-<li><strong>MySQL</strong>：8.0.x</li>
-<li><strong>Python</strong>：3.9.x</li>
-<li><strong>Flask</strong>：2.2.x</li>
-<li><strong>pymysql</strong>：1.0.x</li>
-</ul>
-<hr>
-<h2 id="二、应用场景和意义"><a href="#二、应用场景和意义" class="headerlink" title="二、应用场景和意义"></a>二、应用场景和意义</h2><h3 id="配置目标"><a href="#配置目标" class="headerlink" title="配置目标"></a>配置目标</h3><ul>
-<li>配置 LAMP 环境，支持动态 Web 应用开发和数据库展示。</li>
-<li>实现通过浏览器访问动态 Web 页面并展示 MySQL 数据库的内容。</li>
-</ul>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li><strong>适用范围</strong>：<ul>
-<li>中小型企业网站</li>
-<li>博客系统</li>
-<li>内容管理系统</li>
-</ul>
-</li>
-<li><strong>具体服务</strong>：<ul>
-<li>提供用户访问的 Web 页面。</li>
-<li>支持数据的动态查询和展示（如用户信息、文章列表）。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="三、详细配置过程"><a href="#三、详细配置过程" class="headerlink" title="三、详细配置过程"></a>三、详细配置过程</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><h4 id="更新系统软件包"><a href="#更新系统软件包" class="headerlink" title="更新系统软件包"></a>更新系统软件包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update -y</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204425.png" alt="20250102204425"></p>
-<h4 id="安装基本工具"><a href="#安装基本工具" class="headerlink" title="安装基本工具"></a>安装基本工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y wget vim git</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204458.png" alt="20250102204458"></p>
-<hr>
-<h3 id="2-安装和配置-Apache"><a href="#2-安装和配置-Apache" class="headerlink" title="2. 安装和配置 Apache"></a>2. 安装和配置 Apache</h3><h4 id="安装-Apache"><a href="#安装-Apache" class="headerlink" title="安装 Apache"></a>安装 Apache</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y httpd</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204554.png" alt="20250102204554"></p>
-<h4 id="启动并设置开机自启"><a href="#启动并设置开机自启" class="headerlink" title="启动并设置开机自启"></a>启动并设置开机自启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start httpd</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> httpd</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102204807.png" alt="20250102204807"></p>
-<h4 id="配置防火墙规则"><a href="#配置防火墙规则" class="headerlink" title="配置防火墙规则"></a>配置防火墙规则</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205203.png" alt="20250102205203"></p>
-<h4 id="验证-Apache-安装"><a href="#验证-Apache-安装" class="headerlink" title="验证 Apache 安装"></a>验证 Apache 安装</h4><ul>
-<li>在浏览器访问 <code>http://&lt;your-server-ip&gt;</code>，应显示 Apache 欢迎页面。</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205252.png" alt="20250102205252"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205313.png" alt="20250102205313"></p>
-<hr>
-<h3 id="3-安装和配置-MySQL"><a href="#3-安装和配置-MySQL" class="headerlink" title="3. 安装和配置 MySQL"></a>3. 安装和配置 MySQL</h3><h4 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y mysql-server</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205434.png" alt="20250102205434"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205405.png" alt="20250102205405"></p>
-<h4 id="启动并设置开机启动"><a href="#启动并设置开机启动" class="headerlink" title="启动并设置开机启动"></a>启动并设置开机启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start mysqld</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> mysqld</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205500.png" alt="20250102205500"></p>
-<h4 id="初始化-MySQL-安全配置"><a href="#初始化-MySQL-安全配置" class="headerlink" title="初始化 MySQL 安全配置"></a>初始化 MySQL 安全配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
-
-<p>•	设置 root 密码：输入并确认密码。<br>•	移除匿名用户：y<br>•	禁止 root 远程登录：y<br>•	删除测试数据库：y<br>•	刷新权限表：y</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205521.png" alt="20250102205521"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205533.png" alt="20250102205533"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205545.png" alt="20250102205545"></p>
-<h4 id="创建数据库和用户"><a href="#创建数据库和用户" class="headerlink" title="创建数据库和用户"></a>创建数据库和用户</h4><p>登录 MySQL：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205705.png" alt="20250102205705"></p>
-<p>执行以下命令：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE Test;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;testuser&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> Test.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;testuser&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line">USE Test;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> (</span><br><span class="line">    id <span class="type">INT</span> AUTO_INCREMENT <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">user</span> (name) <span class="keyword">VALUES</span> (<span class="string">&#x27;Alice&#x27;</span>), (<span class="string">&#x27;Bob&#x27;</span>), (<span class="string">&#x27;Charlie&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>创建数据库</strong></p>
-<ol>
-<li>在 MySQL 命令行中输入以下命令创建一个名为 Test 的数据库：<code>CREATE DATABASE Test;</code></li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205834.png" alt="20250102205834"></p>
-<ol start="2">
-<li>验证数据库创建成功：<br>查看所有数据库列表：<code>SHOW DATABASES;</code><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102205911.png" alt="20250102205911"></li>
-</ol>
-<p><strong>创建用户并赋予权限</strong></p>
-<ol>
-<li>创建一个名为 testuser 的新用户，密码为 password：<br><code>CREATE USER &#39;testuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;</code><br>‘testuser‘@’localhost’ 表示此用户只能从本地登录。</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210017.png" alt="20250102210017"></p>
-<ol start="2">
-<li>将 Test 数据库的所有权限授予 testuser：</li>
-</ol>
-<p><code>GRANT ALL PRIVILEGES ON Test.* TO &#39;testuser&#39;@&#39;localhost&#39;;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210323.png" alt="20250102210323"></p>
-<ol start="3">
-<li>刷新权限，使修改立即生效：</li>
-</ol>
-<p><code>FLUSH PRIVILEGES;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210404.png" alt="20250102210404"></p>
-<p><strong>创建表</strong></p>
-<ol>
-<li>切换到 Test 数据库：</li>
-</ol>
-<p><code>USE Test;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210452.png" alt="20250102210452"></p>
-<ol start="2">
-<li>创建 user 表，包含两个字段：</li>
-</ol>
-<p><code>CREATE TABLE user (     id INT AUTO_INCREMENT PRIMARY KEY,     name VARCHAR(50) NOT NULL );</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210530.png" alt="20250102210530"></p>
-<ol start="3">
-<li>查看表结构以验证创建成功：</li>
-</ol>
-<p><code>DESCRIBE user;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210603.png" alt="20250102210603"></p>
-<p><strong>插入数据</strong></p>
-<ol>
-<li>插入示例数据到 user 表：</li>
-</ol>
-<p><code>INSERT INTO user (name) VALUES (&#39;Alice&#39;), (&#39;Bob&#39;), (&#39;Charlie&#39;);</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210648.png" alt="20250102210648"></p>
-<ol start="2">
-<li>验证数据是否插入成功：</li>
-</ol>
-<p><code>SELECT * FROM user;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210717.png" alt="20250102210717"></p>
-<p><strong>退出 MySQL</strong></p>
-<p><code>exit;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210749.png" alt="20250102210749"></p>
-<p>最终结果<br>•        数据库：Test<br>•        用户：testuser<br>•        表：user（包含 id 和 name 字段）<br>•        数据：<br>•        ID: 1, Name: Alice<br>•        ID: 2, Name: Bob<br>•        ID: 3, Name: Charlie</p>
-<hr>
-<h3 id="4-安装-Python-和-Flask"><a href="#4-安装-Python-和-Flask" class="headerlink" title="4. 安装 Python 和 Flask"></a>4. 安装 Python 和 Flask</h3><h4 id="安装-Python3"><a href="#安装-Python3" class="headerlink" title="安装 Python3"></a>安装 Python3</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y python3</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102210946.png" alt="20250102210946"></p>
-<h4 id="安装-Flask-和-pymysql"><a href="#安装-Flask-和-pymysql" class="headerlink" title="安装 Flask 和 pymysql"></a>安装 Flask 和 pymysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install flask pymysql</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211000.png" alt="20250102211000"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211014.png" alt="20250102211014"></p>
-<hr>
-<h3 id="5-创建-Flask-应用"><a href="#5-创建-Flask-应用" class="headerlink" title="5. 创建 Flask 应用"></a>5. 创建 Flask 应用</h3><h4 id="创建-Flask-项目目录"><a href="#创建-Flask-项目目录" class="headerlink" title="创建 Flask 项目目录"></a>创建 Flask 项目目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/lamp_project</span><br><span class="line"><span class="built_in">cd</span> ~/lamp_project</span><br><span class="line"><span class="built_in">touch</span> app.py</span><br><span class="line"><span class="built_in">mkdir</span> templates</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211309.png" alt="20250102211309"></p>
-<h4 id="编写-Flask-应用代码"><a href="#编写-Flask-应用代码" class="headerlink" title="编写 Flask 应用代码"></a>编写 Flask 应用代码</h4><p><code>app.py</code> 内容：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_db_connection</span>():</span><br><span class="line">    connection = pymysql.connect(</span><br><span class="line">        host=<span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">        user=<span class="string">&#x27;testuser&#x27;</span>,</span><br><span class="line">        password=<span class="string">&#x27;password&#x27;</span>,</span><br><span class="line">        database=<span class="string">&#x27;Test&#x27;</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> connection</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    connection = get_db_connection()</span><br><span class="line">    cursor = connection.cursor()</span><br><span class="line">    cursor.execute(<span class="string">&#x27;SELECT * FROM user&#x27;</span>)</span><br><span class="line">    users = cursor.fetchall()</span><br><span class="line">    connection.close()</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>, users=users)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>, port=<span class="number">5000</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211233.png" alt="20250102211233"></p>
-<h4 id="创建模板文件"><a href="#创建模板文件" class="headerlink" title="创建模板文件"></a>创建模板文件</h4><p><code>~/lamp_project/templates/index.html</code>：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>User List<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Users<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        &#123;% for user in users %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123; user[0] &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123; user[1] &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        &#123;% endfor %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211250.png" alt="20250102211250"></p>
-<hr>
-<h3 id="6-启动-Flask-应用"><a href="#6-启动-Flask-应用" class="headerlink" title="6. 启动 Flask 应用"></a>6. 启动 Flask 应用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 app.py</span><br></pre></td></tr></table></figure>
-
-<p>在浏览器访问 <code>http://&lt;your-server-ip&gt;:5000</code>，即可看到数据库中用户表的内容。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211409.png" alt="20250102211409"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211434.png" alt="20250102211434"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102211552.png" alt="20250102211552"></p>
-<hr>
-<h2 id="四、实验总结"><a href="#四、实验总结" class="headerlink" title="四、实验总结"></a>四、实验总结</h2><ul>
-<li><strong>实验完成</strong>：成功配置 LAMP 环境，通过 Flask 和 Apache 实现动态 Web 应用。</li>
-<li><strong>实验成果</strong>：通过浏览器显示数据库表内容。</li>
-<li><strong>改进方向</strong>：<ul>
-<li>添加 HTTPS 支持。</li>
-<li>实现数据库写入功能。</li>
-</ul>
-</li>
-</ul>
-<p>到此，LAMP服务器的配置大功告成啦！🎉 恭喜你成功部署出属于自己的动态Web应用，快去体验一下成果吧！🚀</p>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
 
@@ -441,7 +233,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2025/01/02/OpenEuler-LAMP-服务器配置指南/" title="OpenEuler LAMP 服务器配置指南.md" target="_blank">http://example.com/2025/01/02/OpenEuler-LAMP-服务器配置指南/</a >
+      <a href=" >/2025/01/03/hello-world/" title="Hello World" target="_blank">http://example.com/2025/01/03/hello-world/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -457,33 +249,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OpenEuler</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Flask</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -534,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/01/02/OpenEuler-LAMP-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/01/03/hello-world/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -549,7 +314,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2024/12/19/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3%EF%BC%9A%E7%94%A8-Spark-%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/01/02/OpenEuler%20LAMP%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">分布式数据处理与任务分解：用 Spark 实现高效文本处理</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -577,7 +342,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenEuler-LAMP-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">OpenEuler LAMP 服务器配置详细指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%A1%AC%E4%BB%B6%E4%B8%8E%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.</span> <span class="toc-text">一、硬件与软件环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.1.</span> <span class="toc-text">硬件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8F%8A%E7%89%88%E6%9C%AC"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装的软件及版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%92%8C%E6%84%8F%E4%B9%89"><span class="toc-number">1.2.</span> <span class="toc-text">二、应用场景和意义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%9B%AE%E6%A0%87"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.2.2.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">三、详细配置过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">更新系统软件包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">安装基本工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-Apache"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 安装和配置 Apache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Apache"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">安装 Apache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">启动并设置开机自启</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99%E8%A7%84%E5%88%99"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">配置防火墙规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81-Apache-%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">验证 Apache 安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-MySQL"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 安装和配置 MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-MySQL"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">安装 MySQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">启动并设置开机启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-MySQL-%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">初始化 MySQL 安全配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%94%A8%E6%88%B7"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">创建数据库和用户</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85-Python-%E5%92%8C-Flask"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 安装 Python 和 Flask</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Python3"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">安装 Python3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Flask-%E5%92%8C-pymysql"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">安装 Flask 和 pymysql</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%88%9B%E5%BB%BA-Flask-%E5%BA%94%E7%94%A8"><span class="toc-number">1.3.5.</span> <span class="toc-text">5. 创建 Flask 应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Flask-%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">创建 Flask 项目目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99-Flask-%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">编写 Flask 应用代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">创建模板文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%90%AF%E5%8A%A8-Flask-%E5%BA%94%E7%94%A8"><span class="toc-number">1.3.6.</span> <span class="toc-text">6. 启动 Flask 应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="toc-number">1.4.</span> <span class="toc-text">四、实验总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -613,7 +378,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Thu Jan 02 2025 20:27:32 GMT+0800',
+  	id: 'Fri Jan 03 2025 01:06:29 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -814,23 +579,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OpenEuler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -979,13 +728,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-
-  <!-- 代码块复制功能开始 -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
-  <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/clipboard_use.js"></script>
-  <!-- 代码块复制功能结束 -->
-
-
 </body>
 </html>

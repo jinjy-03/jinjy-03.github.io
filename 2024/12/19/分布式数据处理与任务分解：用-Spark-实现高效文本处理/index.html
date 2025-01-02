@@ -15,6 +15,7 @@
 <meta property="og:site_name" content="一只丸子金">
 <meta property="og:description" content="摘要：本文以分布式数据处理与任务分解为主题，记录了如何用 Docker 搭建 Spark 集群，实现从零到完成文本文件处理的全过程。🍃 通过四大任务（字符频率统计、单词频率统计、哈夫曼编码表生成、文件压缩编码），文章深入解析代码逻辑与优化技巧✨。全程附带细节讲解与问题排查，图文教程，助力小伙伴轻松搞定大数据初体验！🚀💡">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102235807.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102220306.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102220441.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102220526.png">
@@ -33,7 +34,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102221104.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102221114.png">
 <meta property="article:published_time" content="2024-12-19T13:45:42.000Z">
-<meta property="article:modified_time" content="2025-01-02T14:11:53.001Z">
+<meta property="article:modified_time" content="2025-01-02T15:58:55.264Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="Hadoop">
 <meta property="article:tag" content="Spark">
@@ -42,7 +43,7 @@
 <meta property="article:tag" content="HDFS">
 <meta property="article:tag" content="分布式计算">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102220306.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102235807.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -115,16 +116,8 @@
 		        
 			</div>
 		</nav>
-
-		<!--添加网易云音乐-->
-		<div style="position:absolute; bottom:120px left:auto; width:85%">
-			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=260 height=86 src="//music.163.com/outchain/player?type=2&id=1356936696&auto=1&height=66"></iframe>
-		</div>
-
 	</header>		
 </div>
-
-
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse" style="background: https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/shujing.JPG no-repeat 100%; background-size:cover;opacity:0.7; filter:alpha(opacity=70);">
@@ -231,6 +224,8 @@
 <li><strong>生成哈夫曼编码表</strong>：为每个字符生成哈夫曼编码并保存为 <code>字符码表.txt</code>。</li>
 <li><strong>生成文件的哈夫曼编码</strong>：基于编码表对整个文件进行压缩并保存为 <code>文件编码.txt</code>。</li>
 </ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/jinjy-03/jinjy-03.github.io/tree/master/blog_sources/2024-12-distributed_data_processing">源代码下载地址</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250102235807.png" alt="20250102235807"></p>
 <hr>
 <h2 id="环境概述-🛠️"><a href="#环境概述-🛠️" class="headerlink" title="环境概述 🛠️"></a>环境概述 🛠️</h2><ul>
 <li><strong>操作系统</strong>：CentOS 7</li>
@@ -464,11 +459,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2025/01/02/OpenEuler-LAMP-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2025/01/02/OpenEuler%20LAMP%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          OpenEuler LAMP 服务器配置指南.md
+          分布式数据处理与任务分解：用 Spark 实现高效文本处理
         
       </div>
     </a>
@@ -739,23 +734,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OpenEuler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,13 +883,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-
-  <!-- 代码块复制功能开始 -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
-  <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/clipboard_use.js"></script>
-  <!-- 代码块复制功能结束 -->
-
-
 </body>
 </html>
