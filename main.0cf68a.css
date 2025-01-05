@@ -265,11 +265,11 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
 }
 
 pre .attribute, pre .built_in, pre .class, pre .css~* .class, pre .function .title {
-  color: #A8E5A1; /* 马卡龙绿色 */
+  color: #88C9D9; /* 马卡龙蓝色 */
 }
 
 pre .string, pre .value {
-  color: #FFDD88; /* 马卡龙黄色 */
+  color: #FFD580; /* 马卡龙浅黄色 */
 }
 
 pre .number {
@@ -277,7 +277,7 @@ pre .number {
 }
 
 pre .css~* .id, pre .id {
-  color: #FFB961; /* 马卡龙橙色 */
+  color: #F6A5E6; /* 马卡龙樱花粉 */
 }
 
 #header .tagcloud a {
@@ -335,35 +335,35 @@ pre .css~* .id, pre .id {
 }
 
 .tagcloud a.color2 {
-  background: #FFDF91; /* 马卡龙橙黄色 */
+  background: #FFD580; /* 马卡龙浅黄色 */
 }
 
 .tagcloud a.color2:before {
-  border-right-color: #FFDF91;
+  border-right-color: #FFD580;
 }
 
 .tagcloud a.color3 {
-  background: #B1E1DF; /* 马卡龙青绿色 */
+  background: #88C9D9; /* 马卡龙蓝色 */
 }
 
 .tagcloud a.color3:before {
-  border-right-color: #B1E1DF;
+  border-right-color: #88C9D9;
 }
 
 .tagcloud a.color4 {
-  background: #C4A4F9; /* 马卡龙紫色 */
+  background: #B9A4F9; /* 马卡龙紫色 */
 }
 
 .tagcloud a.color4:before {
-  border-right-color: #C4A4F9;
+  border-right-color: #B9A4F9;
 }
 
 .tagcloud a.color5 {
-  background: #FFD591; /* 马卡龙奶油色 */
+  background: #F6A5E6; /* 马卡龙樱花粉 */
 }
 
 .tagcloud a.color5:before {
-  border-right-color: #FFD591;
+  border-right-color: #F6A5E6;
 }
 
 .article-tag-list .article-tag-list-item {
@@ -465,7 +465,6 @@ pre .css~* .id, pre .id {
 .tagcloud-ctn .tagcloud-global .tab-post-types .tab-post-type:nth-child(5) .post-type-icon {
   background: #dd765d;
 }
-
 
 
 
