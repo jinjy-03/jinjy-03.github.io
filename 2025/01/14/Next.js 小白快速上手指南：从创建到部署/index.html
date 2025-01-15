@@ -6,66 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo+GitHub搭建个人博客（图文版mac保姆教程） | 一只丸子金</title>
+  <title>Next.js 小白快速上手指南：从创建到部署 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文以up主CodeSheep从零开始搭建自己的个人博客 视频为框架，记录本小白从零搭建个人博客的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！">
+  <meta name="description" content="摘要：✨ Next.js 就像程序员的魔法棒，能快速召唤出现代化 React 应用！不管是 SSR（服务端渲染）、SSG（静态站点生成）还是 ISR（增量静态渲染），都不在话下～🪄 本篇小白友好教程，将手把手带你从零创建一个 Next.js 项目，带你轻松入门，玩转开发全流程！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+GitHub搭建个人博客（图文版mac保姆教程）">
-<meta property="og:url" content="http://example.com/2022/09/01/%E9%87%91%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="Next.js 小白快速上手指南：从创建到部署">
+<meta property="og:url" content="http://example.com/2025/01/14/Next.js%20%E5%B0%8F%E7%99%BD%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E5%88%9B%E5%BB%BA%E5%88%B0%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文以up主CodeSheep从零开始搭建自己的个人博客 视频为框架，记录本小白从零搭建个人博客的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！">
+<meta property="og:description" content="摘要：✨ Next.js 就像程序员的魔法棒，能快速召唤出现代化 React 应用！不管是 SSR（服务端渲染）、SSG（静态站点生成）还是 ISR（增量静态渲染），都不在话下～🪄 本篇小白友好教程，将手把手带你从零创建一个 Next.js 项目，带你轻松入门，玩转开发全流程！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903153056.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162527.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162819.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163404.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163451.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163813.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903164841.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165134.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165430.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165527.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165800.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903170037.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903170144.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903170417.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903171344.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903171625.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903172846.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903160500.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903160827.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903172935.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173111.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173337.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173639.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173928.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112135715.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112140140.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112134356.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112134703.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180607.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180659.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180338.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180504.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182004.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182034.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182104.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182456.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182550.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182702.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182838.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182946.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183052.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183123.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183146.png">
-<meta property="article:published_time" content="2022-09-01T07:49:37.000Z">
-<meta property="article:modified_time" content="2025-01-04T06:39:17.838Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114181800.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114182349.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114182429.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114182619.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114183231.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114183425.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114183522.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114185018.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162147.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162012.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162240.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162339.png">
+<meta property="article:published_time" content="2025-01-14T09:27:14.000Z">
+<meta property="article:modified_time" content="2025-01-15T08:24:14.629Z">
 <meta property="article:author" content="金金">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="SSH">
+<meta property="article:tag" content="Next.js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903153056.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114181800.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -198,14 +165,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-金金的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Next.js 小白快速上手指南：从创建到部署" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo+GitHub搭建个人博客（图文版mac保姆教程）
+      Next.js 小白快速上手指南：从创建到部署
     </h1>
   
 
@@ -216,8 +183,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2022/09/01/%E9%87%91%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2022-09-01T07:49:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-01</time>
+<a href="/2025/01/14/Next.js%20%E5%B0%8F%E7%99%BD%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E5%88%9B%E5%BB%BA%E5%88%B0%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+  	<time datetime="2025-01-14T09:27:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-14</time>
 </a>
 
 
@@ -230,164 +197,124 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：1.8k字 | 预计阅读时长：6分钟
+        字数：1k字 | 预计阅读时长：4分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文以up主CodeSheep<a target="_blank" rel="noopener" href="https://b23.tv/a2ZDQKI">从零开始搭建自己的个人博客</a> 视频为框架，记录本小白<strong>从零搭建个人博客</strong>的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！</p>
+        <p>摘要：✨ <strong>Next.js</strong> 就像程序员的魔法棒，能快速召唤出现代化 React 应用！不管是 <strong>SSR</strong>（服务端渲染）、<strong>SSG</strong>（静态站点生成）还是 <strong>ISR</strong>（增量静态渲染），都不在话下～🪄 本篇小白友好教程，将手把手带你从零创建一个 Next.js 项目，带你轻松入门，玩转开发全流程！</p>
 <span id="more"></span>
 
-<h2 id="第一章-博客环境搭建"><a href="#第一章-博客环境搭建" class="headerlink" title="第一章 博客环境搭建"></a>第一章 博客环境搭建</h2><p>搭建设备：MacBook pro14</p>
-<ul>
-<li>安装Nodejs</li>
-<li>安装hexo博客框架</li>
-</ul>
-<h3 id="下载Nodejs"><a href="#下载Nodejs" class="headerlink" title="下载Nodejs"></a>下载Nodejs</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903153056.png" alt="20220903153056"></p>
-<p>安装：一直点下一步就完事</p>
-<h3 id="超级用户模式"><a href="#超级用户模式" class="headerlink" title="超级用户模式"></a>超级用户模式</h3><p>进入终端切换到超级用户模式</p>
-<p><code>sudo su</code><br>(输入密码)</p>
-<p><code>node -v #查看刚才安装的node版本</code><br><code>npm -v #查看npm版本 </code></p>
-<h3 id="安装hexo博客框架"><a href="#安装hexo博客框架" class="headerlink" title="安装hexo博客框架"></a>安装hexo博客框架</h3><p><code>npm install -g cnpm --registry=http://registry.npm.taobao.org </code>    #安装淘宝的cnpm 镜像源（比较快）</p>
-<p>即使输入错了没有关系，从头安装</p>
-<p><code>cnpm -v </code>#查看cnpm版本<br><code>cnpm install -g hexo-cli    </code>#安装hexo框架<br><code>hexo -v </code>#查看hexo版本 验证</p>
-<h3 id="开始使用hexo搭建"><a href="#开始使用hexo搭建" class="headerlink" title="开始使用hexo搭建"></a>开始使用hexo搭建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwd #查看当前目录</span><br><span class="line">mkdir blog #创建blog目录（空白）</span><br></pre></td></tr></table></figure>
+<h2 id="环境准备🛠️"><a href="#环境准备🛠️" class="headerlink" title="环境准备🛠️"></a>环境准备🛠️</h2><p>1.<strong>检查和安装 Node.js 和 npm</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 
-<p>待会所有博客的东西全都在blog这个文件夹里生成<br>⚠️如果过程中出了什么错误，直接把blog这个目录删了重来就好了<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162527.png" alt="20220903162527"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd blog  #进入blog目录</span><br><span class="line">pwd #查看路径</span><br></pre></td></tr></table></figure>
-
-<p><code>sudo hexo init  #生成博客 初始化博客</code></p>
-<p>初始化，成功后，会显示<br><code>Start blogging with Hexo!</code></p>
-<p>我们可以看一下目录生成了哪些东西<br><code>ls -l</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162819.png" alt="20220903162819"></p>
-<p><code>hexo s #启动本地博客服务</code><br>&lt;<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> &gt;#本地端口访问地址</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163404.png" alt="20220903163404"></p>
-<p>你可以在浏览器打开查看，并且里面默认为你生成了一篇博文<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163451.png" alt="20220903163451"></p>
-<p>别忘了 control+c退出<br>hexo s 启动预览文章，平时修改文章可以这样查看修改</p>
-<hr>
-<h2 id="第二章-新建一篇博文"><a href="#第二章-新建一篇博文" class="headerlink" title="第二章 新建一篇博文"></a>第二章 新建一篇博文</h2><ul>
-<li>hexo n</li>
-<li>hexo c</li>
-<li>hexo g</li>
-<li>hexo s</li>
-</ul>
-<p><code>hexo n &quot;我的第一篇文章&quot; #创建新的文章 </code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163813.png" alt="20220903163813"></p>
-<p>查看目录进入到文章所属目录，查看是否有此篇文章<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903164841.png" alt="20220903164841"></p>
-<p>pwd 查看当前目录 给博文加点内容，直接在vim编辑器打开<br>实际情况可以用vscode等软件编辑器打开<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165134.png" alt="20220903165134"></p>
-<p>备注；vim代码编辑器，也可以当记事本使用<br>O（大写） 进入插入模式<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165430.png" alt="20220903165430"></p>
-<p>随便写点<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165527.png" alt="20220903165527"></p>
-<h3 id="hexo-g"><a href="#hexo-g" class="headerlink" title="hexo g"></a>hexo g</h3><p>写好之后，我们需要生成一下⚠️必须要在blog目录下hexo g</p>
-<p>因为之前进了两层所以现在退回去<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165800.png" alt="20220903165800"></p>
-<h3 id="hexo-c"><a href="#hexo-c" class="headerlink" title="hexo c"></a>hexo c</h3><p> hexo clean 清理一下本地端口网页面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903170037.png" alt="20220903170037"></p>
-<h3 id="生成一下"><a href="#生成一下" class="headerlink" title="生成一下"></a>生成一下</h3><p>hexo g</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903170144.png" alt="20220903170144"></p>
-<p>可以看到刚才保存好的文章</p>
-<h3 id="hexo-s"><a href="#hexo-s" class="headerlink" title="hexo s"></a>hexo s</h3><p>在本地端口预览一下刚才修改的文章</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903170417.png" alt="20220903170417"></p>
-<p>此时 博客搭建已经完成✅啦～</p>
-<hr>
-<h2 id="第三章-本地博客部署到远端"><a href="#第三章-本地博客部署到远端" class="headerlink" title="第三章 本地博客部署到远端"></a>第三章 本地博客部署到远端</h2><p>  <strong>排两大坑</strong></p>
-<p><strong>目的：方便以后直接通过GitHub这个地址访问我们的博客</strong></p>
+<p>确保 Node.js 的版本 &gt;&#x3D; 16（推荐）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114181800.png" alt="20250114181800"></p>
+<h2 id="初始化一个-Next-js-项目🌱"><a href="#初始化一个-Next-js-项目🌱" class="headerlink" title="初始化一个 Next.js 项目🌱"></a>初始化一个 Next.js 项目🌱</h2><p>1.<strong>使用 create-next-app 创建项目</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-next-app@latest my-next-app</span><br></pre></td></tr></table></figure>
+<p>2.<strong>配置说明</strong></p>
 <ul>
-<li>登陆GitHub（没有直接注册一个）</li>
-<li>建仓库</li>
-<li>安装git（⚠️补充排坑）</li>
-<li>设置ssh密钥（⚠️补充排坑）</li>
+<li>是否启用 TypeScript？（推荐）</li>
+<li>是否启用 ESLint？</li>
+<li>是否使用 Tailwind CSS？（推荐）</li>
+<li>是否启用 src&#x2F; 目录？</li>
+<li>是否使用新的 App Router？（推荐）</li>
+<li>是否启用 Turbopack？</li>
+<li>是否自定义导入路径别名？</li>
 </ul>
-<p>进入GitHub官网登陆账号</p>
-<h3 id="建仓库"><a href="#建仓库" class="headerlink" title="建仓库"></a>建仓库</h3><p>找到下图位置，点击，再 create a new repository<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903171344.png" alt="20220903171344"></p>
-<p>⚠️用户部署个人博客的GitHub仓库的命名必须符合特定要求</p>
-<h4 id="仓库命名（要求如图）"><a href="#仓库命名（要求如图）" class="headerlink" title="仓库命名（要求如图）"></a>仓库命名（要求如图）</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903171625.png" alt="20220903171625"></p>
-<p>点开仓库查看一下<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903172846.png" alt="20220903172846"></p>
-<p>这个页面先留着，等会配置东西需要</p>
-<h4 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h4><p><strong>Github创建一个新的仓库 YourGithubName.github.io</strong></p>
-<p><code>cnpm install --save hexo-deployer-git #在blog目录下安装git部署插件</code></p>
-<h5 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h5><p>⚠️ 这一步也许成功不了 解释：新Mac需要安装git工具，旁边会跳出一个提醒“‘git’命令需要使用命令行开发者工具。您需要现在安装改工具吗？” 解决：点安装！ 耐心等待⌛️安装 时间比较久</p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>这种系统提示，万一没有跳出（git补充安装）直接去官网安装git</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903160500.png" alt="20220903160500"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903160827.png" alt="20220903160827"></p>
-<p>安装好git后 执行刚才失败的操作</p>
-<p><code>cnpm install --save hexo-deployer-git #在blog目录下安装git部署插件</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903172935.png" alt="20220903172935"></p>
-<h4 id="添加仓库地址"><a href="#添加仓库地址" class="headerlink" title="添加仓库地址"></a>添加仓库地址</h4><p>有个关键的东西需要设置一下</p>
-<p>如图所示<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173111.png" alt="20220903173111"></p>
-<p><code>vim _config.yml</code></p>
-<p>我们在文件地步做一些修改<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173337.png" alt="20220903173337"></p>
-<p><strong>中间篮筐复制刚才仓库的地址 其他照抄</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173639.png" alt="20220903173639"></p>
-<p>⚠️中间篮筐填写（一个大坑），填错了后面配置ssh密钥非常麻烦<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903173928.png" alt="20220903173928"></p>
-<p><strong>填写好之后英文状态下：wq（不然可能没反应</strong></p>
-<p>这里和视频中填写的地址不同，视频里填的是HTTPS地址，先说明一下如果填写那个地址以后每次部署到远端就需要输入密码登录一次，非常麻烦。<br>填写SSH地址为的是后面免密hexo d，需要将 Mac上ssh密钥添加到GitHub上，但绝对是一劳永逸的操作！</p>
-<h2 id="Github的SSH密钥配置"><a href="#Github的SSH密钥配置" class="headerlink" title="Github的SSH密钥配置"></a>Github的SSH密钥配置</h2><ul>
-<li>介绍</li>
-</ul>
-<p>SSH(Secure SHell):是一个提供数据通信安全、远程登录、远程指令执行等功能的安全网络协议，使用ssh往GitHub上push项目，不需要再次输入账号密码。</p>
-<h3 id="设置git"><a href="#设置git" class="headerlink" title="设置git"></a>设置git</h3><p>运行命令行配置你的name和email</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看配置</span></span><br><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114182349.png" alt="20250114182349"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114182429.png" alt="20250114182429"></p>
+<p>完成后，进入项目目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-next-app</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">git status</span></span><br><span class="line">git config --global user.name &quot;你的用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="gitHub-ssh密钥配置"><a href="#gitHub-ssh密钥配置" class="headerlink" title="gitHub ssh密钥配置"></a>gitHub ssh密钥配置</h3><ul>
-<li>检查是否存在SSH Key</li>
-<li>创建新的ssh key</li>
-<li>获取ssh key公钥内容</li>
-<li>添加公钥到github</li>
-<li>验证是否设置成功</li>
-</ul>
-<h4 id="检查ssh-key"><a href="#检查ssh-key" class="headerlink" title="检查ssh key"></a>检查ssh key</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
 
-<p>如果存在 id_rsa 和 id_rsa.pub文件，说明已经有SSH Key，没有则创建新的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112135715.png" alt="20230112135715"></p>
-<h4 id="添加ssh-key"><a href="#添加ssh-key" class="headerlink" title="添加ssh key"></a>添加ssh key</h4><p>$ ssh-keygen -t rsa -C “content neirong”<br>-t ：密钥的类型<br>-C : 用于识别密钥的注释</p>
-<p>输入<br><code>ssh-keygen -t rsa -C &quot;你的邮箱&quot; </code></p>
-<p>会发现 .ssh 目录生成了两个文件：id_rsa和id_rsa.pub</p>
-<p>id_rsa 文件是私有密钥，id_rsa.pub是公开密钥</p>
-<h4 id="获取公钥内容"><a href="#获取公钥内容" class="headerlink" title="获取公钥内容"></a>获取公钥内容</h4><p>输入<br><code>cat ~/.ssh/id_rsa.pub</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112140140.png" alt="20230112140140"></p>
-<h4 id="添加公钥到GitHub"><a href="#添加公钥到GitHub" class="headerlink" title="添加公钥到GitHub"></a>添加公钥到GitHub</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112134356.png" alt="20230112134356"></p>
-<p><strong>New SSH key 把复制的公钥文件复制进入</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112134703.png" alt="20230112134703"></p>
-<h4 id="验证是否设置成功"><a href="#验证是否设置成功" class="headerlink" title="验证是否设置成功"></a>验证是否设置成功</h4><p>用私有密钥与GitHub进行认证和通信<br><code>ssh -T git@github.com</code></p>
-<p>出现以下说明成功通信</p>
-<blockquote>
-<p>Hi （你的用户名）! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-</blockquote>
-<h3 id="部署到远端"><a href="#部署到远端" class="headerlink" title="部署到远端"></a>部署到远端</h3><p>操作完之后可以部署远端啦 hexo d</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180607.png" alt="20220903180607"></p>
-<p>出现下面标志成功<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180659.png" alt="20220903180659"></p>
-<p>这时可以查看你的GitHub仓库，发现多了东西，说明已经推成功啦<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180338.png" alt="20220903180338"></p>
-<h6 id="现在我们来直接访问一下仓库名"><a href="#现在我们来直接访问一下仓库名" class="headerlink" title="现在我们来直接访问一下仓库名"></a>现在我们来直接访问一下仓库名</h6><p>记得刷新一下<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903180504.png" alt="20220903180504"></p>
-<hr>
-<h2 id="第四章-换个主题吧～"><a href="#第四章-换个主题吧～" class="headerlink" title="第四章 换个主题吧～"></a>第四章 换个主题吧～</h2><h3 id="yilia主题"><a href="#yilia主题" class="headerlink" title="yilia主题"></a>yilia主题</h3><p>想要其他主题可以自行搜索🔍 这里是yilia主题</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182004.png" alt="20220903182004"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">一个简单优雅的hexo主题</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182034.png" alt="20220903182034"><br>在终端输入</p>
-<blockquote>
-<p>git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia</p>
-</blockquote>
-<p>⚠️这些操作都是基于blog目录下操作的<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182104.png" alt="20220903182104"></p>
-<h3 id="把主题配到博客中去"><a href="#把主题配到博客中去" class="headerlink" title="把主题配到博客中去"></a>把主题配到博客中去</h3><p>当前在 themes&#x2F; 目录下 cd ..回到上一级<br>在blog目录下操作<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182456.png" alt="20220903182456"></p>
-<p>修改这个文件 翻到👇下面 如图所示<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182550.png" alt="20220903182550"></p>
-<p> <strong>修改成yilia主题后保存退出</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182702.png" alt="20220903182702"></p>
-<ul>
-<li>hexo clean</li>
-<li>hexo g</li>
+<h2 id="项目文件结构解析-📂"><a href="#项目文件结构解析-📂" class="headerlink" title="项目文件结构解析 📂"></a>项目文件结构解析 📂</h2><ul>
+<li>**src&#x2F;app&#x2F;**：新的路由入口文件夹。</li>
+<li>**public&#x2F;**：静态资源存放目录。</li>
+<li>**styles&#x2F;**：默认的全局和模块化样式。</li>
+<li><strong>tailwind.config.ts</strong>和 <strong>postcss.config.mjs</strong>：Tailwind CSS 配置文件。</li>
+<li><strong>next.config.ts</strong>：Next.js 配置文件。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182838.png" alt="20220903182838"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114182619.png" alt="20250114182619"></p>
+<h2 id="启动开发服务器🌟"><a href="#启动开发服务器🌟" class="headerlink" title="启动开发服务器🌟"></a>启动开发服务器🌟</h2><p>1.安装依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114183231.png" alt="20250114183231"></p>
+<p>2.启动开发服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114183425.png" alt="20250114183425"></p>
+<p>3.访问 <code>http://localhost:3000</code> 验证项目是否成功运行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114183522.png" alt="20250114183522"></p>
+<h2 id="自定义首页内容-✍️"><a href="#自定义首页内容-✍️" class="headerlink" title="自定义首页内容 ✍️"></a>自定义首页内容 ✍️</h2><p>编辑 <code>src/app/page.tsx</code> 文件，定制你的首页：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;text-center p-10&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&quot;text-4xl font-bold text-blue-600&quot;</span>&gt;</span>欢迎来到我的 Next.js 应用！🎉<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是你的自定义首页。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250114185018.png" alt="20250114185018"></p>
+<p>亮点：我们使用了 Tailwind CSS 提供的实用工具类快速设置样式。</p>
+<h2 id="创建新页面-📝"><a href="#创建新页面-📝" class="headerlink" title="创建新页面 📝"></a>创建新页面 📝</h2><p>Next.js 提供了文件系统路由，创建页面非常简单：</p>
+<ol>
+<li>在 <code>src/app/</code> 下创建 <code>about/page.tsx</code> 文件： <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">About</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>About Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>访问 <code>/about</code> 查看新页面。</li>
+</ol>
+<p>访问 <a target="_blank" rel="noopener" href="http://localhost:3000/about">http://localhost:3000/about</a> 查看新页面。</p>
+<h2 id="静态资源和优化图片-🌈"><a href="#静态资源和优化图片-🌈" class="headerlink" title="静态资源和优化图片 🌈"></a>静态资源和优化图片 🌈</h2><ol>
+<li>添加图片文件到 <code>public/</code>。</li>
+<li>使用 Next.js 的 <code>Image</code> 组件加载图片： <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Image</span> <span class="keyword">from</span> <span class="string">&quot;next/image&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Image</span> <span class="attr">src</span>=<span class="string">&quot;/example.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Example&quot;</span> <span class="attr">width</span>=<span class="string">&#123;500&#125;</span> <span class="attr">height</span>=<span class="string">&#123;300&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="配置-Tailwind-CSS🎨"><a href="#配置-Tailwind-CSS🎨" class="headerlink" title="配置 Tailwind CSS🎨"></a>配置 Tailwind CSS🎨</h2><ol>
+<li>修改 <code>tailwind.config.js</code> 文件： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">  <span class="attr">content</span>: [<span class="string">&quot;./src/**/*.&#123;js,ts,jsx,tsx&#125;&quot;</span>],</span><br><span class="line">  <span class="attr">theme</span>: &#123;</span><br><span class="line">    <span class="attr">extend</span>: &#123;</span><br><span class="line">      <span class="attr">colors</span>: &#123;</span><br><span class="line">        <span class="attr">customBlue</span>: <span class="string">&quot;#1e40af&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> config;</span><br></pre></td></tr></table></figure></li>
+<li>在组件中使用： <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;bg-customBlue text-white p-4&quot;</span>&gt;</span>Custom Styled Div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="部署项目到-Gitee-🌍"><a href="#部署项目到-Gitee-🌍" class="headerlink" title="部署项目到 Gitee 🌍"></a>部署项目到 Gitee 🌍</h2><p>1.创建 Gitee 仓库</p>
 <ul>
-<li>heox s</li>
+<li>登录 Gitee 并创建一个新的仓库。</li>
+<li>复制仓库的 SSH 地址，例如：<code>git@gitee.com:yourusername/yourproject.git</code>。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903182946.png" alt="20220903182946"></p>
+<p>2.配置本地 SSH 密钥</p>
 <ul>
-<li>hexo d</li>
+<li>确保已生成 SSH 密钥。如果没有，请使用以下命令生成：</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183052.png" alt="20220903183052"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183123.png" alt="20220903183123"><br>改了主题不是立刻生成，需要等一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183146.png" alt="20220903183146"></p>
-<p>到这里就已经全部完成✅啦～</p>
+<p><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code></p>
+<ul>
+<li>将生成的公钥（通常位于 ~&#x2F;.ssh&#x2F;id_rsa.pub）添加到 Gitee 的 SSH公钥设置页面。</li>
+<li>在 Gitee 右上角头像下拉菜单中，选择 设置 -&gt; SSH 公钥 -&gt; 添加公钥。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162147.png" alt="20250115162147"></p>
+<p>3.将项目推送到 Gitee</p>
+<ul>
+<li>初始化 Git 仓库（如果尚未初始化）：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initial commit&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162012.png" alt="20250115162012"></p>
+<ul>
+<li>添加 Gitee 仓库的 SSH 地址作为远程仓库：</li>
+</ul>
+<p><code>git remote add origin git@gitee.com:yourusername/yourproject.git</code></p>
+<ul>
+<li>推送代码到 Gitee：</li>
+</ul>
+<p><code>git push -u origin master</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162240.png" alt="20250115162240"></p>
+<p>4.验证部署结果</p>
+<ul>
+<li>在 Gitee 的仓库页面查看代码是否成功推送。</li>
+<li>将项目的 Gitee 仓库地址分享或配置为部署来源。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250115162339.png" alt="20250115162339"></p>
+<p>5.本地打包</p>
+<ul>
+<li>在项目根目录运行以下命令，生成静态文件：</li>
+</ul>
+<p><code>npm run build</code></p>
+<p>如果需要进一步自动化 Gitee 的部署，可以结合 Gitee Pages 功能，将构建后的静态文件发布为一个网站。</p>
+<h2 id="常见问题及解决💡"><a href="#常见问题及解决💡" class="headerlink" title="常见问题及解决💡"></a>常见问题及解决💡</h2><ol>
+<li><strong>项目初始化错误路径问题</strong></li>
+<li><strong>npm 无法找到 package.json</strong></li>
+<li><strong>依赖安装速度慢时如何切换到淘宝镜像</strong>： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Next.js 提供了强大的功能支持，适合构建现代化的 Web 应用。希望这篇完整指南帮助你轻松入门并完成自己的项目！ 🎉</p>
 
       
 
@@ -419,7 +346,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2022/09/01/金金的第一篇博客文章/" title="Hexo+GitHub搭建个人博客（图文版mac保姆教程）" target="_blank">http://example.com/2022/09/01/金金的第一篇博客文章/</a >
+      <a href=" >/2025/01/14/Next.js 小白快速上手指南：从创建到部署/" title="Next.js 小白快速上手指南：从创建到部署" target="_blank">http://example.com/2025/01/14/Next.js 小白快速上手指南：从创建到部署/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -434,26 +361,13 @@
     </div>
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
-      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Next.js</a>
         		</li>
       		
 		</ul>
@@ -509,7 +423,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io022/09/01/%E9%87%91%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/01/14/Next.js%20%E5%B0%8F%E7%99%BD%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E5%88%9B%E5%BB%BA%E5%88%B0%E9%83%A8%E7%BD%B2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -523,15 +437,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/09/01/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
-    </a>
   
+    <a href="/2025/01/04/%E5%A6%82%E4%BD%95%E5%9C%A8-GitHub-%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BB%A3%E7%A0%81%E8%B5%84%E6%BA%90%E4%BB%93%E5%BA%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何在 GitHub 上创建博客代码资源仓库</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -556,7 +466,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 博客环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDNodejs"><span class="toc-number">1.1.</span> <span class="toc-text">下载Nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E7%BA%A7%E7%94%A8%E6%88%B7%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">超级用户模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6"><span class="toc-number">1.3.</span> <span class="toc-text">安装hexo博客框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA"><span class="toc-number">1.4.</span> <span class="toc-text">开始使用hexo搭建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%96%B0%E5%BB%BA%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">第二章 新建一篇博文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-g"><span class="toc-number">2.1.</span> <span class="toc-text">hexo g</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-c"><span class="toc-number">2.2.</span> <span class="toc-text">hexo c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">生成一下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-s"><span class="toc-number">2.4.</span> <span class="toc-text">hexo s</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E8%BF%9C%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text">第三章 本地博客部署到远端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">建仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%93%E5%BA%93%E5%91%BD%E5%90%8D%EF%BC%88%E8%A6%81%E6%B1%82%E5%A6%82%E5%9B%BE%EF%BC%89"><span class="toc-number">3.1.1.</span> <span class="toc-text">仓库命名（要求如图）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E4%BB%93%E5%BA%93"><span class="toc-number">3.1.2.</span> <span class="toc-text">创建新仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#bug"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">bug</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85git"><span class="toc-number">3.2.</span> <span class="toc-text">安装git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80"><span class="toc-number">3.2.1.</span> <span class="toc-text">添加仓库地址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github%E7%9A%84SSH%E5%AF%86%E9%92%A5%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Github的SSH密钥配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEgit"><span class="toc-number">4.1.</span> <span class="toc-text">设置git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitHub-ssh%E5%AF%86%E9%92%A5%E9%85%8D%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">gitHub ssh密钥配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5ssh-key"><span class="toc-number">4.2.1.</span> <span class="toc-text">检查ssh key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0ssh-key"><span class="toc-number">4.2.2.</span> <span class="toc-text">添加ssh key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%85%AC%E9%92%A5%E5%86%85%E5%AE%B9"><span class="toc-number">4.2.3.</span> <span class="toc-text">获取公钥内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%AC%E9%92%A5%E5%88%B0GitHub"><span class="toc-number">4.2.4.</span> <span class="toc-text">添加公钥到GitHub</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E8%AE%BE%E7%BD%AE%E6%88%90%E5%8A%9F"><span class="toc-number">4.2.5.</span> <span class="toc-text">验证是否设置成功</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0%E8%BF%9C%E7%AB%AF"><span class="toc-number">4.3.</span> <span class="toc-text">部署到远端</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E6%88%91%E4%BB%AC%E6%9D%A5%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%8B%E4%BB%93%E5%BA%93%E5%90%8D"><span class="toc-number">4.3.0.0.1.</span> <span class="toc-text">现在我们来直接访问一下仓库名</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8D%A2%E4%B8%AA%E4%B8%BB%E9%A2%98%E5%90%A7%EF%BD%9E"><span class="toc-number">5.</span> <span class="toc-text">第四章 换个主题吧～</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yilia%E4%B8%BB%E9%A2%98"><span class="toc-number">5.1.</span> <span class="toc-text">yilia主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E4%B8%BB%E9%A2%98%E9%85%8D%E5%88%B0%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8E%BB"><span class="toc-number">5.2.</span> <span class="toc-text">把主题配到博客中去</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%F0%9F%9B%A0%EF%B8%8F"><span class="toc-number">1.</span> <span class="toc-text">环境准备🛠️</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AA-Next-js-%E9%A1%B9%E7%9B%AE%F0%9F%8C%B1"><span class="toc-number">2.</span> <span class="toc-text">初始化一个 Next.js 项目🌱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90-%F0%9F%93%82"><span class="toc-number">3.</span> <span class="toc-text">项目文件结构解析 📂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8%F0%9F%8C%9F"><span class="toc-number">4.</span> <span class="toc-text">启动开发服务器🌟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5%E5%86%85%E5%AE%B9-%E2%9C%8D%EF%B8%8F"><span class="toc-number">5.</span> <span class="toc-text">自定义首页内容 ✍️</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B5%E9%9D%A2-%F0%9F%93%9D"><span class="toc-number">6.</span> <span class="toc-text">创建新页面 📝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8C%E4%BC%98%E5%8C%96%E5%9B%BE%E7%89%87-%F0%9F%8C%88"><span class="toc-number">7.</span> <span class="toc-text">静态资源和优化图片 🌈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Tailwind-CSS%F0%9F%8E%A8"><span class="toc-number">8.</span> <span class="toc-text">配置 Tailwind CSS🎨</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE%E5%88%B0-Gitee-%F0%9F%8C%8D"><span class="toc-number">9.</span> <span class="toc-text">部署项目到 Gitee 🌍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%F0%9F%92%A1"><span class="toc-number">10.</span> <span class="toc-text">常见问题及解决💡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">11.</span> <span class="toc-text">结论</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -592,7 +502,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Thu Sep 01 2022 15:49:37 GMT+0800',
+  	id: 'Tue Jan 14 2025 17:27:14 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
