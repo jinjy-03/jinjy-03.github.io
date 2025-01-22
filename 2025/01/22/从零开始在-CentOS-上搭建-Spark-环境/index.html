@@ -6,17 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>一只丸子金</title>
+  <title>从零开始在 CentOS 上搭建 Spark 环境 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只丸子金">
-<meta property="og:url" content="http://example.com/page/3/index.html">
+  <meta name="description" content="✨ 想踏入分布式计算的世界，却不知道从哪里开始？✨ 本篇博客手把手教你从零搭建 Spark 分布式计算环境！借助 Docker 的力量，将 Spark 和 Hadoop 无缝结合，实现一键部署和高效计算。内容循序渐进，小白友好，还附带常用 Docker 和 Spark 指令教程，助你轻松上手！ 🚀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始在 CentOS 上搭建 Spark 环境">
+<meta property="og:url" content="http://example.com/2025/01/22/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%9C%A8-CentOS-%E4%B8%8A%E6%90%AD%E5%BB%BA-Spark-%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="记录学习笔记">
+<meta property="og:description" content="✨ 想踏入分布式计算的世界，却不知道从哪里开始？✨ 本篇博客手把手教你从零搭建 Spark 分布式计算环境！借助 Docker 的力量，将 Spark 和 Hadoop 无缝结合，实现一键部署和高效计算。内容循序渐进，小白友好，还附带常用 Docker 和 Spark 指令教程，助你轻松上手！ 🚀">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122104346.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122104917.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122104658.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105002.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105054.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105135.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105207.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105231.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105245.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105509.png">
+<meta property="article:published_time" content="2025-01-22T02:08:38.000Z">
+<meta property="article:modified_time" content="2025-01-22T03:16:23.949Z">
 <meta property="article:author" content="金金">
+<meta property="article:tag" content="Spark">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122104346.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -149,23 +164,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Hadoop知识点汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-从零开始在-CentOS-上搭建-Spark-环境" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">Hadoop基础知识点汇总</a>
+    <h1 class="article-title" itemprop="name">
+      从零开始在 CentOS 上搭建 Spark 环境
     </h1>
   
 
         
         
-<a href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" class="archive-article-date">
-  	<time datetime="2023-01-26T09:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-26</time>
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/01/22/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%9C%A8-CentOS-%E4%B8%8A%E6%90%AD%E5%BB%BA-Spark-%E7%8E%AF%E5%A2%83/" class="archive-article-date">
+  	<time datetime="2025-01-22T02:08:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-22</time>
 </a>
 
 
@@ -178,20 +196,190 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2.9k字 | 预计阅读时长：10分钟
+        字数：1.2k字 | 预计阅读时长：5分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝<strong>Hadoop生态圈</strong>学习过程中的笔记（基础版），笔记内容主要参考看<strong>尚硅谷</strong>视频🍃</p>
-        
+        <p>✨ 想踏入分布式计算的世界，却不知道从哪里开始？✨ 本篇博客手把手教你<strong>从零搭建 Spark 分布式计算环境</strong>！借助 Docker 的力量，将 Spark 和 Hadoop 无缝结合，实现一键部署和高效计算。内容循序渐进，小白友好，还附带常用 <strong>Docker 和 Spark 指令教程</strong>，助你轻松上手！ 🚀</p>
+<span id="more"></span>
+<hr>
+<h2 id="一、在-CentOS-中安装-Docker-🚀"><a href="#一、在-CentOS-中安装-Docker-🚀" class="headerlink" title="一、在 CentOS 中安装 Docker 🚀"></a>一、在 CentOS 中安装 Docker 🚀</h2><p>已经下载好docker的可以省略，直接用云服务器内置docker</p>
+<h3 id="1-1-停用防火墙和-SELinux"><a href="#1-1-停用防火墙和-SELinux" class="headerlink" title="1.1 停用防火墙和 SELinux"></a>1.1 停用防火墙和 SELinux</h3><p>确保 Docker 能正常运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line">setenforce 0</span><br><span class="line">getenforce</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-更新-yum-源"><a href="#1-2-更新-yum-源" class="headerlink" title="1.2 更新 yum 源"></a>1.2 更新 yum 源</h3><p>将默认 yum 源替换为阿里云镜像源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line"><span class="built_in">mkdir</span> /etc/yum.repos.d/oldrepo</span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/*.repo /etc/yum.repos.d/oldrepo/</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-安装-Docker"><a href="#1-3-安装-Docker" class="headerlink" title="1.3 安装 Docker"></a>1.3 安装 Docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">yum clean all</span><br><span class="line">yum makecache fast</span><br><span class="line">yum -y install docker-ce</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-启动-Docker-并验证"><a href="#1-4-启动-Docker-并验证" class="headerlink" title="1.4 启动 Docker 并验证"></a>1.4 启动 Docker 并验证</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-配置镜像加速器"><a href="#1-5-配置镜像加速器" class="headerlink" title="1.5 配置镜像加速器"></a>1.5 配置镜像加速器</h3><p>编辑 <code>/etc/docker/daemon.json</code> 文件，添加阿里云镜像加速器：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;https://x3n9jrcg.mirror.aliyuncs.com&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>重启 Docker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-6-安装-Git-并配置-hosts"><a href="#1-6-安装-Git-并配置-hosts" class="headerlink" title="1.6 安装 Git 并配置 hosts"></a>1.6 安装 Git 并配置 hosts</h3><p>为后续拉取资源安装 Git，并修复访问 GitHub 的 DNS 问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install git</span><br><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122104346.png" alt="20250122104346"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122104917.png" alt="20250122104917"></p>
+<p>添加以下内容：</p>
+<p><code>192.30.255.112  github.com git</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122104658.png" alt="20250122104658"></p>
+<hr>
+<h2 id="二、安装-Docker-Compose-🛠️"><a href="#二、安装-Docker-Compose-🛠️" class="headerlink" title="二、安装 Docker-Compose 🛠️"></a>二、安装 Docker-Compose 🛠️</h2><h3 id="2-1-安装-Docker-Compose"><a href="#2-1-安装-Docker-Compose" class="headerlink" title="2.1 安装 Docker-Compose"></a>2.1 安装 Docker-Compose</h3><p>通过官方方式安装 Docker-Compose：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/local/bin/docker-compose</span><br><span class="line"><span class="built_in">chmod</span> +x /usr/local/bin/docker-compose</span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105002.png" alt="20250122105002"></p>
+<hr>
+<h2 id="三、使用-Docker-搭建-Spark-环境-🔥"><a href="#三、使用-Docker-搭建-Spark-环境-🔥" class="headerlink" title="三、使用 Docker 搭建 Spark 环境 🔥"></a>三、使用 Docker 搭建 Spark 环境 🔥</h2><h3 id="3-1-下载必要文件"><a href="#3-1-下载必要文件" class="headerlink" title="3.1 下载必要文件"></a>3.1 下载必要文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/docker-compose.yml</span><br><span class="line">wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/hadoop.env</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-2-启动容器"><a href="#3-2-启动容器" class="headerlink" title="3.2 启动容器"></a>3.2 启动容器</h3><p>运行 Docker-Compose 启动 Spark 集群：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105054.png" alt="20250122105054"></p>
+<h3 id="3-3-验证容器状态"><a href="#3-3-验证容器状态" class="headerlink" title="3.3 验证容器状态"></a>3.3 验证容器状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105135.png" alt="20250122105135"></p>
+<hr>
+<h2 id="四、验证-Spark-和-Hadoop-环境-🌐"><a href="#四、验证-Spark-和-Hadoop-环境-🌐" class="headerlink" title="四、验证 Spark 和 Hadoop 环境 🌐"></a>四、验证 Spark 和 Hadoop 环境 🌐</h2><p>⚠️在云服务器中记得把对应端口的安全组开方，不然浏览器访问不到</p>
+<h3 id="4-1-验证-HDFS"><a href="#4-1-验证-HDFS" class="headerlink" title="4.1 验证 HDFS"></a>4.1 验证 HDFS</h3><p>浏览器访问 <code>http://&lt;你的机器IP&gt;:50070/</code> 查看 HDFS 状态。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105207.png" alt="20250122105207"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105231.png" alt="20250122105231"></p>
+<h3 id="4-2-验证-Spark"><a href="#4-2-验证-Spark" class="headerlink" title="4.2 验证 Spark"></a>4.2 验证 Spark</h3><p>浏览器访问 <code>http://&lt;你的机器IP&gt;:8080/</code> 查看 Spark 状态。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105245.png" alt="20250122105245"></p>
+<hr>
+<h2 id="五、运行方式-✨"><a href="#五、运行方式-✨" class="headerlink" title="五、运行方式 ✨"></a>五、运行方式 ✨</h2><h3 id="使用-spark-shell"><a href="#使用-spark-shell" class="headerlink" title="使用 spark-shell"></a>使用 spark-shell</h3><p>通过 Spark 的交互式 shell 运行计算任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it master spark-shell --executor-memory 512M --total-executor-cores 2</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250122105509.png" alt="20250122105509"></p>
+<hr>
+<h2 id="六、常用-Docker-与-Spark-指令教程-✨"><a href="#六、常用-Docker-与-Spark-指令教程-✨" class="headerlink" title="六、常用 Docker 与 Spark 指令教程 ✨"></a>六、常用 Docker 与 Spark 指令教程 ✨</h2><p>以下是使用 Docker 和 Spark 进行分布式计算的常用指令和操作说明，帮助你快速上手并高效完成任务。</p>
+<h4 id="6-1-创建-HDFS-输入目录"><a href="#6-1-创建-HDFS-输入目录" class="headerlink" title="6.1 创建 HDFS 输入目录"></a>6.1 <strong>创建 HDFS 输入目录</strong></h4><p>在 HDFS 中创建用于存放输入文件的目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> namenode hdfs dfs -<span class="built_in">mkdir</span> /input</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>说明</strong>：<code>namenode</code> 是 HDFS 的主节点容器名称，<code>/input</code> 是新建的目录路径。</li>
+</ul>
+<hr>
+<h4 id="6-2-上传文件到-HDFS"><a href="#6-2-上传文件到-HDFS" class="headerlink" title="6.2 上传文件到 HDFS"></a>6.2 <strong>上传文件到 HDFS</strong></h4><p>将本地文件上传到 HDFS 的 <code>/input</code> 目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> namenode hdfs dfs -put /input_files/MR.txt /input</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>说明</strong>：<ul>
+<li><code>/input_files/MR.txt</code> 是本地路径。</li>
+<li><code>/input</code> 是目标 HDFS 路径。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="6-3-启动-Spark-Shell"><a href="#6-3-启动-Spark-Shell" class="headerlink" title="6.3 启动 Spark Shell"></a>6.3 <strong>启动 Spark Shell</strong></h4><p>在 Spark 集群中启动交互式 Spark Shell：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it master spark-shell --executor-memory 1G --total-executor-cores 2 --driver-memory 2G</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>参数说明</strong>：<ul>
+<li><code>--executor-memory 1G</code>：每个 Executor 分配 1GB 内存。</li>
+<li><code>--total-executor-cores 2</code>：总共使用 2 个核心。</li>
+<li><code>--driver-memory 2G</code>：Driver 分配 2GB 内存。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="6-4-运行-Spark-任务"><a href="#6-4-运行-Spark-任务" class="headerlink" title="6.4 运行 Spark 任务"></a>6.4 <strong>运行 Spark 任务</strong></h4><p>在 Spark Shell 中执行以下代码，统计文件中出现最频繁的 10 个单词：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sc.textFile(<span class="string">&quot;hdfs://namenode:8020/input/MR.txt&quot;</span>)</span><br><span class="line">  .flatMap(line =&gt; line.split(<span class="string">&quot; &quot;</span>))</span><br><span class="line">  .map(word =&gt; (word, <span class="number">1</span>))</span><br><span class="line">  .reduceByKey(_ + _)</span><br><span class="line">  .sortBy(_._2, <span class="literal">false</span>)</span><br><span class="line">  .take(<span class="number">10</span>)</span><br><span class="line">  .foreach(println)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>说明</strong>：<ul>
+<li><code>sc.textFile(...)</code>：读取 HDFS 上的文件。</li>
+<li><code>.flatMap(...)</code>：按空格拆分文件内容为单词。</li>
+<li><code>.map(...)</code>：为每个单词计数。</li>
+<li><code>.reduceByKey(_ + _)</code>：统计每个单词的总出现次数。</li>
+<li><code>.sortBy(_._2, false)</code>：按出现次数降序排序。</li>
+<li><code>.take(10)</code>：取出前 10 个单词。</li>
+<li><code>.foreach(println)</code>：打印结果。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="6-5-启动-HDFS-NameNode"><a href="#6-5-启动-HDFS-NameNode" class="headerlink" title="6.5 启动 HDFS NameNode"></a>6.5 <strong>启动 HDFS NameNode</strong></h4><p>如果 HDFS NameNode 没有启动，可以用以下命令启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start namenode</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="6-6-进入-HDFS-容器"><a href="#6-6-进入-HDFS-容器" class="headerlink" title="6.6 进入 HDFS 容器"></a>6.6 <strong>进入 HDFS 容器</strong></h4><p>进入 HDFS NameNode 容器的交互式终端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it namenode bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>用途</strong>：可以直接在容器内运行 HDFS 命令。</li>
+</ul>
+<hr>
+<h4 id="6-7-从-HDFS-合并输出文件"><a href="#6-7-从-HDFS-合并输出文件" class="headerlink" title="6.7 从 HDFS 合并输出文件"></a>6.7 <strong>从 HDFS 合并输出文件</strong></h4><p>将 HDFS 输出目录中的文件合并为一个文件并保存到本地：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -getmerge /output/AFR_char.txt /AFR_char.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>说明</strong>：<ul>
+<li><code>/output/AFR_char.txt</code> 是 HDFS 中的输出目录。</li>
+<li><code>/AFR_char.txt</code> 是合并后的目标文件名。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="6-8-从容器拷贝文件到宿主机"><a href="#6-8-从容器拷贝文件到宿主机" class="headerlink" title="6.8 从容器拷贝文件到宿主机"></a>6.8 <strong>从容器拷贝文件到宿主机</strong></h4><p>将容器中的文件拷贝到宿主机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> 8482acf61fef:/AFR_char.txt /root/output/AFR_char.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>说明</strong>：<ul>
+<li><code>8482acf61fef</code> 是容器 ID（可用 <code>docker ps</code> 查看）。</li>
+<li><code>/AFR_char.txt</code> 是容器内的文件路径。</li>
+<li><code>/root/output/AFR_char.txt</code> 是宿主机上的目标路径。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="七、参考资料"><a href="#七、参考资料" class="headerlink" title="七、参考资料"></a>七、参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37551036/article/details/121973192?spm=1001.2014.3001.5506">使用Docker安装Spark集群(带有HDFS)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/boling_cavalry/article/details/86851069">docker下，极速搭建spark集群(含hdfs集群)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42588332/article/details/119515003">基于Docker快速安装Spark及基础使用</a></p>
+
       
 
       
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+             -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+        
+ 
+    
       <!-- 添加版权声明 -->
     
   
-    <div class="declare" hidden="hidden"></div>
+    <div class="declare">
+      <strong>本文作者：</strong>
+      
+        金金
+      
+      <br>
+      <strong>本文链接：</strong>
+      <a href=" >/2025/01/22/从零开始在-CentOS-上搭建-Spark-环境/" title="从零开始在 CentOS 上搭建 Spark 环境" target="_blank">http://example.com/2025/01/22/从零开始在-CentOS-上搭建-Spark-环境/</a >
+      <br>
+      <strong>版权声明：</strong>
+      本作品采用
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a >
+      进行许可。转载请注明出处！
+      
+    </div>
   
         <!-- 添加版权声明 -->
 
@@ -205,11 +393,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
@@ -218,16 +406,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/26/Hadoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/01/22/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%9C%A8-CentOS-%E4%B8%8A%E6%90%AD%E5%BB%BA-Spark-%E7%8E%AF%E5%A2%83/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2025/01/14/Next.js%20%E5%B0%8F%E7%99%BD%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E5%88%9B%E5%BB%BA%E5%88%B0%E9%83%A8%E7%BD%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Next.js 小白快速上手指南：从创建到部署</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -242,10 +489,33 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9C%A8-CentOS-%E4%B8%AD%E5%AE%89%E8%A3%85-Docker-%F0%9F%9A%80"><span class="toc-number">1.</span> <span class="toc-text">一、在 CentOS 中安装 Docker 🚀</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%81%9C%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99%E5%92%8C-SELinux"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 停用防火墙和 SELinux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%9B%B4%E6%96%B0-yum-%E6%BA%90"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 更新 yum 源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AE%89%E8%A3%85-Docker"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 安装 Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%90%AF%E5%8A%A8-Docker-%E5%B9%B6%E9%AA%8C%E8%AF%81"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 启动 Docker 并验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E9%85%8D%E7%BD%AE%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 配置镜像加速器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%AE%89%E8%A3%85-Git-%E5%B9%B6%E9%85%8D%E7%BD%AE-hosts"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 安装 Git 并配置 hosts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85-Docker-Compose-%F0%9F%9B%A0%EF%B8%8F"><span class="toc-number">2.</span> <span class="toc-text">二、安装 Docker-Compose 🛠️</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85-Docker-Compose"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装 Docker-Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8-Docker-%E6%90%AD%E5%BB%BA-Spark-%E7%8E%AF%E5%A2%83-%F0%9F%94%A5"><span class="toc-number">3.</span> <span class="toc-text">三、使用 Docker 搭建 Spark 环境 🔥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%B8%8B%E8%BD%BD%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 下载必要文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E9%AA%8C%E8%AF%81%E5%AE%B9%E5%99%A8%E7%8A%B6%E6%80%81"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 验证容器状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%AA%8C%E8%AF%81-Spark-%E5%92%8C-Hadoop-%E7%8E%AF%E5%A2%83-%F0%9F%8C%90"><span class="toc-number">4.</span> <span class="toc-text">四、验证 Spark 和 Hadoop 环境 🌐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%AA%8C%E8%AF%81-HDFS"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 验证 HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E9%AA%8C%E8%AF%81-Spark"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 验证 Spark</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%BF%90%E8%A1%8C%E6%96%B9%E5%BC%8F-%E2%9C%A8"><span class="toc-number">5.</span> <span class="toc-text">五、运行方式 ✨</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-spark-shell"><span class="toc-number">5.1.</span> <span class="toc-text">使用 spark-shell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E7%94%A8-Docker-%E4%B8%8E-Spark-%E6%8C%87%E4%BB%A4%E6%95%99%E7%A8%8B-%E2%9C%A8"><span class="toc-number">6.</span> <span class="toc-text">六、常用 Docker 与 Spark 指令教程 ✨</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-%E5%88%9B%E5%BB%BA-HDFS-%E8%BE%93%E5%85%A5%E7%9B%AE%E5%BD%95"><span class="toc-number">6.0.1.</span> <span class="toc-text">6.1 创建 HDFS 输入目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0-HDFS"><span class="toc-number">6.0.2.</span> <span class="toc-text">6.2 上传文件到 HDFS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-%E5%90%AF%E5%8A%A8-Spark-Shell"><span class="toc-number">6.0.3.</span> <span class="toc-text">6.3 启动 Spark Shell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-%E8%BF%90%E8%A1%8C-Spark-%E4%BB%BB%E5%8A%A1"><span class="toc-number">6.0.4.</span> <span class="toc-text">6.4 运行 Spark 任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-%E5%90%AF%E5%8A%A8-HDFS-NameNode"><span class="toc-number">6.0.5.</span> <span class="toc-text">6.5 启动 HDFS NameNode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-6-%E8%BF%9B%E5%85%A5-HDFS-%E5%AE%B9%E5%99%A8"><span class="toc-number">6.0.6.</span> <span class="toc-text">6.6 进入 HDFS 容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-7-%E4%BB%8E-HDFS-%E5%90%88%E5%B9%B6%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6"><span class="toc-number">6.0.7.</span> <span class="toc-text">6.7 从 HDFS 合并输出文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-8-%E4%BB%8E%E5%AE%B9%E5%99%A8%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6%E5%88%B0%E5%AE%BF%E4%B8%BB%E6%9C%BA"><span class="toc-number">6.0.8.</span> <span class="toc-text">6.8 从容器拷贝文件到宿主机</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">七、参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
 
@@ -262,7 +532,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: '',
+  	id: 'Wed Jan 22 2025 10:08:38 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -272,617 +542,6 @@ gitalk.render('gitalk-container')
 
 
   
-  
-    <article id="post-Hive安装（mysql作为元数据库）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/">Hive安装（mysql作为元数据库）</a>
-    </h1>
-  
-
-        
-        
-<a href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2023-01-17T04:06:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
-</a>
-
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 --> 
-        
-
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：2.2k字 | 预计阅读时长：10分钟
-    </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要： 本文主要记录📝基于Hadoop环境的<strong>Hive（2.3.4）的安装与配置(使用mysql作为元数据库）</strong>，以及补充学到的知识点，文章以图文形式呈现，主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">CSDN博主「原来浙小商啊」</a>。</p>
-        
-      
-
-      
-      <!-- 添加版权声明 -->
-    
-  
-    <div class="declare" hidden="hidden"></div>
-  
-        <!-- 添加版权声明 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/17/Hive%E5%AE%89%E8%A3%85%EF%BC%88mysql%E4%BD%9C%E4%B8%BA%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'c79bb4c9f6b92ae4e889',
-  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
-  	repo: 'mycomments',
-  	owner: 'jinjy-03',
-  	admin: ['jinjy-03'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-  
-    <article id="post-Hadoop完全分布式配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">Hadoop完全分布式配置</a>
-    </h1>
-  
-
-        
-        
-<a href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2023-01-16T07:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
-</a>
-
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 --> 
-        
-
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：2.9k字 | 预计阅读时长：12分钟
-    </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要： 本文主要记录📝搭建一个Namenode两个DataNode的<strong>Hadoop完全分布式</strong>集群（Hadoop2.7.7）的全部步骤和HDFS系统初体验，以及补充学到的知识点，文章以图文形式呈现，主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/pig2guang/article/details/85313410">CSDN博主「原来浙小商啊」</a>。</p>
-        
-      
-
-      
-      <!-- 添加版权声明 -->
-    
-  
-    <div class="declare" hidden="hidden"></div>
-  
-        <!-- 添加版权声明 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/16/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'c79bb4c9f6b92ae4e889',
-  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
-  	repo: 'mycomments',
-  	owner: 'jinjy-03',
-  	admin: ['jinjy-03'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-  
-    <article id="post-云服务器IP映射与ssh免密登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">云服务器IP映射与ssh免密登录</a>
-    </h1>
-  
-
-        
-        
-<a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2023-01-12T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
-</a>
-
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 --> 
-        
-
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：1.6k字 | 预计阅读时长：6分钟
-    </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要： 本文主要记录📝云服务器间<strong>IP映射</strong>与<strong>ssh免密登录</strong>的过程，以及补充学到的知识点，文章以图文形式呈现。因为学习需要，想了想还是把本地的集群环境都搭建到HECS云服务器上吧，不用修改自己电脑的重要配置。</p>
-        
-      
-
-      
-      <!-- 添加版权声明 -->
-    
-  
-    <div class="declare" hidden="hidden"></div>
-  
-        <!-- 添加版权声明 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'c79bb4c9f6b92ae4e889',
-  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
-  	repo: 'mycomments',
-  	owner: 'jinjy-03',
-  	admin: ['jinjy-03'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-  
-    <article id="post-hexo常见错误处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">hexo常见错误处理</a>
-    </h1>
-  
-
-        
-        
-<a href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-01-12T04:39:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
-</a>
-
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 --> 
-        
-
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：486字 | 预计阅读时长：1分钟
-    </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要： 本文主要记录📝写博文<strong>hexo遇到bug如何解决</strong>，以及补充学到的知识点，文章以图文形式呈现。</p>
-        
-      
-
-      
-      <!-- 添加版权声明 -->
-    
-  
-    <div class="declare" hidden="hidden"></div>
-  
-        <!-- 添加版权声明 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'c79bb4c9f6b92ae4e889',
-  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
-  	repo: 'mycomments',
-  	owner: 'jinjy-03',
-  	admin: ['jinjy-03'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        
-<a href="/2022/09/01/hello-world/" class="archive-article-date">
-  	<time datetime="2022-09-01T13:30:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-01</time>
-</a>
-
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 --> 
-        
-
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：75字 | 预计阅读时长：1分钟
-    </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-        
-      
-
-      
-      <!-- 添加版权声明 -->
-    
-  
-    <div class="declare" hidden="hidden"></div>
-  
-        <!-- 添加版权声明 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/01/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'c79bb4c9f6b92ae4e889',
-  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
-  	repo: 'mycomments',
-  	owner: 'jinjy-03',
-  	admin: ['jinjy-03'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
-
-
           </div>
         </div>
       </div>
@@ -939,8 +598,8 @@ gitalk.render('gitalk-container')
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
