@@ -6,31 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>hexo常见错误处理 | 一只丸子金</title>
+  <title>如何同步远程仓库内容并提交本地更改 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文主要记录📝写博文hexo遇到bug如何解决，以及补充学到的知识点，文章以图文形式呈现。">
+  <meta name="description" content="在使用 Git 进行代码版本管理时，将远程仓库的内容同步到本地，并提交本地更改是日常开发的重要操作。本篇博客将带你从零梳理如何高效完成这一过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo常见错误处理">
-<meta property="og:url" content="http://example.com/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.html">
+<meta property="og:title" content="如何同步远程仓库内容并提交本地更改">
+<meta property="og:url" content="http://example.com/2025/01/27/%E5%A6%82%E4%BD%95%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%86%85%E5%AE%B9%E5%B9%B6%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E6%9B%B4%E6%94%B9/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文主要记录📝写博文hexo遇到bug如何解决，以及补充学到的知识点，文章以图文形式呈现。">
+<meta property="og:description" content="在使用 Git 进行代码版本管理时，将远程仓库的内容同步到本地，并提交本地更改是日常开发的重要操作。本篇博客将带你从零梳理如何高效完成这一过程。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142511.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142843.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112143017.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112144514.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112144810.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112204509.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112205437.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112205943.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112210836.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112211105.png">
-<meta property="article:published_time" content="2023-01-12T04:39:37.000Z">
-<meta property="article:modified_time" content="2025-01-02T17:06:29.485Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111249.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111342.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111428.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111520.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111600.png">
+<meta property="article:published_time" content="2025-01-27T03:07:00.000Z">
+<meta property="article:modified_time" content="2025-01-27T03:22:21.255Z">
 <meta property="article:author" content="金金">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142511.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111249.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -163,14 +158,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo常见错误处理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-如何同步远程仓库内容并提交本地更改" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo常见错误处理
+      如何同步远程仓库内容并提交本地更改
     </h1>
   
 
@@ -181,8 +176,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-01-12T04:39:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
+<a href="/2025/01/27/%E5%A6%82%E4%BD%95%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%86%85%E5%AE%B9%E5%B9%B6%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E6%9B%B4%E6%94%B9/" class="archive-article-date">
+  	<time datetime="2025-01-27T03:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-27</time>
 </a>
 
 
@@ -195,81 +190,89 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：486字 | 预计阅读时长：1分钟
+        字数：792字 | 预计阅读时长：2分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝写博文<strong>hexo遇到bug如何解决</strong>，以及补充学到的知识点，文章以图文形式呈现。</p>
+        <p>在使用 Git 进行代码版本管理时，将<strong>远程仓库的内容同步到本地</strong>，并<strong>提交本地更改</strong>是日常开发的重要操作。本篇博客将带你从零梳理如何高效完成这一过程。</p>
 <span id="more"></span>
 
-<h2 id="4000端口被占用"><a href="#4000端口被占用" class="headerlink" title="4000端口被占用"></a>4000端口被占用</h2><ul>
-<li><p>bug提示<br>hexo s浏览博客时，提示4000端口问题<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142511.png" alt="20230112142511"></p>
-</li>
-<li><p>查看端口状态</p>
-</li>
-</ul>
-<p><code>sudo lsof -i:4000</code></p>
-<h3 id="解决端口占用"><a href="#解决端口占用" class="headerlink" title="解决端口占用"></a>解决端口占用</h3><ul>
-<li>kill端口进程</li>
-</ul>
-<p><code>sudo kill -9 （57998） </code><br>(PID每个人的不一样，自己看着输入)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142843.png" alt="20230112142843"></p>
-<p><strong>成功解决</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112143017.png" alt="20230112143017"></p>
-<p><strong>⚠️上面👆的命令是Mac版的</strong></p>
-<p>win版如下👇</p>
-<p>查看端口占用情况<br><code>netstat -aon|findstr (端口号)</code></p>
-<p>结束端口占用进程<br><code>taskkill /t /f /(pid )</code></p>
-<h2 id="文件权限问题"><a href="#文件权限问题" class="headerlink" title="文件权限问题"></a>文件权限问题</h2><ul>
-<li><p>bug提示<br>hexo s浏览博客时，提示权限没有</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112144514.png" alt="20230112144514"></p>
-</li>
-</ul>
-<h3 id="解决文件权限"><a href="#解决文件权限" class="headerlink" title="解决文件权限"></a>解决文件权限</h3><p><strong>直接最开始切换到超级用户模式</strong></p>
-<p><code>sudo su (mac终端)</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112144810.png" alt="20230112144810"></p>
-<p>⚠️win版可以最开始就右键以管理员方式打开cmd</p>
-<h2 id="Error-Spawn-failed"><a href="#Error-Spawn-failed" class="headerlink" title="Error: Spawn failed"></a>Error: Spawn failed</h2><ul>
-<li><p>bug提示<br>hexo d 的时候出现Spawn failed<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112204509.png" alt="20230112204509"></p>
-</li>
-<li><p>删除git提交内容文件夹</p>
-</li>
-</ul>
-<p><code>rm -rf .deploy_git/</code></p>
+<h2 id="1-查看远程仓库的分支名称"><a href="#1-查看远程仓库的分支名称" class="headerlink" title="1. 查看远程仓库的分支名称"></a>1. 查看远程仓库的分支名称</h2><p>首先，确保您知道远程仓库的分支名称。运行以下命令查看远程分支列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure>
+
+<p>您会看到类似的输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin/HEAD -&gt; origin/master</span><br><span class="line">origin/master</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中，远程分支为 <code>master</code>，因此后续操作中需要将 <code>main</code> 替换为 <code>master</code>。</p>
+<hr>
+<h2 id="2-拉取远程分支内容"><a href="#2-拉取远程分支内容" class="headerlink" title="2. 拉取远程分支内容"></a>2. 拉取远程分支内容</h2><p>执行以下命令拉取远程仓库内容并合并到本地：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>执行</li>
+<li><strong>说明</strong>：<code>--allow-unrelated-histories</code> 选项允许在无共同历史的情况下合并远程仓库的内容。</li>
 </ul>
-<p><code>git config --global core.autocrlf false</code></p>
+<p>如果成功，您将看到远程内容被 <strong>Fast-forward 合并</strong>，并且远程仓库的更新已同步到本地。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111249.png" alt="20250127111249"></p>
+<hr>
+<h2 id="3-检查当前状态"><a href="#3-检查当前状态" class="headerlink" title="3. 检查当前状态"></a>3. 检查当前状态</h2><p>合并完成后，运行以下命令检查本地仓库的状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>输出会包含以下几种情况：</p>
+<p><strong>已修改的文件</strong>：被更改但尚未添加到暂存区的文件，例如：</p>
 <ul>
-<li>最后</li>
+<li><code>.DS_Store</code></li>
+<li><code>NextGrowth/.idea/vcs.xml</code></li>
 </ul>
-<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
-<p>结果还是报错同样的，接着debug我看到这个“更新密钥”<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112205437.png" alt="20230112205437"></p>
-<p>我回想了一下，之前配置云服务器的时候，把GitHub的ssh密钥给误删了，后来我就新建了个密钥，但是之前git用户名我忘记了</p>
-<p>接着我查看配置<br><code>git config –list</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112205943.png" alt="20230112205943"><br>出现了我最早配置的用户名，估计是刚刚删除git提交内容的文件夹<br>所以后面那个错误的git name不见了，还是还原成最初的设置</p>
+<p><strong>未追踪的文件</strong>：新添加的文件，尚未被 Git 追踪，例如：</p>
 <ul>
-<li>删除错误name的配置的密钥（GitHub上）</li>
-<li>重新配置ssh</li>
+<li><code>NextGrowth/public/images/algo.png</code></li>
+<li><code>NextGrowth/public/images/java.png</code></li>
 </ul>
-<p><code>$ ssh-keygen -t rsa -C “你的邮箱”</code></p>
-<p>  因为之前生成过密钥，所以这次会弹出是否覆盖之前文件，回答yes即可<br><code>cat ~/.ssh/id_rsa.pub</code></p>
-<p>  把密钥接着添加到GitHub上</p>
+<p>确保所有文件状态都符合预期后，继续下一步操作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111342.png" alt="20250127111342"></p>
+<hr>
+<h2 id="4-添加更改并提交到远程仓库"><a href="#4-添加更改并提交到远程仓库" class="headerlink" title="4. 添加更改并提交到远程仓库"></a>4. 添加更改并提交到远程仓库</h2><p>按照以下步骤提交本地更改到远程仓库：</p>
+<h3 id="4-1-添加所有更改"><a href="#4-1-添加所有更改" class="headerlink" title="4.1 添加所有更改"></a>4.1 添加所有更改</h3><p>将修改过的文件和新增的文件添加到暂存区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-检查暂存区状态"><a href="#4-2-检查暂存区状态" class="headerlink" title="4.2 检查暂存区状态"></a>4.2 检查暂存区状态</h3><p>确保所有需要提交的文件已被添加：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>您应看到所有文件状态变为 <strong>staged</strong>（即将提交）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111428.png" alt="20250127111428"></p>
+<h3 id="4-3-提交更改"><a href="#4-3-提交更改" class="headerlink" title="4.3 提交更改"></a>4.3 提交更改</h3><p>为这次修改编写提交说明，并提交到本地仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;更新了配置文件并添加了新图片资源&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111520.png" alt="20250127111520"></p>
+<h3 id="4-4-推送到远程仓库"><a href="#4-4-推送到远程仓库" class="headerlink" title="4.4 推送到远程仓库"></a>4.4 推送到远程仓库</h3><p>将本地的提交推送到远程分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250127111600.png" alt="20250127111600"></p>
+<hr>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="1-忽略不必要的文件"><a href="#1-忽略不必要的文件" class="headerlink" title="1. 忽略不必要的文件"></a>1. 忽略不必要的文件</h3><p>某些自动生成的文件（如 <code>.DS_Store</code>）通常不需要提交到远程仓库。将它们添加到 <code>.gitignore</code> 文件中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;.DS_Store&quot;</span> &gt;&gt; .gitignore</span><br><span class="line">git add .gitignore</span><br><span class="line">git commit -m <span class="string">&quot;更新 .gitignore，忽略 .DS_Store 文件&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-确认冲突解决"><a href="#2-确认冲突解决" class="headerlink" title="2. 确认冲突解决"></a>2. 确认冲突解决</h3><p>如果推送失败并提示存在冲突，您需要按照以下步骤解决冲突：</p>
 <ul>
-<li>验证</li>
+<li>打开冲突文件，手动处理冲突标记。</li>
+<li>重新添加解决后的文件：</li>
 </ul>
-<p><code>ssh -T git@github.com</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>出现如下标志说明成功</li>
+<li>提交并推送：</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112210836.png" alt="20230112210836"></p>
-<ul>
-<li>最后</li>
-</ul>
-<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112211105.png" alt="20230112211105"></p>
-<p>终于推成功了!</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;解决冲突&quot;</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过本文的指南，您可以轻松完成以下操作：</p>
+<ol>
+<li>查看远程仓库的分支列表。</li>
+<li>拉取远程内容并同步到本地。</li>
+<li>提交本地更改并推送到远程仓库。</li>
+</ol>
+<p>无论是初学者还是经验丰富的开发者，掌握这些 Git 操作都是高效协作的基础。希望这篇教程能为你的日常开发提供帮助！ 🚀</p>
 
       
 
@@ -301,7 +304,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2023/01/12/hexo常见错误处理/" title="hexo常见错误处理" target="_blank">http://example.com/2023/01/12/hexo常见错误处理/</a >
+      <a href=" >/2025/01/27/如何同步远程仓库内容并提交本地更改/" title="如何同步远程仓库内容并提交本地更改" target="_blank">http://example.com/2025/01/27/如何同步远程仓库内容并提交本地更改/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -322,7 +325,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
@@ -378,7 +381,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/01/27/%E5%A6%82%E4%BD%95%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%86%85%E5%AE%B9%E5%B9%B6%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E6%9B%B4%E6%94%B9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -392,18 +395,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          云服务器IP映射与ssh免密登录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/09/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2025/01/22/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%9C%A8-CentOS-%E4%B8%8A%E6%90%AD%E5%BB%BA-Spark-%E7%8E%AF%E5%A2%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从零开始在 CentOS 上搭建 Spark 环境</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -430,7 +424,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">4000端口被占用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">解决端口占用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">文件权限问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="toc-number">2.1.</span> <span class="toc-text">解决文件权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Spawn-failed"><span class="toc-number">3.</span> <span class="toc-text">Error: Spawn failed</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 查看远程仓库的分支名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">2. 拉取远程分支内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A3%80%E6%9F%A5%E5%BD%93%E5%89%8D%E7%8A%B6%E6%80%81"><span class="toc-number">3.</span> <span class="toc-text">3. 检查当前状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%94%B9%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">4. 添加更改并提交到远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%B7%BB%E5%8A%A0%E6%89%80%E6%9C%89%E6%9B%B4%E6%94%B9"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 添加所有更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%A3%80%E6%9F%A5%E6%9A%82%E5%AD%98%E5%8C%BA%E7%8A%B6%E6%80%81"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 检查暂存区状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%94%B9"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 提交更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 推送到远程仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">1. 忽略不必要的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%A1%AE%E8%AE%A4%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="toc-number">5.2.</span> <span class="toc-text">2. 确认冲突解决</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -466,7 +460,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Thu Jan 12 2023 12:39:37 GMT+0800',
+  	id: 'Mon Jan 27 2025 11:07:00 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
