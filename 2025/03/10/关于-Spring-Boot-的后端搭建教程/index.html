@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: SSH | 一只丸子金</title>
+  <title>关于 Spring Boot 的后端搭建教程 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只丸子金">
-<meta property="og:url" content="http://example.com/tags/SSH/index.html">
+  <meta name="description" content="✨ 想快速搭建 Spring Boot 后端，却不知从何入手？✨ 本篇博客将手把手教你搭建一个完整的 Spring Boot 3.x 后端！从 项目初始化 到 数据库配置，再到 Spring Security + JWT认证，循序渐进，适合新手入门。还包含 项目结构解析 和 核心代码示例，助你轻松上手，快速构建安全高效的后端服务！🚀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 Spring Boot 的后端搭建教程">
+<meta property="og:url" content="http://example.com/2025/03/10/%E5%85%B3%E4%BA%8E-Spring-Boot-%E7%9A%84%E5%90%8E%E7%AB%AF%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="记录学习笔记">
+<meta property="og:description" content="✨ 想快速搭建 Spring Boot 后端，却不知从何入手？✨ 本篇博客将手把手教你搭建一个完整的 Spring Boot 3.x 后端！从 项目初始化 到 数据库配置，再到 Spring Security + JWT认证，循序渐进，适合新手入门。还包含 项目结构解析 和 核心代码示例，助你轻松上手，快速构建安全高效的后端服务！🚀">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310192334.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310184414.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310184517.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310191433.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310192300.png">
+<meta property="article:published_time" content="2025-03-10T10:34:03.000Z">
+<meta property="article:modified_time" content="2025-03-10T11:24:15.285Z">
 <meta property="article:author" content="金金">
+<meta property="article:tag" content="Spring Boot">
+<meta property="article:tag" content="后端开发">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310192334.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -149,130 +159,430 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于-Spring-Boot-的后端搭建教程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2023-01-12T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E6%98%A0%E5%B0%84%E4%B8%8Essh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">云服务器IP映射与ssh免密登录</a>
+    <h1 class="article-title" itemprop="name">
+      关于 Spring Boot 的后端搭建教程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/03/10/%E5%85%B3%E4%BA%8E-Spring-Boot-%E7%9A%84%E5%90%8E%E7%AB%AF%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2025-03-10T10:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-10</time>
+</a>
+
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 --> 
+        
+
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：2k字 | 预计阅读时长：9分钟
+    </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>✨ 想快速搭建 Spring Boot 后端，却不知从何入手？✨ 本篇博客将手把手教你<strong>搭建一个完整的 Spring Boot 3.x 后端</strong>！从 <strong>项目初始化</strong> 到 <strong>数据库配置</strong>，再到 <strong>Spring Security + JWT</strong>认证，循序渐进，适合新手入门。还包含 项目结构解析 和 核心代码示例，助你轻松上手，快速构建安全高效的后端服务！🚀</p>
+<span id="more"></span>
+
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>WiseLearn 是一个智能学习系统，使用 Spring Boot 3.x 作为后端框架，MySQL 作为数据库，并集成了 Spring Security 和 JWT 进行安全认证。</p>
+<p>项目初始化可通过 <a target="_blank" rel="noopener" href="https://start.spring.io/">Spring Initializr</a> 并按以下配置进行：</p>
+<p><strong>项目配置：</strong></p>
+<ul>
+<li><strong>Project</strong>: Maven</li>
+<li><strong>Language</strong>: Java</li>
+<li><strong>Spring Boot</strong>: 3.3.9</li>
+<li><strong>Group</strong>: com.wiselearn</li>
+<li><strong>Artifact</strong>: wiselearn</li>
+<li><strong>Name</strong>: wiselearn</li>
+<li><strong>Description</strong>: WiseLearn Intelligent Learning System</li>
+<li><strong>Package name</strong>: com.wiselearn</li>
+<li><strong>Packaging</strong>: Jar</li>
+<li><strong>Java</strong>: 17</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310192334.png" alt="20250310192334"></p>
+<p><strong>依赖项选择：</strong></p>
+<ul>
+<li>Spring Web</li>
+<li>Spring Data JPA</li>
+<li>MySQL Driver</li>
+<li>Spring Security</li>
+<li>Lombok</li>
+<li>Spring Boot DevTools</li>
+<li>Validation</li>
+<li>Spring Configuration Processor</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310184414.png" alt="20250310184414"></p>
+<p>点击 GENERATE 按钮。</p>
+<ul>
+<li>GENERATE 会直接下载项目的zip文件到你的电脑，你可以解压后放到你的WISELEARN目录中</li>
+<li>EXPLORE 只是在浏览器中预览项目结构，虽然也可以查看生成的代码，但最终还是需要下载</li>
+</ul>
+<p>具体步骤：<br>点击 GENERATE 按钮，会下载一个名为 wiselearn-server.zip 的文件，将这个zip文件解压到你的WISELEARN目录中的后端目录</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
+<li>Spring Boot 3.3.9</li>
+<li>MySQL 8.0</li>
+<li>Spring Security</li>
+<li>JWT</li>
+<li>JPA</li>
+<li>Lombok</li>
+<li>Maven</li>
+</ul>
+<p>因为使用的是Next.js 15.1.4作为前端，前后端是分离的架构，Spring Boot 3.x系列都需要Java 17+，所以选择 Spring Boot 3.3.9</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310184517.png" alt="20250310184517"></p>
+<p>项目结构检查完成，一切看起来都很正常！我们有：<br>✅ 正确的目录结构<br>✅ 所有必要的依赖都已配置在pom.xml中：</p>
+<ul>
+<li>Spring Web</li>
+<li>Spring Data JPA</li>
+<li>Spring Security</li>
+<li>MySQL Driver</li>
+<li>Lombok</li>
+<li>Validation</li>
+<li>DevTools</li>
+<li>Configuration Processor</li>
+</ul>
+<p>接下来我们需要：</p>
+<p>创建基础包结构<br>配置application.properties（数据库连接等）<br>创建基础的安全配置</p>
+<p>首先让我们在src&#x2F;main&#x2F;java下创建必要的包结构。</p>
+<p>我们需要创建以下基础包结构：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">config - 配置类</span><br><span class="line">controller - 控制器</span><br><span class="line">service - 服务层</span><br><span class="line">repository - 数据访问层</span><br><span class="line">model - 实体类和DTO</span><br><span class="line">security - 安全相关</span><br><span class="line">exception - 异常处理</span><br><span class="line">util - 工具类</span><br></pre></td></tr></table></figure>
+
+<p>让我们创建这些目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd wiselearn-server/src/main/java/com/wiselearn</span><br><span class="line"></span><br><span class="line">mkdir -p config controller service repository model/entity model/dto security exception util</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">wiselearn-server/</span><br><span class="line">├── src/</span><br><span class="line">│   ├── main/</span><br><span class="line">│   │   ├── java/</span><br><span class="line">│   │   │   └── com/</span><br><span class="line">│   │   │       └── wiselearn/</span><br><span class="line">│   │   │           ├── config/         # 配置类</span><br><span class="line">│   │   │           ├── controller/     # 控制器</span><br><span class="line">│   │   │           ├── service/        # 服务层</span><br><span class="line">│   │   │           ├── repository/     # 数据访问层</span><br><span class="line">│   │   │           ├── model/          # 实体类和 DTO</span><br><span class="line">│   │   │           │   ├── entity/</span><br><span class="line">│   │   │           │   └── dto/</span><br><span class="line">│   │   │           ├── security/       # 安全相关</span><br><span class="line">│   │   │           ├── exception/      # 异常处理</span><br><span class="line">│   │   │           └── util/           # 工具类</span><br><span class="line">│   │   └── resources/</span><br><span class="line">│   │       └── application.properties  # 应用配置</span><br><span class="line">│   └── test/                          # 测试目录</span><br><span class="line">└── pom.xml                           # Maven 配置</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><h3 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1. 创建项目"></a>1. 创建项目</h3><p>使用 Spring Initializr 创建项目，并配置必要的依赖。</p>
+<p>我们可以创建一些基础类来自动创建这些目录。首先，让我们创建主应用类：</p>
+<p><code>java:wiselearn-server/src/main/java/com/wiselearn/WiselearnServerApplication.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wiselearn;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WiselearnServerApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(WiselearnServerApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在让我们创建一些基础类来建立目录结构：</p>
+<ol>
+<li>配置类：</li>
+</ol>
+<p><code>java:wiselearn-server/src/main/java/com/wiselearn/config/WebConfig.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wiselearn.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.CorsRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> &#123;</span><br><span class="line">        registry.addMapping(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">                .allowedOrigins(<span class="string">&quot;http://localhost:3000&quot;</span>) <span class="comment">// 允许前端访问</span></span><br><span class="line">                .allowedMethods(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;POST&quot;</span>, <span class="string">&quot;PUT&quot;</span>, <span class="string">&quot;DELETE&quot;</span>, <span class="string">&quot;OPTIONS&quot;</span>)</span><br><span class="line">                .allowedHeaders(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">                .allowCredentials(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>基础实体类：</li>
+</ol>
+<p><code>java:wiselearn-server/src/main/java/com/wiselearn/model/entity/BaseEntity.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wiselearn.model.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> jakarta.persistence.GeneratedValue;</span><br><span class="line"><span class="keyword">import</span> jakarta.persistence.GenerationType;</span><br><span class="line"><span class="keyword">import</span> jakarta.persistence.Id;</span><br><span class="line"><span class="keyword">import</span> jakarta.persistence.MappedSuperclass;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.annotations.CreationTimestamp;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.annotations.UpdateTimestamp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@MappedSuperclass</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">BaseEntity</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@CreationTimestamp</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime createdAt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@UpdateTimestamp</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime updatedAt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>全局异常处理：</li>
+</ol>
+<p><code>java:wiselearn-server/src/main/java/com/wiselearn/exception/GlobalExceptionHandler.java</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package com.wiselearn.exception;</span><br><span class="line"></span><br><span class="line">import org.springframework.http.ResponseEntity;</span><br><span class="line">import org.springframework.web.bind.annotation.ControllerAdvice;</span><br><span class="line">import org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line"></span><br><span class="line">@ControllerAdvice</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(Exception.class)</span><br><span class="line">    public ResponseEntity&lt;String&gt; handleException(Exception e) &#123;</span><br><span class="line">        return ResponseEntity.internalServerError().body(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们已经创建了基本的包结构和一些基础类。目录结构如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">src/main/java/com/wiselearn/</span><br><span class="line">├── WiselearnServerApplication.java</span><br><span class="line">├── config/</span><br><span class="line">│   └── WebConfig.java</span><br><span class="line">├── controller/</span><br><span class="line">├── service/</span><br><span class="line">├── repository/</span><br><span class="line">├── model/</span><br><span class="line">│   ├── entity/</span><br><span class="line">│   │   └── BaseEntity.java</span><br><span class="line">│   └── dto/</span><br><span class="line">├── security/</span><br><span class="line">├── exception/</span><br><span class="line">│   └── GlobalExceptionHandler.java</span><br><span class="line">└── util/</span><br></pre></td></tr></table></figure>
+
+<p>这些基础类提供了：</p>
+<ol>
+<li>跨域配置（WebConfig）</li>
+<li>实体类的基础属性（BaseEntity）</li>
+<li>全局异常处理（GlobalExceptionHandler）</li>
+</ol>
+<p>接下来我们需要：</p>
+<ol>
+<li>配置application.properties（数据库连接等）</li>
+<li>创建用户相关的实体类和接口</li>
+<li>配置Spring Security</li>
+</ol>
+<p>按照以下顺序进行：<br>1.先配置 application.properties（数据库连接等）</p>
+<ul>
+<li>这是最基础的配置</li>
+<li>没有这个配置，后面的实体类无法正确连接数据库</li>
+<li>包括数据库连接、JPA配置、服务器端口等</li>
+</ul>
+<p>2.然后创建用户相关的实体类和接口</p>
+<ul>
+<li>因为Spring Security的配置需要依赖用户实体和用户服务</li>
+<li>包括User实体类、UserRepository、UserService等</li>
+</ul>
+<p>3.最后配置 Spring Security</p>
+<ul>
+<li>这部分依赖于前面的用户实体和服务</li>
+<li>包括认证、授权、密码加密等配置</li>
+</ul>
+<h3 id="2-配置数据库连接"><a href="#2-配置数据库连接" class="headerlink" title="2. 配置数据库连接"></a>2. 配置数据库连接</h3><p>在 <code>application.properties</code> 中添加数据库连接信息：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/wiselearn?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=UTC</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">admin</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">123456</span></span><br><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring.jpa.hibernate.ddl-auto</span>=<span class="string">update</span></span><br><span class="line"><span class="attr">spring.jpa.show-sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.format_sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.dialect</span>=<span class="string">org.hibernate.dialect.MySQL8Dialect</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.port</span>=<span class="string">8080</span></span><br><span class="line"><span class="attr">server.servlet.context-path</span>=<span class="string">/api</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310191433.png" alt="20250310191433"></p>
+<h3 id="3-创建基础实体类"><a href="#3-创建基础实体类" class="headerlink" title="3. 创建基础实体类"></a>3. 创建基础实体类</h3><p>数据库配置已经更新完成。现在让我们开始创建用户相关的实体类和接口。我们需要创建以下文件：</p>
+<ul>
+<li>用户实体类（User.java）</li>
+<li>用户角色枚举（UserRole.java）</li>
+<li>用户仓库接口（UserRepository.java）</li>
+<li>用户服务接口和实现（UserService.java 和 UserServiceImpl.java）</li>
+</ul>
+<p><strong>用户角色枚举：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">UserRole</span> &#123;</span><br><span class="line">    STUDENT,</span><br><span class="line">    TEACHER,</span><br><span class="line">    ADMIN</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>基础实体类：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@MappedSuperclass</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">BaseEntity</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@CreationTimestamp</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime createdAt;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@UpdateTimestamp</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime updatedAt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>用户实体类：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode(callSuper = true)</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;users&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">extends</span> <span class="title class_">BaseEntity</span> &#123;</span><br><span class="line">    <span class="meta">@NotBlank(message = &quot;用户名不能为空&quot;)</span></span><br><span class="line">    <span class="meta">@Column(unique = true)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@NotBlank(message = &quot;密码不能为空&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Email(message = &quot;邮箱格式不正确&quot;)</span></span><br><span class="line">    <span class="meta">@Column(unique = true)</span></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="keyword">private</span> String realName;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> UserRole role;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="type">Boolean</span> <span class="variable">enabled</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们已经创建了用户相关的所有基础类：</p>
+<ul>
+<li>User实体类：包含用户的基本信息字段</li>
+<li>UserRole枚举：定义了用户角色（学生、教师、管理员）</li>
+<li>UserRepository：数据访问层接口</li>
+<li>UserService：服务层接口</li>
+<li>UserServiceImpl：服务层实现类</li>
+</ul>
+<h3 id="4-创建数据访问层"><a href="#4-创建数据访问层" class="headerlink" title="4. 创建数据访问层"></a>4. 创建数据访问层</h3><p>接下来我们需要配置Spring Security。这将包括：<br>安全配置类<br>JWT工具类<br>认证过滤器<br>用户详情服务</p>
+<p><strong>UserRepository.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;User, Long&gt; &#123;</span><br><span class="line">    Optional&lt;User&gt; <span class="title function_">findByUsername</span><span class="params">(String username)</span>;</span><br><span class="line">    Optional&lt;User&gt; <span class="title function_">findByEmail</span><span class="params">(String email)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-配置-Spring-Security"><a href="#5-配置-Spring-Security" class="headerlink" title="5. 配置 Spring Security"></a>5. 配置 Spring Security</h3><p><strong>JWT 工具类（JwtTokenUtil.java）：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JwtTokenUtil</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">JWT_TOKEN_VALIDITY</span> <span class="operator">=</span> <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Key</span> <span class="variable">key</span> <span class="operator">=</span> Keys.secretKeyFor(SignatureAlgorithm.HS512);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">generateToken</span><span class="params">(UserDetails userDetails)</span> &#123;</span><br><span class="line">        Map&lt;String, Object&gt; claims = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">return</span> createToken(claims, userDetails.getUsername());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>安全配置（SecurityConfig.java）：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="meta">@EnableMethodSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> SecurityFilterChain <span class="title function_">securityFilterChain</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        http</span><br><span class="line">            .csrf(csrf -&gt; csrf.disable())</span><br><span class="line">            .authorizeHttpRequests(auth -&gt; auth</span><br><span class="line">                .requestMatchers(<span class="string">&quot;/api/auth/**&quot;</span>).permitAll()</span><br><span class="line">                .anyRequest().authenticated()</span><br><span class="line">            )</span><br><span class="line">            .sessionManagement(session -&gt; session</span><br><span class="line">                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)</span><br><span class="line">            );</span><br><span class="line">        <span class="keyword">return</span> http.build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-认证功能"><a href="#6-认证功能" class="headerlink" title="6. 认证功能"></a>6. 认证功能</h3><p><strong>登录请求 DTO（LoginRequest.java）：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginRequest</span> &#123;</span><br><span class="line">    <span class="meta">@NotBlank(message = &quot;用户名不能为空&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@NotBlank(message = &quot;密码不能为空&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>认证服务（AuthService.java）：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuthService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> AuthResponse <span class="title function_">login</span><span class="params">(LoginRequest request)</span> &#123;</span><br><span class="line">        <span class="comment">// 登录逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> AuthResponse <span class="title function_">register</span><span class="params">(RegisterRequest request)</span> &#123;</span><br><span class="line">        <span class="comment">// 注册逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>认证控制器（AuthController.java）：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api/auth&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuthController</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AuthService authService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@PostMapping(&quot;/login&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> ResponseEntity&lt;AuthResponse&gt; <span class="title function_">login</span><span class="params">(<span class="meta">@Valid</span> <span class="meta">@RequestBody</span> LoginRequest request)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok(authService.login(request));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250310192300.png" alt="20250310192300"></p>
+<h2 id="API-端点"><a href="#API-端点" class="headerlink" title="API 端点"></a>API 端点</h2><ul>
+<li><code>POST /api/auth/login</code> - 用户登录</li>
+<li><code>POST /api/auth/register</code> - 用户注册</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>确保 MySQL 运行并配置正确的数据库连接</li>
+<li>服务器端口冲突时可调整 <code>server.port</code></li>
+<li>结合 Spring Security 进行权限管理</li>
+<li>确保 JWT 配置正确并安全存储密钥</li>
+</ul>
+
+      
+
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+             -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+        
+ 
+    
+      <!-- 添加版权声明 -->
+    
+  
+    <div class="declare">
+      <strong>本文作者：</strong>
+      
+        金金
+      
+      <br>
+      <strong>本文链接：</strong>
+      <a href=" >/2025/03/10/关于-Spring-Boot-的后端搭建教程/" title="关于 Spring Boot 的后端搭建教程" target="_blank">http://example.com/2025/03/10/关于-Spring-Boot-的后端搭建教程/</a >
+      <br>
+      <strong>版权声明：</strong>
+      本作品采用
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a >
+      进行许可。转载请注明出处！
+      
+    </div>
+  
+        <!-- 添加版权声明 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云服务器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">后端开发</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/03/10/%E5%85%B3%E4%BA%8E-Spring-Boot-%E7%9A%84%E5%90%8E%E7%AB%AF%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2025/01/27/%E5%A6%82%E4%BD%95%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%86%85%E5%AE%B9%E5%B9%B6%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E6%9B%B4%E6%94%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何同步远程仓库内容并提交本地更改</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/09/01/%E9%87%91%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2022-09-01T07:49:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-01</time>
-</a>
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">2.</span> <span class="toc-text">技术栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.</span> <span class="toc-text">搭建步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.1.</span> <span class="toc-text">1. 创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="toc-number">4.2.</span> <span class="toc-text">2. 配置数据库连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E5%9F%BA%E7%A1%80%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="toc-number">4.3.</span> <span class="toc-text">3. 创建基础实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E5%B1%82"><span class="toc-number">4.4.</span> <span class="toc-text">4. 创建数据访问层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%85%8D%E7%BD%AE-Spring-Security"><span class="toc-number">4.5.</span> <span class="toc-text">5. 配置 Spring Security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%A4%E8%AF%81%E5%8A%9F%E8%83%BD"><span class="toc-number">4.6.</span> <span class="toc-text">6. 认证功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-%E7%AB%AF%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">API 端点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">6.</span> <span class="toc-text">注意事项</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/09/01/%E9%87%91%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">Hexo+GitHub搭建个人博客（图文版mac保姆教程）</a>
-    </h1>
-  
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'c79bb4c9f6b92ae4e889',
+  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
+  	repo: 'mycomments',
+  	owner: 'jinjy-03',
+  	admin: ['jinjy-03'],
+  	id: 'Mon Mar 10 2025 18:34:03 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
           </div>
         </div>
       </div>
@@ -330,9 +640,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
