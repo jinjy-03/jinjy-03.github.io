@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: Zookeeper | 一只丸子金</title>
+  <title>DeepSeek API 接入文档（Next.js 项目） | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只丸子金">
-<meta property="og:url" content="http://example.com/tags/Zookeeper/index.html">
+  <meta name="description" content="本教程将详细说明如何在一个基于 Next.js + Flask的全栈乳腺癌预测项目中接入 DeepSeek API 实现 AI 解析功能。该方案强调安全性、可维护性和用户体验。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepSeek API 接入文档（Next.js 项目）">
+<meta property="og:url" content="http://example.com/2025/04/23/DeepSeek-API-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3%EF%BC%88Next-js-%E9%A1%B9%E7%9B%AE%EF%BC%89/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="记录学习笔记">
+<meta property="og:description" content="本教程将详细说明如何在一个基于 Next.js + Flask的全栈乳腺癌预测项目中接入 DeepSeek API 实现 AI 解析功能。该方案强调安全性、可维护性和用户体验。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250423204858.png">
+<meta property="article:published_time" content="2025-04-23T12:43:41.000Z">
+<meta property="article:modified_time" content="2025-04-23T12:50:29.331Z">
 <meta property="article:author" content="金金">
+<meta property="article:tag" content="Next.js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250423204858.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -149,132 +154,284 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-DeepSeek-API-接入文档（Next-js-项目）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/" class="archive-article-date">
-  	<time datetime="2023-04-03T01:28:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/03/%E5%9F%BA%E4%BA%8EHadoop%E7%9A%84Hive%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-centos7/">基于Hadoop的Hive集群搭建(centos7)</a>
+    <h1 class="article-title" itemprop="name">
+      DeepSeek API 接入文档（Next.js 项目）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/04/23/DeepSeek-API-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3%EF%BC%88Next-js-%E9%A1%B9%E7%9B%AE%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2025-04-23T12:43:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-23</time>
+</a>
+
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 --> 
+        
+
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：729字 | 预计阅读时长：3分钟
+    </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本教程将详细说明如何在一个基于 <strong>Next.js + Flask</strong>的全栈乳腺癌预测项目中接入 <strong>DeepSeek API</strong> 实现 AI 解析功能。该方案强调安全性、可维护性和用户体验。</p>
+<span id="more"></span>
+
+<h2 id="📦-技术栈要求"><a href="#📦-技术栈要求" class="headerlink" title="📦 技术栈要求"></a>📦 技术栈要求</h2><ul>
+<li>前端：Next.js 14（App Router 架构）、React 18、TypeScript</li>
+<li>后端：Flask + scikit-learn（用于预测）</li>
+<li>目标：接入 DeepSeek AI 接口，解释预测结果</li>
+</ul>
+<hr>
+<h2 id="🧱-项目结构说明"><a href="#🧱-项目结构说明" class="headerlink" title="🧱 项目结构说明"></a>🧱 项目结构说明</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">frontend/</span><br><span class="line">├── src/</span><br><span class="line">│   ├── app/</span><br><span class="line">│   │   └── api/</span><br><span class="line">│   │       └── deepseek/</span><br><span class="line">│   │           └── route.ts     <span class="comment"># Next.js API 路由中转</span></span><br><span class="line">│   ├── services/</span><br><span class="line">│   │   └── deepseek.ts          <span class="comment"># 前端调用封装</span></span><br><span class="line">│   └── app/result/page.tsx      <span class="comment"># 预测结果页面</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✨-功能实现概览"><a href="#✨-功能实现概览" class="headerlink" title="✨ 功能实现概览"></a>✨ 功能实现概览</h2><h3 id="1-创建环境变量"><a href="#1-创建环境变量" class="headerlink" title="1. 创建环境变量"></a>1. 创建环境变量</h3><p>在 <code>frontend/.env.local</code> 中添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEEPSEEK_API_KEY=你的真实API密钥</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-编写-Next-js-API-路由"><a href="#2-编写-Next-js-API-路由" class="headerlink" title="2. 编写 Next.js API 路由"></a>2. 编写 Next.js API 路由</h3><p>路径：<code>frontend/src/app/api/deepseek/route.ts</code></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">POST</span>(<span class="params">req: Request</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; prompt &#125; = <span class="keyword">await</span> req.<span class="title function_">json</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.deepseek.com/v1/chat/completions&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;Authorization&#x27;</span>: \<span class="string">`Bearer \$&#123;process.env.DEEPSEEK_API_KEY&#125;\`,</span></span><br><span class="line"><span class="string">      &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    body: JSON.stringify(&#123;</span></span><br><span class="line"><span class="string">      model: &#x27;deepseek-chat&#x27;,</span></span><br><span class="line"><span class="string">      messages: [&#123; role: &#x27;user&#x27;, content: prompt &#125;],</span></span><br><span class="line"><span class="string">    &#125;),</span></span><br><span class="line"><span class="string">  &#125;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  const data = await res.json();</span></span><br><span class="line"><span class="string">  return Response.json(&#123; content: data.choices?.[0]?.message?.content ?? &#x27;AI 没有返回有效内容&#x27; &#125;);</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-封装前端调用函数"><a href="#3-封装前端调用函数" class="headerlink" title="3. 封装前端调用函数"></a>3. 封装前端调用函数</h3><p>路径：<code>frontend/src/services/deepseek.ts</code></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchAIAnalysis = <span class="keyword">async</span> (<span class="attr">prompt</span>: <span class="built_in">string</span>): <span class="title class_">Promise</span>&lt;<span class="built_in">string</span>&gt; =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/api/deepseek&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> &#125;,</span><br><span class="line">      <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123; prompt &#125;),</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> data = <span class="keyword">await</span> res.<span class="title function_">json</span>();</span><br><span class="line">    <span class="keyword">return</span> data.<span class="property">content</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;调用 DeepSeek API 失败:&#x27;</span>, error);</span><br><span class="line">    <span class="keyword">throw</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-在结果页调用解析功能"><a href="#4-在结果页调用解析功能" class="headerlink" title="4. 在结果页调用解析功能"></a>4. 在结果页调用解析功能</h3><p>路径：<code>frontend/src/app/result/page.tsx</code></p>
+<h4 id="添加依赖："><a href="#添加依赖：" class="headerlink" title="添加依赖："></a>添加依赖：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add react-markdown</span><br></pre></td></tr></table></figure>
+
+<h4 id="引入组件："><a href="#引入组件：" class="headerlink" title="引入组件："></a>引入组件：</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ReactMarkdown</span> <span class="keyword">from</span> <span class="string">&#x27;react-markdown&#x27;</span>;</span><br><span class="line">\<span class="string">`\`\`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 使用组件渲染 Markdown：</span></span><br><span class="line"><span class="string">\`\`\`tsx</span></span><br><span class="line"><span class="string">&#123;aiResponse &amp;&amp; (</span></span><br><span class="line"><span class="string">  &lt;Card title=&quot;AI解析结果&quot; style=&#123;&#123; marginTop: 24, maxWidth: &#x27;600px&#x27; &#125;&#125;&gt;</span></span><br><span class="line"><span class="string">    &lt;ReactMarkdown</span></span><br><span class="line"><span class="string">      children=&#123;aiResponse&#125;</span></span><br><span class="line"><span class="string">      components=&#123;&#123;</span></span><br><span class="line"><span class="string">        h3: (&#123; node, ...props &#125;) =&gt; &lt;Title level=&#123;3&#125; &#123;...props&#125; /&gt;,</span></span><br><span class="line"><span class="string">        p: (&#123; node, ...props &#125;) =&gt; &lt;Paragraph &#123;...props&#125; /&gt;,</span></span><br><span class="line"><span class="string">        li: (&#123; node, ...props &#125;) =&gt; &lt;li style=&#123;&#123; marginBottom: 4 &#125;&#125; &#123;...props&#125; /&gt;,</span></span><br><span class="line"><span class="string">      &#125;&#125;</span></span><br><span class="line"><span class="string">    /&gt;</span></span><br><span class="line"><span class="string">  &lt;/Card&gt;</span></span><br><span class="line"><span class="string">)&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加按钮调用逻辑："><a href="#添加按钮调用逻辑：" class="headerlink" title="添加按钮调用逻辑："></a>添加按钮调用逻辑：</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">handleAIExplain</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="title function_">setAiLoading</span>(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> prompt = \<span class="string">`请解释以下乳腺癌预测结果：\$&#123;resultText&#125;\`;</span></span><br><span class="line"><span class="string">    const result = await fetchAIAnalysis(prompt);</span></span><br><span class="line"><span class="string">    setAIResponse(result);</span></span><br><span class="line"><span class="string">  &#125; catch (err) &#123;</span></span><br><span class="line"><span class="string">    message.error(&#x27;AI解析失败，请稍后重试&#x27;);</span></span><br><span class="line"><span class="string">  &#125; finally &#123;</span></span><br><span class="line"><span class="string">    setAiLoading(false);</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔁-数据流-amp-执行流程"><a href="#🔁-数据流-amp-执行流程" class="headerlink" title="🔁 数据流 &amp; 执行流程"></a>🔁 数据流 &amp; 执行流程</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">用户点击“AI解析”按钮</span><br><span class="line">  ↓</span><br><span class="line">构建 prompt 文本</span><br><span class="line">  ↓</span><br><span class="line">前端调用 fetchAIAnalysis()</span><br><span class="line">  ↓</span><br><span class="line">请求发至 /api/deepseek（Next.js 路由）</span><br><span class="line">  ↓</span><br><span class="line">API 路由调用 DeepSeek 接口</span><br><span class="line">  ↓</span><br><span class="line">返回 AI 解释结果（Markdown）</span><br><span class="line">  ↓</span><br><span class="line">前端用 react-markdown 渲染输出</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250423204858.png" alt="20250423204858"></p>
+<hr>
+<h2 id="✅-优点总结"><a href="#✅-优点总结" class="headerlink" title="✅ 优点总结"></a>✅ 优点总结</h2><ul>
+<li><strong>安全性</strong>：API 密钥不暴露在前端</li>
+<li><strong>可维护性</strong>：清晰分层，职责划分明确</li>
+<li><strong>用户体验</strong>：反馈及时，排版优雅</li>
+<li><strong>可扩展性</strong>：支持更多 AI 功能（对话、多轮问答等）</li>
+</ul>
+<hr>
+<p>如需添加多轮对话、缓存机制、用户提问入口等功能，请继续扩展 <code>prompt</code> 构造逻辑与组件结构。</p>
+
+      
+
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+             -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+        
+ 
+    
+      <!-- 添加版权声明 -->
+    
+  
+    <div class="declare">
+      <strong>本文作者：</strong>
+      
+        金金
+      
+      <br>
+      <strong>本文链接：</strong>
+      <a href=" >/2025/04/23/DeepSeek-API-接入文档（Next-js-项目）/" title="DeepSeek API 接入文档（Next.js 项目）" target="_blank">http://example.com/2025/04/23/DeepSeek-API-接入文档（Next-js-项目）/</a >
+      <br>
+      <strong>版权声明：</strong>
+      本作品采用
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a >
+      进行许可。转载请注明出处！
+      
+    </div>
+  
+        <!-- 添加版权声明 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Next.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/04/23/DeepSeek-API-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3%EF%BC%88Next-js-%E9%A1%B9%E7%9B%AE%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-01-27T07:25:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-27</time>
-</a>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2025/03/10/%E5%85%B3%E4%BA%8E-Spring-Boot-%E7%9A%84%E5%90%8E%E7%AB%AF%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于 Spring Boot 的后端搭建教程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/27/%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84Hadoop-HA%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/">基于Zookeeper的Hadoop HA集群的搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%A6-%E6%8A%80%E6%9C%AF%E6%A0%88%E8%A6%81%E6%B1%82"><span class="toc-number">1.</span> <span class="toc-text">📦 技术栈要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%B1-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">🧱 项目结构说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E6%A6%82%E8%A7%88"><span class="toc-number">3.</span> <span class="toc-text">✨ 功能实现概览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">1. 创建环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BC%96%E5%86%99-Next-js-API-%E8%B7%AF%E7%94%B1"><span class="toc-number">3.2.</span> <span class="toc-text">2. 编写 Next.js API 路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B0%81%E8%A3%85%E5%89%8D%E7%AB%AF%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">3. 封装前端调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9C%A8%E7%BB%93%E6%9E%9C%E9%A1%B5%E8%B0%83%E7%94%A8%E8%A7%A3%E6%9E%90%E5%8A%9F%E8%83%BD"><span class="toc-number">3.4.</span> <span class="toc-text">4. 在结果页调用解析功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%EF%BC%9A"><span class="toc-number">3.4.1.</span> <span class="toc-text">添加依赖：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E7%BB%84%E4%BB%B6%EF%BC%9A"><span class="toc-number">3.4.2.</span> <span class="toc-text">引入组件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE%E8%B0%83%E7%94%A8%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="toc-number">3.4.3.</span> <span class="toc-text">添加按钮调用逻辑：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%81-%E6%95%B0%E6%8D%AE%E6%B5%81-amp-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">🔁 数据流 &amp; 执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E4%BC%98%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">✅ 优点总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+        
+    </div>
+</aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'c79bb4c9f6b92ae4e889',
+  	clientSecret: '852220075cf1eede1c266f9210293201510428bb',
+  	repo: 'mycomments',
+  	owner: 'jinjy-03',
+  	admin: ['jinjy-03'],
+  	id: 'Wed Apr 23 2025 20:43:41 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
           </div>
         </div>
       </div>
@@ -332,9 +489,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
