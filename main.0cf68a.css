@@ -167,6 +167,7 @@
 
 
 .article-entry .highlight, .article-entry pre {
+  position: relative;
   background: #FBE8E7; /* 柔和粉色背景 */
   margin: 10px 0;
   padding: 15px;
@@ -177,6 +178,36 @@
   border-radius: 8px; /* 圆角 */
   box-shadow: none; /* 去掉阴影 */
   border: none; /* 无边框 */
+}
+
+/* 复制按钮样式 */
+.article-entry .highlight .copy-btn,
+.article-entry pre .copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: linear-gradient(135deg, #FFC5D9, #88ACDB); /* 马卡龙色系渐变 */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  opacity: 1; /* 默认显示 */
+  z-index: 1;
+}
+
+/* 按钮悬停效果 */
+.article-entry .highlight .copy-btn:hover,
+.article-entry pre .copy-btn:hover {
+  background: linear-gradient(135deg, #F67280, #355C7D); /* 悬停时更深的马卡龙色系 */
+  transform: scale(1.05);
+}
+
+/* 确保嵌套的 pre 不显示重复的按钮 */
+.article-entry .highlight pre .copy-btn {
+  display: none;
 }
 
 .article-entry .highlight table {
