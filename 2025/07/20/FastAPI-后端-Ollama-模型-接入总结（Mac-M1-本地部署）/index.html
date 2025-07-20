@@ -6,74 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>数据统计分析理论基础 | 一只丸子金</title>
+  <title>FastAPI 后端 + Ollama 模型 接入总结（Mac M1 本地部署） | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文是一份针对初学者的数据统计分析理论基础笔记📒，涵盖了数据统计分析的概率和分布、抽样与估计、假设检验、回归分析与方差分析、主成分分析与因子分析。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图，该博文图、公式偏多🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
+  <meta name="description" content="本项目实现了一个基于 本地大语言模型（Ollama） 的智能问答后端系统，采用 FastAPI + AsyncClient + StreamingResponse 构建模块化服务框架，支持与本地模型（如 deepseek-r1:7b）进行 流式对话交互。系统已完成前后端联调，并具备良好的 异步处理能力、模型切换拓展性与接口可复用性，为金融 AI 助手平台打下稳固基础。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据统计分析理论基础">
-<meta property="og:url" content="http://example.com/2023/05/22/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="FastAPI 后端 + Ollama 模型 接入总结（Mac M1 本地部署）">
+<meta property="og:url" content="http://example.com/2025/07/20/FastAPI-%E5%90%8E%E7%AB%AF-Ollama-%E6%A8%A1%E5%9E%8B-%E6%8E%A5%E5%85%A5%E6%80%BB%E7%BB%93%EF%BC%88Mac-M1-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%EF%BC%89/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文是一份针对初学者的数据统计分析理论基础笔记📒，涵盖了数据统计分析的概率和分布、抽样与估计、假设检验、回归分析与方差分析、主成分分析与因子分析。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图，该博文图、公式偏多🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…">
+<meta property="og:description" content="本项目实现了一个基于 本地大语言模型（Ollama） 的智能问答后端系统，采用 FastAPI + AsyncClient + StreamingResponse 构建模块化服务框架，支持与本地模型（如 deepseek-r1:7b）进行 流式对话交互。系统已完成前后端联调，并具备良好的 异步处理能力、模型切换拓展性与接口可复用性，为金融 AI 助手平台打下稳固基础。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522200357.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522200608.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522200936.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201034.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201105.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201143.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201223.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201343.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201426.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201456.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201745.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201855.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202129.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202235.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202313.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202730.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202824.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202915.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203050.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203123.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203403.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203434.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203703.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203808.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204002.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204045.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204337.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204433.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204534.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204734.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204827.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204857.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205138.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205248.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205418.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205438.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205532.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205752.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205910.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205946.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210056.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210309.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210350.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210441.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210513.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210606.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210927.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211041.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211108.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211207.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211400.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211812.png">
-<meta property="article:published_time" content="2023-05-22T11:49:07.000Z">
-<meta property="article:modified_time" content="2025-01-02T17:45:01.742Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250721000359.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250721000307.png">
+<meta property="article:published_time" content="2025-07-20T15:53:39.000Z">
+<meta property="article:modified_time" content="2025-07-20T16:04:48.513Z">
 <meta property="article:author" content="金金">
-<meta property="article:tag" content="大数据">
-<meta property="article:tag" content="大数据学习实践课（中级）">
+<meta property="article:tag" content="Ollama">
+<meta property="article:tag" content="FastAPI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522200357.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250721000359.png">
   
     <link rel="alternative" href="/atom.xml" title="一只丸子金" type="application/atom+xml">
   
@@ -206,14 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数据统计分析理论基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-FastAPI-后端-Ollama-模型-接入总结（Mac-M1-本地部署）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      数据统计分析理论基础
+      FastAPI 后端 + Ollama 模型 接入总结（Mac M1 本地部署）
     </h1>
   
 
@@ -224,8 +174,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/05/22/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2023-05-22T11:49:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-22</time>
+<a href="/2025/07/20/FastAPI-%E5%90%8E%E7%AB%AF-Ollama-%E6%A8%A1%E5%9E%8B-%E6%8E%A5%E5%85%A5%E6%80%BB%E7%BB%93%EF%BC%88Mac-M1-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2025-07-20T15:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-07-20</time>
 </a>
 
 
@@ -238,91 +188,114 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：606字 | 预计阅读时长：2分钟
+        字数：530字 | 预计阅读时长：2分钟
     </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文是一份针对初学者的<strong>数据统计分析理论基础笔记</strong>📒，涵盖了数据统计分析的<strong>概率和分布</strong>、<strong>抽样与估计</strong>、<strong>假设检验</strong>、<strong>回归分析与方差分析</strong>、<strong>主成分分析与因子分析</strong>。笔记源自大数据学习实践课（中级），其中的配图来自：课程ppt或者当时听课自制的思维导图，该博文图、公式偏多🍃每当面对专业迷茫时，大数据导论的大饼🫓总是让我遐想拥有改变世界的能力hhh…</p>
+        <p>本项目实现了一个基于 <strong>本地大语言模型（Ollama）</strong> 的智能问答后端系统，采用 <strong>FastAPI + AsyncClient + StreamingResponse</strong> 构建模块化服务框架，支持与本地模型（如 deepseek-r1:7b）进行 <strong>流式对话交互</strong>。系统已完成前后端联调，并具备良好的 <strong>异步处理能力、模型切换拓展性与接口可复用性</strong>，为金融 AI 助手平台打下稳固基础。</p>
 <span id="more"></span>
 
-<h2 id="一、概率和分布"><a href="#一、概率和分布" class="headerlink" title="一、概率和分布"></a>一、概率和分布</h2><h3 id="概率"><a href="#概率" class="headerlink" title="概率"></a>概率</h3><ul>
-<li>概率论基础&#x2F;独立事件&#x2F;条件概率&#x2F;全概率公式&#x2F;贝叶斯定律<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522200357.png" alt="20230522200357"></li>
-</ul>
-<p>○	事件A或事件B发生的概率<br>○	事件A与事件B不发生的概率<br>○	条件概率<br>○	全概率公式<br>○	贝叶斯定理</p>
+
+<h2 id="一、项目目标"><a href="#一、项目目标" class="headerlink" title="一、项目目标"></a>一、项目目标</h2><p>构建一个 AI 金融科研助手后端，实现:</p>
 <ul>
-<li>公式<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522200608.png" alt="20230522200608"></li>
+<li>✉️ <code>/chat</code> 接口：支持请求并返回流式文本</li>
+<li>🤖 接入本地 Ollama 大模型（deepseek-r1:7b）</li>
+<li>🔄 支持 StreamingResponse 返回方式</li>
+<li>🛠️ FastAPI 构建模块化后端</li>
 </ul>
-<h3 id="分布"><a href="#分布" class="headerlink" title="分布"></a>分布</h3><h4 id="1-数据分布"><a href="#1-数据分布" class="headerlink" title="1.数据分布"></a>1.数据分布</h4><ul>
-<li><p>几何分布<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522200936.png" alt="20230522200936"></p>
-</li>
-<li><p>二项分布<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201034.png" alt="20230522201034"></p>
-</li>
-<li><p>柏松分布<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201105.png" alt="20230522201105"></p>
-</li>
+<hr>
+<h2 id="二、环境配置-amp-项目结构"><a href="#二、环境配置-amp-项目结构" class="headerlink" title="二、环境配置 &amp; 项目结构"></a>二、环境配置 &amp; 项目结构</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>系统：macOS Sonoma 14.5</li>
+<li>设备：MacBook Pro (M1 Pro, 16GB)</li>
+<li>系统 Python 管理：<code>pyenv</code></li>
+<li>模型服务：Ollama (deepseek-r1:7b)</li>
 </ul>
-<h4 id="2-正态分布"><a href="#2-正态分布" class="headerlink" title="2.正态分布"></a>2.正态分布</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201143.png" alt="20230522201143"></p>
-<h4 id="3-正态分布概率计算"><a href="#3-正态分布概率计算" class="headerlink" title="3.正态分布概率计算"></a>3.正态分布概率计算</h4><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201223.png" alt="20230522201223"></p>
-<h4 id="4-经验法则"><a href="#4-经验法则" class="headerlink" title="4.经验法则"></a>4.经验法则</h4><p>大约68%的数值位于距离均值1个标准差的范围内</p>
-<h2 id="二、抽样与估计"><a href="#二、抽样与估计" class="headerlink" title="二、抽样与估计"></a>二、抽样与估计</h2><h3 id="统计抽样"><a href="#统计抽样" class="headerlink" title="统计抽样"></a>统计抽样</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201343.png" alt="20230522201343"></p>
-<h3 id="点量估计"><a href="#点量估计" class="headerlink" title="点量估计"></a>点量估计</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201426.png" alt="20230522201426"></p>
-<h3 id="比例抽样分布"><a href="#比例抽样分布" class="headerlink" title="比例抽样分布"></a>比例抽样分布</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201456.png" alt="20230522201456"></p>
-<h3 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h3><ul>
-<li><p>参数估计问题<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201745.png" alt="20230522201745"></p>
-</li>
-<li><p>参数估计的方式<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522201855.png" alt="20230522201855"></p>
-</li>
-<li><p>点估计<br>（1 方法<br> a.矩估计<br> <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202129.png" alt="20230522202129"><br> b.极大似然估计<br> <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202235.png" alt="20230522202235"><br> <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202313.png" alt="20230522202313"><br> （2 评价标准<br>  a.无偏性<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202730.png" alt="20230522202730"><br>  b.有效性<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202824.png" alt="20230522202824"><br>  c.相合性<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522202915.png" alt="20230522202915"></p>
-</li>
-<li><p>区间估计<br>  a.区间估计的概念<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203050.png" alt="20230522203050"><br>  b.正态总体的区间估计<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203123.png" alt="20230522203123"></p>
-</li>
+<h3 id="技术栏"><a href="#技术栏" class="headerlink" title="技术栏"></a>技术栏</h3><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Web 框架</td>
+<td>FastAPI</td>
+</tr>
+<tr>
+<td>大模型</td>
+<td>Ollama (local)</td>
+</tr>
+<tr>
+<td>HTTP 客户端</td>
+<td>httpx</td>
+</tr>
+<tr>
+<td>流式返回</td>
+<td>StreamingResponse + AsyncClient</td>
+</tr>
+<tr>
+<td>项目结构</td>
+<td>routers &#x2F; services &#x2F; models 分层</td>
+</tr>
+</tbody></table>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">backend/</span><br><span class="line">├── app/</span><br><span class="line">│   ├── main.py               <span class="comment"># FastAPI 启动入口</span></span><br><span class="line">│   ├── routers/</span><br><span class="line">│   │   └── chat.py           <span class="comment"># /chat 路由定义</span></span><br><span class="line">│   ├── models/</span><br><span class="line">│   │   └── chat.py           <span class="comment"># 请求/响应数据结构</span></span><br><span class="line">│   └── services/</span><br><span class="line">│       └── llm_service.py    <span class="comment"># 调用 Ollama API</span></span><br><span class="line">├── venv/                     <span class="comment"># 虚拟环境</span></span><br><span class="line">├── requirements.txt</span><br><span class="line">└── .gitignore</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、打造步骤"><a href="#三、打造步骤" class="headerlink" title="三、打造步骤"></a>三、打造步骤</h2><h3 id="1-Python-环境初始化"><a href="#1-Python-环境初始化" class="headerlink" title="1. Python 环境初始化"></a>1. Python 环境初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install pyenv</span><br><span class="line">pyenv install 3.11.9</span><br><span class="line">pyenv <span class="built_in">local</span> 3.11.9</span><br><span class="line">python -m venv venv</span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-安装后端依赖"><a href="#2-安装后端依赖" class="headerlink" title="2. 安装后端依赖"></a>2. 安装后端依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install fastapi <span class="string">&quot;uvicorn[standard]&quot;</span> python-multipart httpx</span><br><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-启动-FastAPI-服务"><a href="#3-启动-FastAPI-服务" class="headerlink" title="3. 启动 FastAPI 服务"></a>3. 启动 FastAPI 服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uvicorn app.main:app --reload</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250721000359.png" alt="20250721000359"></p>
+<p>且配置 CORS：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow_origins = [<span class="string">&quot;http://localhost:3000&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-安装并启动-Ollama"><a href="#4-安装并启动-Ollama" class="headerlink" title="4. 安装并启动 Ollama"></a>4. 安装并启动 Ollama</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama run deepseek-r1:7b</span><br></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl http://localhost:11434/api/generate \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;model&quot;: &quot;deepseek-r1:7b&quot;, &quot;prompt&quot;: &quot;你好&quot;, &quot;stream&quot;: false&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-chat-接口实现"><a href="#5-chat-接口实现" class="headerlink" title="5. /chat 接口实现"></a>5. <code>/chat</code> 接口实现</h3><ul>
+<li>请求体: <code>&#123; &quot;user_input&quot;: &quot;...&quot; &#125;</code></li>
+<li>返回: <code>StreamingResponse</code></li>
 </ul>
-<h2 id="三、假设检验"><a href="#三、假设检验" class="headerlink" title="三、假设检验"></a>三、假设检验</h2><h3 id="假设检验问题"><a href="#假设检验问题" class="headerlink" title="假设检验问题"></a>假设检验问题</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203403.png" alt="20230522203403"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203434.png" alt="20230522203434"></p>
-<h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><ul>
-<li><p>置信区间<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203703.png" alt="20230522203703"></p>
-</li>
-<li><p>置信区间计算<br><strong>统计量+-误差范围</strong></p>
-</li>
-<li><p>误差范围计算<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522203808.png" alt="20230522203808"></p>
-</li>
-<li><p>六步骤<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204002.png" alt="20230522204002"></p>
-</li>
-<li><p>假设检验的两类错误<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204045.png" alt="20230522204045"></p>
-</li>
+<p>流程：</p>
+<ol>
+<li>调用 httpx.AsyncClient.stream() 联通 Ollama</li>
+<li>请求异步读取每一条 token</li>
+<li>通过 FastAPI StreamingResponse 返回</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20250721000307.png" alt="20250721000307"></p>
+<hr>
+<h2 id="四、调试工具"><a href="#四、调试工具" class="headerlink" title="四、调试工具"></a>四、调试工具</h2><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REST Client</td>
+<td>VS Code 内置测试 POST</td>
+</tr>
+<tr>
+<td>Thunder Client</td>
+<td>GUI 测试（Postman 替代）</td>
+</tr>
+<tr>
+<td>Swagger UI</td>
+<td>FastAPI 提供的 <code>/docs</code> 页面</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、当前成果"><a href="#五、当前成果" class="headerlink" title="五、当前成果"></a>五、当前成果</h2><ul>
+<li>✅ FastAPI 后端结构化完成</li>
+<li>✅ 本地 deepseek-r1:7b 模型接入</li>
+<li>✅ 实现流式归回 &#x2F;chat 接口</li>
+<li>✅ 已完成前后端联调 (Next.js)</li>
 </ul>
-<h2 id="四、回归分析与方差分析"><a href="#四、回归分析与方差分析" class="headerlink" title="四、回归分析与方差分析"></a>四、回归分析与方差分析</h2><h3 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h3><ul>
-<li><p>回归的定义<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204337.png" alt="20230522204337"></p>
-</li>
-<li><p>Francis Galton<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204433.png" alt="20230522204433"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204534.png" alt="20230522204534"></p>
-</li>
-<li><p>线性回归<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204734.png" alt="20230522204734"></p>
-</li>
-<li><p>模型的一般形式<br>  a.回归模型的一般形式<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204827.png" alt="20230522204827"><br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522204857.png" alt="20230522204857"><br>  b.几个基本假设<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205138.png" alt="20230522205138"><br>  c.一元线性回归模型<br>  <img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205248.png" alt="20230522205248"></p>
-</li>
-<li><p>参数估计：最小二乘估计<br>定义：<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205418.png" alt="20230522205418"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205438.png" alt="20230522205438"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205532.png" alt="20230522205532"></p>
-</li>
-</ul>
-<h3 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h3><ul>
-<li>定义<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205752.png" alt="20230522205752"></li>
-<li>假设检验<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205910.png" alt="20230522205910"></li>
-<li>组内偏差与组间偏差<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522205946.png" alt="20230522205946"></li>
-<li>单因素方差分析的步骤<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210056.png" alt="20230522210056"></li>
-</ul>
-<h2 id="五、主成分分析与因子分析"><a href="#五、主成分分析与因子分析" class="headerlink" title="五、主成分分析与因子分析"></a>五、主成分分析与因子分析</h2><h3 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h3><ul>
-<li>基本思想<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210309.png" alt="20230522210309"></li>
-<li>数学模型<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210350.png" alt="20230522210350"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210441.png" alt="20230522210441"><br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210513.png" alt="20230522210513"></li>
-<li>主成分分析步骤<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210606.png" alt="20230522210606"></li>
-</ul>
-<h3 id="因子分析"><a href="#因子分析" class="headerlink" title="因子分析"></a>因子分析</h3><ul>
-<li>介绍<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522210927.png" alt="20230522210927"></li>
-<li>目的<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211041.png" alt="20230522211041"></li>
-<li>因子分析模型<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211108.png" alt="20230522211108"></li>
-<li>因子分析与主成分分析的联系<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211207.png" alt="20230522211207"></li>
-<li>二者区别<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211400.png" alt="20230522211400"></li>
-<li>因子分析步骤<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230522211812.png" alt="20230522211812"></li>
-</ul>
-<p>🌿至此数据统计理论基础笔记📒就介绍完啦～</p>
 
       
 
@@ -354,7 +327,7 @@
       
       <br>
       <strong>本文链接：</strong>
-      <a href=" >/2023/05/22/数据统计分析理论基础/" title="数据统计分析理论基础" target="_blank">http://example.com/2023/05/22/数据统计分析理论基础/</a >
+      <a href=" >/2025/07/20/FastAPI-后端-Ollama-模型-接入总结（Mac-M1-本地部署）/" title="FastAPI 后端 + Ollama 模型 接入总结（Mac M1 本地部署）" target="_blank">http://example.com/2025/07/20/FastAPI-后端-Ollama-模型-接入总结（Mac-M1-本地部署）/</a >
       <br>
       <strong>版权声明：</strong>
       本作品采用
@@ -375,11 +348,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ollama</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大数据学习实践课（中级）</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">FastAPI</a>
         		</li>
       		
 		</ul>
@@ -435,7 +408,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io023/05/22/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jinjy-03.github.io025/07/20/FastAPI-%E5%90%8E%E7%AB%AF-Ollama-%E6%A8%A1%E5%9E%8B-%E6%8E%A5%E5%85%A5%E6%80%BB%E7%BB%93%EF%BC%88Mac-M1-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -449,18 +422,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/05/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%B5%81%E7%A8%8B%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          大数据分析的流程与常用技术
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/05/22/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">什么是大数据分析</div>
+    <a href="/2025/05/11/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-FastAPI-%E6%95%99%E6%A1%88%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%90%AB-LangChain-Ollama-FAISS-%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从零开始搭建 FastAPI 教案生成系统:LangChain、Ollama、FAISS 向量检索</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -487,7 +451,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E7%8E%87%E5%92%8C%E5%88%86%E5%B8%83"><span class="toc-number">1.</span> <span class="toc-text">一、概率和分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87"><span class="toc-number">1.1.</span> <span class="toc-text">概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83"><span class="toc-number">1.2.</span> <span class="toc-text">分布</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.数据分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.正态分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.正态分布概率计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%BB%8F%E9%AA%8C%E6%B3%95%E5%88%99"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.经验法则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8A%BD%E6%A0%B7%E4%B8%8E%E4%BC%B0%E8%AE%A1"><span class="toc-number">2.</span> <span class="toc-text">二、抽样与估计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E6%8A%BD%E6%A0%B7"><span class="toc-number">2.1.</span> <span class="toc-text">统计抽样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E9%87%8F%E4%BC%B0%E8%AE%A1"><span class="toc-number">2.2.</span> <span class="toc-text">点量估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E4%BE%8B%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83"><span class="toc-number">2.3.</span> <span class="toc-text">比例抽样分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1"><span class="toc-number">2.4.</span> <span class="toc-text">参数估计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">三、假设检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E9%97%AE%E9%A2%98"><span class="toc-number">3.1.</span> <span class="toc-text">假设检验问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="toc-number">3.2.</span> <span class="toc-text">假设检验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">四、回归分析与方差分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90"><span class="toc-number">4.1.</span> <span class="toc-text">回归分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">4.2.</span> <span class="toc-text">方差分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E4%B8%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">五、主成分分析与因子分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><span class="toc-number">5.1.</span> <span class="toc-text">主成分分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90"><span class="toc-number">5.2.</span> <span class="toc-text">因子分析</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">一、项目目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-amp-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">二、环境配置 &amp; 项目结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">2.1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%8F"><span class="toc-number">2.2.</span> <span class="toc-text">技术栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text">目录结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%89%93%E9%80%A0%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">三、打造步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Python-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text">1. Python 环境初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%90%8E%E7%AB%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">3.2.</span> <span class="toc-text">2. 安装后端依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%AF%E5%8A%A8-FastAPI-%E6%9C%8D%E5%8A%A1"><span class="toc-number">3.3.</span> <span class="toc-text">3. 启动 FastAPI 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85%E5%B9%B6%E5%90%AF%E5%8A%A8-Ollama"><span class="toc-number">3.4.</span> <span class="toc-text">4. 安装并启动 Ollama</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-chat-%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.5.</span> <span class="toc-text">5. &#x2F;chat 接口实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">四、调试工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%BD%93%E5%89%8D%E6%88%90%E6%9E%9C"><span class="toc-number">5.</span> <span class="toc-text">五、当前成果</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -523,7 +487,7 @@ if(true){
   	repo: 'mycomments',
   	owner: 'jinjy-03',
   	admin: ['jinjy-03'],
-  	id: 'Mon May 22 2023 19:49:07 GMT+0800',
+  	id: 'Sun Jul 20 2025 23:53:39 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
