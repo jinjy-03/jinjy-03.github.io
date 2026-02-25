@@ -1,0 +1,663 @@
+/* ===== 背景：粉紫渐变，干净不花 | 卡片：半透明玻璃 + 轻微阴影 | 文字：深灰蓝 + 马卡龙点缀 ===== */
+
+body {
+  background: linear-gradient(160deg, #fdf2f8 0%, #f5f3ff 100%);
+}
+
+/* 右侧主内容区：粉紫渐变，与左侧侧栏衔接、消除竖线断层 */
+.mid-col {
+  background: linear-gradient(135deg, #fdf4ff 0%, #f0f4ff 100%) !important;
+  background-attachment: local;
+}
+/* 打开侧栏时让右侧区透明，露出 #container 的整页粉紫渐变 + 全屏粒子 */
+#container.show .mid-col {
+  background: none !important;
+}
+
+/* 内层容器透明，避免白底盖住 .mid-col 渐变 */
+#wrapper,
+.body-wrap,
+#js-content,
+.content-ll {
+  background: transparent !important;
+}
+
+/* ===== 左侧栏：粉紫主题统一 + 排版收紧 ===== */
+/* ① 名字：紫粉渐变文字 */
+.left-col #header .header-author a {
+  background: linear-gradient(135deg, #a855f7, #ec4899) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ② 副标题：半透明紫灰、略缩小、减少上间距 */
+.left-col #header .header-subtitle {
+  color: rgba(100, 70, 130, 0.6) !important;
+  font-size: 13px !important;
+  margin-top: 4px !important;
+}
+
+/* ③ 导航「主页/归档」：紫调 + hover 亮紫 */
+#header .header-menu li a,
+.left-col #header .header-menu a {
+  color: rgba(90, 60, 120, 0.75) !important;
+}
+#header .header-menu li a:hover,
+.left-col #header .header-menu a:hover {
+  color: #a855f7 !important;
+}
+
+/* ④ 左侧栏排版：收紧头像/名字/副标题间距 */
+.left-col #header .profilepic {
+  margin-bottom: 8px;
+}
+.left-col #header .header-author {
+  margin: 0.4em 0 0;
+  font-size: 26px;
+}
+.left-col #header .header-menu {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(90, 60, 120, 0.2);
+}
+.left-col #header nav:not(.header-menu):not(.header-smart-menu):not(.header-nav) {
+  font-size: 12px;
+  color: rgba(90, 60, 120, 0.65);
+  margin-top: 8px;
+}
+.left-col #header .header-smart-menu {
+  margin-top: 8px;
+}
+.left-col #header .header-nav {
+  margin-top: 16px;
+}
+
+/* 文章标题：深紫调，与粉紫主题一致（覆盖主题蓝色） */
+.post-title a,
+.post-title,
+.article-title,
+.article-inner h1.article-title,
+.archives .archive-article-title,
+.archives .archive-article-title a {
+  color: #7c5cbf !important;
+}
+.post-title a:hover,
+.article-title a:hover,
+.archives .archive-article-title:hover,
+.archives .archive-article-title a:hover {
+  color: #a78bfa !important;
+}
+
+/* 首页：能力区宽度与下方文章块一致（与 .archives-wrap 同款边距） */
+.index-home-dashboard {
+  margin: 30px 30px 2.5rem 30px;
+  padding: 0 60px 2rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.article-type-page .article-inner {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* ----- Bento Hero：大圆角卡片 + 渐变背景 + badge + tags pill ----- */
+.bento-hero {
+  background: linear-gradient(135deg, #f5d0fe 0%, #a5b4fc 100%);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.bento-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #334155;
+}
+
+.bento-hero-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.bento-sub {
+  font-size: 1rem;
+  color: #475569;
+  margin: 0;
+}
+
+.bento-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.bento-tags span {
+  background: rgba(255, 255, 255, 0.55) !important;
+  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5b21b6;
+  letter-spacing: 0.02em;
+}
+
+/* ----- Bento 区块 ----- */
+.bento-section {
+  margin-bottom: 2rem;
+}
+
+.bento-heading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bento-grid {
+  display: grid;
+  gap: 14px;
+}
+
+/* Core Capabilities：不等大 Bento，第一张跨两行 */
+.bento-capabilities {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+}
+
+.bento-capabilities .bento-card-1 {
+  grid-row: span 2;
+  background: linear-gradient(160deg, #fce7f3, #fbcfe8);
+}
+
+.bento-capabilities .bento-card-2 {
+  background: linear-gradient(160deg, #ede9fe, #ddd6fe);
+}
+
+.bento-capabilities .bento-card-3 {
+  background: linear-gradient(160deg, #e0f2fe, #bae6fd);
+}
+
+.bento-projects {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ----- Bento 卡片：圆角 + 阴影 + hover ----- */
+.bento-card {
+  border-radius: 20px;
+  padding: 28px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* 打开「关于我」侧栏时：能力展示区（首页 bento）更透明，露出整页渐变 */
+#container.show .index-home-dashboard {
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+}
+#container.show .bento-hero {
+  background: linear-gradient(135deg, rgba(245, 208, 254, 0.45) 0%, rgba(165, 180, 252, 0.45) 100%);
+}
+#container.show .bento-capabilities .bento-card-1 {
+  background: linear-gradient(160deg, rgba(252, 231, 243, 0.45), rgba(251, 207, 232, 0.45));
+}
+#container.show .bento-capabilities .bento-card-2 {
+  background: linear-gradient(160deg, rgba(237, 233, 254, 0.45), rgba(221, 214, 254, 0.45));
+}
+#container.show .bento-capabilities .bento-card-3 {
+  background: linear-gradient(160deg, rgba(224, 242, 254, 0.45), rgba(186, 230, 253, 0.45));
+}
+#container.show .bento-card {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+#container.show .bento-badge,
+#container.show .bento-tags span {
+  background: rgba(255, 255, 255, 0.35) !important;
+}
+
+.bento-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bento-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+  line-height: 2;
+}
+
+.bento-list li::before {
+  content: "→ ";
+  color: #a78bfa;
+}
+
+.bento-list li {
+  margin-bottom: 0.15rem;
+}
+
+/* Featured Projects 卡片：Bento 渐变背景 */
+.bento-project-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.7), rgba(243, 232, 255, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.bento-project-card .bento-tech {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, #a78bfa, #c084fc, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bento-project-card .bento-desc {
+  font-size: 0.9rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ----- 技术标签：马卡龙渐变色点缀 ----- */
+.home-tech-links {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(196, 181, 253, 0.45), rgba(253, 224, 255, 0.45));
+  color: #5b21b6;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.home-links {
+  font-size: 0.9rem;
+  color: #475569;
+  margin: 0;
+}
+
+.home-links a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.home-links a:hover {
+  text-decoration: underline;
+}
+
+/* ----- 响应式：小屏 Bento 单列，取消跨行 ----- */
+@media (max-width: 768px) {
+  .bento-capabilities {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .bento-capabilities .bento-card-1 {
+    grid-row: auto;
+  }
+
+  .bento-projects {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-hero {
+    padding: 28px 24px;
+  }
+
+  .bento-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .bento-tags {
+    gap: 6px;
+  }
+
+  .bento-tags span {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+}
+
+/* ===== Tag 标签：五种粉紫系，每个标签不同颜色（含小尖头） ===== */
+.tagcloud a.color1 {
+  background: #e9d5ff !important;   /* 淡紫 */
+  color: #6b21a8 !important;
+}
+.tagcloud a.color1:before {
+  border-right-color: #e9d5ff !important;
+}
+
+.tagcloud a.color2 {
+  background: #f5d0fe !important;   /* 粉紫 */
+  color: #86198f !important;
+}
+.tagcloud a.color2:before {
+  border-right-color: #f5d0fe !important;
+}
+
+.tagcloud a.color3 {
+  background: #ddd6fe !important;   /* 薰衣草紫 */
+  color: #5b21b6 !important;
+}
+.tagcloud a.color3:before {
+  border-right-color: #ddd6fe !important;
+}
+
+.tagcloud a.color4 {
+  background: #fbcfe8 !important;   /* 粉 */
+  color: #9d174d !important;
+}
+.tagcloud a.color4:before {
+  border-right-color: #fbcfe8 !important;
+}
+
+.tagcloud a.color5 {
+  background: #c4b5fd !important;   /* 深一点紫 */
+  color: #4c1d95 !important;
+}
+.tagcloud a.color5:before {
+  border-right-color: #c4b5fd !important;
+}
+
+.tagcloud a:hover {
+  opacity: 0.9 !important;
+}
+
+/* 置顶标签单独保留粉色以示区分 */
+.tagcloud a[href*="置顶"],
+.article-tag-list-link.color3[href*="置顶"] {
+  background: #fce7f3 !important;
+  color: #be185d !important;
+}
+.tagcloud a[href*="置顶"]:before,
+.article-tag-list-link.color3[href*="置顶"]:before {
+  border-right-color: #fce7f3 !important;
+}
+
+/* ===== Footer 文字：半透明紫灰，与渐变背景协调 ===== */
+#footer,
+.footer {
+  color: rgba(120, 90, 150, 0.55) !important;
+}
+#footer a,
+.footer a,
+.page-footer a,
+footer a,
+.copyright a {
+  color: rgba(120, 90, 150, 0.75) !important;
+}
+#footer a:hover,
+.footer a:hover,
+.page-footer a:hover,
+footer a:hover {
+  color: #a78bfa !important;
+}
+
+/* ===== 评论区 Gitalk：Login with GitHub 按钮粉紫系 ===== */
+.comment-login-btn,
+button[class*="github"],
+.btn-login,
+.gt-btn-login,
+.gt-header-text a,
+#gitalk-container .gt-btn {
+  background: linear-gradient(135deg, #c084fc, #a78bfa) !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+#gitalk-container .gt-btn:hover,
+.gt-btn-login:hover {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6) !important;
+  color: #fff !important;
+}
+
+/* ===== 文章详情页：内链 / 行内代码 / 分隔线 ===== */
+/* 1. 文章内链接：深紫 + 淡紫下划线，hover 亮紫（高特异性覆盖主题 li a） */
+.article-entry a,
+.post-content a {
+  color: #7c5cbf !important;
+  text-decoration: underline;
+  text-decoration-color: #ddd6fe;
+}
+.article-entry li a,
+.article-entry p a,
+.article .article-inner .article-entry a,
+.article .article-inner .article-entry p a,
+.article .article-inner .article-entry li a {
+  color: #7c5cbf !important;
+  text-decoration: underline !important;
+  text-decoration-color: #ddd6fe !important;
+}
+.article-entry a:hover,
+.post-content a:hover,
+.article-entry li a:hover,
+.article-entry p a:hover,
+.article .article-inner .article-entry a:hover {
+  color: #a78bfa !important;
+}
+
+/* 2. 行内代码：淡紫底 + 深紫字 */
+.article-entry p code,
+.article-entry li code,
+.post-content p code,
+.post-content li code {
+  background: #ede9fe !important;
+  color: #6d28d9 !important;
+  border-radius: 4px;
+  padding: 1px 6px;
+  border: none;
+}
+
+/* 3. 文章分隔线：淡紫 */
+.article-entry hr {
+  border-color: #ddd6fe !important;
+}
+
+/* ===== 归档页：年份全行标题 + 文章条目紧凑单行 ===== */
+/* 去掉 .archives-wrap 的渐变背景 */
+.archives-wrap {
+  background: none !important;
+}
+
+/* ① 年份改为横跨全行的分组标题 */
+.archives-wrap .archive-year-wrap {
+  width: 100% !important;
+  float: none !important;
+  position: relative !important;
+  border-bottom: 1px solid rgba(221, 214, 254, 0.35);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+.archives-wrap .archive-year-wrap a,
+.archive-year {
+  font-size: 1.1rem !important;
+  color: #7c3aed !important;
+  font-weight: 700 !important;
+  padding-left: 0 !important;
+}
+
+/* 取消原两栏布局下文章的左缩进 */
+.archives .archive-article {
+  margin-left: 0 !important;
+}
+
+/* ② 每条文章：单行「标题 + 日期右对齐」紧凑卡片（无分界线，用间距区分） */
+.archives .archive-article {
+  display: block;
+  padding: 10px 0;
+  border-bottom: none;
+}
+.archives .archive-article-inner .archive-article-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: auto;
+}
+.archives .archive-article-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 !important;
+}
+.archives .archive-article-inner .article-meta {
+  flex-shrink: 0;
+  font-size: 12px !important;
+  color: rgba(100, 70, 130, 0.5) !important;
+  margin-left: 12px !important;
+  margin-top: 0 !important;
+  float: none !important;
+}
+.archives .archive-article-inner .article-info {
+  flex-basis: 100%;
+  margin-top: 4px;
+}
+
+/* ===== 「所有文章」+「关于我」弹出层：原版整页渐变 + 全屏粒子（粉紫色） ===== */
+#container.show {
+  background: linear-gradient(200deg, #fdf4ff, #c4b5fd) !important;
+}
+#container.show .anm-canvas {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 面板：外层与「关于我」全透明，仅「所有文章」有磨砂背景 */
+.tools-col .tools-wrap {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.tools-col .tools-section {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #4a3f5c !important;
+}
+.tools-col .tools-section.tools-section-all {
+  background: linear-gradient(160deg, rgba(253, 244, 255, 0.5) 0%, rgba(237, 233, 254, 0.5) 100%) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.tools-col .tools-section.tools-section-all {
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(120, 80, 180, 0.08);
+}
+
+/* 「关于我」区域 + div#js-aboutme.aboutme-wrap：完全透明，露出整页渐变 */
+.tools-col .tools-section.tools-section-me {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.tools-col .tools-section-me .aboutme-wrap,
+#js-aboutme.aboutme-wrap,
+.tools-col .tools-section-me .aboutme-wrap p,
+.tools-col .tools-section-me .aboutme-wrap a {
+  color: #5c4a6e !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.tools-col .tools-section-me .aboutme-wrap a:hover {
+  color: #8b5cf6 !important;
+}
+
+/* 搜索框 */
+.tools-col .tools-section .search-wrap .search-ipt {
+  color: #5b21b6 !important;
+  border-bottom-color: rgba(139, 92, 246, 0.4) !important;
+}
+.tools-col .tools-section .search-wrap .search-ipt::placeholder {
+  color: rgba(91, 33, 182, 0.4);
+}
+.tools-col .tools-section .search-wrap .icon {
+  color: #7c3aed !important;
+}
+
+/* 搜索列表项：深紫字 + 淡紫分隔线 */
+.tools-col .tools-section .search-ul .search-li {
+  color: #4a3f5c !important;
+  border-bottom: 1px solid rgba(221, 214, 254, 0.4) !important;
+  padding: 10px 20px !important;
+}
+.tools-col .tools-section .search-ul .search-li:hover {
+  background: rgba(237, 233, 254, 0.5) !important;
+}
+.tools-col .tools-section .search-ul .search-title {
+  color: #5b21b6 !important;
+  text-shadow: none !important;
+}
+.tools-col .tools-section .search-ul .search-title:hover {
+  color: #7c3aed !important;
+}
+.tools-col .tools-section .search-ul .search-time,
+.tools-col .tools-section .search-ul .search-tag {
+  color: rgba(74, 63, 92, 0.75) !important;
+}
+.tools-col .tools-section .search-tag.tagcloud .search-tag-wording {
+  color: rgba(74, 63, 92, 0.7);
+}
+
+/* 面板内 tag 标签与主题一致 */
+.tools-col .tools-section .search-ul .search-tag span {
+  color: #7c3aed !important;
+  cursor: pointer;
+}
+
+/* 「关于我」与其它面板一致，使用全屏 anm-canvas 粒子，无需单独星星层 */
