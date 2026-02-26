@@ -2740,7 +2740,7 @@
               (e.alpha -= 5e-4),
               f.beginPath(),
               f.arc(e.pos.x, e.pos.y, 10 * e.scale, 0, 2 * Math.PI, !1),
-              (f.fillStyle = 'rgba(249,168,212,' + e.alpha + ')'),
+              (f.fillStyle = 'rgba(255,255,255,' + e.alpha + ')'),
               f.fill();
           });
       }
