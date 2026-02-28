@@ -8,6 +8,7 @@ body {
 .mid-col {
   background: linear-gradient(135deg, #fdf4ff 0%, #fce7f3 40%, #e0e7ff 80%, #dbeafe 100%) !important;
   background-attachment: local;
+  opacity: 1 !important; /* 覆盖主题 .mid-col.show { opacity: .9 }，避免正文和图片雾蒙蒙、偏色 */
 }
 /* 打开侧栏时让右侧区透明，露出 #container 的整页粉紫渐变 + 全屏粒子 */
 #container.show .mid-col {
@@ -70,10 +71,27 @@ body {
   transition: left 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, background 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
+/* 骨头按钮：40×40 圆形底托 */
+.bone-btn {
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  background: transparent;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.bone-btn:hover {
+  background: rgba(200, 160, 220, 0.15);
+  box-shadow: 0 0 10px rgba(200, 160, 220, 0.22);
+  transition: all 0.2s ease;
+}
+.bone-btn:focus-visible {
+  outline: none;
+  background: rgba(200, 160, 220, 0.12);
+  box-shadow: 0 0 0 2px rgba(200, 160, 220, 0.35);
+  transition: all 0.2s ease;
+}
 .left-col-toggle:hover {
   transform: translateX(-50%) scale(1.05);
-  background: rgba(253, 224, 231, 0.6);
-  box-shadow: 0 0 20px rgba(244, 114, 182, 0.25);
 }
 .left-col-toggle:active {
   transform: translateX(-50%) scale(0.98);
@@ -89,18 +107,27 @@ body {
   position: relative;
   z-index: 1;
 }
-/* 侧边栏展开时：骨头 20deg 顺时针 */
-body:not(.left-col-collapsed) .left-col-toggle .toggle-icon {
-  transform: rotate(20deg);
+.bone-btn .toggle-icon {
+  width: 32px;
+  height: 32px;
+}
+/* 侧边栏展开时：骨头旋转 90deg 并保持 */
+.bone-btn.is-open .toggle-icon {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
 }
 /* 侧边栏收起时：骨头水平 */
-body.left-col-collapsed .left-col-toggle .toggle-icon {
+body.left-col-collapsed .bone-btn .toggle-icon {
   transform: rotate(0deg);
 }
 .left-col-toggle .bone-wrap {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
+}
+.bone-btn .bone-wrap {
+  width: 32px;
+  height: 32px;
 }
 .left-col-toggle .bone-icon {
   width: 100%;
@@ -108,21 +135,49 @@ body.left-col-collapsed .left-col-toggle .toggle-icon {
   color: currentColor;
   display: block;
 }
+.bone-btn .bone-wrap svg.bone-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  transform-origin: center;
+  animation: bone-idle 2s ease-in-out infinite;
+}
+.bone-btn .bone-icon path {
+  stroke: currentColor;
+  stroke-width: 3.5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bone-btn .bone-icon {
+    animation: none;
+  }
+}
+/* idle 待机：轻微摇摆 */
+@keyframes bone-idle {
+  0%, 100% { transform: rotate(-8deg); }
+  50%       { transform: rotate(8deg); }
+}
+/* hover 上抛：覆盖 idle */
+@keyframes bone-toss {
+  0%   { transform: translateY(0)   rotate(0deg);   }
+  30%  { transform: translateY(-6px) rotate(15deg);  }
+  60%  { transform: translateY(-3px) rotate(-8deg);  }
+  100% { transform: translateY(0)   rotate(0deg);   }
+}
+.bone-btn:hover .bone-icon {
+  animation: bone-toss 0.5s ease forwards;
+}
+.bone-btn.is-open .bone-icon {
+  animation: none;
+  transform: rotate(0deg);
+}
+/* 骨头图标：粉蓝主题色 */
 .left-col-toggle .toggle-icon,
 .left-col-toggle .bone-icon {
-  color: rgba(71, 85, 105, 0.9);
+  color: #a890b8;
 }
 .left-col-toggle:hover .toggle-icon,
 .left-col-toggle:hover .bone-icon {
-  color: rgba(100, 116, 139, 0.95);
-}
-/* hover 时骨头轻微弹跳（引诱小狗） */
-@keyframes bone-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-.left-col-toggle:hover .bone-wrap {
-  animation: bone-bounce 0.55s ease infinite;
+  color: #c0a8d8;
 }
 /* 收缩状态：与 BookLens 一致，保留窄条只显示图标 */
 body.left-col-collapsed .left-col {
@@ -217,12 +272,13 @@ body.left-col-collapsed .left-col-toggle:active {
 .left-col #header .sidebar-nav-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding: 12px 16px;
   text-decoration: none;
   color: rgba(30, 64, 175, 0.88) !important;
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.4;
   border-radius: 14px;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -231,14 +287,19 @@ body.left-col-collapsed .left-col-toggle:active {
   color: #2563eb !important;
 }
 .left-col #header .sidebar-nav-item .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.1rem;
   width: 20px;
-  text-align: center;
+  height: 1.4em;
+  line-height: 1;
   flex-shrink: 0;
   color: inherit;
 }
 .left-col #header .sidebar-nav-item .sidebar-nav-text {
   font-size: 0.9375rem;
+  line-height: 1.4;
 }
 
 /* ④ 左侧栏排版：收紧头像/名字/副标题间距；头像边框马卡龙粉蓝 */
@@ -379,16 +440,69 @@ article.article-type-page {
   border-radius: 16px 16px 0 0;
   padding: 28px 32px 20px !important;
   background: transparent;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center;
+  gap: 8px 16px;
 }
 
-/* 首页文章列表：标题左对齐、日期与字数统计右对齐，同一行（依赖 .index-article-header-right 包裹） */
-.article.article-index .article-header {
+/* 字数 | 预计阅读时长：标题下方、居中、柔和灰蓝色 */
+.article-meta-wordcount {
+  width: 100%;
+  flex-basis: 100%;
+  order: 1;
+  text-align: center !important;
+  font-size: 13px !important;
+  color: rgba(100, 116, 139, 0.88) !important;
+  margin: 4px 0 8px !important;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* 正文页/独立页：第一行标题左+日期右，第二行字数居中 */
+.article-type-post:not(.article-index) .article-header,
+.article-type-page .article-header {
+  flex-direction: column;
+  align-items: stretch;
+}
+.article-title-date-row {
   display: flex !important;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px 16px;
+  width: 100%;
+  margin: 0 0 4px !important;
+}
+.article-title-date-row .article-title,
+.article-title-date-row h1.article-title {
+  margin: 0 !important;
+  flex: 0 1 auto !important;
+  min-width: 0;
+  text-align: left !important;
+}
+.article-date-right {
+  flex-shrink: 0;
+  margin-left: auto;
+  text-align: right !important;
+  font-size: 13px !important;
+  color: rgba(100, 116, 139, 0.88) !important;
+}
+.article-type-post:not(.article-index) .article-header .article-meta-wordcount,
+.article-type-page .article-header .article-meta-wordcount {
+  order: 1;
+}
+
+/* 首页文章列表：第一行标题+日期右，第二行字数居中 */
+.article.article-index .article-header {
+  flex-direction: row !important;
+  justify-content: space-between;
   text-align: left;
+}
+.article.article-index .article-header .article-meta-wordcount {
+  order: 1;
+  flex-basis: 100%;
+  margin: 6px 0 4px !important;
 }
 .article.article-index .article-header h1 {
   margin: 0 !important;
@@ -396,6 +510,7 @@ article.article-type-page {
   min-width: 0;
   max-width: 100%;
   text-align: left;
+  order: 0;
 }
 .article.article-index .article-header a.article-title {
   display: inline-block !important;
@@ -406,6 +521,7 @@ article.article-type-page {
   margin-left: auto;
   text-align: right;
   white-space: nowrap;
+  order: 0;
 }
 .article.article-index .article-header .index-article-header-right .archive-article-date {
   font-size: 12px !important;
@@ -470,14 +586,14 @@ article.article-type-page {
 .bento-section {
   margin-bottom: 1.5rem;
 }
-/* 能力区域整块：磨砂托盘，提升质感 */
+/* 能力区域整块：磨砂托盘，提升质感（无白色描边） */
 .index-home-dashboard .bento-section:first-of-type {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
 .bento-heading {
@@ -514,8 +630,8 @@ article.article-type-page {
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(28px) saturate(150%);
   -webkit-backdrop-filter: blur(28px) saturate(150%);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  border: none;
 }
 
 .bento-projects {
@@ -570,7 +686,7 @@ article.article-type-page {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
 }
 .bento-capabilities .bento-card:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
 }
 
 /* 打开「关于我」侧栏时：能力区玻璃更透，露出整页渐变 */
@@ -635,19 +751,36 @@ article.article-type-page {
   margin-bottom: 0;
   padding: 0;
 }
+.bento-card-badges a {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 0;
+}
 .bento-badge-icon {
   width: 24px;
   height: 24px;
   object-fit: contain;
   border-radius: 6px;
   padding: 4px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: transform 0.2s ease;
 }
 .bento-badge-icon:hover {
   transform: scale(1.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Hive 小图标：亮黄图标配深蓝底，不透明，圆形 */
+.bento-badge-icon[src*="apachehive"] {
+  background: rgb(30, 58, 138) !important;
+  border-radius: 50%;
 }
 
 .bento-list {
@@ -960,17 +1093,53 @@ button[class*="github"],
   margin-bottom: 2.5rem;
 }
 
-/* 版权声明：现代卡片 + 图标（粉→蓝主题） */
+/* ===== 阅读体验：行高 / 段落节奏（仅详情页，行宽保持原样） ===== */
+.article-type-post:not(.article-index) .article-entry,
+.article-type-page .article-entry {
+  font-size: 1.0625rem;
+  letter-spacing: 0.01em;
+}
+.article-type-post:not(.article-index) .article-entry p,
+.article-type-page .article-entry p {
+  line-height: 1.82;
+  margin-top: 0;
+  margin-bottom: 1.25em;
+}
+.article-type-post:not(.article-index) .article-entry p:last-child,
+.article-type-page .article-entry p:last-child {
+  margin-bottom: 0;
+}
+.article-type-post:not(.article-index) .article-entry li,
+.article-type-page .article-entry li {
+  line-height: 1.78;
+  margin-bottom: 0.35em;
+}
+.article-type-post:not(.article-index) .article-entry blockquote,
+.article-type-page .article-entry blockquote {
+  line-height: 1.75;
+  margin: 1.25em 0;
+  padding: 1em 1.25em;
+}
+.article-type-post:not(.article-index) .article-entry blockquote p,
+.article-type-page .article-entry blockquote p {
+  margin-bottom: 0.6em;
+}
+.article-type-post:not(.article-index) .article-entry blockquote p:last-child,
+.article-type-page .article-entry blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* 版权声明：现代卡片 + 图标（粉→蓝主题，带背景与描边） */
 .declare-modern {
   display: block !important;
   margin-top: 0 !important;
   padding: 1.25rem 1.5rem !important;
-  background: transparent !important;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-radius: 12px !important;
   border: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
   color: rgba(71, 85, 105, 0.95) !important;
   font-size: 14px !important;
   line-height: 1.6 !important;
@@ -1062,6 +1231,7 @@ button[class*="github"],
   line-height: 1.78;
   margin-bottom: 1.1em;
 }
+/* 详情页段落由上方「阅读体验」块统一为 1.82 / 1.25em */
 /* 1. 文章内链接：蓝系 + 淡蓝下划线 */
 .article-entry a,
 .post-content a {
@@ -1098,27 +1268,54 @@ button[class*="github"],
   border: none;
 }
 
-/* 2.1 代码块：粉→蓝主题 + 浅色高级感（覆盖 highlight.scss） */
+/* 2.1 代码块：终端窗口风格（纯白外框 + 极浅灰描边 + 左上三色点 + 内层同白） */
 .article-entry pre,
 .article-entry .highlight {
-  background: linear-gradient(135deg, rgba(248, 250, 254, 0.98) 0%, rgba(241, 245, 253, 0.98) 100%) !important;
-  color: rgba(51, 65, 85, 0.95) !important;
+  position: relative !important;
+  background: #ffffff !important;
+  color: #333333 !important;
   margin: 1.25em 0 !important;
-  padding: 1.25rem 1.5rem !important;
-  border-radius: 12px !important;
-  border: none !important;
-  box-shadow: none !important;
-  overflow: auto;
+  padding: 0 !important;
+  padding-top: 44px !important;
+  border-radius: 14px !important;
+  border: 1px solid #efefef !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
   font-size: 0.9rem !important;
   line-height: 1.6 !important;
 }
+/* 左上角 macOS 风格三色点：仅最外框有，颜色与参考图一致 */
+.article-entry .highlight::before,
+.article-entry > pre::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff605c;
+  box-shadow: 16px 0 0 0 #ffbd44, 32px 0 0 0 #00ca4e;
+  z-index: 1;
+  pointer-events: none;
+}
+/* 内层内容区：同纯白、无边距、仅内边距 */
 .article-entry .highlight pre {
   margin: 0 !important;
-  padding: 0 !important;
-  background: none !important;
+  padding: 1.25rem 1.5rem !important;
+  background: #ffffff !important;
+  border-radius: 10px !important;
   border: none !important;
   border-color: transparent !important;
   box-shadow: none !important;
+}
+/* 无语法高亮时的纯 pre：内层同白包住 code */
+.article-entry > pre code {
+  display: block !important;
+  margin: 0 !important;
+  padding: 1.25rem 1.5rem !important;
+  background: #ffffff !important;
+  border-radius: 10px !important;
 }
 .article-entry .highlight table,
 .article-entry .highlight table td {
@@ -1188,26 +1385,26 @@ button[class*="github"],
   box-shadow: none !important;
 }
 
-/* 2.2 代码块复制按钮：紧靠右上角，透明玻璃薄纱 + 粉→蓝 */
+/* 2.2 代码块复制按钮：无边框无背景，灰色图标（与参考图一致） */
 .article-entry .highlight .copy-btn,
 .article-entry pre .copy-btn {
   position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
+  top: 10px !important;
+  right: 10px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: 32px !important;
   height: 32px !important;
   padding: 0 !important;
-  background: linear-gradient(135deg, rgba(244, 114, 182, 0.55) 0%, rgba(96, 165, 250, 0.55) 100%) !important;
-  backdrop-filter: blur(10px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(140%) !important;
-  color: rgba(255, 255, 255, 0.95) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #808080 !important;
   border: none !important;
-  border-radius: 0 12px 0 8px !important;
+  border-radius: 0 !important;
   cursor: pointer !important;
-  transition: background 0.2s ease !important;
+  transition: color 0.2s ease, opacity 0.2s ease !important;
   opacity: 1 !important;
   z-index: 2 !important;
   box-shadow: none !important;
@@ -1218,12 +1415,19 @@ button[class*="github"],
 .article-entry pre .copy-btn .copy-btn-icon {
   display: block !important;
   flex-shrink: 0 !important;
+  color: inherit !important;
+}
+.article-entry .highlight .copy-btn .copy-btn-icon svg,
+.article-entry pre .copy-btn .copy-btn-icon svg {
+  fill: currentColor !important;
+  stroke: currentColor !important;
 }
 .article-entry .highlight .copy-btn:hover,
 .article-entry pre .copy-btn:hover {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.65) 0%, rgba(59, 130, 246, 0.65) 100%) !important;
-  backdrop-filter: blur(10px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #555555 !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -1239,12 +1443,13 @@ button[class*="github"],
   outline: none !important;
   box-shadow: none !important;
 }
-/* 复制成功时短暂高亮（脚本会设置 data-copied） */
+/* 复制成功时仅图标变绿，无背景 */
 .article-entry .highlight .copy-btn[data-copied="true"],
 .article-entry pre .copy-btn[data-copied="true"] {
-  background: linear-gradient(135deg, rgba(52, 211, 153, 0.6) 0%, rgba(16, 185, 129, 0.6) 100%) !important;
-  backdrop-filter: blur(10px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(140%) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #16a34a !important;
   box-shadow: none !important;
 }
 
