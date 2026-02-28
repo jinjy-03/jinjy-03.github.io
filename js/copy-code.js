@@ -11,9 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // 创建复制按钮
       var button = document.createElement('button');
       button.className = 'copy-btn';
-      button.textContent = '复制';
-      
-      // 添加点击事件
+      button.type = 'button';
+      button.setAttribute('aria-label', '复制代码');
+      button.innerHTML = '<svg class="copy-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+
       button.addEventListener('click', function() {
         // 获取代码内容
         var code = block.querySelector('code') || block;
@@ -42,16 +43,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 复制到剪贴板
         navigator.clipboard.writeText(text).then(function() {
-          // 复制成功后改变按钮文字
-          button.textContent = '已复制!';
+          button.setAttribute('data-copied', 'true');
+          button.setAttribute('aria-label', '已复制');
+          button.innerHTML = '<svg class="copy-btn-icon copy-btn-icon--check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
           setTimeout(function() {
-            button.textContent = '复制';
+            button.removeAttribute('data-copied');
+            button.setAttribute('aria-label', '复制代码');
+            button.innerHTML = '<svg class="copy-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
           }, 2000);
         }).catch(function(err) {
           console.error('复制失败:', err);
-          button.textContent = '复制失败';
+          button.setAttribute('aria-label', '复制失败');
+          button.innerHTML = '<svg class="copy-btn-icon copy-btn-icon--check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
           setTimeout(function() {
-            button.textContent = '复制';
+            button.setAttribute('aria-label', '复制代码');
+            button.innerHTML = '<svg class="copy-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
           }, 2000);
         });
       });

@@ -1,0 +1,19 @@
+/* 评论区与文章卡片同宽（覆盖主题 comment 的 padding，与 .article 的 margin:30px 一致） */
+#gitalk-container,
+#disqus_thread,
+#gitment-ctn,
+#comments,
+.cloud-tie-wrapper,
+#SOHUCS {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 30px !important;
+  margin-right: 30px !important;
+  box-sizing: border-box;
+}
+#gitalk-container {
+  margin-left: 30px !important;
+  margin-right: 30px !important;
+  max-width: none !important;
+  width: auto !important;
+}

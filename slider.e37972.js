@@ -2726,9 +2726,9 @@
         function t() {
           (e.pos.x = Math.random() * s),
             (e.pos.y = a + 100 * Math.random()),
-            (e.alpha = 0.1 + 0.3 * Math.random()),
-            (e.scale = 0.1 + 0.3 * Math.random()),
-            (e.velocity = Math.random());
+            (e.alpha = 0.25 + 0.45 * Math.random()),
+            (e.scale = 0.12 + 0.35 * Math.random()),
+            (e.velocity = 0.3 + 0.7 * Math.random());
         }
         var e = this;
         !(function () {
@@ -2737,11 +2737,22 @@
           (this.draw = function () {
             e.alpha <= 0 && t(),
               (e.pos.y -= e.velocity),
-              (e.alpha -= 5e-4),
-              f.beginPath(),
-              f.arc(e.pos.x, e.pos.y, 10 * e.scale, 0, 2 * Math.PI, !1),
-              (f.fillStyle = 'rgba(255,255,255,' + e.alpha + ')'),
-              f.fill();
+              (e.alpha -= 4e-4),
+              (function() {
+                var r = 10 * e.scale, x = e.pos.x, y = e.pos.y,
+                  a = Math.min(1, e.alpha),
+                  g = f.createRadialGradient(x - 0.3*r, y - 0.3*r, 0, x, y, r);
+                g.addColorStop(0, 'rgba(255,255,255,' + 0.98*a + ')');
+                g.addColorStop(0.5, 'rgba(255,255,255,' + 0.6*a + ')');
+                g.addColorStop(1, 'rgba(255,255,255,0)');
+                f.beginPath();
+                f.arc(x, y, r, 0, 2*Math.PI, !1);
+                f.fillStyle = g;
+                f.fill();
+                f.strokeStyle = 'rgba(255,255,255,' + 0.75*a + ')';
+                f.lineWidth = 1.2;
+                f.stroke();
+              })();
           });
       }
       var s,
