@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://jinjy-03.github.io">
   <title>Hexo + GitHub 搭建个人博客（Mac 图文教程） | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文以up主CodeSheep从零开始搭建自己的个人博客 视频为框架，记录本小白从零搭建个人博客的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！">
+  <meta name="description" content="本文以 up 主 CodeSheep 的 从零开始搭建自己的个人博客 视频为框架，记录我从零搭建个人博客的过程（原创），重点表述搭建过程中遇到 bug 如何解决，以及补充视频没有的细节，文章以图文形式呈现，希望帮你在第一次搭建过程中排坑，一步到位。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo + GitHub 搭建个人博客（Mac 图文教程）">
 <meta property="og:url" content="https://jinjy-03.github.io/2022/09/01/%E9%87%91%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文以up主CodeSheep从零开始搭建自己的个人博客 视频为框架，记录本小白从零搭建个人博客的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！">
+<meta property="og:description" content="本文以 up 主 CodeSheep 的 从零开始搭建自己的个人博客 视频为框架，记录我从零搭建个人博客的过程（原创），重点表述搭建过程中遇到 bug 如何解决，以及补充视频没有的细节，文章以图文形式呈现，希望帮你在第一次搭建过程中排坑，一步到位。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903153056.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162527.png">
@@ -59,11 +59,11 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183123.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903183146.png">
 <meta property="article:published_time" content="2022-09-01T07:49:37.000Z">
-<meta property="article:modified_time" content="2026-02-28T14:08:09.557Z">
+<meta property="article:modified_time" content="2026-04-26T14:02:51.567Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="SSH">
 <meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="SSH">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903153056.png">
   
@@ -579,14 +579,14 @@
             
           </div>
           <div class="article-meta-wordcount">
-            字数：1.8k字 | 预计阅读时长：6分钟
+            字数：1.7k字 | 预计阅读时长：6分钟
           </div>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文以up主CodeSheep<a target="_blank" rel="noopener" href="https://b23.tv/a2ZDQKI">从零开始搭建自己的个人博客</a> 视频为框架，记录本小白<strong>从零搭建个人博客</strong>的过程（原创），重点表述⚠️搭建过程中遇到bug如何解决，以及补充视频没有的细节，文章以图文形式呈现，保姆级教程💗细节满满，希望帮小伙伴们，在第一次搭建过程中排坑，一步到位！</p>
+        <p>本文以 up 主 CodeSheep 的 <a target="_blank" rel="noopener" href="https://b23.tv/a2ZDQKI">从零开始搭建自己的个人博客</a> 视频为框架，记录我从零搭建个人博客的过程（原创），重点表述搭建过程中遇到 bug 如何解决，以及补充视频没有的细节，文章以图文形式呈现，希望帮你在第一次搭建过程中排坑，一步到位。</p>
 <span id="more"></span>
 
 <h2 id="第一章-博客环境搭建"><a href="#第一章-博客环境搭建" class="headerlink" title="第一章 博客环境搭建"></a>第一章 博客环境搭建</h2><p>搭建设备：MacBook pro14</p>
@@ -597,21 +597,29 @@
 <h3 id="下载Nodejs"><a href="#下载Nodejs" class="headerlink" title="下载Nodejs"></a>下载Nodejs</h3><p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903153056.png" alt="20220903153056"></p>
 <p>安装：一直点下一步就完事</p>
 <h3 id="超级用户模式"><a href="#超级用户模式" class="headerlink" title="超级用户模式"></a>超级用户模式</h3><p>进入终端切换到超级用户模式</p>
-<p><code>sudo su</code><br>(输入密码)</p>
-<p><code>node -v #查看刚才安装的node版本</code><br><code>npm -v #查看npm版本 </code></p>
-<h3 id="安装hexo博客框架"><a href="#安装hexo博客框架" class="headerlink" title="安装hexo博客框架"></a>安装hexo博客框架</h3><p><code>npm install -g cnpm --registry=http://registry.npm.taobao.org </code>    #安装淘宝的cnpm 镜像源（比较快）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">node -v <span class="comment"># 查看刚才安装的 node 版本</span></span><br><span class="line">npm -v  <span class="comment"># 查看 npm 版本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装hexo博客框架"><a href="#安装hexo博客框架" class="headerlink" title="安装hexo博客框架"></a>安装hexo博客框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
 <p>即使输入错了没有关系，从头安装</p>
-<p><code>cnpm -v </code>#查看cnpm版本<br><code>cnpm install -g hexo-cli    </code>#安装hexo框架<br><code>hexo -v </code>#查看hexo版本 验证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v                 <span class="comment"># 查看 cnpm 版本</span></span><br><span class="line">cnpm install -g hexo-cli <span class="comment"># 安装 hexo 框架</span></span><br><span class="line">hexo -v                 <span class="comment"># 查看 hexo 版本（验证）</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="开始使用hexo搭建"><a href="#开始使用hexo搭建" class="headerlink" title="开始使用hexo搭建"></a>开始使用hexo搭建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwd #查看当前目录</span><br><span class="line">mkdir blog #创建blog目录（空白）</span><br></pre></td></tr></table></figure>
 
 <p>待会所有博客的东西全都在blog这个文件夹里生成<br>⚠️如果过程中出了什么错误，直接把blog这个目录删了重来就好了<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162527.png" alt="20220903162527"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd blog  #进入blog目录</span><br><span class="line">pwd #查看路径</span><br></pre></td></tr></table></figure>
 
-<p><code>sudo hexo init  #生成博客 初始化博客</code></p>
-<p>初始化，成功后，会显示<br><code>Start blogging with Hexo!</code></p>
-<p>我们可以看一下目录生成了哪些东西<br><code>ls -l</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo hexo init  <span class="comment"># 生成博客（初始化博客）</span></span><br></pre></td></tr></table></figure>
+
+<p>初始化，成功后，会显示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看一下目录生成了哪些东西</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903162819.png" alt="20220903162819"></p>
-<p><code>hexo s #启动本地博客服务</code><br>&lt;<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> &gt;#本地端口访问地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s <span class="comment"># 启动本地博客服务</span></span><br></pre></td></tr></table></figure>
+<p>&lt;<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> &gt;#本地端口访问地址</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163404.png" alt="20220903163404"></p>
 <p>你可以在浏览器打开查看，并且里面默认为你生成了一篇博文<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163451.png" alt="20220903163451"></p>
 <p>别忘了 control+c退出<br>hexo s 启动预览文章，平时修改文章可以这样查看修改</p>
@@ -621,7 +629,8 @@
 <li>hexo g</li>
 <li>hexo s</li>
 </ul>
-<p><code>hexo n &quot;我的第一篇文章&quot; #创建新的文章 </code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的第一篇文章&quot;</span> <span class="comment"># 创建新的文章</span></span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903163813.png" alt="20220903163813"></p>
 <p>查看目录进入到文章所属目录，查看是否有此篇文章<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903164841.png" alt="20220903164841"></p>
 <p>pwd 查看当前目录 给博文加点内容，直接在vim编辑器打开<br>实际情况可以用vscode等软件编辑器打开<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20220903165134.png" alt="20220903165134"></p>
@@ -806,17 +815,28 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具效率//" class="article-tag-list-link color5">工具效率</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -1139,131 +1159,7 @@ gitalk.render('gitalk-container')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">PicGo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OpenEuler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Next.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ollama</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LLaMA2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DeepSeek-R1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">resume-ai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastAPI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FAISS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Distributed-Computing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Server-Config</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Big-Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Cloud-Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Big-Data-Course</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Data-Mining</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1271,15 +1167,19 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Mathematical-Modeling</a>
+                <a href="javascript:void(0)" class="js-tag color3">Next.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color4">DeepSeek</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Data-Structures</a>
+                <a href="javascript:void(0)" class="js-tag color3">FastAPI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ollama</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1291,7 +1191,87 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vector-Search</a>
+                <a href="javascript:void(0)" class="js-tag color4">Big-Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Cloud-Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RAG</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FAISS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Benchmark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">PicGo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OpenEuler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Server-Config</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">LLaMA2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek-R1</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1303,26 +1283,77 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DeepSeek</a>
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Breast-Cancer-Project</a>
+                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RAG</a>
+                <a href="javascript:void(0)" class="js-tag color2">Distributed-Computing</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">评测</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Mathematical-Modeling</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Data-Mining</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Data-Structures</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">category:</p>
+          <ul class="article-tag-list">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color5">工具效率</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color2">AI与大模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color5">全栈开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color5">学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+          <p class="js-jsonfail-hint" q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
@@ -1342,7 +1373,7 @@ gitalk.render('gitalk-container')
       link: false
       permalink: false
       excerpt: false
-      categories: false
+      categories: true
       tags: true
 </pre>
           </p>
@@ -1355,6 +1386,10 @@ gitalk.render('gitalk-container')
             <p class="search-tag">
               <i class="icon-price-tags icon"></i>
               <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+            <p class="search-tag" q-show="categories && categories.length">
+              <i class="icon-folder icon"></i>
+              <span q-repeat="categories" q-on="click:choseCategory(e, name)" q-text="name|categoryformat"></span>
             </p>
           </li>
         </ul>

@@ -764,3 +764,7 @@ pre .css~* .id, pre .id {
   background-color: #A4D9E5; /* 更亮的马卡龙蓝色 */
   border-left-color: #FFA69E; /* 马卡龙粉橙色 */
 }
+
+/* yilia tools: hide json-content hint by default */
+.js-jsonfail-hint{display:none}
+body.yilia-json-fail .js-jsonfail-hint{display:block}

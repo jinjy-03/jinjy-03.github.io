@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://jinjy-03.github.io">
   <title>hexo常见错误处理 | 一只丸子金</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要： 本文主要记录📝写博文hexo遇到bug如何解决，以及补充学到的知识点，文章以图文形式呈现。">
+  <meta name="description" content="本文主要记录写博文 hexo 遇到 bug 如何解决，以及补充学到的知识点，文章以图文形式呈现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo常见错误处理">
 <meta property="og:url" content="https://jinjy-03.github.io/2023/01/12/hexo%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="一只丸子金">
-<meta property="og:description" content="摘要： 本文主要记录📝写博文hexo遇到bug如何解决，以及补充学到的知识点，文章以图文形式呈现。">
+<meta property="og:description" content="本文主要记录写博文 hexo 遇到 bug 如何解决，以及补充学到的知识点，文章以图文形式呈现。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142511.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142843.png">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112210836.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112211105.png">
 <meta property="article:published_time" content="2023-01-12T04:39:37.000Z">
-<meta property="article:modified_time" content="2026-02-28T10:06:52.488Z">
+<meta property="article:modified_time" content="2026-04-26T14:02:18.755Z">
 <meta property="article:author" content="金金">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -544,14 +544,14 @@
             
           </div>
           <div class="article-meta-wordcount">
-            字数：486字 | 预计阅读时长：1分钟
+            字数：485字 | 预计阅读时长：1分钟
           </div>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要： 本文主要记录📝写博文<strong>hexo遇到bug如何解决</strong>，以及补充学到的知识点，文章以图文形式呈现。</p>
+        <p>本文主要记录写博文 <strong>hexo 遇到 bug 如何解决</strong>，以及补充学到的知识点，文章以图文形式呈现。</p>
 <span id="more"></span>
 
 <h2 id="4000端口被占用"><a href="#4000端口被占用" class="headerlink" title="4000端口被占用"></a>4000端口被占用</h2><ul>
@@ -560,25 +560,32 @@
 <li><p>查看端口状态</p>
 </li>
 </ul>
-<p><code>sudo lsof -i:4000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i:4000</span><br></pre></td></tr></table></figure>
+
 <h3 id="解决端口占用"><a href="#解决端口占用" class="headerlink" title="解决端口占用"></a>解决端口占用</h3><ul>
 <li>kill端口进程</li>
 </ul>
-<p><code>sudo kill -9 （57998） </code><br>(PID每个人的不一样，自己看着输入)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">kill</span> -9 57998</span><br></pre></td></tr></table></figure>
+<p>(PID每个人的不一样，自己看着输入)</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112142843.png" alt="20230112142843"></p>
 <p><strong>成功解决</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112143017.png" alt="20230112143017"></p>
 <p><strong>⚠️上面👆的命令是Mac版的</strong></p>
 <p>win版如下👇</p>
-<p>查看端口占用情况<br><code>netstat -aon|findstr (端口号)</code></p>
-<p>结束端口占用进程<br><code>taskkill /t /f /(pid )</code></p>
+<p>查看端口占用情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -aon|findstr (端口号)</span><br></pre></td></tr></table></figure>
+
+<p>结束端口占用进程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /t /f /(pid )</span><br></pre></td></tr></table></figure>
+
 <h2 id="文件权限问题"><a href="#文件权限问题" class="headerlink" title="文件权限问题"></a>文件权限问题</h2><ul>
 <li><p>bug提示<br>hexo s浏览博客时，提示权限没有</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112144514.png" alt="20230112144514"></p>
 </li>
 </ul>
 <h3 id="解决文件权限"><a href="#解决文件权限" class="headerlink" title="解决文件权限"></a>解决文件权限</h3><p><strong>直接最开始切换到超级用户模式</strong></p>
-<p><code>sudo su (mac终端)</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112144810.png" alt="20230112144810"></p>
 <p>⚠️win版可以最开始就右键以管理员方式打开cmd</p>
 <h2 id="Error-Spawn-failed"><a href="#Error-Spawn-failed" class="headerlink" title="Error: Spawn failed"></a>Error: Spawn failed</h2><ul>
@@ -587,30 +594,39 @@
 <li><p>删除git提交内容文件夹</p>
 </li>
 </ul>
-<p><code>rm -rf .deploy_git/</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf .deploy_git/</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>执行</li>
 </ul>
-<p><code>git config --global core.autocrlf false</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>最后</li>
 </ul>
-<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
 <p>结果还是报错同样的，接着debug我看到这个“更新密钥”<br><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112205437.png" alt="20230112205437"></p>
 <p>我回想了一下，之前配置云服务器的时候，把GitHub的ssh密钥给误删了，后来我就新建了个密钥，但是之前git用户名我忘记了</p>
-<p>接着我查看配置<br><code>git config –list</code></p>
+<p>接着我查看配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112205943.png" alt="20230112205943"><br>出现了我最早配置的用户名，估计是刚刚删除git提交内容的文件夹<br>所以后面那个错误的git name不见了，还是还原成最初的设置</p>
 <ul>
 <li>删除错误name的配置的密钥（GitHub上）</li>
 <li>重新配置ssh</li>
 </ul>
-<p><code>$ ssh-keygen -t rsa -C “你的邮箱”</code></p>
-<p>  因为之前生成过密钥，所以这次会弹出是否覆盖之前文件，回答yes即可<br><code>cat ~/.ssh/id_rsa.pub</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>  因为之前生成过密钥，所以这次会弹出是否覆盖之前文件，回答yes即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
 <p>  把密钥接着添加到GitHub上</p>
 <ul>
 <li>验证</li>
 </ul>
-<p><code>ssh -T git@github.com</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>出现如下标志说明成功</li>
 </ul>
@@ -618,7 +634,8 @@
 <ul>
 <li>最后</li>
 </ul>
-<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/jinjy-03/gallery@main/blogs/pictures/20230112211105.png" alt="20230112211105"></p>
 <p>终于推成功了!</p>
 
@@ -689,6 +706,17 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具效率//" class="article-tag-list-link color5">工具效率</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -1016,131 +1044,7 @@ gitalk.render('gitalk-container')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">PicGo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OpenEuler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Next.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ollama</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LLaMA2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DeepSeek-R1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">resume-ai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastAPI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FAISS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Distributed-Computing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Server-Config</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Big-Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Cloud-Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Big-Data-Course</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Data-Mining</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1148,15 +1052,19 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Mathematical-Modeling</a>
+                <a href="javascript:void(0)" class="js-tag color3">Next.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color4">DeepSeek</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Data-Structures</a>
+                <a href="javascript:void(0)" class="js-tag color3">FastAPI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ollama</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1168,7 +1076,87 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vector-Search</a>
+                <a href="javascript:void(0)" class="js-tag color4">Big-Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Cloud-Server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RAG</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FAISS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Benchmark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">PicGo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OpenEuler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Server-Config</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">LLaMA2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek-R1</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1180,26 +1168,77 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DeepSeek</a>
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Breast-Cancer-Project</a>
+                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RAG</a>
+                <a href="javascript:void(0)" class="js-tag color2">Distributed-Computing</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">评测</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Mathematical-Modeling</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Data-Mining</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Data-Structures</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">category:</p>
+          <ul class="article-tag-list">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color5">工具效率</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color2">AI与大模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color5">全栈开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color5">学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+          <p class="js-jsonfail-hint" q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
@@ -1219,7 +1258,7 @@ gitalk.render('gitalk-container')
       link: false
       permalink: false
       excerpt: false
-      categories: false
+      categories: true
       tags: true
 </pre>
           </p>
@@ -1232,6 +1271,10 @@ gitalk.render('gitalk-container')
             <p class="search-tag">
               <i class="icon-price-tags icon"></i>
               <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+            <p class="search-tag" q-show="categories && categories.length">
+              <i class="icon-folder icon"></i>
+              <span q-repeat="categories" q-on="click:choseCategory(e, name)" q-text="name|categoryformat"></span>
             </p>
           </li>
         </ul>

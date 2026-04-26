@@ -34,15 +34,20 @@
         t = (t || '').toLowerCase();
         var n = 'title';
         0 === t.indexOf('#') && ((t = t.substr(1, t.length)), (n = 'tag'));
+        0 === t.indexOf('@') && ((t = t.substr(1, t.length)), (n = 'category'));
         var r = e.items;
         r.forEach(function (e) {
           var r = !1;
           e.title.toLowerCase().indexOf(t) > -1 && (r = !0);
           var i = !1;
-          e.tags.forEach(function (e) {
-            e.name.toLowerCase().indexOf(t) > -1 && (i = !0);
+          (e.tags || []).forEach(function (e) {
+            ((e.name || '') + '').toLowerCase().indexOf(t) > -1 && (i = !0);
+          });
+          var o = !1;
+          (e.categories || []).forEach(function (e) {
+            ((e.name || '') + '').toLowerCase().indexOf(t) > -1 && (o = !0);
           }),
-            ('title' === n && r) || ('tag' === n && i)
+            ('title' === n && r) || ('tag' === n && i) || ('category' === n && o)
               ? (e.isShow = !0)
               : (e.isShow = !1);
         }),
@@ -67,6 +72,9 @@
           },
           choseTag: function (t, n) {
             e.$set('search', '#' + (n ? n : t.target.innerHTML));
+          },
+          choseCategory: function (t, n) {
+            e.$set('search', '@' + (n ? n : t.target.innerHTML));
           },
           clearChose: function (t) {
             e.$set('search', '');
@@ -105,6 +113,9 @@
           tagformat: function (t) {
             return '#' + t;
           },
+          categoryformat: function (t) {
+            return '@' + t;
+          },
           dateformat: function (t) {
             var e = new Date(t);
             return (
@@ -125,8 +136,9 @@
             return t.json();
           })
           .then(function (n) {
+            document.body && document.body.classList.remove('yilia-json-fail');
             n.forEach(function (t) {
-              t.isShow = !0;
+              (t.isShow = !0), (t.tags = t.tags || []), (t.categories = t.categories || []);
             }),
               e.$set('items', n);
             var r =
@@ -134,7 +146,8 @@
             e.$set('search', r), '' !== r && t(r);
           })
           .catch(function (t) {
-            e.$set('jsonFail', !0);
+            e.$set('jsonFail', !0),
+              document.body && document.body.classList.add('yilia-json-fail');
           }),
         (document.querySelector('#container').onclick = function (t) {
           e.isShow &&
@@ -178,6 +191,32 @@
         u++
       )
         a();
+
+      for (
+        var f = document.querySelectorAll('.tagcloud a.js-category'),
+          l = function () {
+            var t = f[ca];
+            t.setAttribute('href', 'javascript:void(0)'),
+              (t.onclick = function (n) {
+                return (
+                  n.stopPropagation(),
+                  e.$set('innerArchive', !0),
+                  e.$set('friends', !1),
+                  e.$set('aboutme', !1),
+                  e.$set('isShow', !0),
+                  e.$set('isCtnShow', !0),
+                  e.$set('search', '@' + t.innerHTML),
+                  s(),
+                  !1
+                );
+              });
+          },
+          ca = 0,
+          cz = f.length;
+        ca < cz;
+        ca++
+      )
+        l();
     }
     var u = n(188),
       c = i(u),
