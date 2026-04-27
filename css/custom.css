@@ -965,6 +965,47 @@ a.bento-project-link:hover {
   border-right-color: #fef3c7 !important;
 }
 
+/* ===== Tag/Cat 色板扩展：color6-10（用于搜索抽屉分类，尽量避免撞色） ===== */
+.tagcloud a.color6 {
+  background: #dcfce7 !important;   /* 薄荷绿 */
+  color: #166534 !important;
+}
+.tagcloud a.color6:before {
+  border-right-color: #dcfce7 !important;
+}
+
+.tagcloud a.color7 {
+  background: #cffafe !important;   /* 青蓝 */
+  color: #155e75 !important;
+}
+.tagcloud a.color7:before {
+  border-right-color: #cffafe !important;
+}
+
+.tagcloud a.color8 {
+  background: #ede9fe !important;   /* 淡紫（很浅，和背景不打架） */
+  color: #5b21b6 !important;
+}
+.tagcloud a.color8:before {
+  border-right-color: #ede9fe !important;
+}
+
+.tagcloud a.color9 {
+  background: #ffe4e6 !important;   /* 浅玫瑰 */
+  color: #9f1239 !important;
+}
+.tagcloud a.color9:before {
+  border-right-color: #ffe4e6 !important;
+}
+
+.tagcloud a.color10 {
+  background: #e0f2fe !important;   /* 天蓝 */
+  color: #075985 !important;
+}
+.tagcloud a.color10:before {
+  border-right-color: #e0f2fe !important;
+}
+
 .tagcloud a:hover {
   opacity: 0.9 !important;
 }
@@ -1687,7 +1728,7 @@ button[class*="github"],
 .archives-wrap[data-year="2024"] .archive-year-bar { background: #7EB8A8; }
 .archives-wrap[data-year="2023"] .archive-year-bar { background: #A89BD4; }
 .archives-wrap[data-year="2022"] .archive-year-bar { background: #E8C49A; }
-.archives-wrap[data-year="2026"] .archive-year-bar { background: #E8B4C8; }
+.archives-wrap[data-year="2026"] .archive-year-bar { background: #88ACDB; }
 .archives-wrap[data-year="2027"] .archive-year-bar { background: #8EC4E0; }
 .archives-wrap[data-year="2028"] .archive-year-bar { background: #B8A5D8; }
 .archives-wrap[data-year="2029"] .archive-year-bar { background: #8ED5C4; }
@@ -1715,7 +1756,7 @@ button[class*="github"],
 .archives-wrap[data-year="2024"].archive-expanded .archives { background: rgba(126, 184, 168, 0.18); }
 .archives-wrap[data-year="2023"].archive-expanded .archives { background: rgba(168, 155, 212, 0.2); }
 .archives-wrap[data-year="2022"].archive-expanded .archives { background: rgba(232, 196, 154, 0.22); }
-.archives-wrap[data-year="2026"].archive-expanded .archives { background: rgba(232, 180, 200, 0.2); }
+.archives-wrap[data-year="2026"].archive-expanded .archives { background: rgba(136, 172, 219, 0.2); }
 .archives-wrap[data-year="2027"].archive-expanded .archives { background: rgba(142, 196, 224, 0.2); }
 .archives-wrap[data-year="2028"].archive-expanded .archives { background: rgba(184, 165, 216, 0.2); }
 .archives-wrap[data-year="2029"].archive-expanded .archives { background: rgba(142, 213, 196, 0.2); }
@@ -1798,7 +1839,7 @@ button[class*="github"],
 .archives-wrap[data-year="2022"].archive-expanded .archives .archive-article-title a,
 .archives-wrap[data-year="2022"].archive-expanded .archives .archive-article-title { color: #c9a066 !important; }
 .archives-wrap[data-year="2026"].archive-expanded .archives .archive-article-title a,
-.archives-wrap[data-year="2026"].archive-expanded .archives .archive-article-title { color: #c98aa0 !important; }
+.archives-wrap[data-year="2026"].archive-expanded .archives .archive-article-title { color: #5B8DC9 !important; }
 .archives-wrap[data-year="2027"].archive-expanded .archives .archive-article-title a,
 .archives-wrap[data-year="2027"].archive-expanded .archives .archive-article-title { color: #5a9fc4 !important; }
 .archives-wrap[data-year="2028"].archive-expanded .archives .archive-article-title a,
@@ -1807,6 +1848,8 @@ button[class*="github"],
 .archives-wrap[data-year="2029"].archive-expanded .archives .archive-article-title { color: #5ab5a0 !important; }
 .archives-wrap[data-year="2030"].archive-expanded .archives .archive-article-title a,
 .archives-wrap[data-year="2030"].archive-expanded .archives .archive-article-title { color: #c4a858 !important; }
+.archives-wrap[data-year="2026"] .archives .archive-article-title a,
+.archives-wrap[data-year="2026"] .archives .archive-article-title { color: #5B8DC9 !important; }
 .archives .archive-article-inner .archive-article-header .article-info {
   margin-top: 6px;
   font-size: 12px !important;
@@ -2125,11 +2168,29 @@ button[class*="github"],
   color: rgba(71, 85, 105, 0.98) !important;
 }
 .tools-col .tools-section .search-ul .search-time,
+.tools-col .tools-section .search-ul .search-cat,
 .tools-col .tools-section .search-ul .search-tag {
   color: rgba(100, 116, 139, 0.85) !important;
 }
 .tools-col .tools-section .search-tag.tagcloud .search-tag-wording {
   color: rgba(100, 116, 139, 0.8);
+}
+
+/* 搜索抽屉：cat/tag 两个开关同一行 */
+.tools-col .tools-section .search-filter-toggles {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin: 6px 20px 4px;
+}
+.tools-col .tools-section .search-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-col .tools-section .search-filter-toggles .search-tag-wording {
+  margin: 0;
 }
 
 /* 搜索文章 tag 开关：粉→蓝马卡龙色系（仅改色） */
@@ -2151,13 +2212,44 @@ button[class*="github"],
   background-color: #fff;
 }
 
-/* 搜索文章下方标签：灰蓝与标题统一，悬停马卡龙蓝 */
+/* 搜索结果里的 tag：小胶囊标签（与 category 视觉一致） */
 .tools-col .tools-section .search-ul .search-tag span {
-  color: rgba(100, 116, 139, 0.9) !important;
+  display: inline-block;
+  margin-right: 5px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(252, 231, 243, 0.35);
+  color: rgba(100, 116, 139, 0.92) !important;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .tools-col .tools-section .search-ul .search-tag span:hover {
-  color: #5b8dc9 !important;
+  background: rgba(251, 207, 232, 0.55);
+  color: rgba(71, 85, 105, 0.98) !important;
+}
+
+/* 搜索结果里的 category：做成小胶囊标签，更耐看 */
+.tools-col .tools-section .search-ul .search-cat {
+  font-size: 12px;
+  margin-right: 10px;
+}
+.tools-col .tools-section .search-ul .search-cat .icon {
+  margin-right: 0;
+  color: rgba(100, 116, 139, 0.75) !important;
+}
+.tools-col .tools-section .search-ul .search-cat span {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(191, 219, 254, 0.35);
+  color: rgba(30, 64, 175, 0.85) !important;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.tools-col .tools-section .search-ul .search-cat span:hover {
+  background: rgba(147, 197, 253, 0.5);
+  color: rgba(29, 78, 216, 0.95) !important;
 }
 
 /* 面板内：不显示聚焦描边（去掉那条“边框线”） */
